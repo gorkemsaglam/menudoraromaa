@@ -76,18 +76,24 @@
     /* item flex düzenini mobilde sütun yap */
 
     .item {
-      background-color: #fff;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(176, 58, 46, 0.2);
-      margin: 15px 0;
-      padding: 12px;
-      display: flex;
-      flex-direction: column; /* Mobilde alt alta */
-      gap: 12px;
-      transition: transform 0.3s ease;
-      width: 100%;
-      box-sizing: border-box;
-    }
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(176, 58, 46, 0.2);
+  margin: 15px 0;
+  padding: 12px;
+  display: flex;
+  flex-direction: column; /* Mobilde alt alta */
+  gap: 12px;
+  transition: transform 0.3s ease;
+  width: 100%;
+  box-sizing: border-box;
+  align-items: center;  /* Burada hizalama eklendi */
+}
+
+.item-info {
+  flex: none;
+  text-align: center; /* Yazılar ortaya alındı */
+}
 
     .item:hover {
       transform: scale(1.03);
@@ -205,6 +211,14 @@
     <img src="images/limonata.jpg" alt="Limonata" />
     <div class="item-info">
       <h3>Limonata <span class="price">45₺</span></h3>
+      <p>Taze limon suyu, nane ve hafif şekerli ev yapımı serinletici içecek.</p>
+    </div>
+  </div>
+
+  <div class="item">
+    <img src="images/limonata.jpg" alt="Limonata" />
+    <div class="item-info">
+      <h3>Salep <span class="price">45₺</span></h3>
       <p>Taze limon suyu, nane ve hafif şekerli ev yapımı serinletici içecek.</p>
     </div>
   </div>
