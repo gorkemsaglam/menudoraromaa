@@ -164,9 +164,63 @@
         font-size: 16px;
       }
     }
+    .dropdown {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  z-index: 10;
+}
+
+.dropbtn {
+  background-color: #b03a2e;
+  color: white;
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  right: 0;
+  background-color: #fff;
+  min-width: 160px;
+  border-radius: 6px;
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+  z-index: 20;
+  margin-top: 10px;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
   </style>
 </head>
 <body>
+    <div class="dropdown">
+        <button class="dropbtn">☰ Menü</button>
+        <div class="dropdown-content">
+          <a href="#iletisim">📞 İletişim</a>
+          <a href="https://www.instagram.com/restoranadi" target="_blank">📸 Instagram</a>
+          <a href="https://wa.me/905555555555" target="_blank">💬 WhatsApp</a>
+          <a href="mailto:info@restoranadi.com">✉️ E-posta</a>
+        </div>
+      </div>
   <div class="logo">
     <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
   </div>
@@ -250,3 +304,11 @@
   </div>
 </body>
 </html>
+<h2 id="iletisim">📞 İletişim</h2>
+<div style="background-color: #fff; padding: 15px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+  <p><strong>Adres:</strong> Tatlılar Sokak No:12, Kadıköy / İstanbul</p>
+  <p><strong>Telefon:</strong> <a href="tel:+905555555555">+90 555 555 55 55</a></p>
+  <p><strong>E-posta:</strong> <a href="mailto:info@restoranadi.com">info@restoranadi.com</a></p>
+  <p><strong>Instagram:</strong> <a href="https://www.instagram.com/restoranadi" target="_blank">@restoranadi</a></p>
+  <p><strong>WhatsApp:</strong> <a href="https://wa.me/905555555555" target="_blank">+90 555 555 55 55</a></p>
+</div>
