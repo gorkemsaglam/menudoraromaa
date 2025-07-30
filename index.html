@@ -31,9 +31,17 @@
   font-size: 16.5px;
   line-height: 1.7;
   color: #444;
-  font-family: 'Arial', sans-serif;
+  font-family: 'Arial', sans-serif';
+
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.4s;
 }
 
+body.dark-mode .about-us p {
+  color: #d1d9de;
+}
 /* DARK MODE için yumuşak uyum */
 body.dark-mode .about-us {
   background-color: transparent;
@@ -432,6 +440,36 @@ body {
     transform: translateY(0);
   }
 }
+
+#backToTop {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #a47148;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 14px;
+  font-size: 24px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 999;
+}
+
+#backToTop:hover {
+  background-color: #7a5533;
+  transform: scale(1.15);
+}
+
+/* Koyu mod */
+body.dark-mode #backToTop {
+  background-color: #e0c097;
+  color: #2c343f;
+}
+body.dark-mode #backToTop:hover {
+  background-color: #d4af6b;
+}
   </style>
 </head>
 <body>
@@ -552,7 +590,7 @@ body {
       <button type="submit">Gönder</button>
     </form>
   </section>
-
+  <button id="backToTop" title="Başa dön">⬆</button>
   <script>
     const buttons = document.querySelectorAll('.tab-button');
     const items = document.querySelectorAll('.item');
@@ -638,6 +676,13 @@ form.addEventListener('submit', function(event) {
         document.body.classList.add('dark-mode');
       }
     });
+
+    const btn = document.getElementById('backToTop');
+btn.style.display = 'block'; // sayfa yüklendiğinde hemen göster
+
+btn.addEventListener('click', () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+});
   </script>
 </body>
 </html>
