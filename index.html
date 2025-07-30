@@ -9,6 +9,46 @@
   <title>Restoran Menüsü</title>
   <style>
 
+.logo-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  margin-bottom: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 55px; /* Menü ve simgeler arası boşluk */
+}
+
+.menu-toggle {
+  font-size: 26px;
+  cursor: pointer;
+  color: #7a5533;
+  transition: color 0.3s ease;
+}
+
+.menu-toggle:hover {
+  color: #a47148;
+}
+
+.social-icons {
+  display: flex;
+  gap: 20px;
+}
+
+.social-icons a {
+  color: #7a5533;
+  font-size: 22px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #a47148;
+}
+
 .about-us {
   background-color: transparent;
   padding: 60px 20px 30px;
@@ -19,6 +59,48 @@
 .about-wrapper {
   max-width: 800px;
   margin: auto;
+}
+
+.media-slider {
+  position: relative;
+  max-width: 700px;
+  margin: 0 auto 20px;
+}
+
+.slides img,
+.slides video {
+  display: none;
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+}
+
+.slides img.active,
+.slides video.active {
+  display: block;
+}
+
+.prev-btn,
+.next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-size: 20px;
+  user-select: none;
+  border-radius: 3px;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
 }
 
 .about-us h2 {
@@ -32,7 +114,7 @@
   font-size: 16.5px;
   line-height: 1.7;
   color: #444;
-  font-family: 'Arial', sans-serif';
+  font-family: 'Arial', sans-serif;
 
   opacity: 0;
   transform: translateY(20px);
@@ -40,21 +122,6 @@
   animation-delay: 0.4s;
 }
 
-body.dark-mode .about-us p {
-  color: #d1d9de;
-}
-/* DARK MODE için yumuşak uyum */
-body.dark-mode .about-us {
-  background-color: transparent;
-}
-
-body.dark-mode .about-us h2 {
-  color: #e0c097;
-}
-
-body.dark-mode .about-us p {
-  color: #d1d9de;
-}
  body {
   font-family: Arial, sans-serif;
   max-width: 100%;
@@ -74,12 +141,18 @@ body::before {
   pointer-events: none;
 }
 
+.logo {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
 .logo img {
-  max-width: 150px; height: auto;
+  max-width: 150px;
+  height: auto;
   box-shadow: 0 4px 8px rgba(0,0,0,0.05);
   border-radius: 10px;
-  margin: auto;
-  display: block;
+  display: inline-block;
+  margin: 0;
 }
 
 h1 {
@@ -241,163 +314,7 @@ h2 {
   transform: scale(1.05);
 }
 
-/* Toggle buton stili */
-.dark-mode-toggle {
-  position: fixed;
-  top: 18px;
-  right: 20px;
-  font-size: 24px;
-  cursor: pointer;
-  user-select: none;
-  background: #a47148;
-  color: #fff;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease;
-  z-index: 1000;
-}
-.dark-mode-toggle:hover {
-  background: #7a5533;
-}
 
-/* KARANLIK MOD */
-/* Koyu mod genel stil */
-body.dark-mode {
-  background-color: #22272e; /* koyu, ama siyah olmayan lacivert-siyah arası */
-  color: #cfd8dc; /* açık gri-beyaz arası, sert olmayan */
-}
-
-/* Başlıklar */
-body.dark-mode h1,
-body.dark-mode h2 {
-  color: #e0c097; /* yumuşak hardal-sarı ton */
-  text-shadow: none;
-}
-
-/* Logo */
-body.dark-mode .logo img {
-  filter: brightness(0.85);
-  box-shadow: 0 4px 10px rgba(224, 192, 151, 0.2);
-}
-
-/* Menü öğeleri */
-body.dark-mode .item {
-  background-color: #2c343f; /* koyu gri-mavi ton */
-  box-shadow: 0 4px 15px rgba(224, 192, 151, 0.1);
-  border: 1px solid #455062;
-  color: #d1d9de;
-}
-
-body.dark-mode .item:hover {
-  box-shadow: 0 8px 20px rgba(224, 192, 151, 0.25);
-  border-color: #e0c097;
-}
-
-/* Ürün adı ve fiyat */
-body.dark-mode .item-info h3,
-body.dark-mode .item-info h3 .price {
-  color: #e0c097;
-}
-
-/* Ürün açıklaması */
-body.dark-mode .item-info p {
-  color: #aebac1;
-}
-
-/* Tab menü */
-body.dark-mode .tab-button {
-  background-color: #e0c097;
-  color: #2c343f;
-  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
-}
-
-body.dark-mode .tab-button:hover {
-  background-color: #d4af6b;
-  color: #1b1f26;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-}
-
-body.dark-mode .tab-button.active {
-  background-color: #b58c4f;
-  color: #1b1f26;
-  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
-}
-
-/* İletişim ve feedback bölümü */
-body.dark-mode .contact-section,
-body.dark-mode .feedback-section {
-  background: #2c343f;
-  box-shadow: 0 5px 20px rgba(224, 192, 151, 0.15);
-  color: #cfd8dc;
-}
-
-body.dark-mode .contact-item {
-  background: #374054;
-  border-left-color: #e0c097;
-}
-
-body.dark-mode .contact-item:hover {
-  background-color: #3e4860;
-}
-
-body.dark-mode .contact-item h3 {
-  color: #e0c097;
-}
-
-body.dark-mode .contact-item p,
-body.dark-mode .contact-item a {
-  color: #aebac1;
-}
-
-body.dark-mode .contact-item a:hover {
-  color: #d4af6b;
-}
-
-/* Form input ve textarea */
-body.dark-mode #feedback-form input,
-body.dark-mode #feedback-form textarea {
-  background-color: #374054;
-  border-color: #e0c097;
-  color: #d1d9de;
-}
-
-body.dark-mode #feedback-form input::placeholder,
-body.dark-mode #feedback-form textarea::placeholder {
-  color: #a49a87;
-  font-style: italic;
-}
-
-body.dark-mode #feedback-form input:focus,
-body.dark-mode #feedback-form textarea:focus {
-  border-color: #d4af6b;
-  box-shadow: 0 0 10px rgba(212, 175, 107, 0.3);
-}
-
-/* Gönder butonu */
-body.dark-mode #feedback-form button {
-  background-color: #e0c097;
-  color: #2c343f;
-  box-shadow: 0 5px 15px rgba(224, 192, 151, 0.6);
-}
-
-body.dark-mode #feedback-form button:hover {
-  background-color: #d4af6b;
-  box-shadow: 0 7px 20px rgba(212, 175, 107, 0.7);
-}
-.dark-mode-toggle {
-  background: #e0c097;
-  color: #2c343f;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-}
-.dark-mode-toggle:hover {
-  background: #d4af6b;
-  color: #1b1f26;
-}
 
 /* Eklenen animasyonlar */
 h1, h2 {
@@ -470,32 +387,53 @@ contact-item a i {
   transform: scale(1.15);
 }
 
-/* Koyu mod */
-body.dark-mode #backToTop {
-  background-color: #e0c097;
-  color: #2c343f;
-}
-body.dark-mode #backToTop:hover {
-  background-color: #d4af6b;
-}
   </style>
 </head>
 <body>
 
-    <div class="dark-mode-toggle" title="Karanlık modu aç/kapat">
-        🌙
+
+    <div class="logo-container">
+        <div class="logo">
+          <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
+        </div>
+      
+        <div class="header-right">
+          <div class="menu-toggle" title="Menü">
+            <i class="fas fa-bars"></i>
+          </div>
+      
+          <div class="social-icons">
+            <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
+            <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i class="fas fa-map-marker-alt"></i></a>
+            <a href="https://www.instagram.com/username" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
       </div>
-
-  <div class="logo">
-    <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
-  </div>
-
-  <section class="about-us">
-    <div class="about-wrapper">
-      <h2>Biz Kimiz?</h2>
-      <p>Lezzetin ve estetiğin buluşma noktası olan restoranımızda, her tabakta bir hikaye anlatıyoruz. 2015’ten bu yana en kaliteli malzemeleri kullanarak, hem geleneksel hem modern tarifleri sizlerle buluşturuyoruz. Amacımız sadece doyurmak değil; sizi mutlu etmek.</p>
-    </div>
-  </section>
+  
+      <section class="about-us">
+        <div class="about-wrapper">
+      
+          <div class="media-slider">
+            <button class="prev-btn" aria-label="Önceki">&lt;</button>
+      
+            <div class="slides">
+              <img src="images/fotolar/doraroma.jpg" alt="Fotoğraf 1" class="active" />
+              <img src="images/fotolar/sutlac.jpg" alt="Fotoğraf 2" />
+              <video controls>
+                <source src="videos/firmaTanitim.mp4" type="video/mp4" />
+                Tarayıcınız video etiketini desteklemiyor.
+              </video>
+              <img src="images/fotolar/slider3.jpg" alt="Fotoğraf 3" />
+            </div>
+      
+            <button class="next-btn" aria-label="Sonraki">&gt;</button>
+          </div>
+      
+          <h2>Biz Kimiz?</h2>
+          <p>Lezzetin ve estetiğin buluşma noktası olan restoranımızda, her tabakta bir hikaye anlatıyoruz. 2015’ten bu yana en kaliteli malzemeleri kullanarak, hem geleneksel hem modern tarifleri sizlerle buluşturuyoruz. Amacımız sadece doyurmak değil; sizi mutlu etmek.</p>
+      
+        </div>
+      </section>
 
   <h1>Restoran Menüsü</h1>
 
@@ -608,6 +546,32 @@ body.dark-mode #backToTop:hover {
   </section>
   <button id="backToTop" title="Başa dön">⬆</button>
   <script>
+
+
+const slides = document.querySelectorAll('.slides img, .slides video');
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === index);
+  });
+}
+
+prevBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+});
+
+nextBtn.addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+});
+
+// İlk slide'ı göster
+showSlide(currentIndex);
     const buttons = document.querySelectorAll('.tab-button');
     const items = document.querySelectorAll('.item');
   
@@ -642,18 +606,7 @@ body.dark-mode #backToTop:hover {
       });
     });
   
-    const toggleBtn = document.querySelector('.dark-mode-toggle');
-    toggleBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark-mode');
-  
-      // İstersen, kullanıcı tercihini localStorage'da sakla:
-      if(document.body.classList.contains('dark-mode')) {
-        localStorage.setItem('darkMode', 'enabled');
-      } else {
-        localStorage.setItem('darkMode', 'disabled');
-      }
-    });
-  
+   
     // Geribildirim formu mesajı
     const form = document.getElementById('feedback-form');
 form.addEventListener('submit', function(event) {
