@@ -676,9 +676,14 @@ form.addEventListener('submit', function(event) {
         document.body.classList.add('dark-mode');
       }
     });
-
+    window.addEventListener('scroll', () => {
+  if (window.scrollY > 300) {
+    btn.style.display = 'block';
+  } else {
+    btn.style.display = 'none';
+  }
+});
     const btn = document.getElementById('backToTop');
-btn.style.display = 'block'; // sayfa yüklendiğinde hemen göster
 
 btn.addEventListener('click', () => {
   window.scrollTo({ top: 0, behavior: 'smooth' });
