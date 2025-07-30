@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
   <title>Restoran Menüsü</title>
   <style>
 
@@ -54,6 +55,31 @@
   padding: 60px 20px 30px;
   text-align: center;
   margin-bottom: 0;
+
+  border: 0.7px solid rgba(164, 113, 72, 0.12); /* Çok ince ve çok hafif saydam kenar */
+  border-radius: 15px;
+
+  box-shadow: 0 0 8px rgba(164, 113, 72, 0.07); /* Çok hafif flu gölge */
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.about-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: 42px;
+  color: #7a5533;
+  margin-bottom: 25px;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
+}
+
+.about-text {
+  font-size: 18px;
+  line-height: 1.7;
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto;
+  font-weight: 500;
 }
 
 .about-wrapper {
@@ -72,29 +98,6 @@
 .slides img.active,
 .slides video.active {
   display: block;
-}
-
-.prev-btn,
-.next-btn {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
-  color: white;
-  border: none;
-  padding: 10px 15px;
-  cursor: pointer;
-  font-size: 20px;
-  user-select: none;
-  border-radius: 3px;
-}
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
 }
 
 .about-us h2 {
@@ -168,7 +171,10 @@ h1 {
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 0.8s forwards;
+  display: none;
 }
+
+
 h2 {
   font-family: 'Poppins', sans-serif;
   font-weight: 800; font-size: 24px;
@@ -176,22 +182,52 @@ h2 {
   color: #2c3e50; letter-spacing: 1px;
   text-shadow: 1px 1px 2px #eee;
 }
+.sub-category {
+      display: none;
+    }
 
-.item {
-  background-color: #ffffff;
-  border-radius: 12px;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-  margin: 15px 0; padding: 12px;
-  display: flex; flex-direction: column; gap: 12px;
-  transition: transform 0.3s ease;
-  width: 100%; box-sizing: border-box;
-  align-items: center;
-}
+    .sub-category.show {
+      display: block;
+    }
+
+    /* Aynı şekilde itemları da kapalı başlatıyoruz */
+  
+
+    h2.section-heading {
+      cursor: pointer;
+    }
+
+    .item {
+      display: none; /* kapalı başlatılıyor */
+      opacity: 0;
+      transform: translateY(30px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .item.show {
+      display: flex !important;
+      animation: slideFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @keyframes slideFadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hover zaten var, ama biraz daha yumuşak */
+    .item:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+    }
 .item-info { text-align: center; flex: none; }
-.item:hover {
-  transform: scale(1.03);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-}
 .item img {
   width: 100%; max-width: 250px; height: auto;
   object-fit: cover; border-radius: 10px;
@@ -234,33 +270,80 @@ h2 {
 .tab-button.active { background-color: #5c3b24; }
 
 /* İletişim bölümü */
-.contact-section {
-  background: #ffffff; padding: 30px 20px;
-  margin-top: 40px; border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  max-width: 800px; margin: auto;
-}
-.contact-section h2 {
-  text-align: center; color: #a47148;
-  font-family: 'Dancing Script', cursive; font-size: 30px;
-  margin-bottom: 25px;
-}
-.contact-box { display: flex; flex-direction: column; gap: 20px; }
-.contact-item {
-  background: #f9f9f9; padding: 15px 20px;
-  border-left: 5px solid #a47148;
-  border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);
-}
-.contact-item h3 { margin: 0 0 5px; color: #2c3e50; font-size: 18px; }
-.contact-item p, .contact-item a {
-  margin: 0; color: #555; text-decoration: none; font-size: 15px;
-}
-.contact-item a:hover { text-decoration: underline; }
-
-.item.highlight {
-  border: 2px solid #a47148;
+.contact-info {
   background-color: #fffdfc;
-  box-shadow: 0 0 20px rgba(164, 113, 72, 0.2);
+  border: 2px solid #a47148;
+  border-radius: 15px;
+  padding: 40px 30px;
+  max-width: 600px;
+  margin: 50px auto 30px;
+  box-shadow: 0 8px 20px rgba(164, 113, 72, 0.15);
+  font-family: 'Poppins', sans-serif;
+  color: #3a3a3a;
+  text-align: center;
+}
+
+.contact-info-wrapper {
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.contact-info-title {
+  font-family: 'Alex Brush', cursive;
+  font-size: 38px;
+  color: #7a5533;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
+}
+
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 22px;
+  font-size: 18px;
+  color: #5c3b24;
+  transition: color 0.3s ease;
+}
+
+.contact-list li i {
+  font-size: 26px;
+  color: #a47148;
+  min-width: 30px;
+  transition: color 0.3s ease;
+}
+
+.contact-list li a {
+  color: #5c3b24;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.contact-list li a:hover {
+  color: #7a5533;
+}
+
+.contact-list li:hover i {
+  color: #7a5533;
+}
+
+/* Responsive */
+@media screen and (max-width: 480px) {
+  .contact-list li {
+    font-size: 16px;
+    gap: 10px;
+  }
+  .contact-list li i {
+    font-size: 22px;
+  }
 }
 
 /* Feedback form stili */
@@ -320,8 +403,6 @@ h2 {
   background-color: #7a5533;
   transform: scale(1.05);
 }
-
-
 
 /* Eklenen animasyonlar */
 h1, h2 {
@@ -419,10 +500,28 @@ contact-item a i {
   transform: scale(1.15);
 }
 
+.divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin: 60px 0 40px;
+  font-family: 'Dancing Script', cursive;
+  font-size: 26px;
+  color: #a47148;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #a47148;
+  margin: 0 15px;
+}
+
   </style>
 </head>
 <body>
-
 
     <div class="logo-container">
         <div class="logo">
@@ -443,12 +542,12 @@ contact-item a i {
       </div>
   
       <section class="about-us">
-        <div class="about-wrapper">   
-          </div>
-      
-          <h2>Biz Kimiz?</h2>
-          <p>Lezzetin ve estetiğin buluşma noktası olan restoranımızda, her tabakta bir hikaye anlatıyoruz. 2015’ten bu yana en kaliteli malzemeleri kullanarak, hem geleneksel hem modern tarifleri sizlerle buluşturuyoruz. Amacımız sadece doyurmak değil; sizi mutlu etmek.</p>
-      
+        <div class="about-wrapper">
+          <h2 class="about-title">Biz Kimiz?</h2>
+          <p class="about-text">
+            Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir. Müşterilerimize sadece ürün değil, benzersiz bir tat deneyimi sunuyor; yenilikçi vizyonumuzla rakiplerimizin önünde yer alıyoruz.<br><br>
+            Misyonumuz, her lokmada memnuniyet ve güveni buluşturmak; kalitemizle sektör standartlarını yükseltmektir.
+          </p>
         </div>
       </section>
 
@@ -484,258 +583,203 @@ contact-item a i {
 <h2 id="icecek" class="section-heading">🥤 İçecekler</h2>
 <h3 class="sub-heading">🔥 Sıcak İçecekler</h3>
 
-<div class="item" data-category="icecek">
-  <img src="images/fotolar/salep.jpg" alt="Salep" />
-  <div class="item-info">
-    <h3>Salep <span class="price">45₺</span></h3>
-    <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+<div class="sub-category"> <!-- Bu div'i ekle -->
+  <div class="item" data-category="icecek">
+    <img src="images/fotolar/salep.jpg" alt="Salep" />
+    <div class="item-info">
+      <h3>Salep <span class="price">45₺</span></h3>
+      <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+    </div>
+  </div>
+
+  <div class="item" data-category="icecek">
+    <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
+    <div class="item-info">
+      <h3>Bitki Çayı <span class="price">35₺</span></h3>
+      <p>Rezene, papatya ve adaçayı karışımı…</p>
+    </div>
   </div>
 </div>
 
-<div class="item" data-category="icecek">
-  <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
-  <div class="item-info">
-    <h3>Bitki Çayı <span class="price">35₺</span></h3>
-    <p>Rezene, papatya ve adaçayı karışımı…</p>
-  </div>
-</div>
-
-<!-- Soğuk içecekler -->
 <h3 class="sub-heading">🧊 Soğuk İçecekler</h3>
 
-<div class="item" data-category="icecek">
-  <img src="images/fotolar/limonata.jpg" alt="Limonata" />
-  <div class="item-info">
-    <h3>Limonata <span class="price">45₺</span></h3>
-    <p>Taze limon, nane ve buz ile hazırlanmış ferah içecek…</p>
+<div class="sub-category"> <!-- Bu div'i ekle -->
+  <div class="item" data-category="icecek">
+    <img src="images/fotolar/limonata.jpg" alt="Limonata" />
+    <div class="item-info">
+      <h3>Limonata <span class="price">45₺</span></h3>
+      <p>Taze limon, nane ve buz ile hazırlanır…</p>
+    </div>
   </div>
-</div>
 
-<div class="item" data-category="icecek">
-  <img src="images/fotolar/soguk-kahve.jpg" alt="Soğuk Kahve" />
-  <div class="item-info">
-    <h3>Soğuk Kahve <span class="price">55₺</span></h3>
-    <p>Buz eşliğinde espresso ve süt karışımı…</p>
+  <div class="item" data-category="icecek">
+    <img src="images/fotolar/soda.jpg" alt="Soda" />
+    <div class="item-info">
+      <h3>Soda <span class="price">25₺</span></h3>
+      <p>Serinletici ve hafif gazlı içecek…</p>
+    </div>
   </div>
 </div>
 
 <h2 id="dondurma" class="section-heading">🍦 Dondurmalar</h2>
 
 <div class="item" data-category="dondurma">
+  <img src="images/fotolar/dondurma-1.jpg" alt="Vanilyalı Dondurma" />
+  <div class="item-info">
+    <h3>Vanilyalı Dondurma <span class="price">30₺</span></h3>
+    <p>Ev yapımı doğal vanilyalı dondurma.</p>
+  </div>
+</div>
+
+<div class="item" data-category="dondurma">
   <img src="images/fotolar/cilek.jpg" alt="Çilekli Dondurma" />
   <div class="item-info">
-    <h3>Çilekli Dondurma <span class="price">50₺</span></h3>
-    <p>Taze çilek püresiyle hazırlanan, ferahlatıcı ve doğal dondurma lezzeti. Renklendirici içermez, %100 sütlüdür.</p>
-  </div>
-</div>
-
-<div class="item" data-category="dondurma">
-  <img src="images/fotolar/vanilyali-dondurma.jpg" alt="Vanilyalı Dondurma" />
-  <div class="item-info">
-    <h3>Vanilyalı Dondurma <span class="price">50₺</span></h3>
-    <p>Bourbon vanilya özleriyle zenginleştirilmiş, klasik sütlü lezzet. Yumuşak dokusu ve hafif aromasıyla favoriniz olacak.</p>
-  </div>
-</div>
-
-<div class="item" data-category="dondurma">
-  <img src="images/fotolar/fistikli-dondurma.jpg" alt="Fıstıklı Dondurma" />
-  <div class="item-info">
-    <h3>Fıstıklı Dondurma <span class="price">55₺</span></h3>
-    <p>Gerçek Antep fıstığı parçacıklarıyla dolu, yoğun aromalı özel tarif. Katkısız ve doğal içerikli.</p>
+    <h3>Çilekli Dondurma <span class="price">30₺</span></h3>
+    <p>Taze çilek parçaları ile lezzetlendirilmiş.</p>
   </div>
 </div>
 
 <h2 id="kahve" class="section-heading">☕ Kahveler</h2>
 
 <div class="item" data-category="kahve">
-  <img src="images/fotolar/espresso.jpg" alt="Espresso" />
-  <div class="item-info">
-    <h3>Espresso <span class="price">35₺</span></h3>
-    <p>Yoğun ve aromatik bir tek shot espresso. Gerçek kahve tutkunlarına özel kısa ama güçlü lezzet.</p>
-  </div>
-</div>
-
-<div class="item" data-category="kahve">
-  <img src="images/fotolar/latte.jpg" alt="Latte" />
-  <div class="item-info">
-    <h3>Latte <span class="price">45₺</span></h3>
-    <p>Espresso ve buharda ısıtılmış süt ile hazırlanan klasik İtalyan kahvesi. Yumuşak içimi ve kremamsı köpüğüyle ideal.</p>
-  </div>
-</div>
-
-<div class="item" data-category="kahve">
   <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
   <div class="item-info">
-    <h3>Türk Kahvesi <span class="price">30₺</span></h3>
-    <p>Köklü geleneklerimizden, bol köpüklü ve odun ateşinde pişirilmiş Türk kahvesi. Sade, orta veya şekerli seçenekleriyle.</p>
+    <h3>Türk Kahvesi <span class="price">20₺</span></h3>
+    <p>Klasik Türk kahvesi, köpüklü ve aromatik.</p>
   </div>
 </div>
-  
 
-  <!-- İletişim Bölümü -->
-  <section class="contact-section" id="iletisim">
-    <h2>Bize Ulaşın</h2>
-    <div class="contact-item">
-        <i class="fas fa-map-marker-alt"></i>
-        <span>İstanbul, Türkiye</span>
-      </div>
-      <div class="contact-item">
-        <i class="fas fa-phone"></i>
-        <span>+90 555 123 45 67</span>
-      </div>
-      
-      <div class="contact-item">
-        <i class="fas fa-envelope"></i>
-        <span>email@example.com</span>
-      </div>
-      
-      <div class="contact-item">
-        <a href="https://twitter.com/username" target="_blank" rel="noopener">
-          <i class="fab fa-twitter"></i>
-        </a>
-        <a href="https://facebook.com/username" target="_blank" rel="noopener">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://instagram.com/username" target="_blank" rel="noopener">
+<div class="item" data-category="kahve">
+  <img src="images/fotolar/espresso.jpg" alt="Espresso" />
+  <div class="item-info">
+    <h3>Espresso <span class="price">25₺</span></h3>
+    <p>Koyu kavrulmuş, yoğun aromalı espresso.</p>
+  </div>
+</div>
+
+<div class="divider"><span>Roma Dora</span></div>
+
+<section class="contact-info">
+    <div class="contact-info-wrapper">
+      <h2 class="contact-info-title">Bize Ulaşın</h2>
+      <ul class="contact-list">
+        <li>
+            <i class="fas fa-map-marker-alt"></i>
+            <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+          </li>
+
+        <li>
+          <i class="fas fa-phone-alt"></i>
+          <a href="tel:+905551234567">+90 555 123 45 67</a>
+        </li>
+        
+        <li>
           <i class="fab fa-instagram"></i>
-        </a>
-      </div>
+          <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraroma</a>
+        </li>
+      </ul>
     </div>
   </section>
 
-  <!-- Geribildirim Formu -->
   <section class="feedback-section">
-    <h2>Soru,Görüş ve Önerileriniz</h2>
-    <form id="feedback-form">
-      <label for="name">Adınız:</label>
-      <input type="text" id="name" name="name" required placeholder="Adınızı yazınız" />
-      
-      <label for="email">E-posta:</label>
-      <input type="email" id="email" name="email" required placeholder="E-posta adresiniz" />
-      
-      <label for="message">Mesajınız:</label>
-      <textarea id="message" name="message" rows="4" required placeholder="Mesajınızı yazınız"></textarea>
-      
+    <h2>Soru, Görüş ve Önerileriniz</h2>
+    <form id="feedback-form" action="#" method="post">
+      <label for="name">Adınız</label>
+      <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
+  
+      <label for="email">E-posta</label>
+      <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
+  
+      <label for="message">Mesajınız</label>
+      <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+  
       <button type="submit">Gönder</button>
     </form>
   </section>
-  <button id="backToTop" title="Başa dön">⬆</button>
-  <script>
 
+<script>
+  window.addEventListener('DOMContentLoaded', () => {
+  const headings = document.querySelectorAll('h2.section-heading');
+  const items = document.querySelectorAll('.item');
+  const subCategories = document.querySelectorAll('.sub-category');
+  const subHeadings = document.querySelectorAll('h3.sub-heading');
 
-const slides = document.querySelectorAll('.slides img, .slides video');
-let currentIndex = 0;
+  // Başlangıçta tüm itemları kapat
+  items.forEach(i => i.classList.remove('show'));
+  subCategories.forEach(sc => sc.classList.remove('show'));
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle('active', i === index);
+  // Başlık tıklamaları
+  headings.forEach(heading => {
+    heading.addEventListener('click', () => {
+      const category = heading.id;
+      const categoryItems = document.querySelectorAll(`.item[data-category="${category}"]`);
 
-    if (slide.tagName.toLowerCase() === 'video') {
-      if (i === index) {
-        slide.play().catch(() => {});
-      } else {
-        slide.pause();
-        slide.currentTime = 0;
-      }
-    }
-  });
-}
-
-showSlide(currentIndex);
-
-setInterval(() => {
-  currentIndex = (currentIndex + 1) % slides.length;
-  showSlide(currentIndex);
-}, 3200);
-
-
-// İlk slide'ı göster
-showSlide(currentIndex);
-    const buttons = document.querySelectorAll('.tab-button');
-    const items = document.querySelectorAll('.item');
-  
-    buttons.forEach(button => {
-      button.addEventListener('click', () => {
-        // Aktif butonu ayarla
-        buttons.forEach(btn => btn.classList.remove('active'));
-        button.classList.add('active');
-  
-        const category = button.getAttribute('data-category');
-  
-        // Tüm highlight'ları temizle
-        items.forEach(item => item.classList.remove('highlight'));
-  
-        if (category === 'all') {
-          // Tüm ürünleri göster ve highlight kaldır
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        } else {
-          // İlgili kategori ürünlerini highlight yap
-          items.forEach(item => {
-            if (item.getAttribute('data-category') === category) {
-              item.classList.add('highlight');
-            }
-          });
-  
-          // İlgili başlığa kaydır
-          const section = document.getElementById(category);
-          if (section) {
-            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if(category === 'icecek'){
+        subCategories.forEach(sc => {
+          if(sc.previousElementSibling && sc.previousElementSibling.tagName === 'H3'){
+            sc.classList.toggle('show');
           }
-        }
-      });
-    });
-  
-   
-    // Geribildirim formu mesajı
-    const form = document.getElementById('feedback-form');
-form.addEventListener('submit', function(event) {
-  event.preventDefault();
-  const messageBox = document.createElement('p');
-  messageBox.textContent = 'Geribildirim için teşekkürler! .';
-  messageBox.style.color = '#a47148';
-  form.appendChild(messageBox);
-  this.reset();
-  setTimeout(() => messageBox.remove(), 4000);
-});
-  
-    // Animasyonların tetiklenmesi için items'a delay verelim (fade-in art arda)
-    window.addEventListener('load', () => {
-      const items = document.querySelectorAll('.item');
-      items.forEach((item, i) => {
-        item.style.animationDelay = (0.2 + i * 0.1) + 's';
-      });
-    });
-  
-    // Sayfa DOM içeriği yüklendiğinde .item elemanlarına art arda fade-in animasyon gecikmesi veriyoruz
-    window.addEventListener('DOMContentLoaded', () => {
-      const items = document.querySelectorAll('.item');
-      const baseDelay = 0.6;  // Animasyonun başlangıç gecikmesi (saniye)
-      const delayStep = 0.1;  // Her bir item için eklenen gecikme artışı (saniye)
-  
-      items.forEach((item, i) => {
-        const delay = (baseDelay + i * delayStep).toFixed(2);
-        item.style.animationDelay = `${delay}s`;
-      });
-    });
-  
-    // **Buraya ekledim:**
-    window.addEventListener('DOMContentLoaded', () => {
-      if(localStorage.getItem('darkMode') === 'enabled') {
-        document.body.classList.add('dark-mode');
+        });
+        categoryItems.forEach(item => {
+          item.classList.toggle('show');
+        });
+      } else {
+        categoryItems.forEach(item => {
+          item.classList.toggle('show');
+        });
       }
     });
-    window.addEventListener('scroll', () => {
-  if (window.scrollY > 300) {
-    btn.style.display = 'block';
-  } else {
-    btn.style.display = 'none';
-  }
-});
-    const btn = document.getElementById('backToTop');
+  });
 
-btn.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  // Alt başlık tıklamaları
+  subHeadings.forEach(subHeading => {
+    subHeading.addEventListener('click', () => {
+      const nextElem = subHeading.nextElementSibling;
+      if (nextElem && nextElem.classList.contains('sub-category')) {
+        nextElem.classList.toggle('show');
+      }
+    });
+  });
+
+  // Tab butonları
+  const buttons = document.querySelectorAll('.tab-button');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const category = button.getAttribute('data-category');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      button.classList.add('active');
+
+      if(category === 'all'){
+        items.forEach(i => i.classList.add('show'));
+        subCategories.forEach(sc => sc.classList.add('show'));
+        headings.forEach(h => h.style.display = 'block');
+        subHeadings.forEach(sh => sh.style.display = 'block');
+      } else {
+        headings.forEach(h => {
+          h.style.display = h.id === category ? 'block' : 'none';
+        });
+
+        if(category === 'icecek') {
+          subHeadings.forEach(sh => sh.style.display = 'block');
+          subCategories.forEach(sc => sc.classList.add('show'));
+        } else {
+          subHeadings.forEach(sh => sh.style.display = 'none');
+          subCategories.forEach(sc => sc.classList.remove('show'));
+        }
+
+        items.forEach(i => {
+          i.classList.remove('show');
+          if(i.getAttribute('data-category') === category){
+            i.classList.add('show');
+          }
+        });
+      }
+    });
+  });
 });
+
   </script>
+
 </body>
 </html>
