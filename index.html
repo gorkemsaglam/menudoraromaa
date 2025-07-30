@@ -1,4 +1,7 @@
 <!DOCTYPE html>
+<div class="dark-mode-toggle" title="Karanlık modu aç/kapat">
+    🌙
+  </div>
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
@@ -191,6 +194,125 @@ h2 {
   background-color: #7a5533;
   transform: scale(1.05);
 }
+
+/* Toggle buton stili */
+.dark-mode-toggle {
+  position: fixed;
+  top: 18px;
+  right: 20px;
+  font-size: 24px;
+  cursor: pointer;
+  user-select: none;
+  background: #a47148;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease;
+  z-index: 1000;
+}
+.dark-mode-toggle:hover {
+  background: #7a5533;
+}
+
+/* KARANLIK MOD */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+body.dark-mode h1,
+body.dark-mode h2 {
+  color: #d4a95a;
+  text-shadow: none;
+}
+body.dark-mode .logo img {
+  filter: brightness(0.9);
+  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+body.dark-mode .item {
+  background-color: #1e1e1e;
+  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.07);
+  border-color: #d4a95a;
+  color: #ddd;
+}
+body.dark-mode .item:hover {
+  box-shadow: 0 12px 30px rgba(212, 169, 90, 0.4);
+  border-color: #f0c85c;
+}
+body.dark-mode .item-info h3,
+body.dark-mode .item-info h3 .price {
+  color: #f0c85c;
+}
+body.dark-mode .item-info p {
+  color: #ccc;
+}
+body.dark-mode .tab-button {
+  background-color: #d4a95a;
+  color: #222;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+}
+body.dark-mode .tab-button:hover {
+  background-color: #f0c85c;
+  color: #111;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+body.dark-mode .tab-button.active {
+  background-color: #b28739;
+  color: #121212;
+  box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+}
+body.dark-mode .contact-section,
+body.dark-mode .feedback-section {
+  background: #1e1e1e;
+  box-shadow: 0 5px 20px rgba(212, 169, 90, 0.3);
+  color: #ddd;
+}
+body.dark-mode .contact-item {
+  background: #292929;
+  border-left-color: #d4a95a;
+}
+body.dark-mode .contact-item:hover {
+  background-color: #333;
+}
+body.dark-mode .contact-item h3 {
+  color: #f0c85c;
+}
+body.dark-mode .contact-item p,
+body.dark-mode .contact-item a {
+  color: #ccc;
+}
+body.dark-mode .contact-item a:hover {
+  color: #f0c85c;
+}
+body.dark-mode #feedback-form input,
+body.dark-mode #feedback-form textarea {
+  background-color: #2b2b2b;
+  border-color: #d4a95a;
+  color: #eee;
+}
+body.dark-mode #feedback-form input::placeholder,
+body.dark-mode #feedback-form textarea::placeholder {
+  color: #a38649;
+  font-style: italic;
+}
+body.dark-mode #feedback-form input:focus,
+body.dark-mode #feedback-form textarea:focus {
+  border-color: #f0c85c;
+  box-shadow: 0 0 10px rgba(240, 200, 92, 0.5);
+}
+body.dark-mode #feedback-form button {
+  background-color: #d4a95a;
+  color: #121212;
+  box-shadow: 0 5px 15px rgba(212, 169, 90, 0.7);
+}
+body.dark-mode #feedback-form button:hover {
+  background-color: #f0c85c;
+  box-shadow: 0 7px 20px rgba(240, 200, 92, 0.8);
+}
   </style>
 </head>
 <body>
@@ -227,10 +349,6 @@ h2 {
 
   <h2 id="icecek">🥤 İçecekler</h2>
   <div class="item" data-category="icecek">
-    <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
-    <div class="item-info"><h3>Türk Kahvesi <span class="price">50₺</span></h3><p>Orta kavrulmuş, köpüklü kahve…</p></div>
-  </div>
-  <div class="item" data-category="icecek">
     <img src="images/fotolar/limonata.jpg" alt="Limonata" />
     <div class="item-info"><h3>Limonata <span class="price">45₺</span></h3><p>Taze limon suyu, nane…</p></div>
   </div>
@@ -250,6 +368,12 @@ h2 {
   </div>
 
   <h2 id="kahve">☕ Kahveler</h2>
+
+  <div class="item" data-category="icecek">
+    <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
+    <div class="item-info"><h3>Türk Kahvesi <span class="price">50₺</span></h3><p>Orta kavrulmuş, köpüklü kahve…</p></div>
+  </div>
+  
   <div class="item" data-category="kahve">
     <img src="images/fotolar/espresso.jpg" alt="Espresso" />
     <div class="item-info"><h3>Espresso <span class="price">45₺</span></h3><p>Yoğun aromalı, kısa kahve…</p></div>
@@ -333,6 +457,18 @@ h2 {
         }
       });
     });
+
+    const toggleBtn = document.querySelector('.dark-mode-toggle');
+toggleBtn.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+
+  // İstersen, kullanıcı tercihini localStorage'da sakla:
+  if(document.body.classList.contains('dark-mode')) {
+    localStorage.setItem('darkMode', 'enabled');
+  } else {
+    localStorage.setItem('darkMode', 'disabled');
+  }
+});
   
     // Geribildirim formu mesajı
     document.getElementById('feedback-form').addEventListener('submit', function(event) {
