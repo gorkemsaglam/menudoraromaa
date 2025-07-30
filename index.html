@@ -419,6 +419,7 @@ contact-item a i {
             <div class="slides">
               <img src="images/fotolar/doraroma.jpg" alt="Fotoğraf 1" class="active" />
               <img src="images/fotolar/sutlac.jpg" alt="Fotoğraf 2" />
+              
               <video controls>
                 <source src="videos/firmaTanitim.mp4" type="video/mp4" />
                 Tarayıcınız video etiketini desteklemiyor.
@@ -549,26 +550,30 @@ contact-item a i {
 
 
 const slides = document.querySelectorAll('.slides img, .slides video');
-const prevBtn = document.querySelector('.prev-btn');
-const nextBtn = document.querySelector('.next-btn');
-
 let currentIndex = 0;
 
 function showSlide(index) {
   slides.forEach((slide, i) => {
     slide.classList.toggle('active', i === index);
+
+    if (slide.tagName.toLowerCase() === 'video') {
+      if (i === index) {
+        slide.play().catch(() => {});
+      } else {
+        slide.pause();
+        slide.currentTime = 0;
+      }
+    }
   });
 }
 
-prevBtn.addEventListener('click', () => {
-  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
-  showSlide(currentIndex);
-});
+showSlide(currentIndex);
 
-nextBtn.addEventListener('click', () => {
+setInterval(() => {
   currentIndex = (currentIndex + 1) % slides.length;
   showSlide(currentIndex);
-});
+}, 3200);
+
 
 // İlk slide'ı göster
 showSlide(currentIndex);
