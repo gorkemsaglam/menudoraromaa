@@ -162,6 +162,19 @@ h1 {
   text-shadow: 1px 1px 2px #eee;
 }
 
+.sub-heading {
+  font-size: 22px;
+  color: #a47148;
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-weight: bold;
+  border-left: 4px solid #a47148;
+  padding-left: 12px;
+  font-family: 'Poppins', sans-serif;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+}
 h2 {
   font-family: 'Poppins', sans-serif;
   font-weight: 800; font-size: 24px;
@@ -327,6 +340,31 @@ h2 {
   animation-delay: 0.4s;
 }
 
+.section-heading {
+  display: flex;
+  align-items: center;
+  font-size: 26px;
+  color: #7a5533;
+  font-family: 'Poppins', sans-serif;
+  margin: 50px 0 20px;
+  position: relative;
+  padding-left: 20px;
+  border-left: 6px solid #a47148;
+  background: linear-gradient(to right, #fffdfc, #f1e6df);
+  padding: 12px 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  animation: fadeInUp 0.8s forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.section-heading::before {
+  content: attr(data-icon);
+  font-size: 28px;
+  margin-right: 12px;
+}
+
 .item {
   opacity: 0;
   transform: translateY(20px);
@@ -413,19 +451,19 @@ contact-item a i {
       <section class="about-us">
         <div class="about-wrapper">
       
-          <div class="media-slider">
+          <!-- <div class="media-slider">
             <button class="prev-btn" aria-label="Önceki">&lt;</button>
       
             <div class="slides">
               <img src="images/fotolar/doraroma.jpg" alt="Fotoğraf 1" class="active" />
               <img src="images/fotolar/sutlac.jpg" alt="Fotoğraf 2" />
               
-              <video controls>
+                <video controls>
                 <source src="videos/firmaTanitim.mp4" type="video/mp4" />
                 Tarayıcınız video etiketini desteklemiyor.
-              </video>
-              <img src="images/fotolar/slider3.jpg" alt="Fotoğraf 3" />
-            </div>
+              </video> -->,
+              
+              
       
             <button class="next-btn" aria-label="Sonraki">&gt;</button>
           </div>
@@ -446,6 +484,64 @@ contact-item a i {
     <button class="tab-button" data-category="dondurma">Dondurmalar</button>
     <button class="tab-button" data-category="kahve">Kahveler</button>
   </div>
+
+<h2 id="pasta" class="section-heading">🍰 Pastalar</h2>
+  <div class="item" data-category="pasta">
+    <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalıpasta" />
+    <div class="item-info">
+      <h3>Çikolatalı Pasta <span class="price">100₺</span></h3>
+      <p>Kremalı mascarpone ve kahveli kek tabanı ashkghdvjaskvdasbjdka</p>
+    </div>
+  </div>
+
+<h2 id="tatli" class="section-heading">🍮 Tatlılar</h2>
+<div class="item" data-category="tatli">
+    <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" />
+    <div class="item-info">
+      <h3>Sütlaç <span class="price">75₺</span></h3>
+      <p>Karamelize edilmiş nefis sütlü tatlı jksavdvjagsdjgasdjaghdsa</p>
+    </div>
+  </div>
+  
+<h2 id="icecek" class="section-heading">🥤 İçecekler</h2>
+<h3 class="sub-heading">🔥 Sıcak İçecekler</h3>
+
+<div class="item" data-category="icecek">
+  <img src="images/fotolar/salep.jpg" alt="Salep" />
+  <div class="item-info">
+    <h3>Salep <span class="price">45₺</span></h3>
+    <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+  </div>
+</div>
+
+<div class="item" data-category="icecek">
+  <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
+  <div class="item-info">
+    <h3>Bitki Çayı <span class="price">35₺</span></h3>
+    <p>Rezene, papatya ve adaçayı karışımı…</p>
+  </div>
+</div>
+
+<!-- Soğuk içecekler -->
+<h3 class="sub-heading">🧊 Soğuk İçecekler</h3>
+
+<div class="item" data-category="icecek">
+  <img src="images/fotolar/limonata.jpg" alt="Limonata" />
+  <div class="item-info">
+    <h3>Limonata <span class="price">45₺</span></h3>
+    <p>Taze limon, nane ve buz ile hazırlanmış ferah içecek…</p>
+  </div>
+</div>
+
+<div class="item" data-category="icecek">
+  <img src="images/fotolar/soguk-kahve.jpg" alt="Soğuk Kahve" />
+  <div class="item-info">
+    <h3>Soğuk Kahve <span class="price">55₺</span></h3>
+    <p>Buz eşliğinde espresso ve süt karışımı…</p>
+  </div>
+</div>
+<h2 id="dondurma" class="section-heading">🍦 Dondurmalar</h2>
+<h2 id="kahve" class="section-heading">☕ Kahveler</h2>
   <h2 id="pasta">🍰 Pastalar</h2>
   <div class="item" data-category="pasta">
     <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta" />
