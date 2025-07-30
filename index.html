@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-<div class="dark-mode-toggle" title="Karanlık modu aç/kapat">
-    🌙
-  </div>
+
 <html lang="tr">
 <head>
   <meta charset="UTF-8" />
@@ -9,6 +7,45 @@
   <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
   <title>Restoran Menüsü</title>
   <style>
+
+.about-us {
+  background-color: transparent;
+  padding: 60px 20px 30px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.about-wrapper {
+  max-width: 800px;
+  margin: auto;
+}
+
+.about-us h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 38px;
+  color: #a47148;
+  margin-bottom: 20px;
+}
+
+.about-us p {
+  font-size: 16.5px;
+  line-height: 1.7;
+  color: #444;
+  font-family: 'Arial', sans-serif;
+}
+
+/* DARK MODE için yumuşak uyum */
+body.dark-mode .about-us {
+  background-color: transparent;
+}
+
+body.dark-mode .about-us h2 {
+  color: #e0c097;
+}
+
+body.dark-mode .about-us p {
+  color: #d1d9de;
+}
  body {
   font-family: Arial, sans-serif;
   max-width: 100%;
@@ -220,109 +257,202 @@ h2 {
 }
 
 /* KARANLIK MOD */
+/* Koyu mod genel stil */
 body.dark-mode {
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: #22272e; /* koyu, ama siyah olmayan lacivert-siyah arası */
+  color: #cfd8dc; /* açık gri-beyaz arası, sert olmayan */
 }
+
+/* Başlıklar */
 body.dark-mode h1,
 body.dark-mode h2 {
-  color: #d4a95a;
+  color: #e0c097; /* yumuşak hardal-sarı ton */
   text-shadow: none;
 }
+
+/* Logo */
 body.dark-mode .logo img {
-  filter: brightness(0.9);
-  box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+  filter: brightness(0.85);
+  box-shadow: 0 4px 10px rgba(224, 192, 151, 0.2);
 }
+
+/* Menü öğeleri */
 body.dark-mode .item {
-  background-color: #1e1e1e;
-  box-shadow: 0 4px 20px rgba(255, 255, 255, 0.07);
-  border-color: #d4a95a;
-  color: #ddd;
+  background-color: #2c343f; /* koyu gri-mavi ton */
+  box-shadow: 0 4px 15px rgba(224, 192, 151, 0.1);
+  border: 1px solid #455062;
+  color: #d1d9de;
 }
+
 body.dark-mode .item:hover {
-  box-shadow: 0 12px 30px rgba(212, 169, 90, 0.4);
-  border-color: #f0c85c;
+  box-shadow: 0 8px 20px rgba(224, 192, 151, 0.25);
+  border-color: #e0c097;
 }
+
+/* Ürün adı ve fiyat */
 body.dark-mode .item-info h3,
 body.dark-mode .item-info h3 .price {
-  color: #f0c85c;
+  color: #e0c097;
 }
+
+/* Ürün açıklaması */
 body.dark-mode .item-info p {
-  color: #ccc;
+  color: #aebac1;
 }
+
+/* Tab menü */
 body.dark-mode .tab-button {
-  background-color: #d4a95a;
-  color: #222;
-  box-shadow: 0 3px 8px rgba(0,0,0,0.2);
+  background-color: #e0c097;
+  color: #2c343f;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
 }
+
 body.dark-mode .tab-button:hover {
-  background-color: #f0c85c;
-  color: #111;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+  background-color: #d4af6b;
+  color: #1b1f26;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
 }
+
 body.dark-mode .tab-button.active {
-  background-color: #b28739;
-  color: #121212;
-  box-shadow: 0 7px 20px rgba(0,0,0,0.4);
+  background-color: #b58c4f;
+  color: #1b1f26;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, 0.3);
 }
+
+/* İletişim ve feedback bölümü */
 body.dark-mode .contact-section,
 body.dark-mode .feedback-section {
-  background: #1e1e1e;
-  box-shadow: 0 5px 20px rgba(212, 169, 90, 0.3);
-  color: #ddd;
+  background: #2c343f;
+  box-shadow: 0 5px 20px rgba(224, 192, 151, 0.15);
+  color: #cfd8dc;
 }
+
 body.dark-mode .contact-item {
-  background: #292929;
-  border-left-color: #d4a95a;
+  background: #374054;
+  border-left-color: #e0c097;
 }
+
 body.dark-mode .contact-item:hover {
-  background-color: #333;
+  background-color: #3e4860;
 }
+
 body.dark-mode .contact-item h3 {
-  color: #f0c85c;
+  color: #e0c097;
 }
+
 body.dark-mode .contact-item p,
 body.dark-mode .contact-item a {
-  color: #ccc;
+  color: #aebac1;
 }
+
 body.dark-mode .contact-item a:hover {
-  color: #f0c85c;
+  color: #d4af6b;
 }
+
+/* Form input ve textarea */
 body.dark-mode #feedback-form input,
 body.dark-mode #feedback-form textarea {
-  background-color: #2b2b2b;
-  border-color: #d4a95a;
-  color: #eee;
+  background-color: #374054;
+  border-color: #e0c097;
+  color: #d1d9de;
 }
+
 body.dark-mode #feedback-form input::placeholder,
 body.dark-mode #feedback-form textarea::placeholder {
-  color: #a38649;
+  color: #a49a87;
   font-style: italic;
 }
+
 body.dark-mode #feedback-form input:focus,
 body.dark-mode #feedback-form textarea:focus {
-  border-color: #f0c85c;
-  box-shadow: 0 0 10px rgba(240, 200, 92, 0.5);
+  border-color: #d4af6b;
+  box-shadow: 0 0 10px rgba(212, 175, 107, 0.3);
 }
+
+/* Gönder butonu */
 body.dark-mode #feedback-form button {
-  background-color: #d4a95a;
-  color: #121212;
-  box-shadow: 0 5px 15px rgba(212, 169, 90, 0.7);
+  background-color: #e0c097;
+  color: #2c343f;
+  box-shadow: 0 5px 15px rgba(224, 192, 151, 0.6);
 }
+
 body.dark-mode #feedback-form button:hover {
-  background-color: #f0c85c;
-  box-shadow: 0 7px 20px rgba(240, 200, 92, 0.8);
+  background-color: #d4af6b;
+  box-shadow: 0 7px 20px rgba(212, 175, 107, 0.7);
+}
+.dark-mode-toggle {
+  background: #e0c097;
+  color: #2c343f;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+}
+.dark-mode-toggle:hover {
+  background: #d4af6b;
+  color: #1b1f26;
+}
+
+/* Eklenen animasyonlar */
+h1, h2 {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.2s;
+}
+h2 {
+  animation-delay: 0.4s;
+}
+
+.item {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInUp 0.8s forwards;
+  animation-delay: 0.6s;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Hover zaten var, ama biraz daha yumuşak */
+.item:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+}
+
+/* Tab butonları yumuşak renk geçişi */
+.tab-button {
+  transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
+}
+
+/* Dark mode body geçiş */
+body {
+  transition: background-color 0.5s ease, color 0.5s ease;
+}
+
+/* Fade-in yukarı doğru animasyon */
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
   </style>
 </head>
 <body>
+
+    <div class="dark-mode-toggle" title="Karanlık modu aç/kapat">
+        🌙
+      </div>
+
   <div class="logo">
     <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
   </div>
 
-  
+  <section class="about-us">
+    <div class="about-wrapper">
+      <h2>Biz Kimiz?</h2>
+      <p>Lezzetin ve estetiğin buluşma noktası olan restoranımızda, her tabakta bir hikaye anlatıyoruz. 2015’ten bu yana en kaliteli malzemeleri kullanarak, hem geleneksel hem modern tarifleri sizlerle buluşturuyoruz. Amacımız sadece doyurmak değil; sizi mutlu etmek.</p>
+    </div>
+  </section>
 
   <h1>Restoran Menüsü</h1>
+
   <div class="menu-tabs">
     <button class="tab-button active" data-category="all">Tümü</button>
     <button class="tab-button" data-category="pasta">Pastalar</button>
@@ -408,7 +538,7 @@ body.dark-mode #feedback-form button:hover {
 
   <!-- Geribildirim Formu -->
   <section class="feedback-section">
-    <h2>Geribildirim</h2>
+    <h2>Soru,Görüş ve Önerileriniz</h2>
     <form id="feedback-form">
       <label for="name">Adınız:</label>
       <input type="text" id="name" name="name" required placeholder="Adınızı yazınız" />
@@ -457,24 +587,56 @@ body.dark-mode #feedback-form button:hover {
         }
       });
     });
-
+  
     const toggleBtn = document.querySelector('.dark-mode-toggle');
-toggleBtn.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-
-  // İstersen, kullanıcı tercihini localStorage'da sakla:
-  if(document.body.classList.contains('dark-mode')) {
-    localStorage.setItem('darkMode', 'enabled');
-  } else {
-    localStorage.setItem('darkMode', 'disabled');
-  }
-});
+    toggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+  
+      // İstersen, kullanıcı tercihini localStorage'da sakla:
+      if(document.body.classList.contains('dark-mode')) {
+        localStorage.setItem('darkMode', 'enabled');
+      } else {
+        localStorage.setItem('darkMode', 'disabled');
+      }
+    });
   
     // Geribildirim formu mesajı
-    document.getElementById('feedback-form').addEventListener('submit', function(event) {
-      event.preventDefault();
-      alert('Geribildirim için teşekkürler! En kısa sürede dönüş yapacağız.');
-      this.reset();
+    const form = document.getElementById('feedback-form');
+form.addEventListener('submit', function(event) {
+  event.preventDefault();
+  const messageBox = document.createElement('p');
+  messageBox.textContent = 'Geribildirim için teşekkürler! .';
+  messageBox.style.color = '#a47148';
+  form.appendChild(messageBox);
+  this.reset();
+  setTimeout(() => messageBox.remove(), 4000);
+});
+  
+    // Animasyonların tetiklenmesi için items'a delay verelim (fade-in art arda)
+    window.addEventListener('load', () => {
+      const items = document.querySelectorAll('.item');
+      items.forEach((item, i) => {
+        item.style.animationDelay = (0.2 + i * 0.1) + 's';
+      });
+    });
+  
+    // Sayfa DOM içeriği yüklendiğinde .item elemanlarına art arda fade-in animasyon gecikmesi veriyoruz
+    window.addEventListener('DOMContentLoaded', () => {
+      const items = document.querySelectorAll('.item');
+      const baseDelay = 0.6;  // Animasyonun başlangıç gecikmesi (saniye)
+      const delayStep = 0.1;  // Her bir item için eklenen gecikme artışı (saniye)
+  
+      items.forEach((item, i) => {
+        const delay = (baseDelay + i * delayStep).toFixed(2);
+        item.style.animationDelay = `${delay}s`;
+      });
+    });
+  
+    // **Buraya ekledim:**
+    window.addEventListener('DOMContentLoaded', () => {
+      if(localStorage.getItem('darkMode') === 'enabled') {
+        document.body.classList.add('dark-mode');
+      }
     });
   </script>
 </body>
