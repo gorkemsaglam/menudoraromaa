@@ -25,20 +25,25 @@
             margin-bottom: 20px;
             /* Logo ile diğer içerik arasında boşluk */
         }
-        @media (max-width: 768px) {
-    .logo img {
-        width: 120px; /* Mobilde daha küçük boyut */
-    }
-}
-@media (max-width: 480px) {
-    .logo-container {
-        height: 80px; /* Mobilde logo konteynerinin yüksekliği */
-    }
 
-    .logo img {
-        width: 100px; /* Mobilde logo daha da küçük olabilir */
-    }
-}
+        @media (max-width: 768px) {
+            .logo img {
+                width: 120px;
+                /* Mobilde daha küçük boyut */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .logo-container {
+                height: 80px;
+                /* Mobilde logo konteynerinin yüksekliği */
+            }
+
+            .logo img {
+                width: 100px;
+                /* Mobilde logo daha da küçük olabilir */
+            }
+        }
 
         .header-right {
             display: flex;
@@ -75,34 +80,39 @@
 
         .about-us {
             background-color: transparent;
-            padding: 60px 20px 30px;
+            padding: 40px 20px 20px;
+            /* Üst kısmı biraz küçültüyoruz */
             text-align: center;
             margin-bottom: 0;
-
             border: 0.7px solid rgba(164, 113, 72, 0.12);
-            /* Çok ince ve çok hafif saydam kenar */
             border-radius: 15px;
-
             box-shadow: 0 0 8px rgba(164, 113, 72, 0.07);
-            /* Çok hafif flu gölge */
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
+            max-width: 750px;
+            /* Konteynerin genişliğini biraz küçültüyoruz */
+            margin: 0 auto;
+            /* Ortalayalım */
         }
 
         .about-title {
             font-family: 'Dancing Script', cursive;
-            font-size: 42px;
+            font-size: 36px;
+            /* Başlık boyutunu biraz küçültüyoruz */
             color: #7a5533;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
+            /* Alt boşluğu azaltıyoruz */
             letter-spacing: 1px;
             text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
         }
 
         .about-text {
-            font-size: 18px;
+            font-size: 16px;
+            /* Metin boyutunu biraz küçültüyoruz */
             line-height: 1.7;
             color: #555;
             max-width: 700px;
+            /* Metnin genişliğini biraz daraltıyoruz */
             margin: 0 auto;
             font-weight: 500;
         }
@@ -855,7 +865,7 @@
             <p class="about-text">
                 Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
                 anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
-                
+
             </p>
         </div>
     </section>
