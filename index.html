@@ -882,6 +882,7 @@
 
     <!-- İçecekler Sekmesi -->
     <div id="icecekler" class="tab-content">
+        <h1 class="section-title">İçecekler</h1>
         <div class="sub-category" data-subcategory="soguk-icecekler">
             <h3 class="sub-heading">Soğuk İçecekler</h3>
             <div class="item">
@@ -1008,13 +1009,19 @@
             const sectionHeadings = document.querySelectorAll('.section-heading');
 
             // Restoran Menüsü başlığına kaydırma fonksiyonu
-            function scrollToFirstItem(tabId) {
+            function scrollToFirstItem(tabId, isTumu = false) {
                 if (window.innerWidth <= 600) {
-                    const targetHeading = document.querySelector(`.section-heading[data-tab="${tabId}"]`);
-                    if (targetHeading) {
-                        const elementPosition = targetHeading.getBoundingClientRect().top + window.pageYOffset;
+                    let target;
+                    if (isTumu) {
+                        target = document.querySelector(`.section-heading[data-tab="${tabId}"]`);
+                    } else {
+                        const targetContent = document.getElementById(tabId);
+                        target = targetContent ? targetContent.querySelector('.section-title') : null;
+                    }
+                    if (target) {
+                        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset - 20;
                         window.scrollTo({
-                            top: elementPosition - 20,
+                            top: elementPosition,
                             behavior: 'smooth'
                         });
                     }
@@ -1081,7 +1088,7 @@
                             const itemsInSub = sub.querySelectorAll('.item');
                             itemsInSub.forEach(item => item.classList.add('show'));
                         });
-                        scrollToFirstItem(tabId);
+                        scrollToFirstItem(tabId, false);
                     }
                 });
             });
@@ -1096,22 +1103,23 @@
                     const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
 
                     if (currentState === 'closed') {
-                        // İçeriği başlığın altına taşı, sadece sub-category'leri al
+                        // İçeriği başlığın altına taşı, sadece .item öğelerini al
                         if (targetContent && contentContainer) {
                             const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             contentContainer.innerHTML = '';
                             subCategoriesInTab.forEach(sub => {
-                                const clonedSub = sub.cloneNode(true);
-                                contentContainer.appendChild(clonedSub);
-                                clonedSub.classList.add('show');
-                                const itemsInSub = clonedSub.querySelectorAll('.item');
-                                itemsInSub.forEach(item => item.classList.add('show'));
+                                const itemsInSub = sub.querySelectorAll('.item');
+                                itemsInSub.forEach(item => {
+                                    const clonedItem = item.cloneNode(true);
+                                    contentContainer.appendChild(clonedItem);
+                                    clonedItem.classList.add('show');
+                                });
                             });
                             heading.setAttribute('data-state', 'open');
                             if (targetButton) {
                                 targetButton.classList.add('active');
                             }
-                            scrollToFirstItem(tabId);
+                            scrollToFirstItem(tabId, true);
                         }
                     } else {
                         // İçeriği gizle
