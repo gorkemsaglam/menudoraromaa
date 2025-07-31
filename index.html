@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -14,8 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html,
-        body {
+        html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -36,32 +34,23 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 30px 0;
-            background: none;
+            padding: 50px 0;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
         }
 
-        .logo {
-            font-family: 'Allura', cursive;
-            font-size: 36px;
-            color: #a47148;
-            font-weight: 400;
-            text-align: center;
-            transition: transform 0.3s ease;
+        .logo img {
+            max-width: 180px;
+            height: auto;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+            filter: brightness(95%) contrast(110%);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .logo:hover {
+        .logo img:hover {
             transform: scale(1.05);
-        }
-
-        /* Medya Sorguları */
-        @media screen and (max-width: 600px) {
-            .logo-container {
-                padding: 20px 0;
-            }
-
-            .logo {
-                font-size: 12px;
-            }
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         /* Hakkımızda Bölümü */
@@ -69,8 +58,7 @@
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             padding: 40px 20px;
             border-radius: 20px;
-            margin: 5px 0 30px 0;
-            /* Added margin-bottom for spacing */
+            margin: 5px 0;
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -447,7 +435,6 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -459,7 +446,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -507,8 +493,7 @@
             }
 
             .about-us {
-                margin: 2px 0 20px 0;
-                /* Adjusted margin-bottom for mobile */
+                margin: 2px 0;
                 padding: 25px 15px;
                 border-radius: 15px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -597,11 +582,10 @@
         }
     </style>
 </head>
-
 <body>
     <div class="logo-container">
         <div class="logo">
-            <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
+            <img src="images/fotolar/DORA_ROMA.png" alt="Restoran Logosu" />
         </div>
     </div>
 
@@ -609,14 +593,12 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
-                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
-                malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
 
-    <h1 class="menu-title">Restoran Menüsü</h1>
+    <h1 class="menu-title">Dora Roma Menü</h1>
 
     <div class="menu-tabs">
         <button class="tab-button active" data-tab="tumu">Tümü</button>
@@ -766,8 +748,7 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
-                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -791,8 +772,7 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -867,35 +847,7 @@
             if (tumuButton) {
                 tumuButton.click();
             }
-
-            // Back to Top button functionality
-            const backToTopButton = document.getElementById('backToTop');
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
         });
-
-        // Başlık tıklama olayı
-        sectionHeadings.forEach(heading => {
-            heading.addEventListener('click', () => {
-                const tabId = heading.getAttribute('data-tab');
-                const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-                if (targetButton) {
-                    targetButton.click();
-                    scrollToFirstItem(tabId);
-                }
-            });
-        });
-
-        // Varsayılan olarak Tümü sekmesini aç
-        const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
-        if (tumuButton) {
-            tumuButton.click();
-        }
     </script>
 </body>
-
 </html>
