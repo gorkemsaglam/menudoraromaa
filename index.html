@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -64,16 +65,16 @@
             z-index: 2;
         }
 
-        .hero-content h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 48px;
-            margin: 0;
-            color: #ffffff;
+        .hero-content .logo-img {
+            max-width: 450px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
             opacity: 0;
             transform: translateX(-50px);
         }
 
-        .hero-content h1.animate {
+        .hero-content .logo-img.animate {
             animation: slideIn 0.6s ease-in-out 0.3s forwards;
         }
 
@@ -113,28 +114,6 @@
             background-color: #bfa358;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             opacity: 1;
-        }
-
-        /* Logo Stilleri */
-        .logo-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 0;
-            background: none;
-        }
-
-        .logo {
-            font-family: 'Allura', cursive;
-            font-size: 36px;
-            color: #a47148;
-            font-weight: 400;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
         }
 
         /* Tümü Butonu Stilleri */
@@ -681,8 +660,8 @@
                 height: 300px;
             }
 
-            .hero-content h1 {
-                font-size: 36px;
+            .hero-content .logo-img {
+                max-width: 150px;
             }
 
             .hero-content p {
@@ -692,16 +671,6 @@
             .hero-content button {
                 font-size: 14px;
                 padding: 8px 16px;
-            }
-
-            .logo-container {
-                padding: 30px 0;
-            }
-
-            .logo img {
-                max-width: 140px;
-                border-radius: 8px;
-                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
             .tumu-button {
@@ -815,15 +784,9 @@
 </head>
 
 <body>
-    <div class="logo-container">
-        <div class="logo">
-            <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
-        </div>
-    </div>
-
     <section class="hero-section">
         <div class="hero-content">
-            <h1>Dora Roma</h1>
+            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
             <p>Lezzetin Yeni Adresi</p>
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
         </div>
@@ -1043,13 +1006,13 @@
     <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Animasyonları tetikle
-            const heroTitle = document.querySelector('.hero-content h1');
+            const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroText = document.querySelector('.hero-content p');
             const heroButton = document.querySelector('.hero-content button');
             const aboutTitle = document.querySelector('.about-title');
             const aboutText = document.querySelector('.about-text');
 
-            if (heroTitle) heroTitle.classList.add('animate');
+            if (heroLogo) heroLogo.classList.add('animate');
             if (heroText) heroText.classList.add('animate');
             if (heroButton) heroButton.classList.add('animate');
             if (aboutTitle) aboutTitle.classList.add('animate');
@@ -1191,3 +1154,4 @@
 </body>
 
 </html>
+```
