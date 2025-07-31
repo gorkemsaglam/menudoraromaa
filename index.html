@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Restoran Menüsü</title>
 
     <style>
@@ -15,8 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html,
-        body {
+        html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -37,7 +34,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 50px 0; /* Daha aşağıda konum için artırıldı (31 Temmuz 2025) */
         }
 
         .logo img {
@@ -48,19 +45,24 @@
 
         /* Header Sağ Bölüm Stilleri */
         .header-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            position: fixed; /* Sabit konum (31 Temmuz 2025) */
+            right: 20px; /* En sağda */
+            top: 20px; /* Üstten hizalı */
             display: flex;
-            gap: 20px;
-            align-items: center;
+            flex-direction: column; /* İç içe his için dikey düzen */
+            gap: 10px; /* İkonlar arası mesafe azaltıldı */
+            align-items: flex-end;
         }
 
         .menu-toggle {
+            position: fixed; /* Sol alta sabit (31 Temmuz 2025) */
+            bottom: 15px;
+            left: 15px;
             font-size: 24px;
             color: #a47148;
             cursor: pointer;
             transition: color 0.3s ease;
+            z-index: 1000; /* Üstte kalması için */
         }
 
         .menu-toggle:hover {
@@ -69,35 +71,32 @@
 
         .social-icons {
             display: flex;
-            gap: 15px;
+            flex-direction: column; /* Dikey iç içe düzen */
+            gap: 8px; /* Daha sıkı iç içe his */
         }
 
         .social-icons a {
             color: #a47148;
             font-size: 20px;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease; /* Hafif animasyon */
         }
 
         .social-icons a:hover {
             color: #bfa358;
+            transform: translateX(-5px); /* İç içe his için hafif kayma */
         }
 
         /* Başlık Stilleri */
         h1.menu-title {
             font-family: 'Dancing Script', cursive;
-            /* Daha dinamik font (31 Temmuz 2025) */
             font-size: 40px;
-            /* Daha büyük ve dikkat çekici */
             font-weight: 700;
             color: #333333;
             text-align: center;
             margin: 30px 0;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-            /* Daha belirgin gölge */
             animation: fadeIn 1.2s ease-in-out;
-            /* Yavaş ve pürüzsüz animasyon */
             letter-spacing: 1px;
-            /* Hafif harf boşluğu */
         }
 
         h2.section-heading {
@@ -106,17 +105,15 @@
             font-weight: 600;
             color: #333333;
             margin: 20px 0 15px;
-            padding-left: 25px;
+            padding-left: 20px; /* İkonlar kaldırıldığı için padding sadeleştirildi */
             border-left: 4px solid #a47148;
             position: relative;
             cursor: pointer;
             transition: color 0.3s ease, background-color 0.3s ease;
             background: linear-gradient(to right, #fafafa, #ffffff);
-            /* Hafif gradient */
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            /* Hafif gölge */
         }
 
         h2.section-heading:hover {
@@ -124,18 +121,16 @@
             background: linear-gradient(to right, #f5f5f5, #ffffff);
         }
 
-
         h3.sub-heading {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
             font-weight: 600;
             color: #333333;
             margin: 20px 0 10px;
-            padding-left: 20px;
+            padding-left: 15px;
             border-left: 3px solid #a47148;
             position: relative;
             background: linear-gradient(to right, #ffffff, #fafafa);
-            /* Hafif gradient */
             padding: 8px 15px;
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
@@ -150,7 +145,6 @@
         /* Menü Tab Stilleri */
         .menu-tabs {
             position: static;
-            /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
             background-color: #ffffff;
             display: flex;
             flex-wrap: wrap;
@@ -159,7 +153,6 @@
             padding: 10px;
             margin: 20px 0;
             border-bottom: 2px solid #a47148;
-            /* Daha belirgin ayırıcı */
         }
 
         .tab-button {
@@ -424,7 +417,6 @@
             margin: 40px 0;
             color: #a47148;
             font-family: 'Allura', cursive;
-            /* Daha zarif font (31 Temmuz 2025) */
             font-size: 28px;
         }
 
@@ -442,7 +434,6 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -454,7 +445,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -491,9 +481,12 @@
                 font-size: 14px;
             }
 
+            .logo-container {
+                padding: 30px 0; /* Mobilde logo daha az aşağıda */
+            }
+
             h1.menu-title {
                 font-size: 32px;
-                /* Mobilde daha kompakt */
                 margin: 20px 0;
             }
 
@@ -537,6 +530,21 @@
                 font-size: 13px;
             }
 
+            .header-right {
+                top: 10px; /* Mobilde daha kompakt */
+                gap: 6px;
+            }
+
+            .menu-toggle {
+                font-size: 20px;
+                bottom: 10px;
+                left: 10px;
+            }
+
+            .social-icons a {
+                font-size: 18px;
+            }
+
             #backToTop {
                 width: 36px;
                 height: 36px;
@@ -550,23 +558,21 @@
         }
     </style>
 </head>
-
 <body>
     <div class="logo-container">
         <div class="logo">
             <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
-        <div class="header-right">
-            <div class="menu-toggle" title="Menü">
-                <i class="fas fa-bars"></i>
-            </div>
-            <div class="social-icons">
-                <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
-                <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i
-                        class="fas fa-map-marker-alt"></i></a>
-                <a href="https://www.instagram.com/doraroma" target="_blank" title="Instagram"><i
-                        class="fab fa-instagram"></i></a>
-            </div>
+    </div>
+
+    <div class="header-right">
+        <div class="menu-toggle" title="Menü">
+            <i class="fas fa-bars"></i>
+        </div>
+        <div class="social-icons">
+            <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
+            <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i class="fas fa-map-marker-alt"></i></a>
+            <a href="https://www.instagram.com/doraroma" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
     </div>
 
@@ -574,9 +580,7 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
-                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
-                malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -731,8 +735,7 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
-                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -756,8 +759,7 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -778,7 +780,7 @@
                     if (menuTitle) {
                         const elementPosition = menuTitle.getBoundingClientRect().top + window.pageYOffset;
                         window.scrollTo({
-                            top: elementPosition - 20, // Sabit menü olmadığından offset azaltıldı
+                            top: elementPosition - 20,
                             behavior: 'smooth'
                         });
                     }
@@ -835,5 +837,4 @@
         });
     </script>
 </body>
-
 </html>
