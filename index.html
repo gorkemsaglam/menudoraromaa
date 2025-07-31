@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="tr">
 
@@ -45,7 +44,6 @@
             color: #ffffff;
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
             margin-bottom: 30px;
-            border-radius: 10px;
             overflow: hidden;
         }
 
@@ -170,7 +168,7 @@
         }
 
         .about-title {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Dancing Script', cursive;
             font-size: 32px;
             font-weight: 700;
             color: #a47148;
@@ -598,6 +596,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -609,6 +608,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -620,6 +620,7 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -712,9 +713,14 @@
             }
 
             h1.menu-title {
-                font-size: 28px;
+                font-family: 'Arial', serif;
+                font-size: 26px;
+                font-weight: 700;
+                color: #a47148;
                 margin: 5px 0;
-                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+                animation: fadeIn 1.2s ease-in-out;
+                letter-spacing: 1px;
             }
 
             h1.section-title {
@@ -788,7 +794,8 @@
         <div class="hero-content">
             <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
             <p>Lezzetin Yeni Adresi</p>
-            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
+            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz
+                At</button>
         </div>
     </section>
 
@@ -803,7 +810,7 @@
         </div>
     </section>
 
-    <h1 class="menu-title">Restoran Menüsü</h1>
+    <h1 class="menu-title">Dora Roma Menü</h1>
 
     <div class="tumu-button-container">
         <button class="tumu-button active" data-tab="tumu">Tümü</button>
@@ -846,16 +853,16 @@
         <h1 class="section-title">Pastalar</h1>
         <div class="sub-category" data-subcategory="pastalar">
             <div class="item">
-                <img src="images/fotolar/pasta.jpg" alt="Çikolatalı Pasta">
+                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
                 <div class="item-info">
                     <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
                 </div>
             </div>
             <div class="item">
-                <img src="images/fotolar/meyveli-pasta.jpg" alt="Meyveli Pasta">
+                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
                 <div class="item-info">
-                    <h3>Meyveli Pasta <span class="price">45 TL</span></h3>
+                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
                 </div>
             </div>
@@ -972,7 +979,9 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=Y%C4%B1ld%C4%B1r%C4%B1m+Mahallesi%2C+%C5%9Eehit+Kamil+Balkan+Cad.+No%3A26%2FA+Bayrampa%C5%9Fa%2F%C4%B0stanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=Y%C4%B1ld%C4%B1r%C4%B1m+Mahallesi%2C+%C5%9Eehit+Kamil+Balkan+Cad.+No%3A26%2FA+Bayrampa%C5%9Fa%2F%C4%B0stanbul"
+                        target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A
+                        Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -996,7 +1005,8 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
+                required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -1108,19 +1118,20 @@
 
                     if (currentState === 'closed') {
                         if (targetContent && contentContainer) {
-                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             contentContainer.innerHTML = '';
+                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             subCategoriesInTab.forEach(sub => {
-                                const itemsInSub = sub.querySelectorAll('.item');
-                                itemsInSub.forEach(item => {
-                                    const clonedItem = item.cloneNode(true);
-                                    contentContainer.appendChild(clonedItem);
-                                    clonedItem.classList.add('show');
-                                });
+                                const clonedSub = sub.cloneNode(true);
+                                clonedSub.classList.add('show');
+                                const itemsInSub = clonedSub.querySelectorAll('.item');
+                                itemsInSub.forEach(item => item.classList.add('show'));
+                                contentContainer.appendChild(clonedSub);
                             });
                             heading.setAttribute('data-state', 'open');
                             if (targetButton) {
+                                tabButtons.forEach(btn => btn.classList.remove('active'));
                                 targetButton.classList.add('active');
+                                tumuButton.classList.remove('active');
                             }
                             scrollToFirstItem(tabId, true);
                         }
@@ -1154,4 +1165,3 @@
 </body>
 
 </html>
-```
