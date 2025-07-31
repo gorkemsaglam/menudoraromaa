@@ -1,860 +1,1082 @@
 <!DOCTYPE html>
 
 <html lang="tr">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-  <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-  <title>Restoran Menüsü</title>
-  <style>
-
-.logo-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  margin-bottom: 20px;
-}
-
-.header-right {
-  display: flex;
-  align-items: center;
-  gap: 55px; /* Menü ve simgeler arası boşluk */
-}
-
-.menu-toggle {
-  font-size: 26px;
-  cursor: pointer;
-  color: #7a5533;
-  transition: color 0.3s ease;
-}
-
-.menu-toggle:hover {
-  color: #a47148;
-}
-
-.social-icons {
-  display: flex;
-  gap: 20px;
-}
-
-.social-icons a {
-  color: #7a5533;
-  font-size: 22px;
-  transition: color 0.3s ease;
-}
-
-.social-icons a:hover {
-  color: #a47148;
-}
-
-.about-us {
-  background-color: transparent;
-  padding: 60px 20px 30px;
-  text-align: center;
-  margin-bottom: 0;
-
-  border: 0.7px solid rgba(164, 113, 72, 0.12); /* Çok ince ve çok hafif saydam kenar */
-  border-radius: 15px;
-
-  box-shadow: 0 0 8px rgba(164, 113, 72, 0.07); /* Çok hafif flu gölge */
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-}
-
-.about-title {
-  font-family: 'Dancing Script', cursive;
-  font-size: 42px;
-  color: #7a5533;
-  margin-bottom: 25px;
-  letter-spacing: 1px;
-  text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
-}
-
-.about-text {
-  font-size: 18px;
-  line-height: 1.7;
-  color: #555;
-  max-width: 700px;
-  margin: 0 auto;
-  font-weight: 500;
-}
-
-.about-wrapper {
-  max-width: 800px;
-  margin: auto;
-}
-
-.slides img,
-.slides video {
-  display: none;
-  width: 100%;
-  max-height: 400px;
-  object-fit: cover;
-}
-
-.slides img.active,
-.slides video.active {
-  display: block;
-}
-
-.about-us h2 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 38px;
-  color: #a47148;
-  margin-bottom: 20px;
-}
-
-.about-us p {
-  font-size: 16.5px;
-  line-height: 1.7;
-  color: #444;
-  font-family: 'Arial', sans-serif;
-
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
-  animation-delay: 0.4s;
-}
-
- body {
-  font-family: Arial, sans-serif;
-  max-width: 100%;
-  margin: auto;
-  padding: 15px;
-  background-color: #f8f9fa;
-  box-sizing: border-box;
-  position: relative;
-  overflow-x: hidden;
-}
-body::before {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: #f8f9fa;
-  z-index: -11;
-  pointer-events: none;
-}
-
-.logo {
-  text-align: left;
-  margin-bottom: 20px;
-}
-
-.logo img {
-  max-width: 150px;
-  height: auto;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-  border-radius: 10px;
-  display: inline-block;
-  margin: 0;
-}
-
-h1 {
-  font-family: 'Dancing Script', cursive;
-  font-size: 36px; color: #7a5533;
-  margin-bottom: 25px; text-align: center;
-  text-shadow: 1px 1px 2px #eee;
-}
-
-.sub-heading {
-  font-size: 22px;
-  color: #a47148;
-  margin-top: 40px;
-  margin-bottom: 15px;
-  font-weight: bold;
-  border-left: 4px solid #a47148;
-  padding-left: 12px;
-  font-family: 'Poppins', sans-serif;
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
-  display: none;
-}
-
-
-h2 {
-  font-family: 'Poppins', sans-serif;
-  font-weight: 800; font-size: 24px;
-  margin-top: 40px; margin-bottom: 20px;
-  color: #2c3e50; letter-spacing: 1px;
-  text-shadow: 1px 1px 2px #eee;
-}
-.sub-category {
-      display: none;
-    }
-
-    .sub-category.show {
-      display: block;
-    }
-
-    /* Aynı şekilde itemları da kapalı başlatıyoruz */
-  
-
-    h2.section-heading {
-      cursor: pointer;
-    }
-
-    .item {
-      display: none; /* kapalı başlatılıyor */
-      opacity: 0;
-      transform: translateY(30px);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .item.show {
-      display: flex !important;
-      animation: slideFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    @keyframes slideFadeIn {
-      0% {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Hover zaten var, ama biraz daha yumuşak */
-    .item:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-    }
-.item-info { text-align: center; flex: none; }
-.item img {
-  width: 100%; max-width: 250px; height: auto;
-  object-fit: cover; border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-  margin: auto;
-}
-.item-info h3 {
-  margin: 0; color: #2c3e50; font-size: 18px;
-}
-.item-info h3 .price {
-  color: #bb0c0c; font-weight: bold;
-  margin-left: 10px; font-size: 18px;
-}
-.item-info p {
-  margin: 8px 0 0; color: #555;
-  line-height: 1.4; font-size: 14px;
-}
-
-@media screen and (min-width: 601px) {
-  body { max-width: 800px; padding: 20px; }
-  .item { flex-direction: row; }
-  .item img { width: 120px; height: 100px; margin: 0;}
-  .item-info h3, .item-info h3 .price { font-size: 20px; }
-  .item-info p { font-size: 16px; }
-}
-
-/* Tab menü stili */
-.menu-tabs {
-  display: flex; flex-wrap: wrap; justify-content: center;
-  gap: 10px; margin: 30px auto;
-}
-.tab-button {
-  padding: 10px 20px; border: none;
-  background-color: #a47148; color: white;
-  border-radius: 25px; font-weight: bold;
-  cursor: pointer; transition: background-color 0.3s ease, transform 0.2s;
-  font-size: 14px;
-}
-.tab-button:hover { background-color: #7a5533; transform: scale(1.05); }
-.tab-button.active { background-color: #5c3b24; }
-
-/* İletişim bölümü */
-.contact-info {
-  background-color: #fffdfc;
-  border: 2px solid #a47148;
-  border-radius: 15px;
-  padding: 40px 30px;
-  max-width: 600px;
-  margin: 50px auto 30px;
-  box-shadow: 0 8px 20px rgba(164, 113, 72, 0.15);
-  font-family: 'Poppins', sans-serif;
-  color: #3a3a3a;
-  text-align: center;
-}
-
-.contact-info-wrapper {
-  max-width: 500px;
-  margin: 0 auto;
-}
-
-.contact-info-title {
-  font-family: 'Alex Brush', cursive;
-  font-size: 38px;
-  color: #7a5533;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
-}
-
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.contact-list li {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 15px;
-  margin-bottom: 22px;
-  font-size: 18px;
-  color: #5c3b24;
-  transition: color 0.3s ease;
-}
-
-.contact-list li i {
-  font-size: 26px;
-  color: #a47148;
-  min-width: 30px;
-  transition: color 0.3s ease;
-}
-
-.contact-list li a {
-  color: #5c3b24;
-  text-decoration: none;
-  font-weight: 600;
-  transition: color 0.3s ease;
-}
-
-.contact-list li a:hover {
-  color: #7a5533;
-}
-
-.contact-list li:hover i {
-  color: #7a5533;
-}
-
-/* Responsive */
-@media screen and (max-width: 480px) {
-  .contact-list li {
-    font-size: 16px;
-    gap: 10px;
-  }
-  .contact-list li i {
-    font-size: 22px;
-  }
-}
-
-/* Feedback form stili */
-.feedback-section {
-  background: #ffffff;
-  padding: 30px 20px;
-  margin-top: 50px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-}
-.feedback-section h2 {
-  text-align: center;
-  color: #a47148;
-  font-family: 'Dancing Script', cursive;
-  font-size: 30px;
-  margin-bottom: 25px;
-}
-#feedback-form {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-#feedback-form label {
-  font-weight: bold;
-  color: #2c3e50;
-}
-#feedback-form input,
-#feedback-form textarea {
-  padding: 10px 15px;
-  border: 2px solid #a47148;
-  border-radius: 8px;
-  font-size: 15px;
-  resize: vertical;
-  transition: border-color 0.3s ease;
-}
-#feedback-form input:focus,
-#feedback-form textarea:focus {
-  border-color: #7a5533;
-  outline: none;
-  box-shadow: 0 0 8px rgba(164, 113, 72, 0.3);
-}
-#feedback-form button {
-  background-color: #a47148;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  padding: 12px 0;
-  border: none;
-  border-radius: 25px;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s;
-}
-#feedback-form button:hover {
-  background-color: #7a5533;
-  transform: scale(1.05);
-}
-
-/* Eklenen animasyonlar */
-h1, h2 {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
-  animation-delay: 0.2s;
-}
-h2 {
-  animation-delay: 0.4s;
-}
-
-.section-heading {
-  display: flex;
-  align-items: center;
-  font-size: 26px;
-  color: #7a5533;
-  font-family: 'Poppins', sans-serif;
-  margin: 50px 0 20px;
-  position: relative;
-  padding-left: 20px;
-  border-left: 6px solid #a47148;
-  background: linear-gradient(to right, #fffdfc, #f1e6df);
-  padding: 12px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  animation: fadeInUp 0.8s forwards;
-  opacity: 0;
-  transform: translateY(20px);
-}
-
-.section-heading::before {
-  content: attr(data-icon);
-  font-size: 28px;
-  margin-right: 12px;
-}
-
-.item {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeInUp 0.8s forwards;
-  animation-delay: 0.6s;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-/* Hover zaten var, ama biraz daha yumuşak */
-.item:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-}
-
-/* Tab butonları yumuşak renk geçişi */
-.tab-button {
-  transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
-}
-
-/* Dark mode body geçiş */
-body {
-  transition: background-color 0.5s ease, color 0.5s ease;
-}
-
-/* Fade-in yukarı doğru animasyon */
-@keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-contact-item a i {
-  font-size: 28px;  /* simgeleri büyüttüm */
-  margin-right: 20px;  /* aradaki boşluğu artırdım */
-  color: #7a5533;
-  transition: color 0.3s ease;
-}
-
-#backToTop {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background-color: #a47148;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 14px;
-  font-size: 24px;
-  cursor: pointer;
-  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  z-index: 999;
-}
-
-#backToTop:hover {
-  background-color: #7a5533;
-  transform: scale(1.15);
-}
-
-.divider {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  margin: 60px 0 40px;
-  font-family: 'Dancing Script', cursive;
-  font-size: 26px;
-  color: #a47148;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid #a47148;
-  margin: 0 15px;
-}
-
-@media screen and (max-width: 600px) {
-  body {
-    padding: 10px 12px;
-    font-size: 14px;
-    overflow-x: hidden;
-  }
-
-  .logo-container {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
-    padding: 0 10px;
-  }
-
-  .header-right {
-    gap: 20px;
-    width: 100%;
-    justify-content: space-between;
-  }
-
-  .menu-tabs {
-    flex-wrap: wrap;
-    gap: 6px;
-    justify-content: center;
-    padding: 0 5px;
-  }
-
-  .tab-button {
-    font-size: 12px;
-    padding: 8px 12px;
-    white-space: nowrap;
-  }
-
-  .item {
-    flex-direction: column !important;
-    align-items: center;
-    padding: 10px 5px;
-  }
-
-  .item img {
-    max-width: 100% !important;
-    height: auto;
-    margin-bottom: 10px;
-  }
-
-  .item-info h3 {
-    font-size: 16px;
-  }
-
-  .item-info h3 .price {
-    font-size: 16px;
-  }
-
-  .item-info p {
-    font-size: 14px;
-  }
-
-  .section-heading {
-    font-size: 20px;
-    padding: 8px 12px;
-    margin: 30px 0 15px;
-    border-left-width: 4px;
-  }
-
-  h3.sub-heading {
-    font-size: 16px;
-    margin: 20px 0 10px;
-  }
-
-  .divider {
-    font-size: 20px;
-    margin: 40px 0 30px;
-  }
-}
-
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <title>Restoran Menüsü</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap');
+
+        .logo-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            margin-bottom: 20px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 55px;
+            /* Menü ve simgeler arası boşluk */
+        }
+
+        .menu-toggle {
+            font-size: 26px;
+            cursor: pointer;
+            color: #7a5533;
+            transition: color 0.3s ease;
+        }
+
+        .menu-toggle:hover {
+            color: #a47148;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 20px;
+        }
+
+        .social-icons a {
+            color: #7a5533;
+            font-size: 22px;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #a47148;
+        }
+
+        .about-us {
+            background-color: transparent;
+            padding: 60px 20px 30px;
+            text-align: center;
+            margin-bottom: 0;
+
+            border: 0.7px solid rgba(164, 113, 72, 0.12);
+            /* Çok ince ve çok hafif saydam kenar */
+            border-radius: 15px;
+
+            box-shadow: 0 0 8px rgba(164, 113, 72, 0.07);
+            /* Çok hafif flu gölge */
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+        }
+
+        .about-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 42px;
+            color: #7a5533;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+
+        .about-wrapper {
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .slides img,
+        .slides video {
+            display: none;
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .slides img.active,
+        .slides video.active {
+            display: block;
+        }
+
+        .about-us h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 38px;
+            color: #a47148;
+            margin-bottom: 20px;
+        }
+
+        .about-us p {
+            font-size: 16.5px;
+            line-height: 1.7;
+            color: #444;
+            font-family: 'Arial', sans-serif;
+
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.4s;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 100%;
+            margin: auto;
+            padding: 15px;
+            background-color: #f8f9fa;
+            box-sizing: border-box;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f8f9fa;
+            z-index: -11;
+            pointer-events: none;
+        }
+
+        .logo {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .logo img {
+            max-width: 150px;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            border-radius: 10px;
+            display: inline-block;
+            margin: 0;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: #7a5533;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 1px 1px 2px #eee;
+        }
+
+        .sub-heading {
+            font-size: 22px;
+            color: #a47148;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-left: 4px solid #a47148;
+            padding-left: 12px;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            display: none;
+        }
+
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 800;
+            font-size: 24px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            color: #2c3e50;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px #eee;
+        }
+
+        .sub-category {
+            display: none;
+        }
+
+        .sub-category.show {
+            display: block;
+        }
+
+        /* Aynı şekilde itemları da kapalı başlatıyoruz */
+
+
+        h2.section-heading {
+            cursor: pointer;
+        }
+
+        .item {
+            display: none;
+            /* kapalı başlatılıyor */
+            opacity: 0;
+            transform: translateY(30px);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .item.show {
+            display: flex !important;
+            animation: slideFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @keyframes slideFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Hover zaten var, ama biraz daha yumuşak */
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        .item-info {
+            text-align: center;
+            flex: none;
+        }
+
+        .item img {
+            width: 100%;
+            max-width: 250px;
+            height: auto;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+            margin: auto;
+        }
+
+        .item-info>h3 {
+            font-family: 'Poppins', sans-serif !important;
+            font-weight: 600 !important;
+            font-size: 20px !important;
+            color: #3a3a3a !important;
+            text-shadow: none !important;
+            letter-spacing: 0.5px !important;
+        }
+
+        .item-info>h3 .price {
+            font-family: 'Montserrat', sans-serif !important;
+            font-weight: 700 !important;
+            font-size: 18px !important;
+            color: #ad0e0e !important;
+            margin-left: 10px !important;
+            text-shadow: none !important;
+            letter-spacing: 0.3px !important;
+        }
+
+        @media screen and (min-width: 601px) {
+            body {
+                max-width: 800px;
+                padding: 20px;
+            }
+
+            .item {
+                flex-direction: row;
+            }
+
+            .item img {
+                width: 120px;
+                height: 100px;
+                margin: 0;
+            }
+
+            .item-info h3,
+            .item-info h3 .price {
+                font-size: 20px;
+            }
+
+            .item-info p {
+                font-size: 16px;
+            }
+        }
+
+        /* Tab menü stili */
+        .menu-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px auto;
+        }
+
+        .tab-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #a47148;
+            color: white;
+            border-radius: 25px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+            font-size: 14px;
+        }
+
+        .tab-button:hover {
+            background-color: #7a5533;
+            transform: scale(1.05);
+        }
+
+        .tab-button.active {
+            background-color: #5c3b24;
+        }
+
+        /* İletişim bölümü */
+        .contact-info {
+            background-color: #fffdfc;
+            border: 2px solid #a47148;
+            border-radius: 15px;
+            padding: 40px 30px;
+            max-width: 600px;
+            margin: 50px auto 30px;
+            box-shadow: 0 8px 20px rgba(164, 113, 72, 0.15);
+            font-family: 'Poppins', sans-serif;
+            color: #3a3a3a;
+            text-align: center;
+        }
+
+        .contact-info-wrapper {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact-info-title {
+            font-family: 'Alex Brush', cursive;
+            font-size: 38px;
+            color: #7a5533;
+            margin-bottom: 30px;
+            text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
+        }
+
+        .contact-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .contact-list li {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 22px;
+            font-size: 18px;
+            color: #5c3b24;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list li i {
+            font-size: 26px;
+            color: #a47148;
+            min-width: 30px;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list li a {
+            color: #5c3b24;
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .contact-list li a:hover {
+            color: #7a5533;
+        }
+
+        .contact-list li:hover i {
+            color: #7a5533;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 480px) {
+            .contact-list li {
+                font-size: 16px;
+                gap: 10px;
+            }
+
+            .contact-list li i {
+                font-size: 22px;
+            }
+        }
+
+        /* Feedback form stili */
+        .feedback-section {
+            background: #ffffff;
+            padding: 30px 20px;
+            margin-top: 50px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .feedback-section h2 {
+            text-align: center;
+            color: #a47148;
+            font-family: 'Dancing Script', cursive;
+            font-size: 30px;
+            margin-bottom: 25px;
+        }
+
+        #feedback-form {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
+        }
+
+        #feedback-form label {
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        #feedback-form input,
+        #feedback-form textarea {
+            padding: 10px 15px;
+            border: 2px solid #a47148;
+            border-radius: 8px;
+            font-size: 15px;
+            resize: vertical;
+            transition: border-color 0.3s ease;
+        }
+
+        #feedback-form input:focus,
+        #feedback-form textarea:focus {
+            border-color: #7a5533;
+            outline: none;
+            box-shadow: 0 0 8px rgba(164, 113, 72, 0.3);
+        }
+
+        #feedback-form button {
+            background-color: #a47148;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+            padding: 12px 0;
+            border: none;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s;
+        }
+
+        #feedback-form button:hover {
+            background-color: #7a5533;
+            transform: scale(1.05);
+        }
+
+        /* Eklenen animasyonlar */
+        h1,
+        h2 {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.2s;
+        }
+
+        h2 {
+            animation-delay: 0.4s;
+        }
+
+        h2.about-title {
+            font-family: 'Poppins', sans-serif;
+            /* Modern, okunaklı ve estetik bir font */
+            font-weight: 600;
+            /* Orta kalınlıkta, okunaklı ama zarif */
+            font-size: 2.5em;
+            /* Başlık boyutu büyütülerek daha belirgin hale getirilir */
+            color: #7a5533;
+            /* Sayfa ile uyumlu pastel ve doğal bir renk */
+            text-align: center;
+            /* Başlık ortalanarak görsel denge sağlanır */
+            margin-bottom: 20px;
+            /* Başlık ile içerik arasına boşluk bırakılır */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            /* Hafif gölgeleme, estetik bir görünüm sağlar */
+        }
+
+        .section-heading {
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            color: #7a5533;
+            font-family: 'Poppins', sans-serif;
+            margin: 50px 0 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 6px solid #a47148;
+            background: linear-gradient(to right, #fffdfc, #f1e6df);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            animation: fadeInUp 0.8s forwards;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .section-heading::before {
+            content: attr(data-icon);
+            font-size: 28px;
+            margin-right: 12px;
+        }
+
+        .item {
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.6s;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Hover zaten var, ama biraz daha yumuşak */
+        .item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
+        }
+
+        /* Tab butonları yumuşak renk geçişi */
+        .tab-button {
+            transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
+        }
+
+        /* Dark mode body geçiş */
+        body {
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
+
+        /* Fade-in yukarı doğru animasyon */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        contact-item a i {
+            font-size: 28px;
+            /* simgeleri büyüttüm */
+            margin-right: 20px;
+            /* aradaki boşluğu artırdım */
+            color: #7a5533;
+            transition: color 0.3s ease;
+        }
+
+        #backToTop {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #a47148;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 14px;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            z-index: 999;
+        }
+
+        #backToTop:hover {
+            background-color: #7a5533;
+            transform: scale(1.15);
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 60px 0 40px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 26px;
+            color: #a47148;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #a47148;
+            margin: 0 15px;
+        }
+
+        @media screen and (max-width: 600px) {
+            body {
+                padding: 10px 12px;
+                font-size: 14px;
+                overflow-x: hidden;
+            }
+
+            .logo-container {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+                padding: 0 10px;
+            }
+
+            .header-right {
+                gap: 20px;
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .menu-tabs {
+                flex-wrap: wrap;
+                gap: 6px;
+                justify-content: center;
+                padding: 0 5px;
+            }
+
+            .tab-button {
+                font-size: 12px;
+                padding: 8px 12px;
+                white-space: nowrap;
+            }
+
+            .item {
+                flex-direction: column !important;
+                align-items: center;
+                padding: 10px 5px;
+            }
+
+            .item img {
+                max-width: 100% !important;
+                height: auto;
+                margin-bottom: 10px;
+            }
+
+            .item-info h3 {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 600;
+                font-size: 20px;
+                color: #3a3a3a;
+                margin: 0 0 6px 0;
+                text-shadow: none;
+                letter-spacing: 0.5px;
+            }
+
+            .item-info h3 .price {
+                font-family: 'Montserrat', sans-serif;
+                font-weight: 700;
+                font-size: 18px;
+                color: #a58942;
+                /* Yumuşak, doğal altın tonu */
+                margin-left: 10px;
+                text-shadow: none;
+                letter-spacing: 0.3px;
+            }
+
+            .item-info p {
+                font-family: 'Poppins', sans-serif;
+                font-weight: 400;
+                font-size: 15px;
+                color: #555555;
+                margin-top: 4px;
+                line-height: 1.4;
+            }
+
+            .section-heading {
+                font-size: 20px;
+                padding: 8px 12px;
+                margin: 30px 0 15px;
+                border-left-width: 4px;
+            }
+
+            h3.sub-heading {
+                font-size: 16px;
+                margin: 20px 0 10px;
+            }
+
+            .divider {
+                font-size: 20px;
+                margin: 40px 0 30px;
+            }
+        }
+
+        /* Google Fonts import */
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Allura&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            color: #3b3b3b;
+            /* koyu gri, göz yormaz */
+            background-color: #fdfaf6;
+            /* hafif krem, sıcak arka plan */
+            line-height: 1.6;
+        }
+
+        h1,
+        h2,
+        h3 {
+
+            font-weight: bold;
+            /* Yazıyı kalın yapar */
+            font-size: 2.5em;
+            /* Yazının boyutunu büyütür (isteğe bağlı) */
+            text-transform: uppercase;
+            /* Yazıyı büyük harfe dönüştürür (isteğe bağlı) */
+            letter-spacing: 2px;
+            /* Harfler arasına biraz boşluk ekler (isteğe bağlı) */
+        }
+
+        h1 {
+            font-size: 36px;
+        }
+
+        h2 {
+            font-size: 28px;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        a {
+            color: #bfa358;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #d4bc6a;
+            /* biraz daha parlak */
+        }
+
+        .tab-button {
+            background-color: #bfa358;
+            color: #f9f6ef;
+            /* açık krem */
+            border-radius: 25px;
+            font-weight: 600;
+            padding: 10px 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
+            cursor: pointer;
+        }
+
+        .tab-button:hover,
+        .tab-button.active {
+            background-color: #d4bc6a;
+            transform: scale(1.05);
+            color: #2f2f2f;
+        }
+
+        button {
+            background-color: #bfa358;
+            color: #f9f6ef;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        button:hover {
+            background-color: #d4bc6a;
+            transform: scale(1.05);
+            color: #2f2f2f;
+        }
+
+        /* Link ve sosyal ikonlar gibi diğer renkler için de uyumlu renkler tercih edilebilir */
+        .social-icons a {
+            color: #bfa358;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            color: #d4bc6a;
+        }
+    </style>
 </head>
+
 <body>
 
     <div class="logo-container">
         <div class="logo">
-          <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
+            <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
         </div>
-      
+
         <div class="header-right">
-          <div class="menu-toggle" title="Menü">
-            <i class="fas fa-bars"></i>
-          </div>
-      
-          <div class="social-icons">
-            <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
-            <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i class="fas fa-map-marker-alt"></i></a>
-            <a href="https://www.instagram.com/username" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-          </div>
+            <div class="menu-toggle" title="Menü">
+                <i class="fas fa-bars"></i>
+            </div>
+
+            <div class="social-icons">
+                <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
+                <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i
+                        class="fas fa-map-marker-alt"></i></a>
+                <a href="https://www.instagram.com/username" target="_blank" title="Instagram"><i
+                        class="fab fa-instagram"></i></a>
+            </div>
         </div>
-      </div>
-  
-      <section class="about-us">
+    </div>
+
+    <section class="about-us">
         <div class="about-wrapper">
-          <h2 class="about-title">Biz Kimiz?</h2>
-          <p class="about-text">
-            Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir. Müşterilerimize sadece ürün değil, benzersiz bir tat deneyimi sunuyor; yenilikçi vizyonumuzla rakiplerimizin önünde yer alıyoruz.<br><br>
-            Misyonumuz, her lokmada memnuniyet ve güveni buluşturmak; kalitemizle sektör standartlarını yükseltmektir.
-          </p>
+            <h2 class="about-title">Biz Kimiz?</h2>
+            <p class="about-text">
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
+                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
+                malzemeler önceliğimizdir. Müşterilerimize sadece ürün değil, benzersiz bir tat deneyimi sunuyor;
+                yenilikçi vizyonumuzla rakiplerimizin önünde yer alıyoruz.<br><br>
+                Misyonumuz, her lokmada memnuniyet ve güveni buluşturmak; kalitemizle sektör standartlarını
+                yükseltmektir.
+            </p>
         </div>
-      </section>
+    </section>
 
-  <h1>Restoran Menüsü</h1>
+    <h1>Restoran Menüsü</h1>
 
-  <div class="menu-tabs">
-    <button class="tab-button active" data-category="all">Tümü</button>
-    <button class="tab-button" data-category="pasta">Pastalar</button>
-    <button class="tab-button" data-category="tatli">Tatlılar</button>
-    <button class="tab-button" data-category="icecek">İçecekler</button>
-    <button class="tab-button" data-category="dondurma">Dondurmalar</button>
-    <button class="tab-button" data-category="kahve">Kahveler</button>
-  </div>
-
-<h2 id="pasta" class="section-heading">🍰 Pastalar</h2>
-  <div class="item" data-category="pasta">
-    <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalıpasta" />
-    <div class="item-info">
-      <h3>Çikolatalı Pasta <span class="price">100₺</span></h3>
-      <p>Kremalı mascarpone ve kahveli kek tabanı ashkghdvjaskvdasbjdka</p>
+    <div class="menu-tabs">
+        <button class="tab-button active" data-category="all">Tümü</button>
+        <button class="tab-button" data-category="pasta">Pastalar</button>
+        <button class="tab-button" data-category="tatli">Tatlılar</button>
+        <button class="tab-button" data-category="icecek">İçecekler</button>
+        <button class="tab-button" data-category="dondurma">Dondurmalar</button>
+        <button class="tab-button" data-category="kahve">Kahveler</button>
     </div>
-  </div>
 
-<h2 id="tatli" class="section-heading">🍮 Tatlılar</h2>
-<div class="item" data-category="tatli">
-    <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" />
-    <div class="item-info">
-      <h3>Sütlaç <span class="price">75₺</span></h3>
-      <p>Karamelize edilmiş nefis sütlü tatlı jksavdvjagsdjgasdjaghdsa</p>
+    <h2 id="pasta" class="section-heading">🍰 Pastalar</h2>
+    <div class="item" data-category="pasta">
+        <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalıpasta" />
+        <div class="item-info">
+            <h3>Çikolatalı Pasta <span class="price">100₺</span></h3>
+            <p>Kremalı mascarpone ve kahveli kek tabanı ashkghdvjaskvdasbjdka</p>
+        </div>
     </div>
-  </div>
-  
-<h2 id="icecek" class="section-heading">🥤 İçecekler</h2>
-<h3 class="sub-heading">🔥 Sıcak İçecekler</h3>
 
-<div class="sub-category"> <!-- Bu div'i ekle -->
-  <div class="item" data-category="icecek">
-    <img src="images/fotolar/salep.jpg" alt="Salep" />
-    <div class="item-info">
-      <h3>Salep <span class="price">45₺</span></h3>
-      <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+    <h2 id="tatli" class="section-heading">🍮 Tatlılar</h2>
+    <div class="item" data-category="tatli">
+        <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" />
+        <div class="item-info">
+            <h3>Sütlaç <span class="price">75₺</span></h3>
+            <p>Karamelize edilmiş nefis sütlü tatlı jksavdvjagsdjgasdjaghdsa</p>
+        </div>
     </div>
-  </div>
 
-  <div class="item" data-category="icecek">
-    <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
-    <div class="item-info">
-      <h3>Bitki Çayı <span class="price">35₺</span></h3>
-      <p>Rezene, papatya ve adaçayı karışımı…</p>
+    <h2 id="icecek" class="section-heading">🥤 İçecekler</h2>
+    <h3 class="sub-heading">🔥 Sıcak İçecekler</h3>
+
+    <div class="sub-category"> <!-- Bu div'i ekle -->
+        <div class="item" data-category="icecek">
+            <img src="images/fotolar/salep.jpg" alt="Salep" />
+            <div class="item-info">
+                <h3>Salep <span class="price">45₺</span></h3>
+                <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+            </div>
+        </div>
+
+        <div class="item" data-category="icecek">
+            <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
+            <div class="item-info">
+                <h3>Bitki Çayı <span class="price">35₺</span></h3>
+                <p>Rezene, papatya ve adaçayı karışımı…</p>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<h3 class="sub-heading">🧊 Soğuk İçecekler</h3>
+    <h3 class="sub-heading">🧊 Soğuk İçecekler</h3>
 
-<div class="sub-category"> <!-- Bu div'i ekle -->
-  <div class="item" data-category="icecek">
-    <img src="images/fotolar/limonata.jpg" alt="Limonata" />
-    <div class="item-info">
-      <h3>Limonata <span class="price">45₺</span></h3>
-      <p>Taze limon, nane ve buz ile hazırlanır…</p>
+    <div class="sub-category"> <!-- Bu div'i ekle -->
+        <div class="item" data-category="icecek">
+            <img src="images/fotolar/limonata.jpg" alt="Limonata" />
+            <div class="item-info">
+                <h3>Limonata <span class="price">45₺</span></h3>
+                <p>Taze limon, nane ve buz ile hazırlanır…</p>
+            </div>
+        </div>
+
+        <div class="item" data-category="icecek">
+            <img src="images/fotolar/soda.jpg" alt="Soda" />
+            <div class="item-info">
+                <h3>Soda <span class="price">25₺</span></h3>
+                <p>Serinletici ve hafif gazlı içecek…</p>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <div class="item" data-category="icecek">
-    <img src="images/fotolar/soda.jpg" alt="Soda" />
-    <div class="item-info">
-      <h3>Soda <span class="price">25₺</span></h3>
-      <p>Serinletici ve hafif gazlı içecek…</p>
+    <h2 id="dondurma" class="section-heading">🍦 Dondurmalar</h2>
+
+    <div class="item" data-category="dondurma">
+        <img src="images/fotolar/dondurma-1.jpg" alt="Vanilyalı Dondurma" />
+        <div class="item-info">
+            <h3>Vanilyalı Dondurma <span class="price">30₺</span></h3>
+            <p>Ev yapımı doğal vanilyalı dondurma.</p>
+        </div>
     </div>
-  </div>
-</div>
 
-<h2 id="dondurma" class="section-heading">🍦 Dondurmalar</h2>
-
-<div class="item" data-category="dondurma">
-  <img src="images/fotolar/dondurma-1.jpg" alt="Vanilyalı Dondurma" />
-  <div class="item-info">
-    <h3>Vanilyalı Dondurma <span class="price">30₺</span></h3>
-    <p>Ev yapımı doğal vanilyalı dondurma.</p>
-  </div>
-</div>
-
-<div class="item" data-category="dondurma">
-  <img src="images/fotolar/cilek.jpg" alt="Çilekli Dondurma" />
-  <div class="item-info">
-    <h3>Çilekli Dondurma <span class="price">30₺</span></h3>
-    <p>Taze çilek parçaları ile lezzetlendirilmiş.</p>
-  </div>
-</div>
-
-<h2 id="kahve" class="section-heading">☕ Kahveler</h2>
-
-<div class="item" data-category="kahve">
-  <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
-  <div class="item-info">
-    <h3>Türk Kahvesi <span class="price">20₺</span></h3>
-    <p>Klasik Türk kahvesi, köpüklü ve aromatik.</p>
-  </div>
-</div>
-
-<div class="item" data-category="kahve">
-  <img src="images/fotolar/espresso.jpg" alt="Espresso" />
-  <div class="item-info">
-    <h3>Espresso <span class="price">25₺</span></h3>
-    <p>Koyu kavrulmuş, yoğun aromalı espresso.</p>
-  </div>
-</div>
-
-<div class="divider"><span>Roma Dora</span></div>
-
-<section class="contact-info">
-    <div class="contact-info-wrapper">
-      <h2 class="contact-info-title">Bize Ulaşın</h2>
-      <ul class="contact-list">
-        <li>
-            <i class="fas fa-map-marker-alt"></i>
-            <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
-          </li>
-
-        <li>
-          <i class="fas fa-phone-alt"></i>
-          <a href="tel:+905551234567">+90 555 123 45 67</a>
-        </li>
-        
-        <li>
-          <i class="fab fa-instagram"></i>
-          <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraroma</a>
-        </li>
-      </ul>
+    <div class="item" data-category="dondurma">
+        <img src="images/fotolar/cilek.jpg" alt="Çilekli Dondurma" />
+        <div class="item-info">
+            <h3>Çilekli Dondurma <span class="price">30₺</span></h3>
+            <p>Taze çilek parçaları ile lezzetlendirilmiş.</p>
+        </div>
     </div>
-  </section>
 
-  <section class="feedback-section">
-    <h2>Soru, Görüş ve Önerileriniz</h2>
-    <form id="feedback-form" action="#" method="post">
-      <label for="name">Adınız</label>
-      <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
-  
-      <label for="email">E-posta</label>
-      <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
-  
-      <label for="message">Mesajınız</label>
-      <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
-  
-      <button type="submit">Gönder</button>
-    </form>
-  </section>
+    <h2 id="kahve" class="section-heading">☕ Kahveler</h2>
 
-<script>
-  window.addEventListener('DOMContentLoaded', () => {
-  const headings = document.querySelectorAll('h2.section-heading');
-  const items = document.querySelectorAll('.item');
-  const subCategories = document.querySelectorAll('.sub-category');
-  const subHeadings = document.querySelectorAll('h3.sub-heading');
+    <div class="item" data-category="kahve">
+        <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
+        <div class="item-info">
+            <h3>Türk Kahvesi <span class="price">20₺</span></h3>
+            <p>Klasik Türk kahvesi, köpüklü ve aromatik.</p>
+        </div>
+    </div>
 
-  // Başlangıçta tüm itemları kapat
-  items.forEach(i => i.classList.remove('show'));
-  subCategories.forEach(sc => sc.classList.remove('show'));
+    <div class="item" data-category="kahve">
+        <img src="images/fotolar/espresso.jpg" alt="Espresso" />
+        <div class="item-info">
+            <h3>Espresso <span class="price">25₺</span></h3>
+            <p>Koyu kavrulmuş, yoğun aromalı espresso.</p>
+        </div>
+    </div>
 
-  // Başlık tıklamaları
-  headings.forEach(heading => {
-    heading.addEventListener('click', () => {
-      const category = heading.id;
-      const categoryItems = document.querySelectorAll(`.item[data-category="${category}"]`);
+    <div class="divider"><span>Roma Dora</span></div>
 
-      if(category === 'icecek'){
-        subCategories.forEach(sc => {
-          if(sc.previousElementSibling && sc.previousElementSibling.tagName === 'H3'){
-            sc.classList.toggle('show');
-          }
+    <section class="contact-info">
+        <div class="contact-info-wrapper">
+            <h2 class="contact-info-title">Bize Ulaşın</h2>
+            <ul class="contact-list">
+                <li>
+                    <i class="fas fa-map-marker-alt"></i>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
+                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                </li>
+                <li>
+                    <i class="fas fa-phone-alt"></i>
+                    <a href="tel:+905551234567">+90 555 123 45 67</a>
+                </li>
+                <li>
+                    <i class="fab fa-instagram"></i>
+                    <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraroma</a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="feedback-section">
+        <h2>Soru, Görüş ve Önerileriniz</h2>
+        <form id="feedback-form" action="#" method="post">
+            <label for="name">Adınız</label>
+            <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
+
+            <label for="email">E-posta</label>
+            <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
+
+            <label for="message">Mesajınız</label>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
+                required></textarea>
+
+            <button type="submit">Gönder</button>
+        </form>
+    </section>
+
+    <script>
+        window.addEventListener('DOMContentLoaded', () => {
+            const headings = document.querySelectorAll('h2.section-heading');
+            const items = document.querySelectorAll('.item');
+            const subCategories = document.querySelectorAll('.sub-category');
+            const subHeadings = document.querySelectorAll('h3.sub-heading');
+
+            // Başlangıçta tüm itemları kapat
+            items.forEach(i => i.classList.remove('show'));
+            subCategories.forEach(sc => sc.classList.remove('show'));
+
+            // Başlık tıklamaları
+            headings.forEach(heading => {
+                heading.addEventListener('click', () => {
+                    const category = heading.id;
+                    const categoryItems = document.querySelectorAll(`.item[data-category="${category}"]`);
+
+                    if (category === 'icecek') {
+                        // Alt kategorileri aç/kapa
+                        subCategories.forEach(sc => {
+                            sc.classList.toggle('show');
+                        });
+                        // Sadece icecek kategorisindeki itemları aç/kapa
+                        categoryItems.forEach(item => {
+                            item.classList.toggle('show');
+                        });
+                    } else {
+                        // Diğer kategoriler için sadece ilgili itemları aç/kapa
+                        categoryItems.forEach(item => {
+                            item.classList.toggle('show');
+                        });
+                    }
+                });
+            });
+
+            // Alt başlık tıklamaları
+            subHeadings.forEach(subHeading => {
+                subHeading.addEventListener('click', () => {
+                    const nextElem = subHeading.nextElementSibling;
+                    if (nextElem && nextElem.classList.contains('sub-category')) {
+                        nextElem.classList.toggle('show');
+                    }
+                });
+            });
+
+            // Tab butonları
+            const buttons = document.querySelectorAll('.tab-button');
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    const category = button.getAttribute('data-category');
+
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+
+                    if (category === 'all') {
+                        items.forEach(i => i.classList.add('show'));
+                        subCategories.forEach(sc => sc.classList.add('show'));
+                        headings.forEach(h => h.style.display = 'block');
+                        subHeadings.forEach(sh => sh.style.display = 'block');
+                    } else {
+                        headings.forEach(h => {
+                            h.style.display = h.id === category ? 'block' : 'none';
+                        });
+
+                        if (category === 'icecek') {
+                            subHeadings.forEach(sh => sh.style.display = 'block');
+                            subCategories.forEach(sc => sc.classList.add('show'));
+                        } else {
+                            subHeadings.forEach(sh => sh.style.display = 'none');
+                            subCategories.forEach(sc => sc.classList.remove('show'));
+                        }
+
+                        items.forEach(i => {
+                            i.classList.remove('show');
+                            if (i.getAttribute('data-category') === category) {
+                                i.classList.add('show');
+                            }
+                        });
+                    }
+                });
+            });
         });
-        categoryItems.forEach(item => {
-          item.classList.toggle('show');
-        });
-      } else {
-        categoryItems.forEach(item => {
-          item.classList.toggle('show');
-        });
-      }
-    });
-  });
 
-  // Alt başlık tıklamaları
-  subHeadings.forEach(subHeading => {
-    subHeading.addEventListener('click', () => {
-      const nextElem = subHeading.nextElementSibling;
-      if (nextElem && nextElem.classList.contains('sub-category')) {
-        nextElem.classList.toggle('show');
-      }
-    });
-  });
-
-  // Tab butonları
-  const buttons = document.querySelectorAll('.tab-button');
-  buttons.forEach(button => {
-    button.addEventListener('click', () => {
-      const category = button.getAttribute('data-category');
-
-      buttons.forEach(btn => btn.classList.remove('active'));
-      button.classList.add('active');
-
-      if(category === 'all'){
-        items.forEach(i => i.classList.add('show'));
-        subCategories.forEach(sc => sc.classList.add('show'));
-        headings.forEach(h => h.style.display = 'block');
-        subHeadings.forEach(sh => sh.style.display = 'block');
-      } else {
-        headings.forEach(h => {
-          h.style.display = h.id === category ? 'block' : 'none';
-        });
-
-        if(category === 'icecek') {
-          subHeadings.forEach(sh => sh.style.display = 'block');
-          subCategories.forEach(sc => sc.classList.add('show'));
-        } else {
-          subHeadings.forEach(sh => sh.style.display = 'none');
-          subCategories.forEach(sc => sc.classList.remove('show'));
-        }
-
-        items.forEach(i => {
-          i.classList.remove('show');
-          if(i.getAttribute('data-category') === category){
-            i.classList.add('show');
-          }
-        });
-      }
-    });
-  });
-});
-
-  </script>
+    </script>
 
 </body>
+
 </html>
