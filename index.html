@@ -17,12 +17,19 @@
         .logo-container {
             display: flex;
             justify-content: center;
+            /* Yatayda ortalama */
             align-items: center;
+            /* Dikeyde ortalama */
+            margin: 20px auto;
+            /* Üst ve alt boşluklar */
+        }
+
+        /* Logo */
+        .logo {
+            max-width: 100%;
+            /* Logo çok genişse boyutunu sınırlayalım */
             height: auto;
-            /* Mobilde daha esnek yükseklik */
-            margin-bottom: 20px;
-            padding-top: 20px;
-            /* Üstten biraz boşluk ekleyelim */
+            /* Yüksekliği orantılı olarak ayarlayalım */
         }
 
         @media (max-width: 768px) {
@@ -191,10 +198,6 @@
             pointer-events: none;
         }
 
-        .logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
 
         .logo img {
             width: 150px;
