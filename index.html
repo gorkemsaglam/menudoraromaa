@@ -16,6 +16,12 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&family=Allura&family=Dancing+Script&display=swap');
 
         /* Genel Stiller */
+        html,
+        body {
+            scroll-behavior: smooth;
+            /* Pürüzsüz kaydırma için (1 Ağustos 2025) */
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
             font-size: 17px;
@@ -176,6 +182,25 @@
             margin-right: 12px;
         }
 
+        h2.section-heading:hover {
+            background: linear-gradient(to right, #f1e6df, #fffdfc);
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        #tumu .section-heading {
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            /* Tümü sekmesi için tıklanabilir stil (1 Ağustos 2025) */
+        }
+
+        #tumu .section-heading:hover {
+            background: linear-gradient(to right, #f1e6df, #fffdfc);
+            /* Ters yönde gradient (1 Ağustos 2025) */
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
         h2.about-title {
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
@@ -187,18 +212,18 @@
         }
 
         .sub-heading {
-            font-size: 22px;
-            color: #a47148;
-            margin-top: 40px;
+            font-size: 20px;
+            color: #7a5533;
+            margin-top: 30px;
             margin-bottom: 15px;
-            font-weight: bold;
+            font-weight: 700;
             border-left: 4px solid #a47148;
             padding-left: 12px;
             font-family: 'Poppins', sans-serif;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
-            display: none;
+            display: block;
         }
 
         /* Hakkımızda Bölümü Stilleri */
@@ -308,21 +333,13 @@
             animation-delay: 0.6s;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             flex-direction: row;
-            /* Solda resim, sağda bilgi (31 Temmuz 2025) */
             align-items: center;
-            /* Dikey hizalama (31 Temmuz 2025) */
             padding: 15px;
-            /* İç boşluk (31 Temmuz 2025) */
             background: #fff;
-            /* Arka plan beyaz (31 Temmuz 2025) */
             border-radius: 12px;
-            /* Yumuşak köşeler (31 Temmuz 2025) */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            /* Hafif gölge (31 Temmuz 2025) */
             margin-bottom: 20px;
-            /* Ürünler arası boşluk (31 Temmuz 2025) */
             flex-wrap: nowrap;
-            /* Mobilde taşmayı önler (1 Ağustos 2025) */
         }
 
         .item.show {
@@ -334,50 +351,38 @@
 
         .item:hover {
             transform: scale(1.02);
-            /* Hafif büyütme efekti (31 Temmuz 2025) */
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
-            /* Daha belirgin gölge (31 Temmuz 2025) */
         }
 
         .item img {
             width: 150px;
-            /* Resim boyutunu küçülttük (31 Temmuz 2025) */
             height: auto;
             object-fit: cover;
             border-radius: 8px;
-            /* Daha yumuşak köşeler (31 Temmuz 2025) */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-            /* Hafif gölge (31 Temmuz 2025) */
             margin-right: 20px;
-            /* Resim ile bilgi arasında boşluk (31 Temmuz 2025) */
         }
 
         .item-info {
             flex: 1;
-            /* Bilgi kısmı kalan alanı kapsar (31 Temmuz 2025) */
             text-align: left;
-            /* Sola hizalama (31 Temmuz 2025) */
         }
 
         .item-info>h3 {
             font-family: 'Poppins', sans-serif !important;
             font-weight: 600 !important;
             font-size: 18px !important;
-            /* Daha küçük başlık (31 Temmuz 2025) */
             color: #3a3a3a !important;
             text-shadow: none !important;
             letter-spacing: 0.5px !important;
             margin: 0 0 5px 0;
-            /* Daha az alt boşluk (31 Temmuz 2025) */
         }
 
         .item-info>h3 .price {
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 700 !important;
             font-size: 16px !important;
-            /* Daha küçük fiyat (31 Temmuz 2025) */
             color: #a47148 !important;
-            /* Sayfaya uyumlu renk (31 Temmuz 2025) */
             margin-left: 10px !important;
             text-shadow: none !important;
             letter-spacing: 0.3px !important;
@@ -387,11 +392,9 @@
             font-family: 'Poppins', sans-serif !important;
             font-weight: 400 !important;
             font-size: 14px !important;
-            /* Açıklama için küçük yazı tipi (31 Temmuz 2025) */
             color: #555 !important;
             line-height: 1.5 !important;
             margin-top: 8px !important;
-            /* Üstten boşluk (31 Temmuz 2025) */
         }
 
         .sub-category {
@@ -631,12 +634,12 @@
 
             .item {
                 flex-direction: row;
-                /* Masaüstünde solda resim, sağda bilgi (31 Temmuz 2025) */
+                margin-top: 0;
+                /* Masaüstünde üst boşluk yok (1 Ağustos 2025) */
             }
 
             .item img {
                 width: 150px;
-                /* Resim boyutunu küçülttük (31 Temmuz 2025) */
                 height: auto;
                 margin-right: 20px;
             }
@@ -665,7 +668,6 @@
 
             .logo {
                 width: 120px;
-                /* Logo genişliği 100px'den 120px'e büyütüldü (31 Temmuz 2025) */
                 margin: 0 auto;
             }
 
@@ -709,44 +711,35 @@
 
             .item {
                 flex-direction: row;
-                /* Mobilde de solda resim, sağda bilgi (1 Ağustos 2025) */
                 align-items: center;
-                /* Ortala (31 Temmuz 2025) */
                 padding: 10px;
                 flex-wrap: nowrap;
-                /* Taşmayı önler (1 Ağustos 2025) */
+                margin-top: 10px;
+                /* İlk ürünün üstte boşlukla hizalanması (1 Ağustos 2025) */
             }
 
             .item img {
                 width: 80px;
-                /* Mobilde daha küçük resim (1 Ağustos 2025) */
                 height: auto;
                 margin-right: 10px;
-                /* Sağ boşluk eklendi (1 Ağustos 2025) */
                 margin-bottom: 0;
-                /* Alt boşluk kaldırıldı (1 Ağustos 2025) */
             }
 
             .item-info {
                 text-align: left;
-                /* Mobilde metni sola hizala (1 Ağustos 2025) */
                 flex: 1;
-                /* Kalan alanı doldur (1 Ağustos 2025) */
             }
 
             .item-info h3 {
                 font-size: 14px !important;
-                /* Mobilde daha küçük başlık (1 Ağustos 2025) */
             }
 
             .item-info h3 .price {
                 font-size: 13px !important;
-                /* Mobilde daha küçük fiyat (1 Ağustos 2025) */
             }
 
             .item-info p {
                 font-size: 12px !important;
-                /* Mobilde daha küçük açıklama (1 Ağustos 2025) */
                 line-height: 1.4 !important;
             }
 
@@ -757,9 +750,9 @@
                 border-left-width: 4px;
             }
 
-            h3.sub-heading {
-                font-size: 16px;
-                margin: 20px 0 10px;
+            .sub-heading {
+                font-size: 18px;
+                margin-top: 20px;
             }
 
             .divider {
@@ -782,7 +775,6 @@
 
             .logo {
                 width: 100px;
-                /* Logo genişliği 80px'den 100px'e büyütüldü (31 Temmuz 2025) */
                 margin: 0 auto;
             }
 
@@ -839,110 +831,147 @@
 
     <h1>Restoran Menüsü</h1>
 
+    <!-- Mevcut HTML'nize eklenecek veya düzenlenecek menü kısmı -->
+    <!-- Mevcut HTML'nize eklenecek veya düzenlenecek menü kısmı -->
     <div class="menu-tabs">
-        <button class="tab-button active" data-category="all">Tümü</button>
-        <button class="tab-button" data-category="pasta">Pastalar</button>
-        <button class="tab-button" data-category="tatli">Tatlılar</button>
-        <button class="tab-button" data-category="icecek">İçecekler</button>
-        <button class="tab-button" data-category="dondurma">Dondurmalar</button>
-        <button class="tab-button" data-category="kahve">Kahveler</button>
+        <button class="tab-button" data-tab="tumu">Tümü</button>
+        <button class="tab-button" data-tab="pastalar">Pastalar</button>
+        <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
+        <button class="tab-button" data-tab="icecekler">İçecekler</button>
+        <button class="tab-button" data-tab="dondurmalar">Dondurmalar</button>
+        <button class="tab-button" data-tab="kahveler">Kahveler</button>
     </div>
 
-    <h2 id="pasta" class="section-heading">🍰 Pastalar</h2>
-    <div class="item" data-category="pasta">
-        <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalıpasta" />
-        <div class="item-info">
-            <h3>Çikolatalı Pasta <span class="price">100₺</span></h3>
-            <p>Kremalı mascarpone ve kahveli kek tabanı ashkghdvjaskvdasbjdka</p>
-        </div>
+    <!-- Tümü Sekmesi -->
+    <div id="tumu" class="tab-content">
+        <h2 class="section-heading" data-tab="pastalar">Pastalar</h2>
+        <h2 class="section-heading" data-tab="tatlilar">Tatlılar</h2>
+        <h2 class="section-heading" data-tab="icecekler">İçecekler</h2>
+        <h2 class="section-heading" data-tab="dondurmalar">Dondurmalar</h2>
+        <h2 class="section-heading" data-tab="kahveler">Kahveler</h2>
     </div>
 
-    <h2 id="tatli" class="section-heading">🍮 Tatlılar</h2>
-    <div class="item" data-category="tatli">
-        <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" />
-        <div class="item-info">
-            <h3>Sütlaç <span class="price">75₺</span></h3>
-            <p>Karamelize edilmiş nefis sütlü tatlı jksavdvjagsdjgasdjaghdsa</p>
-        </div>
-    </div>
-
-    <h2 id="icecek" class="section-heading">🥤 İçecekler</h2>
-    <h3 class="sub-heading">🔥 Sıcak İçecekler</h3>
-
-    <div class="sub-category"> <!-- Bu div'i ekle -->
-        <div class="item" data-category="icecek">
-            <img src="images/fotolar/salep.jpg" alt="Salep" />
-            <div class="item-info">
-                <h3>Salep <span class="price">45₺</span></h3>
-                <p>Gerçek orkide köküyle hazırlanan geleneksel tat…</p>
+    <!-- Pastalar Sekmesi -->
+    <div id="pastalar" class="tab-content">
+        <div class="sub-category" data-subcategory="pastalar">
+            <h3 class="sub-heading">Pastalar</h3>
+            <div class="item">
+                <img src="images/fotolar/pasta.jpg" alt="Çikolatalı Pasta">
+                <div class="item-info">
+                    <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
+                    <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
+                </div>
             </div>
-        </div>
-
-        <div class="item" data-category="icecek">
-            <img src="images/fotolar/bitki-cayi.jpg" alt="Bitki Çayı" />
-            <div class="item-info">
-                <h3>Bitki Çayı <span class="price">35₺</span></h3>
-                <p>Rezene, papatya ve adaçayı karışımı…</p>
+            <div class="item">
+                <img src="images/fotolar/meyveli-pasta.jpg" alt="Meyveli Pasta">
+                <div class="item-info">
+                    <h3>Meyveli Pasta <span class="price">45 TL</span></h3>
+                    <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <h3 class="sub-heading">🧊 Soğuk İçecekler</h3>
-
-    <div class="sub-category"> <!-- Bu div'i ekle -->
-        <div class="item" data-category="icecek">
-            <img src="images/fotolar/limonata.jpg" alt="Limonata" />
-            <div class="item-info">
-                <h3>Limonata <span class="price">45₺</span></h3>
-                <p>Taze limon, nane ve buz ile hazırlanır…</p>
+    <!-- Tatlılar Sekmesi -->
+    <div id="tatlilar" class="tab-content">
+        <div class="sub-category" data-subcategory="tatlilar">
+            <h3 class="sub-heading">Tatlılar</h3>
+            <div class="item">
+                <img src="images/fotolar/baklava.jpg" alt="Baklava">
+                <div class="item-info">
+                    <h3>Baklava <span class="price">30 TL</span></h3>
+                    <p>Antep fıstıklı, çıtır baklava.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/sutlac.jpg" alt="Sütlaç">
+                <div class="item-info">
+                    <h3>Sütlaç <span class="price">20 TL</span></h3>
+                    <p>Fırınlanmış geleneksel sütlaç.</p>
+                </div>
             </div>
         </div>
+    </div>
 
-        <div class="item" data-category="icecek">
-            <img src="images/fotolar/soda.jpg" alt="Soda" />
-            <div class="item-info">
-                <h3>Soda <span class="price">25₺</span></h3>
-                <p>Serinletici ve hafif gazlı içecek…</p>
+    <!-- İçecekler Sekmesi -->
+    <div id="icecekler" class="tab-content">
+        <div class="sub-category" data-subcategory="soguk-icecekler">
+            <h3 class="sub-heading">Soğuk İçecekler</h3>
+            <div class="item">
+                <img src="images/fotolar/limonata.jpg" alt="Limonata">
+                <div class="item-info">
+                    <h3>Limonata <span class="price">20 TL</span></h3>
+                    <p>Taze sıkılmış limonlarla ferahlatıcı bir içecek.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/ice-tea.jpg" alt="Ice Tea">
+                <div class="item-info">
+                    <h3>Ice Tea <span class="price">18 TL</span></h3>
+                    <p>Şeftali aromalı soğuk çay.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sub-category" data-subcategory="sicak-icecekler">
+            <h3 class="sub-heading">Sıcak İçecekler</h3>
+            <div class="item">
+                <img src="images/fotolar/turk-kahvesi.jpg" alt="Türk Kahvesi">
+                <div class="item-info">
+                    <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
+                    <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/cay.jpg" alt="Çay">
+                <div class="item-info">
+                    <h3>Çay <span class="price">15 TL</span></h3>
+                    <p>Taze demlenmiş siyah çay.</p>
+                </div>
             </div>
         </div>
     </div>
 
-    <h2 id="dondurma" class="section-heading">🍦 Dondurmalar</h2>
-
-    <div class="item" data-category="dondurma">
-        <img src="images/fotolar/dondurma-1.jpg" alt="Vanilyalı Dondurma" />
-        <div class="item-info">
-            <h3>Vanilyalı Dondurma <span class="price">30₺</span></h3>
-            <p>Ev yapımı doğal vanilyalı dondurma.</p>
+    <!-- Dondurmalar Sekmesi -->
+    <div id="dondurmalar" class="tab-content">
+        <div class="sub-category" data-subcategory="dondurmalar">
+            <h3 class="sub-heading">Dondurmalar</h3>
+            <div class="item">
+                <img src="images/fotolar/cikolata-dondurma.jpg" alt="Çikolatalı Dondurma">
+                <div class="item-info">
+                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
+                    <p>Kremalı çikolata dondurma.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/vanilya-dondurma.jpg" alt="Vanilyalı Dondurma">
+                <div class="item-info">
+                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
+                    <p>Hafif ve doğal vanilya aromalı dondurma.</p>
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="item" data-category="dondurma">
-        <img src="images/fotolar/cilek.jpg" alt="Çilekli Dondurma" />
-        <div class="item-info">
-            <h3>Çilekli Dondurma <span class="price">30₺</span></h3>
-            <p>Taze çilek parçaları ile lezzetlendirilmiş.</p>
+    <!-- Kahveler Sekmesi -->
+    <div id="kahveler" class="tab-content">
+        <div class="sub-category" data-subcategory="kahveler">
+            <h3 class="sub-heading">Kahveler</h3>
+            <div class="item">
+                <img src="images/fotolar/espresso.jpg" alt="Espresso">
+                <div class="item-info">
+                    <h3>Espresso <span class="price">22 TL</span></h3>
+                    <p>Yoğun aromalı tek shot espresso.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/latte.jpg" alt="Latte">
+                <div class="item-info">
+                    <h3>Latte <span class="price">28 TL</span></h3>
+                    <p>Köpüklü süt ile hazırlanmış latte.</p>
+                </div>
+            </div>
         </div>
     </div>
-
-    <h2 id="kahve" class="section-heading">☕ Kahveler</h2>
-
-    <div class="item" data-category="kahve">
-        <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" />
-        <div class="item-info">
-            <h3>Türk Kahvesi <span class="price">20₺</span></h3>
-            <p>Klasik Türk kahvesi, köpüklü ve aromatik.</p>
-        </div>
-    </div>
-
-    <div class="item" data-category="kahve">
-        <img src="images/fotolar/espresso.jpg" alt="Espresso" />
-        <div class="item-info">
-            <h3>Espresso <span class="price">25₺</span></h3>
-            <p>Koyu kavrulmuş, yoğun aromalı espresso.</p>
-        </div>
-    </div>
-
     <div class="divider"><span>Roma Dora</span></div>
 
     <section class="contact-info">
@@ -984,87 +1013,122 @@
     </section>
 
     <script>
-        window.addEventListener('DOMContentLoaded', () => {
-            const headings = document.querySelectorAll('h2.section-heading');
-            const items = document.querySelectorAll('.item');
+        document.addEventListener('DOMContentLoaded', () => {
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
-            const subHeadings = document.querySelectorAll('h3.sub-heading');
+            const sectionHeadings = document.querySelectorAll('.section-heading');
 
-            // Başlangıçta tüm itemları kapat
-            items.forEach(i => i.classList.remove('show'));
-            subCategories.forEach(sc => sc.classList.remove('show'));
+            // İlk ürün görseline kaydırma fonksiyonu (1 Ağustos 2025)
+            function scrollToFirstItem(tabId) {
+                // Mobil cihaz kontrolü (600px ve altı)
+                if (window.innerWidth <= 600) {
+                    const targetContent = document.getElementById(tabId);
+                    if (targetContent) {
+                        const firstItem = targetContent.querySelector('.item');
+                        if (firstItem) {
+                            firstItem.scrollIntoView({
+                                behavior: 'smooth',
+                                block: 'start',
+                                inline: 'nearest'
+                            });
+                        }
+                    }
+                }
+            }
 
-            // Başlık tıklamaları
-            headings.forEach(heading => {
+            // Sekme tıklama olayı
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Tüm sekmeleri ve içerikleri sıfırla
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tabContents.forEach(content => content.style.display = 'none');
+                    subCategories.forEach(sub => sub.classList.remove('show'));
+                    sectionHeadings.forEach(heading => heading.classList.remove('active'));
+
+                    // Tıklanan sekmeyi aktif et
+                    button.classList.add('active');
+                    const tabId = button.getAttribute('data-tab');
+                    const targetContent = document.getElementById(tabId);
+                    if (targetContent) {
+                        targetContent.style.display = 'block';
+                        // Tümü sekmesi için özel işlem
+                        if (tabId === 'tumu') {
+                            // Sadece başlıklar görünür, ürünler gizli kalır
+                            targetContent.querySelectorAll('.section-heading').forEach(heading => {
+                                heading.style.display = 'block';
+                            });
+                        } else {
+                            // Diğer sekmeler için alt kategorileri ve ürünleri göster
+                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
+                            subCategoriesInTab.forEach(sub => {
+                                sub.classList.add('show');
+                                const itemsInSub = sub.querySelectorAll('.item');
+                                itemsInSub.forEach(item => item.classList.add('show'));
+                            });
+                            // Mobilde ilk ürün görseline kaydır (1 Ağustos 2025)
+                            scrollToFirstItem(tabId);
+                        }
+                    }
+                });
+            });
+
+            // Başlık tıklama olayı (Tümü sekmesinde) (1 Ağustos 2025)
+            sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
-                    const category = heading.id;
-                    const categoryItems = document.querySelectorAll(`.item[data-category="${category}"]`);
+                    const tabId = heading.getAttribute('data-tab');
+                    const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                    if (targetButton) {
+                        targetButton.click(); // İlgili sekmeyi aç
+                        // Mobilde ilk ürün görseline kaydır (1 Ağustos 2025)
+                        scrollToFirstItem(tabId);
+                    }
+                });
+            });
+
+            // Varsayılan olarak Tümü sekmesini aç (1 Ağustos 2025)
+            const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
+            if (tumuButton) {
+                tumuButton.click(); // Tümü sekmesini otomatik tıkla
+            }
+        });
+        // Tab butonları
+        const buttons = document.querySelectorAll('.tab-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                const category = button.getAttribute('data-category');
+
+                buttons.forEach(btn => btn.classList.remove('active'));
+                button.classList.add('active');
+
+                if (category === 'all') {
+                    items.forEach(i => i.classList.add('show'));
+                    subCategories.forEach(sc => sc.classList.add('show'));
+                    headings.forEach(h => h.style.display = 'block');
+                    subHeadings.forEach(sh => sh.style.display = 'block');
+                } else {
+                    headings.forEach(h => {
+                        h.style.display = h.id === category ? 'block' : 'none';
+                    });
 
                     if (category === 'icecek') {
-                        // Alt kategorileri aç/kapa
-                        subCategories.forEach(sc => {
-                            sc.classList.toggle('show');
-                        });
-                        // Sadece icecek kategorisindeki itemları aç/kapa
-                        categoryItems.forEach(item => {
-                            item.classList.toggle('show');
-                        });
-                    } else {
-                        // Diğer kategoriler için sadece ilgili itemları aç/kapa
-                        categoryItems.forEach(item => {
-                            item.classList.toggle('show');
-                        });
-                    }
-                });
-            });
-
-            // Alt başlık tıklamaları
-            subHeadings.forEach(subHeading => {
-                subHeading.addEventListener('click', () => {
-                    const nextElem = subHeading.nextElementSibling;
-                    if (nextElem && nextElem.classList.contains('sub-category')) {
-                        nextElem.classList.toggle('show');
-                    }
-                });
-            });
-
-            // Tab butonları
-            const buttons = document.querySelectorAll('.tab-button');
-            buttons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const category = button.getAttribute('data-category');
-
-                    buttons.forEach(btn => btn.classList.remove('active'));
-                    button.classList.add('active');
-
-                    if (category === 'all') {
-                        items.forEach(i => i.classList.add('show'));
-                        subCategories.forEach(sc => sc.classList.add('show'));
-                        headings.forEach(h => h.style.display = 'block');
                         subHeadings.forEach(sh => sh.style.display = 'block');
+                        subCategories.forEach(sc => sc.classList.add('show'));
                     } else {
-                        headings.forEach(h => {
-                            h.style.display = h.id === category ? 'block' : 'none';
-                        });
-
-                        if (category === 'icecek') {
-                            subHeadings.forEach(sh => sh.style.display = 'block');
-                            subCategories.forEach(sc => sc.classList.add('show'));
-                        } else {
-                            subHeadings.forEach(sh => sh.style.display = 'none');
-                            subCategories.forEach(sc => sc.classList.remove('show'));
-                        }
-
-                        items.forEach(i => {
-                            i.classList.remove('show');
-                            if (i.getAttribute('data-category') === category) {
-                                i.classList.add('show');
-                            }
-                        });
+                        subHeadings.forEach(sh => sh.style.display = 'none');
+                        subCategories.forEach(sc => sc.classList.remove('show'));
                     }
-                });
+
+                    items.forEach(i => {
+                        i.classList.remove('show');
+                        if (i.getAttribute('data-category') === category) {
+                            i.classList.add('show');
+                        }
+                    });
+                }
             });
         });
+
 
     </script>
 
