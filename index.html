@@ -30,6 +30,8 @@
             max-width: 100%;
             margin: auto;
             padding: 15px;
+            padding-top: 60px;
+            /* Sabit menü için üst boşluk (31 Temmuz 2025) */
             box-sizing: border-box;
             position: relative;
             overflow-x: hidden;
@@ -298,6 +300,19 @@
             justify-content: center;
             gap: 10px;
             margin: 30px auto;
+            position: fixed;
+            /* Menüyü ekranın üstünde sabitle (31 Temmuz 2025) */
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #fdfaf6;
+            /* Arka plan rengi (31 Temmuz 2025) */
+            z-index: 1000;
+            /* Diğer içeriklerin üstünde (31 Temmuz 2025) */
+            padding: 10px 0;
+            /* İç boşluk (31 Temmuz 2025) */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Hafif gölge (31 Temmuz 2025) */
         }
 
         .tab-button {
@@ -378,7 +393,7 @@
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 700 !important;
             font-size: 16px !important;
-            color: #a40909 !important;
+            color: #a47148 !important;
             margin-left: 10px !important;
             text-shadow: none !important;
             letter-spacing: 0.3px !important;
@@ -626,6 +641,8 @@
             body {
                 max-width: 800px;
                 padding: 20px;
+                padding-top: 60px;
+                /* Sabit menü için üst boşluk (31 Temmuz 2025) */
             }
 
             .item {
@@ -693,14 +710,18 @@
 
             .menu-tabs {
                 flex-wrap: wrap;
-                gap: 6px;
+                gap: 5px;
+                /* Daha sıkı düzen (31 Temmuz 2025) */
                 justify-content: center;
-                padding: 0 5px;
+                padding: 8px 5px;
+                /* Daha sıkı iç boşluk (31 Temmuz 2025) */
             }
 
             .tab-button {
-                font-size: 12px;
-                padding: 8px 12px;
+                font-size: 11px;
+                /* Daha küçük yazı (31 Temmuz 2025) */
+                padding: 6px 10px;
+                /* Daha küçük butonlar (31 Temmuz 2025) */
                 white-space: nowrap;
             }
 
@@ -747,8 +768,8 @@
             .sub-heading {
                 font-size: 18px;
                 margin-top: 0;
-                padding-top: 60px;
-                /* Sabit menü yüksekliği için boşluk (31 Temmuz 2025) */
+                padding-top: 70px;
+                /* Sabit menü yüksekliği için artırılmış boşluk (31 Temmuz 2025) */
             }
 
             .divider {
@@ -1023,9 +1044,9 @@
                     if (targetContent) {
                         const firstSubHeading = targetContent.querySelector('.sub-heading');
                         if (firstSubHeading) {
-                            // Sabit menü yüksekliğini hesapla (örneğin, .menu-tabs)
+                            // Sabit menü yüksekliğini hesapla
                             const menuTabs = document.querySelector('.menu-tabs');
-                            const offset = menuTabs ? menuTabs.offsetHeight + 10 : 10; // Menü yüksekliği + 10px boşluk
+                            const offset = menuTabs ? menuTabs.offsetHeight + 20 : 20; // Menü yüksekliği + 20px boşluk (31 Temmuz 2025)
                             const elementPosition = firstSubHeading.getBoundingClientRect().top + window.pageYOffset;
                             window.scrollTo({
                                 top: elementPosition - offset,
