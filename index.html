@@ -1,19 +1,21 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-    <title>Restoran Menüsü</title>
+    <title>Dora Roma Menü</title>
 
     <style>
         /* Font İçe Aktarmaları */
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html, body {
+        html,
+        body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -34,23 +36,32 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 50px 0;
-            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            padding: 30px 0;
+            background: none;
         }
 
-        .logo img {
-            max-width: 180px;
-            height: auto;
-            object-fit: contain;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-            filter: brightness(95%) contrast(110%);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        .logo {
+            font-family: 'Allura', cursive;
+            font-size: 36px;
+            color: #a47148;
+            font-weight: 400;
+            text-align: center;
+            transition: transform 0.3s ease;
         }
 
-        .logo img:hover {
+        .logo:hover {
             transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Medya Sorguları */
+        @media screen and (max-width: 600px) {
+            .logo-container {
+                padding: 20px 0;
+            }
+
+            .logo {
+                font-size: 12px;
+            }
         }
 
         /* Hakkımızda Bölümü */
@@ -58,7 +69,7 @@
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             padding: 40px 20px;
             border-radius: 20px;
-            margin: 5px 0;
+            margin: 5px 0 30px 0;
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -313,6 +324,20 @@
             color: #bfa358;
         }
 
+        /* Harita Stilleri */
+        .contact-map {
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-map iframe {
+            width: 100%;
+            height: 300px;
+            border: none;
+        }
+
         /* Geri Bildirim Formu */
         .feedback-section {
             background-color: #ffffff;
@@ -435,6 +460,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -446,6 +472,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -493,7 +520,7 @@
             }
 
             .about-us {
-                margin: 2px 0;
+                margin: 2px 0 20px 0;
                 padding: 25px 15px;
                 border-radius: 15px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -569,6 +596,10 @@
                 font-size: 18px;
             }
 
+            .contact-map iframe {
+                height: 200px; /* Mobil için daha küçük harita */
+            }
+
             #backToTop {
                 width: 32px;
                 height: 32px;
@@ -582,10 +613,11 @@
         }
     </style>
 </head>
+
 <body>
     <div class="logo-container">
         <div class="logo">
-            <img src="images/fotolar/DORA_ROMA.png" alt="Restoran Logosu" />
+            <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
     </div>
 
@@ -593,7 +625,9 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
+                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
+                malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -740,7 +774,7 @@
         </div>
     </div>
 
-    <div class="divider"><span>Roma Dora</span></div>
+    <div class="divider"><span>DORA ROMA</span></div>
 
     <section class="contact-info">
         <div class="contact-info-wrapper">
@@ -748,7 +782,8 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
+                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -759,10 +794,15 @@
                     <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraroma</a>
                 </li>
             </ul>
+            <div class="contact-map">
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3009.766383135285!2d28.89788311525888!3d41.03468797929868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cabb7b0b1f1b1d%3A0x1b2f8f4f3b3b3b3b!2sY%C4%B1ld%C4%B1r%C4%B1m%2C%20%C5%9Eehit%20Kamil%20Balkan%20Cd.%2012%2C%2034030%20Bayrampa%C5%9Fa%2F%C4%B0stanbul%2C%20T%C3%BCrkiye!5e0!3m2!1str!2sus!4v1698765432100!5m2!1str!2sus"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
         </div>
     </section>
 
-    <div class="divider"><span>Roma Dora</span></div>
+    <div class="divider"><span>DORA ROMA</span></div>
 
     <section class="feedback-section">
         <h2>Soru, Görüş ve Önerileriniz</h2>
@@ -772,7 +812,8 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
+                required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -847,7 +888,17 @@
             if (tumuButton) {
                 tumuButton.click();
             }
+
+            // Back to Top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
     </script>
 </body>
+
 </html>
