@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -14,7 +15,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html, body {
+        html,
+        body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -35,14 +37,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 20px 0;
+            padding: 100px 0;
+            /* Logoyu daha aşağıya taşır (31 Temmuz 2025) */
         }
 
         .logo img {
             max-width: 225px;
             height: auto;
             filter: brightness(90%);
-            
+
         }
 
         /* Header Sağ Bölüm Stilleri */
@@ -83,15 +86,20 @@
 
         /* Başlık Stilleri */
         h1.menu-title {
-            font-family: 'Dancing Script', cursive; /* Daha dinamik font (31 Temmuz 2025) */
-            font-size: 40px; /* Daha büyük ve dikkat çekici */
+            font-family: 'Dancing Script', cursive;
+            /* Daha dinamik font (31 Temmuz 2025) */
+            font-size: 40px;
+            /* Daha büyük ve dikkat çekici */
             font-weight: 700;
             color: #333333;
             text-align: center;
             margin: 30px 0;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
-            animation: fadeIn 1.2s ease-in-out; /* Yavaş ve pürüzsüz animasyon */
-            letter-spacing: 1px; /* Hafif harf boşluğu */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+            /* Daha belirgin gölge */
+            animation: fadeIn 1.2s ease-in-out;
+            /* Yavaş ve pürüzsüz animasyon */
+            letter-spacing: 1px;
+            /* Hafif harf boşluğu */
         }
 
         h2.section-heading {
@@ -105,10 +113,12 @@
             position: relative;
             cursor: pointer;
             transition: color 0.3s ease, background-color 0.3s ease;
-            background: linear-gradient(to right, #fafafa, #ffffff); /* Hafif gradient */
+            background: linear-gradient(to right, #fafafa, #ffffff);
+            /* Hafif gradient */
             padding: 10px 20px;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Hafif gölge */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            /* Hafif gölge */
         }
 
         h2.section-heading:hover {
@@ -127,7 +137,8 @@
             padding-left: 20px;
             border-left: 3px solid #a47148;
             position: relative;
-            background: linear-gradient(to right, #ffffff, #fafafa); /* Hafif gradient */
+            background: linear-gradient(to right, #ffffff, #fafafa);
+            /* Hafif gradient */
             padding: 8px 15px;
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
@@ -141,7 +152,8 @@
 
         /* Menü Tab Stilleri */
         .menu-tabs {
-            position: static; /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
+            position: static;
+            /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
             background-color: #ffffff;
             display: flex;
             flex-wrap: wrap;
@@ -149,7 +161,8 @@
             gap: 6px;
             padding: 10px;
             margin: 20px 0;
-            border-bottom: 2px solid #a47148; /* Daha belirgin ayırıcı */
+            border-bottom: 2px solid #a47148;
+            /* Daha belirgin ayırıcı */
         }
 
         .tab-button {
@@ -413,7 +426,8 @@
             justify-content: center;
             margin: 40px 0;
             color: #a47148;
-            font-family: 'Allura', cursive; /* Daha zarif font (31 Temmuz 2025) */
+            font-family: 'Allura', cursive;
+            /* Daha zarif font (31 Temmuz 2025) */
             font-size: 28px;
         }
 
@@ -431,6 +445,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -442,6 +457,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -479,7 +495,8 @@
             }
 
             h1.menu-title {
-                font-size: 32px; /* Mobilde daha kompakt */
+                font-size: 32px;
+                /* Mobilde daha kompakt */
                 margin: 20px 0;
             }
 
@@ -536,19 +553,22 @@
         }
     </style>
 </head>
+
 <body>
     <div class="logo-container">
         <div class="logo">
             <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
-        
+
     </div>
 
     <section class="about-us">
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
+                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
+                malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -703,7 +723,8 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
+                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -727,7 +748,8 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
+                required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -805,4 +827,5 @@
         });
     </script>
 </body>
+
 </html>
