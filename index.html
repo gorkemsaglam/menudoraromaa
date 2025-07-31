@@ -69,12 +69,24 @@
             font-size: 48px;
             margin: 0;
             color: #ffffff;
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .hero-content h1.animate {
+            animation: slideIn 0.6s ease-in-out 0.3s forwards;
         }
 
         .hero-content p {
             font-family: 'Inter', sans-serif;
             font-size: 18px;
             margin: 10px 0;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .hero-content p.animate {
+            animation: fadeInUp 0.6s ease-in-out 0.5s forwards;
         }
 
         .hero-content button {
@@ -89,7 +101,12 @@
             cursor: pointer;
             transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            opacity: 0.9;
+            opacity: 0;
+            transform: translateY(-20px);
+        }
+
+        .hero-content button.animate {
+            animation: fadeIn 0.6s ease-in-out 0.7s forwards;
         }
 
         .hero-content button:hover {
@@ -156,40 +173,6 @@
             opacity: 1;
         }
 
-        /* Medya Sorguları */
-        @media screen and (max-width: 600px) {
-            .hero-section {
-                height: 300px;
-            }
-
-            .hero-content h1 {
-                font-size: 36px;
-            }
-
-            .hero-content p {
-                font-size: 16px;
-            }
-
-            .hero-content button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-
-            .logo-container {
-                padding: 20px 0;
-            }
-
-            .logo {
-                font-size: 12px;
-            }
-
-            .tumu-button {
-                font-size: 11px;
-                padding: 6px 12px;
-                min-width: 70px;
-            }
-        }
-
         /* Hakkımızda Bölümü */
         .about-us {
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
@@ -214,6 +197,12 @@
             color: #a47148;
             margin-bottom: 20px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+
+        .about-title.animate {
+            animation: slideIn 0.6s ease-in-out 0.9s forwards;
         }
 
         .about-text {
@@ -223,6 +212,12 @@
             max-width: 600px;
             margin: 0 auto;
             line-height: 1.9;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .about-text.animate {
+            animation: fadeInUp 0.6s ease-in-out 1.1s forwards;
         }
 
         /* Başlık Stilleri */
@@ -321,12 +316,12 @@
             padding: 10px 15px;
             margin: 5px 0;
             border-bottom: 2px solid #a47148;
-            -webkit-overflow-scrolling: touch; /* iOS için pürüzsüz kaydırma */
-            scrollbar-width: none; /* Firefox için kaydırma çubuğunu gizle */
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
         }
 
         .menu-tabs::-webkit-scrollbar {
-            display: none; /* Chrome, Safari için kaydırma çubuğunu gizle */
+            display: none;
         }
 
         .tab-button {
@@ -357,23 +352,6 @@
             background-color: #bfa358;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             opacity: 1;
-        }
-
-        /* Medya Sorguları */
-        @media screen and (max-width: 600px) {
-            .menu-tabs {
-                padding: 8px 10px;
-                gap: 6px;
-                margin: 3px 0;
-                justify-content: flex-start;
-            }
-
-            .tab-button {
-                font-size: 12px;
-                padding: 6px 12px;
-                border-radius: 10px;
-                min-width: 50px;
-            }
         }
 
         /* İtem Stilleri */
@@ -639,9 +617,8 @@
         @keyframes fadeIn {
             from {
                 opacity: 0;
-                transform: translateY(-10px);
+                transform: translateY(-20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -653,10 +630,20 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
+            }
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
             }
         }
 
@@ -690,6 +677,23 @@
                 font-size: 14px;
             }
 
+            .hero-section {
+                height: 300px;
+            }
+
+            .hero-content h1 {
+                font-size: 36px;
+            }
+
+            .hero-content p {
+                font-size: 16px;
+            }
+
+            .hero-content button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+
             .logo-container {
                 padding: 30px 0;
             }
@@ -698,6 +702,26 @@
                 max-width: 140px;
                 border-radius: 8px;
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            }
+
+            .tumu-button {
+                font-size: 11px;
+                padding: 6px 12px;
+                min-width: 70px;
+            }
+
+            .menu-tabs {
+                padding: 8px 10px;
+                gap: 6px;
+                margin: 3px 0;
+                justify-content: flex-start;
+            }
+
+            .tab-button {
+                font-size: 12px;
+                padding: 6px 12px;
+                border-radius: 10px;
+                min-width: 50px;
             }
 
             .about-us {
@@ -770,6 +794,10 @@
 
             .contact-list li i {
                 font-size: 18px;
+            }
+
+            .contact-list li a {
+                font-size: 14px;
             }
 
             #backToTop {
@@ -1014,6 +1042,19 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Animasyonları tetikle
+            const heroTitle = document.querySelector('.hero-content h1');
+            const heroText = document.querySelector('.hero-content p');
+            const heroButton = document.querySelector('.hero-content button');
+            const aboutTitle = document.querySelector('.about-title');
+            const aboutText = document.querySelector('.about-text');
+
+            if (heroTitle) heroTitle.classList.add('animate');
+            if (heroText) heroText.classList.add('animate');
+            if (heroButton) heroButton.classList.add('animate');
+            if (aboutTitle) aboutTitle.classList.add('animate');
+            if (aboutText) aboutText.classList.add('animate');
+
             const tumuButton = document.querySelector('.tumu-button');
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabContents = document.querySelectorAll('.tab-content');
@@ -1042,19 +1083,14 @@
 
             // Tümü butonu tıklama olayı
             tumuButton.addEventListener('click', () => {
-                // Tüm butonlardan 'active' sınıfını kaldır
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tumuButton.classList.add('active');
-
-                // Tüm tab içeriklerini gizle
                 tabContents.forEach(content => {
                     if (content.id !== 'tumu') {
                         content.style.display = 'none';
                     }
                 });
                 subCategories.forEach(sub => sub.classList.remove('show'));
-
-                // Tümü sekmesini göster
                 const tumuContent = document.getElementById('tumu');
                 if (tumuContent) {
                     tumuContent.style.display = 'block';
@@ -1071,16 +1107,11 @@
             // Sekme tıklama olayı
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Tüm butonlardan 'active' sınıfını kaldır
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tumuButton.classList.remove('active');
                     button.classList.add('active');
-
-                    // Tüm tab içeriklerini gizle
                     tabContents.forEach(content => content.style.display = 'none');
                     subCategories.forEach(sub => sub.classList.remove('show'));
-
-                    // Tümü sekmesindeki içerik kaplarını temizle
                     sectionHeadings.forEach(heading => {
                         heading.setAttribute('data-state', 'closed');
                         const contentContainer = heading.nextElementSibling;
@@ -1088,8 +1119,6 @@
                             contentContainer.innerHTML = '';
                         }
                     });
-
-                    // Seçilen sekme içeriğini göster
                     const tabId = button.getAttribute('data-tab');
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
@@ -1115,7 +1144,6 @@
                     const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
 
                     if (currentState === 'closed') {
-                        // İçeriği başlığın altına taşı, sadece .item öğelerini al
                         if (targetContent && contentContainer) {
                             const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             contentContainer.innerHTML = '';
@@ -1134,7 +1162,6 @@
                             scrollToFirstItem(tabId, true);
                         }
                     } else {
-                        // İçeriği gizle
                         if (contentContainer) {
                             contentContainer.innerHTML = '';
                             heading.setAttribute('data-state', 'closed');
