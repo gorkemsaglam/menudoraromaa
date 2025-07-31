@@ -11,98 +11,74 @@
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
     <title>Restoran Menüsü</title>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap');
+        /* Font İçe Aktarmaları */
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&family=Allura&family=Dancing+Script&display=swap');
 
+        /* Genel Stiller */
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-size: 17px;
+            color: #3b3b3b;
+            background-color: #fdfaf6;
+            line-height: 1.6;
+            max-width: 100%;
+            margin: auto;
+            padding: 15px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-x: hidden;
+            transition: background-color 0.5s ease, color 0.5s ease;
+        }
 
-        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap');
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: #f8f9fa;
+            z-index: -11;
+            pointer-events: none;
+        }
 
+        a {
+            color: #bfa358;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #d4bc6a;
+        }
+
+        /* Logo Stilleri */
         .logo-container {
             display: flex;
             justify-content: center;
-            /* Yatayda ortalama */
             align-items: center;
-            /* Dikeyde ortalama */
             margin: 20px auto;
-            /* Üst ve alt boşluklar */
             width: 100%;
-            /* Tam genişlik */
         }
 
         .logo {
             display: block;
-            /* Logo'yu blok eleman yapar */
             margin: 0 auto;
-            /* Yatayda tam ortalar */
             max-width: 100%;
-            /* Logo çok genişse boyutunu sınırlayalım */
             height: auto;
-            /* Yüksekliği orantılı olarak ayarlayalım */
         }
 
         .logo img {
             max-width: 100%;
-            /* Resmin genişliğini sınırlayalım */
             height: auto;
-            /* Orantılı yükseklik */
         }
 
-        @media (max-width: 768px) {
-            .logo-container {
-                justify-content: center;
-                /* Mobilde yatayda ortalama */
-                align-items: center;
-                /* Mobilde dikeyde ortalama */
-                flex-direction: column;
-                /* Elemanları dikey hizala */
-                padding: 10px 0;
-                /* Daha az padding */
-            }
-
-            .logo {
-                width: 120px;
-                /* Mobilde daha küçük boyut */
-                margin: 0 auto;
-                /* Yatayda tam ortalar */
-            }
-
-            .logo img {
-                width: 100%;
-                /* Logo genişliğini kapsayıcıya göre ayarla */
-            }
-        }
-
-        @media (max-width: 480px) {
-            .logo-container {
-                justify-content: center;
-                /* Mobilde yatayda ortalama */
-                align-items: center;
-                /* Mobilde dikeyde ortalama */
-                height: auto;
-                /* Yüksekliği esnek yapalım */
-                padding: 15px 0;
-                /* Mobilde biraz daha boşluk */
-            }
-
-            .logo {
-                width: 100px;
-                /* Mobilde logo daha küçük */
-                margin: 0 auto;
-                /* Yatayda tam ortalar */
-            }
-
-            .logo img {
-                width: 100%;
-                /* Logo genişliğini kapsayıcıya göre ayarla */
-            }
-        }
-
+        /* Header Sağ Bölüm Stilleri */
         .header-right {
             display: flex;
             align-items: center;
             gap: 55px;
-            /* Menü ve simgeler arası boşluk */
             margin-top: 10px;
-            /* Logo ile header-right arasında boşluk */
         }
 
         .menu-toggle {
@@ -110,6 +86,8 @@
             cursor: pointer;
             color: #7a5533;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
         }
 
         .menu-toggle:hover {
@@ -125,12 +103,102 @@
             color: #7a5533;
             font-size: 22px;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
         }
 
         .social-icons a:hover {
-            color: #a47148;
+            color: #d4bc6a;
         }
 
+        /* Başlık Stilleri */
+        h1,
+        h2,
+        h3 {
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 36px;
+            color: #7a5533;
+            margin-bottom: 25px;
+            text-align: center;
+            text-shadow: 1px 1px 2px #eee;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.2s;
+        }
+
+        h2 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 28px;
+            font-weight: 800;
+            color: #2c3e50;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 2px #eee;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.4s;
+        }
+
+        h3 {
+            font-size: 22px;
+        }
+
+        h2.section-heading {
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 26px;
+            color: #7a5533;
+            margin: 50px 0 20px;
+            padding-left: 20px;
+            border-left: 6px solid #a47148;
+            background: linear-gradient(to right, #fffdfc, #f1e6df);
+            padding: 12px 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        h2.section-heading::before {
+            content: attr(data-icon);
+            font-size: 28px;
+            margin-right: 12px;
+        }
+
+        h2.about-title {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 2.5em;
+            color: #7a5533;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .sub-heading {
+            font-size: 22px;
+            color: #a47148;
+            margin-top: 40px;
+            margin-bottom: 15px;
+            font-weight: bold;
+            border-left: 4px solid #a47148;
+            padding-left: 12px;
+            font-family: 'Poppins', sans-serif;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            display: none;
+        }
+
+        /* Hakkımızda Bölümü Stilleri */
         .about-us {
             background-color: transparent;
             padding: 60px 20px 30px;
@@ -145,16 +213,9 @@
             z-index: 10;
         }
 
-        @media screen and (max-width: 768px) {
-            .about-us {
-                padding: 40px 20px;
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .about-us {
-                padding: 30px 15px;
-            }
+        .about-wrapper {
+            max-width: 800px;
+            margin: auto;
         }
 
         .about-title {
@@ -175,24 +236,6 @@
             font-weight: 500;
         }
 
-        .about-wrapper {
-            max-width: 800px;
-            margin: auto;
-        }
-
-        .slides img,
-        .slides video {
-            display: none;
-            width: 100%;
-            max-height: 400px;
-            object-fit: cover;
-        }
-
-        .slides img.active,
-        .slides video.active {
-            display: block;
-        }
-
         .about-us h2 {
             font-family: 'Dancing Script', cursive;
             font-size: 38px;
@@ -211,80 +254,55 @@
             animation-delay: 0.4s;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 100%;
-            margin: auto;
-            padding: 15px;
-            background-color: #f8f9fa;
-            box-sizing: border-box;
-            position: relative;
-            overflow-x: hidden;
-        }
-
-        body::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #f8f9fa;
-            z-index: -11;
-            pointer-events: none;
-        }
-
-        h1 {
-            font-family: 'Dancing Script', cursive;
-            font-size: 36px;
-            color: #7a5533;
-            margin-bottom: 25px;
-            text-align: center;
-            text-shadow: 1px 1px 2px #eee;
-        }
-
-        .sub-heading {
-            font-size: 22px;
-            color: #a47148;
-            margin-top: 40px;
-            margin-bottom: 15px;
-            font-weight: bold;
-            border-left: 4px solid #a47148;
-            padding-left: 12px;
-            font-family: 'Poppins', sans-serif;
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
+        .slides img,
+        .slides video {
             display: none;
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
         }
 
-        h2 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 800;
-            font-size: 24px;
-            margin-top: 40px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-            letter-spacing: 1px;
-            text-shadow: 1px 1px 2px #eee;
-        }
-
-        .sub-category {
-            display: none;
-        }
-
-        .sub-category.show {
+        .slides img.active,
+        .slides video.active {
             display: block;
         }
 
-        h2.section-heading {
+        /* Menü Tab Stilleri */
+        .menu-tabs {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            margin: 30px auto;
+        }
+
+        .tab-button {
+            background-color: #bfa358;
+            color: #f9f6ef;
+            border-radius: 25px;
+            font-weight: 600;
+            padding: 10px 18px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            border: none;
             cursor: pointer;
         }
 
+        .tab-button:hover,
+        .tab-button.active {
+            background-color: #d4bc6a;
+            transform: scale(1.05);
+            color: #2f2f2f;
+        }
+
+        /* İtem Stilleri */
         .item {
             display: none;
             opacity: 0;
-            transform: translateY(30px);
+            transform: translateY(20px);
+            animation: fadeInUp 0.8s forwards;
+            animation-delay: 0.6s;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -293,18 +311,6 @@
             animation: slideFadeIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
             opacity: 1;
             transform: translateY(0);
-        }
-
-        @keyframes slideFadeIn {
-            0% {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .item:hover {
@@ -346,61 +352,15 @@
             letter-spacing: 0.3px !important;
         }
 
-        @media screen and (min-width: 601px) {
-            body {
-                max-width: 800px;
-                padding: 20px;
-            }
-
-            .item {
-                flex-direction: row;
-            }
-
-            .item img {
-                width: 120px;
-                height: 100px;
-                margin: 0;
-            }
-
-            .item-info h3,
-            .item-info h3 .price {
-                font-size: 20px;
-            }
-
-            .item-info p {
-                font-size: 16px;
-            }
+        .sub-category {
+            display: none;
         }
 
-        .menu-tabs {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            margin: 30px auto;
+        .sub-category.show {
+            display: block;
         }
 
-        .tab-button {
-            padding: 10px 20px;
-            border: none;
-            background-color: #a47148;
-            color: white;
-            border-radius: 25px;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s;
-            font-size: 14px;
-        }
-
-        .tab-button:hover {
-            background-color: #7a5533;
-            transform: scale(1.05);
-        }
-
-        .tab-button.active {
-            background-color: #5c3b24;
-        }
-
+        /* İletişim Bölümü Stilleri */
         .contact-info {
             background-color: #fffdfc;
             border: 2px solid #a47148;
@@ -466,17 +426,14 @@
             color: #7a5533;
         }
 
-        @media screen and (max-width: 480px) {
-            .contact-list li {
-                font-size: 16px;
-                gap: 10px;
-            }
-
-            .contact-list li i {
-                font-size: 22px;
-            }
+        contact-item a i {
+            font-size: 28px;
+            margin-right: 20px;
+            color: #7a5533;
+            transition: color 0.3s ease;
         }
 
+        /* Geri Bildirim Formu Stilleri */
         .feedback-section {
             background: #ffffff;
             padding: 30px 20px;
@@ -541,88 +498,47 @@
             transform: scale(1.05);
         }
 
-        h1,
-        h2 {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-            animation-delay: 0.2s;
-        }
-
-        h2 {
-            animation-delay: 0.4s;
-        }
-
-        h2.about-title {
-            font-family: 'Poppins', sans-serif;
+        /* Genel Buton Stilleri */
+        button {
+            background-color: #bfa358;
+            color: #f9f6ef;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 25px;
             font-weight: 600;
-            font-size: 2.5em;
-            color: #7a5533;
-            text-align: center;
-            margin-bottom: 20px;
-            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .section-heading {
+        button:hover {
+            background-color: #d4bc6a;
+            transform: scale(1.05);
+            color: #2f2f2f;
+        }
+
+        /* Divider Stilleri */
+        .divider {
             display: flex;
             align-items: center;
+            justify-content: center;
+            text-align: center;
+            margin: 60px 0 40px;
+            font-family: 'Dancing Script', cursive;
             font-size: 26px;
-            color: #7a5533;
-            font-family: 'Poppins', sans-serif;
-            margin: 50px 0 20px;
-            position: relative;
-            padding-left: 20px;
-            border-left: 6px solid #a47148;
-            background: linear-gradient(to right, #fffdfc, #f1e6df);
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-            animation: fadeInUp 0.8s forwards;
-            opacity: 0;
-            transform: translateY(20px);
+            color: #a47148;
         }
 
-        .section-heading::before {
-            content: attr(data-icon);
-            font-size: 28px;
-            margin-right: 12px;
+        .divider::before,
+        .divider::after {
+            content: "";
+            flex: 1;
+            border-bottom: 1px solid #a47148;
+            margin: 0 15px;
         }
 
-        .item {
-            opacity: 0;
-            transform: translateY(20px);
-            animation: fadeInUp 0.8s forwards;
-            animation-delay: 0.6s;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .item:hover {
-            transform: scale(1.05);
-            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
-        }
-
-        .tab-button {
-            transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
-        }
-
-        body {
-            transition: background-color 0.5s ease, color 0.5s ease;
-        }
-
-        @keyframes fadeInUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        contact-item a i {
-            font-size: 28px;
-            margin-right: 20px;
-            color: #7a5533;
-            transition: color 0.3s ease;
-        }
-
+        /* Geri Dön Butonu Stilleri */
         #backToTop {
             position: fixed;
             bottom: 20px;
@@ -644,23 +560,73 @@
             transform: scale(1.15);
         }
 
-        .divider {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            margin: 60px 0 40px;
-            font-family: 'Dancing Script', cursive;
-            font-size: 26px;
-            color: #a47148;
+        /* Animasyonlar */
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .divider::before,
-        .divider::after {
-            content: "";
-            flex: 1;
-            border-bottom: 1px solid #a47148;
-            margin: 0 15px;
+        @keyframes slideFadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Medya Sorguları */
+        @media screen and (min-width: 601px) {
+            body {
+                max-width: 800px;
+                padding: 20px;
+            }
+
+            .item {
+                flex-direction: row;
+            }
+
+            .item img {
+                width: 120px;
+                height: 100px;
+                margin: 0;
+            }
+
+            .item-info h3,
+            .item-info h3 .price {
+                font-size: 20px;
+            }
+
+            .item-info p {
+                font-size: 16px;
+            }
+        }
+
+        @media screen and (max-width: 768px) {
+            .about-us {
+                padding: 40px 20px;
+            }
+
+            .logo-container {
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                padding: 10px 0;
+            }
+
+            .logo {
+                width: 120px;
+                margin: 0 auto;
+            }
+
+            .logo img {
+                width: 100%;
+            }
         }
 
         @media screen and (max-width: 600px) {
@@ -673,7 +639,6 @@
             .logo-container {
                 flex-direction: column;
                 align-items: center;
-                /* Mobilde tam ortalar */
                 gap: 10px;
                 padding: 0 10px;
             }
@@ -756,105 +721,35 @@
             }
         }
 
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Allura&display=swap');
+        @media screen and (max-width: 480px) {
+            .about-us {
+                padding: 30px 15px;
+            }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            font-size: 17px;
-            color: #3b3b3b;
-            background-color: #fdfaf6;
-            line-height: 1.6;
-        }
+            .logo-container {
+                justify-content: center;
+                align-items: center;
+                height: auto;
+                padding: 15px 0;
+            }
 
-        h1,
-        h2,
-        h3 {
-            font-weight: bold;
-            font-size: 2.5em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-        }
+            .logo {
+                width: 100px;
+                margin: 0 auto;
+            }
 
-        h1 {
-            font-size: 36px;
-        }
+            .logo img {
+                width: 100%;
+            }
 
-        h2 {
-            font-size: 28px;
-        }
+            .contact-list li {
+                font-size: 16px;
+                gap: 10px;
+            }
 
-        h3 {
-            font-size: 22px;
-        }
-
-        a {
-            color: #bfa358;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        a:hover {
-            color: #d4bc6a;
-        }
-
-        .tab-button {
-            background-color: #bfa358;
-            color: #f9f6ef;
-            border-radius: 25px;
-            font-weight: 600;
-            padding: 10px 18px;
-            font-family: 'Poppins', sans-serif;
-            font-size: 14px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            border: none;
-            cursor: pointer;
-        }
-
-        .tab-button:hover,
-        .tab-button.active {
-            background-color: #d4bc6a;
-            transform: scale(1.05);
-            color: #2f2f2f;
-        }
-
-        button {
-            background-color: #bfa358;
-            color: #f9f6ef;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 25px;
-            font-weight: 600;
-            font-family: 'Poppins', sans-serif;
-            font-size: 16px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        button:hover {
-            background-color: #d4bc6a;
-            transform: scale(1.05);
-            color: #2f2f2f;
-        }
-
-        .social-icons a {
-            color: #7a5533;
-            font-size: 22px;
-            transition: color 0.3s ease;
-            position: relative;
-            z-index: 1;
-        }
-
-        .menu-toggle {
-            font-size: 26px;
-            cursor: pointer;
-            color: #7a5533;
-            transition: color 0.3s ease;
-            position: relative;
-            z-index: 2;
-        }
-
-        .social-icons a:hover {
-            color: #d4bc6a;
+            .contact-list li i {
+                font-size: 22px;
+            }
         }
     </style>
 </head>
@@ -863,7 +758,7 @@
 
     <div class="logo-container">
         <div class="logo">
-            <img src="images/fotolar/logo.png" alt="Restoran Logosu" />
+            <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
 
         <div class="header-right">
