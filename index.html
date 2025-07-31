@@ -21,10 +21,24 @@
             align-items: center;
             /* Dikeyde ortalamak için */
             height: 100px;
-            /* Gerekirse yükseklik belirleyebilirsiniz */
+            /* Konteynerin yüksekliği */
             margin-bottom: 20px;
-            /* Logo ile diğer içerik arasında biraz boşluk */
+            /* Logo ile diğer içerik arasında boşluk */
         }
+        @media (max-width: 768px) {
+    .logo img {
+        width: 120px; /* Mobilde daha küçük boyut */
+    }
+}
+@media (max-width: 480px) {
+    .logo-container {
+        height: 80px; /* Mobilde logo konteynerinin yüksekliği */
+    }
+
+    .logo img {
+        width: 100px; /* Mobilde logo daha da küçük olabilir */
+    }
+}
 
         .header-right {
             display: flex;
@@ -159,12 +173,10 @@
         }
 
         .logo img {
-            max-width: 150px;
+            width: 150px;
+            /* Logonun genişliğini sabitleyin */
             height: auto;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-            border-radius: 10px;
-            display: inline-block;
-            margin: 0;
+            /* Yüksekliği orantılı şekilde ayarlar */
         }
 
         h1 {
