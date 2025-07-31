@@ -36,7 +36,7 @@
             position: relative;
             width: 100%;
             height: 400px;
-            background: url('images/fotolar/restoran-hero.jpg') no-repeat center center/cover;
+            background: url('images/fotolar/hero9.jpg') no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -46,7 +46,6 @@
             margin-bottom: 30px;
             border-radius: 10px;
             overflow: hidden;
-            background:url(images/fotolar/hero9.jpg);
         }
 
         .hero-section::before {
@@ -56,7 +55,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4); /* Hafif karartma efekti */
+            background: rgba(0, 0, 0, 0.4);
             z-index: 1;
         }
 
@@ -121,6 +120,42 @@
             transform: scale(1.05);
         }
 
+        /* Tümü Butonu Stilleri */
+        .tumu-button-container {
+            display: flex;
+            justify-content: center;
+            padding: 10px 0;
+            margin: 10px 0;
+        }
+
+        .tumu-button {
+            background-color: #a47148;
+            color: #ffffff;
+            border-radius: 16px;
+            font-family: 'Inter', sans-serif;
+            font-size: 13px;
+            font-weight: 600;
+            padding: 6px 14px;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            min-width: 80px;
+        }
+
+        .tumu-button:hover {
+            background-color: #bfa358;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+        }
+
+        .tumu-button.active {
+            background-color: #bfa358;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            opacity: 1;
+        }
+
         /* Medya Sorguları */
         @media screen and (max-width: 600px) {
             .hero-section {
@@ -146,6 +181,12 @@
 
             .logo {
                 font-size: 12px;
+            }
+
+            .tumu-button {
+                font-size: 11px;
+                padding: 6px 12px;
+                min-width: 70px;
             }
         }
 
@@ -238,6 +279,12 @@
         h3.sub-heading:hover {
             color: #bfa358;
             background-color: #f5f5f5;
+        }
+
+        /* Content Container */
+        .content-container {
+            margin-top: 10px;
+            padding-left: 20px;
         }
 
         /* Menü Tab Stilleri */
@@ -336,6 +383,7 @@
 
         .sub-category {
             display: none;
+            margin-top: 10px;
         }
 
         .sub-category.show {
@@ -660,6 +708,10 @@
                 font-size: 12px;
             }
 
+            .content-container {
+                padding-left: 15px;
+            }
+
             .contact-info {
                 padding: 25px;
                 max-width: 90%;
@@ -723,8 +775,11 @@
 
     <h1 class="menu-title">Restoran Menüsü</h1>
 
+    <div class="tumu-button-container">
+        <button class="tumu-button active" data-tab="tumu">Tümü</button>
+    </div>
+
     <div class="menu-tabs">
-        <button class="tab-button active" data-tab="tumu">Tümü</button>
         <button class="tab-button" data-tab="pastalar">Pastalar</button>
         <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
         <button class="tab-button" data-tab="icecekler">İçecekler</button>
@@ -734,17 +789,31 @@
 
     <!-- Tümü Sekmesi -->
     <div id="tumu" class="tab-content">
-        <h2 class="section-heading" data-tab="pastalar">Pastalar</h2>
-        <h2 class="section-heading" data-tab="tatlilar">Tatlılar</h2>
-        <h2 class="section-heading" data-tab="icecekler">İçecekler</h2>
-        <h2 class="section-heading" data-tab="dondurmalar">Dondurmalar</h2>
-        <h2 class="section-heading" data-tab="kahveler">Kahveler</h2>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="pastalar" data-state="closed">Pastalar</h2>
+            <div class="content-container" data-tab="pastalar"></div>
+        </div>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="tatlilar" data-state="closed">Tatlılar</h2>
+            <div class="content-container" data-tab="tatlilar"></div>
+        </div>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="icecekler" data-state="closed">İçecekler</h2>
+            <div class="content-container" data-tab="icecekler"></div>
+        </div>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="dondurmalar" data-state="closed">Dondurmalar</h2>
+            <div class="content-container" data-tab="dondurmalar"></div>
+        </div>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="kahveler" data-state="closed">Kahveler</h2>
+            <div class="content-container" data-tab="kahveler"></div>
+        </div>
     </div>
 
     <!-- Pastalar Sekmesi -->
     <div id="pastalar" class="tab-content">
         <div class="sub-category" data-subcategory="pastalar">
-            <h3 class="sub-heading">Pastalar</h3>
             <div class="item">
                 <img src="images/fotolar/pasta.jpg" alt="Çikolatalı Pasta">
                 <div class="item-info">
@@ -765,7 +834,6 @@
     <!-- Tatlılar Sekmesi -->
     <div id="tatlilar" class="tab-content">
         <div class="sub-category" data-subcategory="tatlilar">
-            <h3 class="sub-heading">Tatlılar</h3>
             <div class="item">
                 <img src="images/fotolar/baklava.jpg" alt="Baklava">
                 <div class="item-info">
@@ -824,7 +892,6 @@
     <!-- Dondurmalar Sekmesi -->
     <div id="dondurmalar" class="tab-content">
         <div class="sub-category" data-subcategory="dondurmalar">
-            <h3 class="sub-heading">Dondurmalar</h3>
             <div class="item">
                 <img src="images/fotolar/cikolata-dondurma.jpg" alt="Çikolatalı Dondurma">
                 <div class="item-info">
@@ -845,7 +912,6 @@
     <!-- Kahveler Sekmesi -->
     <div id="kahveler" class="tab-content">
         <div class="sub-category" data-subcategory="kahveler">
-            <h3 class="sub-heading">Kahveler</h3>
             <div class="item">
                 <img src="images/fotolar/espresso.jpg" alt="Espresso">
                 <div class="item-info">
@@ -895,8 +961,7 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -905,6 +970,7 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            const tumuButton = document.querySelector('.tumu-button');
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
@@ -924,32 +990,67 @@
                 }
             }
 
+            // Tümü butonu tıklama olayı
+            tumuButton.addEventListener('click', () => {
+                // Tüm butonlardan 'active' sınıfını kaldır
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tumuButton.classList.add('active');
+
+                // Tüm tab içeriklerini gizle
+                tabContents.forEach(content => {
+                    if (content.id !== 'tumu') {
+                        content.style.display = 'none';
+                    }
+                });
+                subCategories.forEach(sub => sub.classList.remove('show'));
+
+                // Tümü sekmesini göster
+                const tumuContent = document.getElementById('tumu');
+                if (tumuContent) {
+                    tumuContent.style.display = 'block';
+                    sectionHeadings.forEach(heading => {
+                        heading.setAttribute('data-state', 'closed');
+                        const contentContainer = heading.nextElementSibling;
+                        if (contentContainer && contentContainer.classList.contains('content-container')) {
+                            contentContainer.innerHTML = '';
+                        }
+                    });
+                }
+            });
+
             // Sekme tıklama olayı
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
+                    // Tüm butonlardan 'active' sınıfını kaldır
                     tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tumuButton.classList.remove('active');
+                    button.classList.add('active');
+
+                    // Tüm tab içeriklerini gizle
                     tabContents.forEach(content => content.style.display = 'none');
                     subCategories.forEach(sub => sub.classList.remove('show'));
-                    sectionHeadings.forEach(heading => heading.classList.remove('active'));
 
-                    button.classList.add('active');
+                    // Tümü sekmesindeki içerik kaplarını temizle
+                    sectionHeadings.forEach(heading => {
+                        heading.setAttribute('data-state', 'closed');
+                        const contentContainer = heading.nextElementSibling;
+                        if (contentContainer && contentContainer.classList.contains('content-container')) {
+                            contentContainer.innerHTML = '';
+                        }
+                    });
+
+                    // Seçilen sekme içeriğini göster
                     const tabId = button.getAttribute('data-tab');
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
                         targetContent.style.display = 'block';
-                        if (tabId === 'tumu') {
-                            targetContent.querySelectorAll('.section-heading').forEach(heading => {
-                                heading.style.display = 'block';
-                            });
-                        } else {
-                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
-                            subCategoriesInTab.forEach(sub => {
-                                sub.classList.add('show');
-                                const itemsInSub = sub.querySelectorAll('.item');
-                                itemsInSub.forEach(item => item.classList.add('show'));
-                            });
-                            scrollToFirstItem(tabId);
-                        }
+                        const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
+                        subCategoriesInTab.forEach(sub => {
+                            sub.classList.add('show');
+                            const itemsInSub = sub.querySelectorAll('.item');
+                            itemsInSub.forEach(item => item.classList.add('show'));
+                        });
+                        scrollToFirstItem(tabId);
                     }
                 });
             });
@@ -958,16 +1059,41 @@
             sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
                     const tabId = heading.getAttribute('data-tab');
+                    const currentState = heading.getAttribute('data-state');
+                    const contentContainer = heading.nextElementSibling;
+                    const targetContent = document.getElementById(tabId);
                     const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
-                    if (targetButton) {
-                        targetButton.click();
-                        scrollToFirstItem(tabId);
+
+                    if (currentState === 'closed') {
+                        // İçeriği başlığın altına taşı
+                        if (targetContent && contentContainer) {
+                            contentContainer.innerHTML = targetContent.innerHTML;
+                            const subCategoriesInContainer = contentContainer.querySelectorAll('.sub-category');
+                            subCategoriesInContainer.forEach(sub => {
+                                sub.classList.add('show');
+                                const itemsInSub = sub.querySelectorAll('.item');
+                                itemsInSub.forEach(item => item.classList.add('show'));
+                            });
+                            heading.setAttribute('data-state', 'open');
+                            if (targetButton) {
+                                targetButton.classList.add('active');
+                            }
+                            scrollToFirstItem(tabId);
+                        }
+                    } else {
+                        // İçeriği gizle
+                        if (contentContainer) {
+                            contentContainer.innerHTML = '';
+                            heading.setAttribute('data-state', 'closed');
+                            if (targetButton) {
+                                targetButton.classList.remove('active');
+                            }
+                        }
                     }
                 });
             });
 
             // Varsayılan olarak Tümü sekmesini aç
-            const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
             if (tumuButton) {
                 tumuButton.click();
             }
