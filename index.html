@@ -1,14 +1,12 @@
 <!DOCTYPE html>
-
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Restoran Menüsü</title>
 
     <style>
@@ -16,8 +14,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html,
-        body {
+        html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -85,17 +82,15 @@
 
         /* Başlık Stilleri */
         h1.menu-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 36px;
-            /* Daha büyük ve dikkat çekici (31 Temmuz 2025) */
+            font-family: 'Dancing Script', cursive; /* Daha dinamik font (31 Temmuz 2025) */
+            font-size: 40px; /* Daha büyük ve dikkat çekici */
             font-weight: 700;
             color: #333333;
             text-align: center;
             margin: 30px 0;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            /* Hafif gölge */
-            animation: fadeIn 1s ease-in-out;
-            /* Dinamik giriş animasyonu */
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
+            animation: fadeIn 1.2s ease-in-out; /* Yavaş ve pürüzsüz animasyon */
+            letter-spacing: 1px; /* Hafif harf boşluğu */
         }
 
         h2.section-heading {
@@ -104,21 +99,20 @@
             font-weight: 600;
             color: #333333;
             margin: 20px 0 15px;
-            padding-left: 20px;
+            padding-left: 25px;
             border-left: 4px solid #a47148;
             position: relative;
             cursor: pointer;
             transition: color 0.3s ease, background-color 0.3s ease;
-            background-color: #fafafa;
-            /* Hafif arka plan vurgusu (31 Temmuz 2025) */
+            background: linear-gradient(to right, #fafafa, #ffffff); /* Hafif gradient */
             padding: 10px 20px;
             border-radius: 8px;
-            /* Yuvarlak köşeler */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Hafif gölge */
         }
 
         h2.section-heading:hover {
             color: #bfa358;
-            background-color: #f5f5f5;
+            background: linear-gradient(to right, #f5f5f5, #ffffff);
         }
 
         h2.section-heading::before {
@@ -130,31 +124,11 @@
             transition: color 0.3s ease;
         }
 
-        h2.section-heading[data-tab="pastalar"]::before {
-            content: '\ec8b';
-        }
-
-        /* Pasta ikonu */
-        h2.section-heading[data-tab="icecekler"]::before {
-            content: '\eabe';
-        }
-
-        /* İçecek ikonu */
-        h2.section-heading[data-tab="tatlilar"]::before {
-            content: '\ec8c';
-        }
-
-        /* Tatlı ikonu */
-        h2.section-heading[data-tab="dondurmalar"]::before {
-            content: '\eb90';
-        }
-
-        /* Dondurma ikonu */
-        h2.section-heading[data-tab="kahveler"]::before {
-            content: '\ebb0';
-        }
-
-        /* Kahve ikonu */
+        h2.section-heading[data-tab="pastalar"]::before { content: '\ec8b'; } /* Pasta ikonu */
+        h2.section-heading[data-tab="tatlilar"]::before { content: '\ec8c'; } /* Tatlı ikonu */
+        h2.section-heading[data-tab="icecekler"]::before { content: '\eabe'; } /* İçecek ikonu */
+        h2.section-heading[data-tab="dondurmalar"]::before { content: '\eb90'; } /* Dondurma ikonu */
+        h2.section-heading[data-tab="kahveler"]::before { content: '\ebb0'; } /* Kahve ikonu */
 
         h3.sub-heading {
             font-family: 'Playfair Display', serif;
@@ -162,13 +136,14 @@
             font-weight: 600;
             color: #333333;
             margin: 20px 0 10px;
-            padding-left: 15px;
+            padding-left: 20px;
             border-left: 3px solid #a47148;
             position: relative;
-            background-color: #ffffff;
+            background: linear-gradient(to right, #ffffff, #fafafa); /* Hafif gradient */
             padding: 8px 15px;
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
         }
 
         h3.sub-heading:hover {
@@ -178,8 +153,7 @@
 
         /* Menü Tab Stilleri */
         .menu-tabs {
-            position: static;
-            /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
+            position: static; /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
             background-color: #ffffff;
             display: flex;
             flex-wrap: wrap;
@@ -187,8 +161,7 @@
             gap: 6px;
             padding: 10px;
             margin: 20px 0;
-            border-bottom: 1px solid #e5e5e5;
-            /* Hafif ayırıcı çizgi */
+            border-bottom: 2px solid #a47148; /* Daha belirgin ayırıcı */
         }
 
         .tab-button {
@@ -452,8 +425,8 @@
             justify-content: center;
             margin: 40px 0;
             color: #a47148;
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
+            font-family: 'Allura', cursive; /* Daha zarif font (31 Temmuz 2025) */
+            font-size: 28px;
         }
 
         .divider::before,
@@ -470,7 +443,6 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -482,7 +454,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -520,8 +491,7 @@
             }
 
             h1.menu-title {
-                font-size: 30px;
-                /* Mobilde daha kompakt (31 Temmuz 2025) */
+                font-size: 32px; /* Mobilde daha kompakt */
                 margin: 20px 0;
             }
 
@@ -577,28 +547,20 @@
             }
         }
     </style>
-
-
 </head>
-
 <body>
-
     <div class="logo-container">
         <div class="logo">
             <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
-
         <div class="header-right">
             <div class="menu-toggle" title="Menü">
                 <i class="fas fa-bars"></i>
             </div>
-
             <div class="social-icons">
                 <a href="tel:+905551234567" title="Ara"><i class="fas fa-phone-alt"></i></a>
-                <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i
-                        class="fas fa-map-marker-alt"></i></a>
-                <a href="https://www.instagram.com/username" target="_blank" title="Instagram"><i
-                        class="fab fa-instagram"></i></a>
+                <a href="https://www.google.com/maps?q=istanbul" target="_blank" title="Konum"><i class="fas fa-map-marker-alt"></i></a>
+                <a href="https://www.instagram.com/doraroma" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
             </div>
         </div>
     </div>
@@ -607,19 +569,15 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
-                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
-
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
 
-    <h1>Restoran Menüsü</h1>
+    <h1 class="menu-title">Restoran Menüsü</h1>
 
-    <!-- Mevcut HTML'nize eklenecek veya düzenlenecek menü kısmı -->
-    <!-- Mevcut HTML'nize eklenecek veya düzenlenecek menü kısmı -->
     <div class="menu-tabs">
-        <button class="tab-button" data-tab="tumu">Tümü</button>
+        <button class="tab-button active" data-tab="tumu">Tümü</button>
         <button class="tab-button" data-tab="pastalar">Pastalar</button>
         <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
         <button class="tab-button" data-tab="icecekler">İçecekler</button>
@@ -757,6 +715,7 @@
             </div>
         </div>
     </div>
+
     <div class="divider"><span>Roma Dora</span></div>
 
     <section class="contact-info">
@@ -765,8 +724,7 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
-                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -780,22 +738,22 @@
         </div>
     </section>
 
+    <div class="divider"><span>Roma Dora</span></div>
+
     <section class="feedback-section">
         <h2>Soru, Görüş ve Önerileriniz</h2>
         <form id="feedback-form" action="#" method="post">
             <label for="name">Adınız</label>
             <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
-
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
-
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
-
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
+
+    <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -806,16 +764,12 @@
 
             // Restoran Menüsü başlığına kaydırma fonksiyonu (31 Temmuz 2025)
             function scrollToFirstItem(tabId) {
-                // Mobil cihaz kontrolü (600px ve altı)
                 if (window.innerWidth <= 600) {
-                    const menuTitle = document.querySelector('.menu-title'); // Restoran Menüsü başlığı
+                    const menuTitle = document.querySelector('.menu-title');
                     if (menuTitle) {
-                        // Sabit menü yüksekliğini hesapla
-                        const menuTabs = document.querySelector('.menu-tabs');
-                        const offset = menuTabs ? menuTabs.offsetHeight + 20 : 20; // Menü yüksekliği + 20px boşluk
                         const elementPosition = menuTitle.getBoundingClientRect().top + window.pageYOffset;
                         window.scrollTo({
-                            top: elementPosition - offset,
+                            top: elementPosition - 20, // Sabit menü olmadığından offset azaltıldı
                             behavior: 'smooth'
                         });
                     }
@@ -825,98 +779,51 @@
             // Sekme tıklama olayı
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    // Tüm sekmeleri ve içerikleri sıfırla
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tabContents.forEach(content => content.style.display = 'none');
                     subCategories.forEach(sub => sub.classList.remove('show'));
                     sectionHeadings.forEach(heading => heading.classList.remove('active'));
 
-                    // Tıklanan sekmeyi aktif et
                     button.classList.add('active');
                     const tabId = button.getAttribute('data-tab');
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
                         targetContent.style.display = 'block';
-                        // Tümü sekmesi için özel işlem
                         if (tabId === 'tumu') {
-                            // Sadece başlıklar görünür, ürünler gizli kalır
                             targetContent.querySelectorAll('.section-heading').forEach(heading => {
                                 heading.style.display = 'block';
                             });
                         } else {
-                            // Diğer sekmeler için alt kategorileri ve ürünleri göster
                             const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             subCategoriesInTab.forEach(sub => {
                                 sub.classList.add('show');
                                 const itemsInSub = sub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => item.classList.add('show'));
                             });
-                            // Mobilde Restoran Menüsü başlığına kaydır (31 Temmuz 2025)
                             scrollToFirstItem(tabId);
                         }
                     }
                 });
             });
 
-            // Başlık tıklama olayı (Tümü sekmesinde) (31 Temmuz 2025)
+            // Başlık tıklama olayı
             sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
                     const tabId = heading.getAttribute('data-tab');
                     const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
                     if (targetButton) {
-                        targetButton.click(); // İlgili sekmeyi aç
-                        // Mobilde Restoran Menüsü başlığına kaydır (31 Temmuz 2025)
+                        targetButton.click();
                         scrollToFirstItem(tabId);
                     }
                 });
             });
 
-            // Varsayılan olarak Tümü sekmesini aç (31 Temmuz 2025)
+            // Varsayılan olarak Tümü sekmesini aç
             const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
             if (tumuButton) {
-                tumuButton.click(); // Tümü sekmesini otomatik tıkla
+                tumuButton.click();
             }
         });
-        // Tab butonları
-        const buttons = document.querySelectorAll('.tab-button');
-        buttons.forEach(button => {
-            button.addEventListener('click', () => {
-                const category = button.getAttribute('data-category');
-
-                buttons.forEach(btn => btn.classList.remove('active'));
-                button.classList.add('active');
-
-                if (category === 'all') {
-                    items.forEach(i => i.classList.add('show'));
-                    subCategories.forEach(sc => sc.classList.add('show'));
-                    headings.forEach(h => h.style.display = 'block');
-                    subHeadings.forEach(sh => sh.style.display = 'block');
-                } else {
-                    headings.forEach(h => {
-                        h.style.display = h.id === category ? 'block' : 'none';
-                    });
-
-                    if (category === 'icecek') {
-                        subHeadings.forEach(sh => sh.style.display = 'block');
-                        subCategories.forEach(sc => sc.classList.add('show'));
-                    } else {
-                        subHeadings.forEach(sh => sh.style.display = 'none');
-                        subCategories.forEach(sc => sc.classList.remove('show'));
-                    }
-
-                    items.forEach(i => {
-                        i.classList.remove('show');
-                        if (i.getAttribute('data-category') === category) {
-                            i.classList.add('show');
-                        }
-                    });
-                }
-            });
-        });
-
-
     </script>
-
 </body>
-
 </html>
