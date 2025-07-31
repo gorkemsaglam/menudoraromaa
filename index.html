@@ -37,40 +37,30 @@
             justify-content: center;
             align-items: center;
             padding: 30px 0;
-            /* Sade bir dolgu */
             background: none;
-            /* Arka plan yok */
         }
 
         .logo {
             font-family: 'Allura', cursive;
-            /* Şık ve zarif bir font (mevcut fontlarınızdan) */
             font-size: 36px;
-            /* Yazı boyutu */
             color: #a47148;
-            /* Menüyle uyumlu renk */
             font-weight: 400;
-            /* Hafif ve zarif */
             text-align: center;
             transition: transform 0.3s ease;
-            /* Hafif hover efekti */
         }
 
         .logo:hover {
             transform: scale(1.05);
-            /* Hover'da hafif büyüme */
         }
 
         /* Medya Sorguları */
         @media screen and (max-width: 600px) {
             .logo-container {
                 padding: 20px 0;
-                /* Mobil için daha az dolgu */
             }
 
             .logo {
                 font-size: 12px;
-                /* Mobil için daha küçük yazı */
             }
         }
 
@@ -79,7 +69,8 @@
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             padding: 40px 20px;
             border-radius: 20px;
-            margin: 5px 0;
+            margin: 5px 0 30px 0;
+            /* Added margin-bottom for spacing */
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
@@ -516,7 +507,8 @@
             }
 
             .about-us {
-                margin: 2px 0;
+                margin: 2px 0 20px 0;
+                /* Adjusted margin-bottom for mobile */
                 padding: 25px 15px;
                 border-radius: 15px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
@@ -875,7 +867,34 @@
             if (tumuButton) {
                 tumuButton.click();
             }
+
+            // Back to Top button functionality
+            const backToTopButton = document.getElementById('backToTop');
+            backToTopButton.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
         });
+
+        // Başlık tıklama olayı
+        sectionHeadings.forEach(heading => {
+            heading.addEventListener('click', () => {
+                const tabId = heading.getAttribute('data-tab');
+                const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                if (targetButton) {
+                    targetButton.click();
+                    scrollToFirstItem(tabId);
+                }
+            });
+        });
+
+        // Varsayılan olarak Tümü sekmesini aç
+        const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
+        if (tumuButton) {
+            tumuButton.click();
+        }
     </script>
 </body>
 
