@@ -19,7 +19,6 @@
         html,
         body {
             scroll-behavior: smooth;
-            /* Pürüzsüz kaydırma için (1 Ağustos 2025) */
         }
 
         body {
@@ -79,7 +78,6 @@
             max-width: 100%;
             height: auto;
             filter: brightness(80%) sepia(10%);
-            /* Logo rengini koyulaştırır ve sayfaya uyumlu sıcak bir ton ekler (31 Temmuz 2025) */
         }
 
         /* Header Sağ Bölüm Stilleri */
@@ -191,12 +189,10 @@
         #tumu .section-heading {
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            /* Tümü sekmesi için tıklanabilir stil (1 Ağustos 2025) */
         }
 
         #tumu .section-heading:hover {
             background: linear-gradient(to right, #f1e6df, #fffdfc);
-            /* Ters yönde gradient (1 Ağustos 2025) */
             transform: scale(1.02);
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
@@ -382,7 +378,7 @@
             font-family: 'Montserrat', sans-serif !important;
             font-weight: 700 !important;
             font-size: 16px !important;
-            color: #a47148 !important;
+            color: #a40909 !important;
             margin-left: 10px !important;
             text-shadow: none !important;
             letter-spacing: 0.3px !important;
@@ -635,7 +631,6 @@
             .item {
                 flex-direction: row;
                 margin-top: 0;
-                /* Masaüstünde üst boşluk yok (1 Ağustos 2025) */
             }
 
             .item img {
@@ -715,7 +710,6 @@
                 padding: 10px;
                 flex-wrap: nowrap;
                 margin-top: 10px;
-                /* İlk ürünün üstte boşlukla hizalanması (1 Ağustos 2025) */
             }
 
             .item img {
@@ -752,7 +746,9 @@
 
             .sub-heading {
                 font-size: 18px;
-                margin-top: 20px;
+                margin-top: 0;
+                padding-top: 60px;
+                /* Sabit menü yüksekliği için boşluk (31 Temmuz 2025) */
             }
 
             .divider {
@@ -1019,18 +1015,21 @@
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
 
-            // İlk ürün görseline kaydırma fonksiyonu (1 Ağustos 2025)
+            // İlk başlık görseline kaydırma fonksiyonu (31 Temmuz 2025)
             function scrollToFirstItem(tabId) {
                 // Mobil cihaz kontrolü (600px ve altı)
                 if (window.innerWidth <= 600) {
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
-                        const firstItem = targetContent.querySelector('.item');
-                        if (firstItem) {
-                            firstItem.scrollIntoView({
-                                behavior: 'smooth',
-                                block: 'start',
-                                inline: 'nearest'
+                        const firstSubHeading = targetContent.querySelector('.sub-heading');
+                        if (firstSubHeading) {
+                            // Sabit menü yüksekliğini hesapla (örneğin, .menu-tabs)
+                            const menuTabs = document.querySelector('.menu-tabs');
+                            const offset = menuTabs ? menuTabs.offsetHeight + 10 : 10; // Menü yüksekliği + 10px boşluk
+                            const elementPosition = firstSubHeading.getBoundingClientRect().top + window.pageYOffset;
+                            window.scrollTo({
+                                top: elementPosition - offset,
+                                behavior: 'smooth'
                             });
                         }
                     }
@@ -1066,27 +1065,27 @@
                                 const itemsInSub = sub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => item.classList.add('show'));
                             });
-                            // Mobilde ilk ürün görseline kaydır (1 Ağustos 2025)
+                            // Mobilde ilk başlık görseline kaydır (31 Temmuz 2025)
                             scrollToFirstItem(tabId);
                         }
                     }
                 });
             });
 
-            // Başlık tıklama olayı (Tümü sekmesinde) (1 Ağustos 2025)
+            // Başlık tıklama olayı (Tümü sekmesinde) (31 Temmuz 2025)
             sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
                     const tabId = heading.getAttribute('data-tab');
                     const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
                     if (targetButton) {
                         targetButton.click(); // İlgili sekmeyi aç
-                        // Mobilde ilk ürün görseline kaydır (1 Ağustos 2025)
+                        // Mobilde ilk başlık görseline kaydır (31 Temmuz 2025)
                         scrollToFirstItem(tabId);
                     }
                 });
             });
 
-            // Varsayılan olarak Tümü sekmesini aç (1 Ağustos 2025)
+            // Varsayılan olarak Tümü sekmesini aç (31 Temmuz 2025)
             const tumuButton = document.querySelector('.tab-button[data-tab="tumu"]');
             if (tumuButton) {
                 tumuButton.click(); // Tümü sekmesini otomatik tıkla
