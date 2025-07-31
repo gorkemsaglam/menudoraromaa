@@ -64,7 +64,7 @@
         }
 
         .hero-content .logo-img {
-            max-width: 450px;
+            max-width: 700px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -199,7 +199,7 @@
 
         /* Başlık Stilleri */
         h1.menu-title {
-            font-family: 'Dancing Script', cursive;
+            font-family: 'Allura', cursive;
             font-size: 40px;
             font-weight: 700;
             color: #333333;
@@ -713,7 +713,7 @@
             }
 
             h1.menu-title {
-                font-family: 'Arial', serif;
+                font-family: 'Allura', cursive;
                 font-size: 26px;
                 font-weight: 700;
                 color: #a47148;
@@ -817,53 +817,53 @@
     </div>
 
     <div class="menu-tabs">
-        <button class="tab-button" data-tab="pastalar">Pastalar</button>
-        <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
-        <button class="tab-button" data-tab="icecekler">İçecekler</button>
         <button class="tab-button" data-tab="dondurmalar">Dondurmalar</button>
+        <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
+        <button class="tab-button" data-tab="pastalar">Pastalar</button>
         <button class="tab-button" data-tab="kahveler">Kahveler</button>
+        <button class="tab-button" data-tab="icecekler">İçecekler</button>
     </div>
 
     <!-- Tümü Sekmesi -->
     <div id="tumu" class="tab-content">
         <div class="section-wrapper">
-            <h2 class="section-heading" data-tab="pastalar" data-state="closed">Pastalar</h2>
-            <div class="content-container" data-tab="pastalar"></div>
+            <h2 class="section-heading" data-tab="dondurmalar" data-state="closed">Dondurmalar</h2>
+            <div class="content-container" data-tab="dondurmalar"></div>
         </div>
         <div class="section-wrapper">
             <h2 class="section-heading" data-tab="tatlilar" data-state="closed">Tatlılar</h2>
             <div class="content-container" data-tab="tatlilar"></div>
         </div>
         <div class="section-wrapper">
-            <h2 class="section-heading" data-tab="icecekler" data-state="closed">İçecekler</h2>
-            <div class="content-container" data-tab="icecekler"></div>
-        </div>
-        <div class="section-wrapper">
-            <h2 class="section-heading" data-tab="dondurmalar" data-state="closed">Dondurmalar</h2>
-            <div class="content-container" data-tab="dondurmalar"></div>
+            <h2 class="section-heading" data-tab="pastalar" data-state="closed">Pastalar</h2>
+            <div class="content-container" data-tab="pastalar"></div>
         </div>
         <div class="section-wrapper">
             <h2 class="section-heading" data-tab="kahveler" data-state="closed">Kahveler</h2>
             <div class="content-container" data-tab="kahveler"></div>
         </div>
+        <div class="section-wrapper">
+            <h2 class="section-heading" data-tab="icecekler" data-state="closed">İçecekler</h2>
+            <div class="content-container" data-tab="icecekler"></div>
+        </div>
     </div>
 
-    <!-- Pastalar Sekmesi -->
-    <div id="pastalar" class="tab-content">
-        <h1 class="section-title">Pastalar</h1>
-        <div class="sub-category" data-subcategory="pastalar">
+    <!-- Dondurmalar Sekmesi -->
+    <div id="dondurmalar" class="tab-content">
+        <h1 class="section-title">Dondurmalar</h1>
+        <div class="sub-category" data-subcategory="dondurmalar">
             <div class="item">
-                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
+                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
                 <div class="item-info">
-                    <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
-                    <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
+                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
+                    <p>Kremalı çikolata dondurma.</p>
                 </div>
             </div>
             <div class="item">
-                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
+                <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma">
                 <div class="item-info">
-                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
-                    <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
+                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
+                    <p>Hafif ve doğal vanilya aromalı dondurma.</p>
                 </div>
             </div>
         </div>
@@ -890,6 +890,66 @@
         </div>
     </div>
 
+    <!-- Pastalar Sekmesi -->
+    <div id="pastalar" class="tab-content">
+        <h1 class="section-title">Pastalar</h1>
+        <div class="sub-category" data-subcategory="pastalar">
+            <div class="item">
+                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
+                <div class="item-info">
+                    <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
+                    <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
+                <div class="item-info">
+                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
+                    <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Kahveler Sekmesi -->
+    <div id="kahveler" class="tab-content">
+        <h1 class="section-title">Kahveler</h1>
+        <div class="sub-category" data-subcategory="soguk-kahveler">
+            <h3 class="sub-heading">Soğuk Kahveler</h3>
+            <div class="item">
+                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
+                <div class="item-info">
+                    <h3>Iced Latte <span class="price">30 TL</span></h3>
+                    <p>Soğuk süt ve espresso ile hazırlanan serinletici kahve.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew">
+                <div class="item-info">
+                    <h3>Cold Brew <span class="price">32 TL</span></h3>
+                    <p>Soğuk demleme yöntemiyle hazırlanan yumuşak içimli kahve.</p>
+                </div>
+            </div>
+        </div>
+        <div class="sub-category" data-subcategory="sicak-kahveler">
+            <h3 class="sub-heading">Sıcak Kahveler</h3>
+            <div class="item">
+                <img src="images/fotolar/espresso.jpg" alt="Espresso">
+                <div class="item-info">
+                    <h3>Espresso <span class="price">22 TL</span></h3>
+                    <p>Yoğun aromalı tek shot espresso.</p>
+                </div>
+            </div>
+            <div class="item">
+                <img src="images/fotolar/sıcaklatte.jpg" alt="Latte">
+                <div class="item-info">
+                    <h3>Latte <span class="price">28 TL</span></h3>
+                    <p>Köpüklü süt ile hazırlanmış latte.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- İçecekler Sekmesi -->
     <div id="icecekler" class="tab-content">
         <h1 class="section-title">İçecekler</h1>
@@ -903,7 +963,7 @@
                 </div>
             </div>
             <div class="item">
-                <img src="images/fotolar/ice-tea.jpg" alt="Ice Tea">
+                <img src="images/fotolar/icetea.jpg" alt="Ice Tea">
                 <div class="item-info">
                     <h3>Ice Tea <span class="price">18 TL</span></h3>
                     <p>Şeftali aromalı soğuk çay.</p>
@@ -913,7 +973,7 @@
         <div class="sub-category" data-subcategory="sicak-icecekler">
             <h3 class="sub-heading">Sıcak İçecekler</h3>
             <div class="item">
-                <img src="images/fotolar/turk-kahvesi.jpg" alt="Türk Kahvesi">
+                <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi">
                 <div class="item-info">
                     <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
                     <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
@@ -924,48 +984,6 @@
                 <div class="item-info">
                     <h3>Çay <span class="price">15 TL</span></h3>
                     <p>Taze demlenmiş siyah çay.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Dondurmalar Sekmesi -->
-    <div id="dondurmalar" class="tab-content">
-        <h1 class="section-title">Dondurmalar</h1>
-        <div class="sub-category" data-subcategory="dondurmalar">
-            <div class="item">
-                <img src="images/fotolar/cikolata-dondurma.jpg" alt="Çikolatalı Dondurma">
-                <div class="item-info">
-                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
-                    <p>Kremalı çikolata dondurma.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/fotolar/vanilya-dondurma.jpg" alt="Vanilyalı Dondurma">
-                <div class="item-info">
-                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
-                    <p>Hafif ve doğal vanilya aromalı dondurma.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Kahveler Sekmesi -->
-    <div id="kahveler" class="tab-content">
-        <h1 class="section-title">Kahveler</h1>
-        <div class="sub-category" data-subcategory="kahveler">
-            <div class="item">
-                <img src="images/fotolar/espresso.jpg" alt="Espresso">
-                <div class="item-info">
-                    <h3>Espresso <span class="price">22 TL</span></h3>
-                    <p>Yoğun aromalı tek shot espresso.</p>
-                </div>
-            </div>
-            <div class="item">
-                <img src="images/fotolar/latte.jpg" alt="Latte">
-                <div class="item-info">
-                    <h3>Latte <span class="price">28 TL</span></h3>
-                    <p>Köpüklü süt ile hazırlanmış latte.</p>
                 </div>
             </div>
         </div>
