@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="tr">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
@@ -13,7 +14,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html, body {
+        html,
+        body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -34,13 +36,15 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 60px 0; /* Logo daha yukarıda (31 Temmuz 2025) */
+            padding: 60px 0;
+            /* Logo daha yukarıda (31 Temmuz 2025) */
         }
 
         .logo img {
             max-width: 120px;
             height: auto;
-            filter: hue-rotate(0deg) saturate(100%) brightness(90%) sepia(50%) hue-rotate(30deg); /* #a47148 ile uyumlu */
+            filter: hue-rotate(0deg) saturate(100%) brightness(90%) sepia(50%) hue-rotate(30deg);
+            /* #a47148 ile uyumlu */
         }
 
         /* Hakkımızda Bölümü */
@@ -48,7 +52,8 @@
             background-color: #fafafa;
             padding: 40px 20px;
             border-radius: 10px;
-            margin: 5px 0; /* Logoya daha yakın (31 Temmuz 2025) */
+            margin: 5px 0;
+            /* Logoya daha yakın (31 Temmuz 2025) */
             text-align: center;
         }
 
@@ -75,7 +80,8 @@
             font-weight: 700;
             color: #333333;
             text-align: center;
-            margin: 10px 0; /* Logoya ve Biz Kimiz?'e yakın (31 Temmuz 2025) */
+            margin: 10px 0;
+            /* Logoya ve Biz Kimiz?'e yakın (31 Temmuz 2025) */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             animation: fadeIn 1.2s ease-in-out;
             letter-spacing: 1px;
@@ -129,14 +135,26 @@
             position: static;
             background-color: #ffffff;
             display: flex;
-            flex-wrap: nowrap;
-            justify-content: flex-start;
+            flex-wrap: wrap;
+            /* Butonlar alta geçebilir (31 Temmuz 2025) */
+            justify-content: center;
+            /* Ortalı hizalama */
             gap: 6px;
             padding: 10px;
-            margin: 5px 0; /* Logoya ve başlığa yakın (31 Temmuz 2025) */
+            margin: 5px 0;
             border-bottom: 2px solid #a47148;
-            overflow-x: auto;
-            white-space: nowrap;
+        }
+
+        /* Medya Sorguları (Mobil) */
+        @media screen and (max-width: 600px) {
+            .menu-tabs {
+                padding: 8px;
+                gap: 4px;
+                margin: 3px 0;
+                flex-wrap: wrap;
+                /* Mobilde de kaydırma yok, alta geçer */
+                justify-content: center;
+            }
         }
 
         .tab-button {
@@ -395,6 +413,7 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -406,6 +425,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -443,7 +463,8 @@
             }
 
             .logo-container {
-                padding: 40px 0; /* Mobilde logo daha yukarıda */
+                padding: 40px 0;
+                /* Mobilde logo daha yukarıda */
             }
 
             .logo img {
@@ -452,20 +473,23 @@
             }
 
             .about-us {
-                margin: 2px 0; /* Mobilde logoya daha yakın */
+                margin: 2px 0;
+                /* Mobilde logoya daha yakın */
                 padding: 20px 15px;
             }
 
             h1.menu-title {
                 font-size: 28px;
-                margin: 5px 0; /* Mobilde logoya yakın */
+                margin: 5px 0;
+                /* Mobilde logoya yakın */
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             }
 
             .menu-tabs {
                 padding: 8px;
                 gap: 4px;
-                margin: 3px 0; /* Mobilde logoya yakın */
+                margin: 3px 0;
+                /* Mobilde logoya yakın */
                 overflow-x: auto;
             }
 
@@ -506,6 +530,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="logo-container">
         <div class="logo">
@@ -517,7 +542,9 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
+                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
+                malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -672,7 +699,8 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
+                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -696,7 +724,8 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
+                required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -774,4 +803,5 @@
         });
     </script>
 </body>
+
 </html>
