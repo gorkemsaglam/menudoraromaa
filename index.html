@@ -17,13 +17,12 @@
         .logo-container {
             display: flex;
             justify-content: center;
-            /* Yatayda ortalamak için */
             align-items: center;
-            /* Dikeyde ortalamak için */
-            height: 100px;
-            /* Konteynerin yüksekliği */
+            height: auto;
+            /* Mobilde daha esnek yükseklik */
             margin-bottom: 20px;
-            /* Logo ile diğer içerik arasında boşluk */
+            padding-top: 20px;
+            /* Üstten biraz boşluk ekleyelim */
         }
 
         @media (max-width: 768px) {
@@ -35,8 +34,10 @@
 
         @media (max-width: 480px) {
             .logo-container {
-                height: 80px;
-                /* Mobilde logo konteynerinin yüksekliği */
+                height: auto;
+                /* Yüksekliği esnek yapalım */
+                padding-top: 15px;
+                /* Mobilde biraz daha boşluk bırakılabilir */
             }
 
             .logo img {
@@ -80,8 +81,7 @@
 
         .about-us {
             background-color: transparent;
-            padding: 40px 20px 20px;
-            /* Üst kısmı biraz küçültüyoruz */
+            padding: 60px 20px 30px;
             text-align: center;
             margin-bottom: 0;
             border: 0.7px solid rgba(164, 113, 72, 0.12);
@@ -89,10 +89,24 @@
             box-shadow: 0 0 8px rgba(164, 113, 72, 0.07);
             backdrop-filter: blur(4px);
             -webkit-backdrop-filter: blur(4px);
-            max-width: 750px;
-            /* Konteynerin genişliğini biraz küçültüyoruz */
-            margin: 0 auto;
-            /* Ortalayalım */
+            position: relative;
+            z-index: 10;
+            /* Bu, diğer öğelerin önünde olmasını engeller */
+        }
+
+        /* Mobilde ve tabletde hizalamayı düzeltiyoruz */
+        @media screen and (max-width: 768px) {
+            .about-us {
+                padding: 40px 20px;
+                /* Mobilde biraz daha küçük padding */
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .about-us {
+                padding: 30px 15px;
+                /* Mobilde çok fazla padding eklemeyelim */
+            }
         }
 
         .about-title {
@@ -827,8 +841,22 @@
 
         /* Link ve sosyal ikonlar gibi diğer renkler için de uyumlu renkler tercih edilebilir */
         .social-icons a {
-            color: #bfa358;
+            color: #7a5533;
+            font-size: 22px;
             transition: color 0.3s ease;
+            position: relative;
+            z-index: 1;
+            /* Bu, ikonların üst üste gelmesini engeller */
+        }
+
+        .menu-toggle {
+            font-size: 26px;
+            cursor: pointer;
+            color: #7a5533;
+            transition: color 0.3s ease;
+            position: relative;
+            z-index: 2;
+            /* Menü simgesinin ön planda olmasını sağlar */
         }
 
         .social-icons a:hover {
