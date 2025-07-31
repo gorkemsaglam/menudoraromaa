@@ -1,13 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <title>Restoran Menüsü</title>
 
     <style>
@@ -15,8 +13,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html,
-        body {
+        html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -37,69 +34,51 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            padding: 100px 0;
-            /* Logoyu daha aşağıya taşır (31 Temmuz 2025) */
+            padding: 60px 0; /* Logo daha yukarıda (31 Temmuz 2025) */
         }
 
         .logo img {
-            max-width: 225px;
+            max-width: 120px;
             height: auto;
-            filter: brightness(90%);
-
+            filter: hue-rotate(0deg) saturate(100%) brightness(90%) sepia(50%) hue-rotate(30deg); /* #a47148 ile uyumlu */
         }
 
-        /* Header Sağ Bölüm Stilleri */
-        .header-right {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            display: flex;
-            gap: 20px;
-            align-items: center;
+        /* Hakkımızda Bölümü */
+        .about-us {
+            background-color: #fafafa;
+            padding: 40px 20px;
+            border-radius: 10px;
+            margin: 5px 0; /* Logoya daha yakın (31 Temmuz 2025) */
+            text-align: center;
         }
 
-        .menu-toggle {
-            font-size: 24px;
-            color: #a47148;
-            cursor: pointer;
-            transition: color 0.3s ease;
+        .about-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 20px;
         }
 
-        .menu-toggle:hover {
-            color: #bfa358;
-        }
-
-        .social-icons {
-            display: flex;
-            gap: 15px;
-        }
-
-        .social-icons a {
-            color: #a47148;
-            font-size: 20px;
-            transition: color 0.3s ease;
-        }
-
-        .social-icons a:hover {
-            color: #bfa358;
+        .about-text {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            color: #666666;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Başlık Stilleri */
         h1.menu-title {
             font-family: 'Dancing Script', cursive;
-            /* Daha dinamik font (31 Temmuz 2025) */
             font-size: 40px;
-            /* Daha büyük ve dikkat çekici */
             font-weight: 700;
             color: #333333;
             text-align: center;
-            margin: 30px 0;
+            margin: 10px 0; /* Logoya ve Biz Kimiz?'e yakın (31 Temmuz 2025) */
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
-            /* Daha belirgin gölge */
             animation: fadeIn 1.2s ease-in-out;
-            /* Yavaş ve pürüzsüz animasyon */
             letter-spacing: 1px;
-            /* Hafif harf boşluğu */
         }
 
         h2.section-heading {
@@ -108,17 +87,15 @@
             font-weight: 600;
             color: #333333;
             margin: 20px 0 15px;
-            padding-left: 25px;
+            padding-left: 20px;
             border-left: 4px solid #a47148;
             position: relative;
             cursor: pointer;
             transition: color 0.3s ease, background-color 0.3s ease;
             background: linear-gradient(to right, #fafafa, #ffffff);
-            /* Hafif gradient */
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            /* Hafif gölge */
         }
 
         h2.section-heading:hover {
@@ -126,19 +103,16 @@
             background: linear-gradient(to right, #f5f5f5, #ffffff);
         }
 
-
-
         h3.sub-heading {
             font-family: 'Playfair Display', serif;
             font-size: 20px;
             font-weight: 600;
             color: #333333;
             margin: 20px 0 10px;
-            padding-left: 20px;
+            padding-left: 15px;
             border-left: 3px solid #a47148;
             position: relative;
             background: linear-gradient(to right, #ffffff, #fafafa);
-            /* Hafif gradient */
             padding: 8px 15px;
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
@@ -153,16 +127,16 @@
         /* Menü Tab Stilleri */
         .menu-tabs {
             position: static;
-            /* Sabit değil, Hakkımızda altına yerleşir (31 Temmuz 2025) */
             background-color: #ffffff;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
             gap: 6px;
             padding: 10px;
-            margin: 20px 0;
+            margin: 5px 0; /* Logoya ve başlığa yakın (31 Temmuz 2025) */
             border-bottom: 2px solid #a47148;
-            /* Daha belirgin ayırıcı */
+            overflow-x: auto;
+            white-space: nowrap;
         }
 
         .tab-button {
@@ -178,6 +152,7 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
+            min-width: 80px;
         }
 
         .tab-button:hover {
@@ -251,31 +226,6 @@
 
         .sub-category.show {
             display: block;
-        }
-
-        /* Hakkımızda Bölümü */
-        .about-us {
-            background-color: #fafafa;
-            padding: 30px 15px;
-            border-radius: 10px;
-            margin: 5px 0;
-            text-align: center;
-        }
-
-        .about-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 28px;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 20px;
-        }
-
-        .about-text {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            color: #666666;
-            max-width: 600px;
-            margin: 0 auto;
         }
 
         /* İletişim Bölümü */
@@ -411,6 +361,7 @@
             transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
+            z-index: 900;
         }
 
         #backToTop:hover {
@@ -427,7 +378,6 @@
             margin: 40px 0;
             color: #a47148;
             font-family: 'Allura', cursive;
-            /* Daha zarif font (31 Temmuz 2025) */
             font-size: 28px;
         }
 
@@ -445,7 +395,6 @@
                 opacity: 0;
                 transform: translateY(-10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -457,7 +406,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -494,81 +442,82 @@
                 font-size: 14px;
             }
 
+            .logo-container {
+                padding: 40px 0; /* Mobilde logo daha yukarıda */
+            }
+
+            .logo img {
+                max-width: 100px;
+                filter: hue-rotate(0deg) saturate(100%) brightness(90%) sepia(50%) hue-rotate(30deg);
+            }
+
+            .about-us {
+                margin: 2px 0; /* Mobilde logoya daha yakın */
+                padding: 20px 15px;
+            }
+
             h1.menu-title {
-                font-size: 32px;
-                /* Mobilde daha kompakt */
-                margin: 20px 0;
-            }
-
-            h2.section-heading {
-                font-size: 20px;
-                margin: 15px 0 10px;
-                padding: 8px 15px;
-            }
-
-            h3.sub-heading {
-                font-size: 18px;
-                margin: 15px 0 8px;
-                padding: 6px 15px;
+                font-size: 28px;
+                margin: 5px 0; /* Mobilde logoya yakın */
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             }
 
             .menu-tabs {
                 padding: 8px;
                 gap: 4px;
+                margin: 3px 0; /* Mobilde logoya yakın */
+                overflow-x: auto;
             }
 
             .tab-button {
                 font-size: 11px;
-                padding: 5px 10px;
-                border-radius: 12px;
+                padding: 6px 12px;
+                border-radius: 10px;
+                min-width: 70px;
             }
 
             .item img {
-                width: 80px;
-                height: 80px;
+                width: 70px;
+                height: 70px;
             }
 
             .item-info h3 {
-                font-size: 14px;
+                font-size: 13px;
             }
 
             .item-info .price {
-                font-size: 13px;
+                font-size: 12px;
             }
 
             .item-info p {
-                font-size: 13px;
+                font-size: 12px;
             }
 
             #backToTop {
-                width: 36px;
-                height: 36px;
+                width: 32px;
+                height: 32px;
                 font-size: 16px;
             }
 
             #feedback-form button {
                 font-size: 13px;
-                padding: 7px 14px;
+                padding: 6px 12px;
             }
         }
     </style>
 </head>
-
 <body>
     <div class="logo-container">
         <div class="logo">
             <img src="images/fotolar/DORA ROMA.png" alt="Restoran Logosu" />
         </div>
-
     </div>
 
     <section class="about-us">
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
-                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal
-                malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -723,8 +672,7 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım
-                        Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=istanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:12 Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -748,8 +696,7 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
@@ -763,14 +710,14 @@
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
 
-            // Restoran Menüsü başlığına kaydırma fonksiyonu (31 Temmuz 2025)
+            // Restoran Menüsü başlığına kaydırma fonksiyonu
             function scrollToFirstItem(tabId) {
                 if (window.innerWidth <= 600) {
                     const menuTitle = document.querySelector('.menu-title');
                     if (menuTitle) {
                         const elementPosition = menuTitle.getBoundingClientRect().top + window.pageYOffset;
                         window.scrollTo({
-                            top: elementPosition - 20, // Sabit menü olmadığından offset azaltıldı
+                            top: elementPosition - 20,
                             behavior: 'smooth'
                         });
                     }
@@ -827,5 +774,4 @@
         });
     </script>
 </body>
-
 </html>
