@@ -14,6 +14,8 @@
         @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap');
 
 
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700&family=Poppins:wght@400;600&display=swap');
+
         .logo-container {
             display: flex;
             justify-content: center;
@@ -21,38 +23,76 @@
             align-items: center;
             /* Dikeyde ortalama */
             margin: 20px auto;
-        }
-
-        /* Logo */
-        .logo img {
+            /* Üst ve alt boşluklar */
             width: 100%;
-            max-width: 150px;
-            /* Esnek boyut */
-            height: auto;
-            display: block;
-            /* Ortalanmasını sağlamak için */
-            margin: 0 auto;
-            /* Ortalamayı garanti eder */
+            /* Tam genişlik */
         }
 
-        /* Mobilde Logo Boyutu */
+        .logo {
+            display: block;
+            /* Logo'yu blok eleman yapar */
+            margin: 0 auto;
+            /* Yatayda tam ortalar */
+            max-width: 100%;
+            /* Logo çok genişse boyutunu sınırlayalım */
+            height: auto;
+            /* Yüksekliği orantılı olarak ayarlayalım */
+        }
+
+        .logo img {
+            max-width: 100%;
+            /* Resmin genişliğini sınırlayalım */
+            height: auto;
+            /* Orantılı yükseklik */
+        }
+
         @media (max-width: 768px) {
+            .logo-container {
+                justify-content: center;
+                /* Mobilde yatayda ortalama */
+                align-items: center;
+                /* Mobilde dikeyde ortalama */
+                flex-direction: column;
+                /* Elemanları dikey hizala */
+                padding: 10px 0;
+                /* Daha az padding */
+            }
+
+            .logo {
+                width: 120px;
+                /* Mobilde daha küçük boyut */
+                margin: 0 auto;
+                /* Yatayda tam ortalar */
+            }
+
             .logo img {
-                max-width: 120px;
-                /* Mobilde küçük logo */
+                width: 100%;
+                /* Logo genişliğini kapsayıcıya göre ayarla */
             }
         }
 
         @media (max-width: 480px) {
             .logo-container {
+                justify-content: center;
+                /* Mobilde yatayda ortalama */
+                align-items: center;
+                /* Mobilde dikeyde ortalama */
                 height: auto;
-                /* Yüksekliği esnek yapıyoruz */
-                padding-top: 15px;
+                /* Yüksekliği esnek yapalım */
+                padding: 15px 0;
+                /* Mobilde biraz daha boşluk */
+            }
+
+            .logo {
+                width: 100px;
+                /* Mobilde logo daha küçük */
+                margin: 0 auto;
+                /* Yatayda tam ortalar */
             }
 
             .logo img {
-                max-width: 100px;
-                /* Daha küçük logo */
+                width: 100%;
+                /* Logo genişliğini kapsayıcıya göre ayarla */
             }
         }
 
@@ -61,6 +101,8 @@
             align-items: center;
             gap: 55px;
             /* Menü ve simgeler arası boşluk */
+            margin-top: 10px;
+            /* Logo ile header-right arasında boşluk */
         }
 
         .menu-toggle {
@@ -101,42 +143,34 @@
             -webkit-backdrop-filter: blur(4px);
             position: relative;
             z-index: 10;
-            /* Bu, diğer öğelerin önünde olmasını engeller */
         }
 
-        /* Mobilde ve tabletde hizalamayı düzeltiyoruz */
         @media screen and (max-width: 768px) {
             .about-us {
                 padding: 40px 20px;
-                /* Mobilde biraz daha küçük padding */
             }
         }
 
         @media screen and (max-width: 480px) {
             .about-us {
                 padding: 30px 15px;
-                /* Mobilde çok fazla padding eklemeyelim */
             }
         }
 
         .about-title {
             font-family: 'Dancing Script', cursive;
             font-size: 36px;
-            /* Başlık boyutunu biraz küçültüyoruz */
             color: #7a5533;
             margin-bottom: 20px;
-            /* Alt boşluğu azaltıyoruz */
             letter-spacing: 1px;
             text-shadow: 1px 1px 3px rgba(164, 113, 72, 0.4);
         }
 
         .about-text {
             font-size: 16px;
-            /* Metin boyutunu biraz küçültüyoruz */
             line-height: 1.7;
             color: #555;
             max-width: 700px;
-            /* Metnin genişliğini biraz daraltıyoruz */
             margin: 0 auto;
             font-weight: 500;
         }
@@ -171,7 +205,6 @@
             line-height: 1.7;
             color: #444;
             font-family: 'Arial', sans-serif;
-
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 0.8s forwards;
@@ -201,14 +234,6 @@
             pointer-events: none;
         }
 
-
-        .logo img {
-            width: 150px;
-            /* Logonun genişliğini sabitleyin */
-            height: auto;
-            /* Yüksekliği orantılı şekilde ayarlar */
-        }
-
         h1 {
             font-family: 'Dancing Script', cursive;
             font-size: 36px;
@@ -233,7 +258,6 @@
             display: none;
         }
 
-
         h2 {
             font-family: 'Poppins', sans-serif;
             font-weight: 800;
@@ -253,16 +277,12 @@
             display: block;
         }
 
-        /* Aynı şekilde itemları da kapalı başlatıyoruz */
-
-
         h2.section-heading {
             cursor: pointer;
         }
 
         .item {
             display: none;
-            /* kapalı başlatılıyor */
             opacity: 0;
             transform: translateY(30px);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -287,7 +307,6 @@
             }
         }
 
-        /* Hover zaten var, ama biraz daha yumuşak */
         .item:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
@@ -353,7 +372,6 @@
             }
         }
 
-        /* Tab menü stili */
         .menu-tabs {
             display: flex;
             flex-wrap: wrap;
@@ -383,7 +401,6 @@
             background-color: #5c3b24;
         }
 
-        /* İletişim bölümü */
         .contact-info {
             background-color: #fffdfc;
             border: 2px solid #a47148;
@@ -449,7 +466,6 @@
             color: #7a5533;
         }
 
-        /* Responsive */
         @media screen and (max-width: 480px) {
             .contact-list li {
                 font-size: 16px;
@@ -461,7 +477,6 @@
             }
         }
 
-        /* Feedback form stili */
         .feedback-section {
             background: #ffffff;
             padding: 30px 20px;
@@ -526,7 +541,6 @@
             transform: scale(1.05);
         }
 
-        /* Eklenen animasyonlar */
         h1,
         h2 {
             opacity: 0;
@@ -541,19 +555,12 @@
 
         h2.about-title {
             font-family: 'Poppins', sans-serif;
-            /* Modern, okunaklı ve estetik bir font */
             font-weight: 600;
-            /* Orta kalınlıkta, okunaklı ama zarif */
             font-size: 2.5em;
-            /* Başlık boyutu büyütülerek daha belirgin hale getirilir */
             color: #7a5533;
-            /* Sayfa ile uyumlu pastel ve doğal bir renk */
             text-align: center;
-            /* Başlık ortalanarak görsel denge sağlanır */
             margin-bottom: 20px;
-            /* Başlık ile içerik arasına boşluk bırakılır */
             text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
-            /* Hafif gölgeleme, estetik bir görünüm sağlar */
         }
 
         .section-heading {
@@ -589,23 +596,19 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Hover zaten var, ama biraz daha yumuşak */
         .item:hover {
             transform: scale(1.05);
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
         }
 
-        /* Tab butonları yumuşak renk geçişi */
         .tab-button {
             transition: background-color 0.4s ease, color 0.4s ease, transform 0.2s ease;
         }
 
-        /* Dark mode body geçiş */
         body {
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        /* Fade-in yukarı doğru animasyon */
         @keyframes fadeInUp {
             to {
                 opacity: 1;
@@ -615,9 +618,7 @@
 
         contact-item a i {
             font-size: 28px;
-            /* simgeleri büyüttüm */
             margin-right: 20px;
-            /* aradaki boşluğu artırdım */
             color: #7a5533;
             transition: color 0.3s ease;
         }
@@ -671,7 +672,8 @@
 
             .logo-container {
                 flex-direction: column;
-                align-items: flex-start;
+                align-items: center;
+                /* Mobilde tam ortalar */
                 gap: 10px;
                 padding: 0 10px;
             }
@@ -722,7 +724,6 @@
                 font-weight: 700;
                 font-size: 18px;
                 color: #a58942;
-                /* Yumuşak, doğal altın tonu */
                 margin-left: 10px;
                 text-shadow: none;
                 letter-spacing: 0.3px;
@@ -755,31 +756,23 @@
             }
         }
 
-        /* Google Fonts import */
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Allura&display=swap');
 
         body {
             font-family: 'Poppins', sans-serif;
             font-size: 17px;
             color: #3b3b3b;
-            /* koyu gri, göz yormaz */
             background-color: #fdfaf6;
-            /* hafif krem, sıcak arka plan */
             line-height: 1.6;
         }
 
         h1,
         h2,
         h3 {
-
             font-weight: bold;
-            /* Yazıyı kalın yapar */
             font-size: 2.5em;
-            /* Yazının boyutunu büyütür (isteğe bağlı) */
             text-transform: uppercase;
-            /* Yazıyı büyük harfe dönüştürür (isteğe bağlı) */
             letter-spacing: 2px;
-            /* Harfler arasına biraz boşluk ekler (isteğe bağlı) */
         }
 
         h1 {
@@ -802,13 +795,11 @@
 
         a:hover {
             color: #d4bc6a;
-            /* biraz daha parlak */
         }
 
         .tab-button {
             background-color: #bfa358;
             color: #f9f6ef;
-            /* açık krem */
             border-radius: 25px;
             font-weight: 600;
             padding: 10px 18px;
@@ -845,14 +836,12 @@
             color: #2f2f2f;
         }
 
-        /* Link ve sosyal ikonlar gibi diğer renkler için de uyumlu renkler tercih edilebilir */
         .social-icons a {
             color: #7a5533;
             font-size: 22px;
             transition: color 0.3s ease;
             position: relative;
             z-index: 1;
-            /* Bu, ikonların üst üste gelmesini engeller */
         }
 
         .menu-toggle {
@@ -862,7 +851,6 @@
             transition: color 0.3s ease;
             position: relative;
             z-index: 2;
-            /* Menü simgesinin ön planda olmasını sağlar */
         }
 
         .social-icons a:hover {
