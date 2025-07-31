@@ -64,12 +64,21 @@
         }
 
         .hero-content .logo-img {
-            max-width: 800px;
+            max-width: 250px;
+            /* Medium-large size for larger screens */
             height: auto;
             display: block;
             margin: 0 auto;
             opacity: 0;
             transform: translateX(-50px);
+        }
+
+        /* Update the media query for smaller screens */
+        @media screen and (max-width: 600px) {
+            .hero-content .logo-img {
+                max-width: 130px;
+                /* Mobile-friendly, slightly larger for clarity */
+            }
         }
 
         .hero-content .logo-img.animate {
@@ -662,7 +671,7 @@
             }
 
             .hero-content .logo-img {
-                max-width:120px;
+                max-width: 120px;
             }
 
             .hero-content p {
@@ -792,7 +801,7 @@
 <body>
     <section class="hero-section">
         <div class="hero-content">
-            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img"><br>
+            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img"><br><br>
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz
                 At</button>
         </div>
