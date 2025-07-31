@@ -21,35 +21,38 @@
             align-items: center;
             /* Dikeyde ortalama */
             margin: 20px auto;
-            /* Üst ve alt boşluklar */
         }
 
         /* Logo */
-        .logo {
-            max-width: 100%;
-            /* Logo çok genişse boyutunu sınırlayalım */
+        .logo img {
+            width: 100%;
+            max-width: 150px;
+            /* Esnek boyut */
             height: auto;
-            /* Yüksekliği orantılı olarak ayarlayalım */
+            display: block;
+            /* Ortalanmasını sağlamak için */
+            margin: 0 auto;
+            /* Ortalamayı garanti eder */
         }
 
+        /* Mobilde Logo Boyutu */
         @media (max-width: 768px) {
             .logo img {
-                width: 120px;
-                /* Mobilde daha küçük boyut */
+                max-width: 120px;
+                /* Mobilde küçük logo */
             }
         }
 
         @media (max-width: 480px) {
             .logo-container {
                 height: auto;
-                /* Yüksekliği esnek yapalım */
+                /* Yüksekliği esnek yapıyoruz */
                 padding-top: 15px;
-                /* Mobilde biraz daha boşluk bırakılabilir */
             }
 
             .logo img {
-                width: 100px;
-                /* Mobilde logo daha da küçük olabilir */
+                max-width: 100px;
+                /* Daha küçük logo */
             }
         }
 
