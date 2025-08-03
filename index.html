@@ -290,8 +290,8 @@
             overflow-x: auto;
             white-space: nowrap;
             justify-content: center;
-            gap: 12px; /* Butonlar arası boşluk artırıldı */
-            padding: 10px 15px;
+            gap: 10px; /* Butonlar arası boşluk */
+            padding: 10px 10px;
             margin: 5px 0;
             border-bottom: 2px solid #a47148;
             -webkit-overflow-scrolling: touch;
@@ -304,19 +304,19 @@
         }
 
         .tab-button {
-            width: 90px; /* Buton boyutu büyütüldü */
-            height: 90px; /* Buton boyutu büyütüldü */
+            width: 80px; /* Tutarlı buton boyutu */
+            height: 80px; /* Tutarlı buton boyutu */
             background: linear-gradient(135deg, #a47148 0%, #bfa358 100%);
             color: #ffffff;
-            border-radius: 20px; /* Daha yuvarlak köşeler */
+            border-radius: 16px; /* Yuvarlak köşeler */
             font-family: 'Inter', sans-serif;
-            font-size: 10px; /* Yazı boyutu optimize edildi */
+            font-size: 9px; /* Yazı boyutu */
             font-weight: 700;
             text-transform: uppercase;
             border: none;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
             display: flex;
             flex-direction: column;
@@ -328,7 +328,7 @@
             position: relative;
             flex-shrink: 0;
             word-break: break-word; /* Uzun kelimeler için kırılma */
-            max-width: 90px;
+            max-width: 80px;
         }
 
         .tab-button::before {
@@ -338,36 +338,36 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
-            border-radius: 20px; /* Buton köşeleriyle uyumlu */
+            background: rgba(0, 0, 0, 0.6); /* Daha koyu arka plan */
+            border-radius: 16px; /* Buton köşeleriyle uyumlu */
             z-index: 1;
         }
 
         .tab-button span {
             position: relative;
             z-index: 2;
-            padding-bottom: 8px; /* Yazıyı biraz daha aşağı taşı */
+            padding-bottom: 6px; /* Yazıyı biraz daha yukarı taşı */
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-            line-height: 1.1; /* Daha sıkı satır yüksekliği */
-            max-width: 80%; /* Yazının taşmasını önle */
+            line-height: 1.2; /* Daha iyi hizalama */
+            max-width: 85%; /* Yazının taşmasını önle */
         }
 
         .tab-button:hover {
             background-color: #bfa358; /* Gradient yerine tek renk */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             transform: scale(1.05);
             opacity: 1;
         }
 
         .tab-button.active {
             background-color: #bfa358; /* Gradient yerine tek renk */
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             transform: scale(1.05);
             opacity: 1;
         }
 
         /* Her sekme butonu için özel ikon */
-        .tab-button[data-tab="dondurmalar"] {
+        .tab-button[data-tab="dondurma"] {
             background-image: url('images/fotolar/vanilya.jpg');
         }
 
@@ -750,27 +750,27 @@
             }
 
             .menu-tabs {
-                padding: 8px 10px;
-                gap: 10px; /* Mobil için boşluk artırıldı */
+                padding: 8px 5px; /* Mobil için daha az padding */
+                gap: 8px; /* Mobil için daha az boşluk */
                 margin: 3px 0;
                 justify-content: center;
             }
 
             .tab-button {
-                width: 80px; /* Mobil için buton boyutu */
-                height: 80px; /* Mobil için buton boyutu */
-                font-size: 9px; /* Mobil için daha küçük yazı */
-                border-radius: 16px; /* Daha küçük köşeler */
-                box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+                width: 80px; /* Mobil için de 80x80 */
+                height: 80px; /* Mobil için de 80x80 */
+                font-size: 8px; /* Mobil için daha küçük yazı */
+                border-radius: 16px; /* Tutarlı köşeler */
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
             .tab-button::before {
-                border-radius: 16px; /* Mobil için köşelerle uyumlu */
+                border-radius: 16px; /* Tutarlı köşeler */
             }
 
             .tab-button span {
-                padding-bottom: 8px;
-                max-width: 80%;
+                padding-bottom: 6px;
+                max-width: 85%;
             }
 
             .about-us {
@@ -895,7 +895,7 @@
     </div>
 
     <div class="menu-tabs">
-        <button class="tab-button" data-tab="dondurmalar"><span>Dondurmalar</span></button>
+        <button class="tab-button" data-tab="dondurma"><span>Dondurma</span></button>
         <button class="tab-button" data-tab="tatlilar"><span>Tatlılar</span></button>
         <button class="tab-button" data-tab="pastalar"><span>Pastalar</span></button>
         <button class="tab-button" data-tab="kahveler"><span>Kahveler</span></button>
@@ -905,8 +905,8 @@
     <!-- Tümü Sekmesi -->
     <div id="tumu" class="tab-content">
         <div class="section-wrapper">
-            <h2 class="section-heading" data-tab="dondurmalar" data-state="closed">Dondurmalar</h2>
-            <div class="content-container" data-tab="dondurmalar"></div>
+            <h2 class="section-heading" data-tab="dondurma" data-state="closed">Dondurma</h2>
+            <div class="content-container" data-tab="dondurma"></div>
         </div>
         <div class="section-wrapper">
             <h2 class="section-heading" data-tab="tatlilar" data-state="closed">Tatlılar</h2>
@@ -926,10 +926,10 @@
         </div>
     </div>
 
-    <!-- Dondurmalar Sekmesi -->
-    <div id="dondurmalar" class="tab-content">
-        <h1 class="section-title">Dondurmalar</h1>
-        <div class="sub-category" data-subcategory="dondurmalar">
+    <!-- Dondurma Sekmesi -->
+    <div id="dondurma" class="tab-content">
+        <h1 class="section-title">Dondurma</h1>
+        <div class="sub-category" data-subcategory="dondurma">
             <div class="item" data-item-id="cikolatali-dondurma">
                 <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
                 <div class="item-info">
