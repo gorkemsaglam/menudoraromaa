@@ -200,6 +200,50 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             animation: fadeIn 1.2s ease-in-out;
             letter-spacing: 1px;
+            position: relative; /* Ebeveyn element için relative pozisyon */
+        }
+
+        .cart-toggle {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #a47148;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            z-index: 1001;
+        }
+
+        .cart-toggle:hover {
+            background-color: #bfa358;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         h1.section-title {
@@ -217,8 +261,6 @@
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
-
- transferred here. I'll continue with the remaining content and integrate the requested changes.
 
         h1.section-title:hover {
             color: #bfa358;
@@ -399,6 +441,7 @@
             border-radius: 20px;
             padding: 5px 10px;
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            position: relative;
         }
 
         .quantity-button {
@@ -434,6 +477,43 @@
             color: #333333;
             width: 40px;
             text-align: center;
+        }
+
+        .added-text {
+            position: absolute;
+            right: -60px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 500;
+            color: #a47148;
+            opacity: 0.7;
+            display: none;
+        }
+
+        .added-text.show {
+            display: block;
+            animation: slideInFadeOut 1.5s ease forwards;
+        }
+
+        @keyframes slideInFadeOut {
+            0% {
+                opacity: 0;
+                transform: translateX(10px) translateY(-50%);
+            }
+            20% {
+                opacity: 0.7;
+                transform: translateX(0) translateY(-50%);
+            }
+            80% {
+                opacity: 0.7;
+                transform: translateX(0) translateY(-50%);
+            }
+            100% {
+                opacity: 0;
+                transform: translateX(-10px) translateY(-50%);
+            }
         }
 
         .sub-category {
@@ -473,6 +553,20 @@
             color: #333333;
             margin-bottom: 15px;
             text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .cart-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 2px;
+            background-color: #a47148;
+            border-radius: 1px;
         }
 
         .cart-items {
@@ -527,49 +621,6 @@
             color: #a47148;
             text-align: right;
             margin-top: 15px;
-        }
-
-        .cart-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background-color: #a47148;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-        }
-
-        .cart-toggle:hover {
-            background-color: #bfa358;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transform: scale(1.05);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #e74c3c;
-            color: #ffffff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* İletişim Bölümü */
@@ -775,7 +826,6 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -787,7 +837,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -799,7 +848,6 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateX(0);
@@ -812,20 +860,16 @@
                 max-width: 900px;
                 margin: 0 auto;
             }
-
             .item img {
                 width: 120px;
                 height: 120px;
             }
-
             .item-info h3 {
                 font-size: 18px;
             }
-
             .item-info .price {
                 font-size: 16px;
             }
-
             .item-info p {
                 font-size: 15px;
             }
@@ -835,44 +879,36 @@
             body {
                 font-size: 14px;
             }
-
             .hero-section {
                 height: 300px;
             }
-
             .hero-content {
                 gap: 15px;
             }
-
             .hero-content .logo-img {
                 max-width: 150px;
             }
-
             .hero-content button {
                 font-size: 14px;
                 padding: 8px 16px;
             }
-
             .tumu-button {
                 font-size: 11px;
                 padding: 6px 12px;
                 min-width: 70px;
             }
-
             .menu-tabs {
                 padding: 8px 10px;
                 gap: 6px;
                 margin: 3px 0;
                 justify-content: flex-start;
             }
-
             .tab-button {
                 font-size: 12px;
                 padding: 6px 12px;
                 border-radius: 10px;
                 min-width: 50px;
             }
-
             .about-us {
                 margin: 2px 0 20px 0;
                 padding: 25px 15px;
@@ -880,96 +916,95 @@
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
                 border-left: 3px solid #a47148;
             }
-
             .about-title {
                 font-size: 26px;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
             }
-
             .about-text {
                 font-size: 14px;
                 line-height: 1.7;
             }
-
             h1.menu-title {
                 font-size: 26px;
                 color: #a47148;
                 margin: 5px 0;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
             }
-
+            .cart-toggle {
+                top: 0;
+                right: 0;
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
+            }
+            .cart-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+                top: -6px;
+                right: -6px;
+            }
             h1.section-title {
                 font-size: 20px;
                 margin: 15px 0 10px;
                 padding: 8px 15px;
             }
-
             .item {
                 padding: 15px;
                 gap: 15px;
             }
-
             .item img {
                 width: 80px;
                 height: 80px;
             }
-
             .item-info h3 {
                 font-size: 14px;
             }
-
             .item-info .price {
                 font-size: 13px;
             }
-
             .item-info p {
                 font-size: 12px;
             }
-
             .quantity-controls {
                 padding: 4px 8px;
             }
-
             .quantity-button {
                 width: 28px;
                 height: 28px;
                 font-size: 16px;
             }
-
             .quantity {
                 font-size: 14px;
                 width: 35px;
             }
-
+            .added-text {
+                font-size: 10px;
+                right: -50px;
+            }
             .content-container {
                 padding-left: 15px;
             }
-
             .contact-info {
                 padding: 25px;
                 max-width: 90%;
                 border-radius: 15px;
                 box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
             }
-
             .contact-info-title {
                 font-size: 26px;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
             }
-
             .contact-list li {
                 font-size: 14px;
                 gap: 10px;
             }
-
             .contact-list li i {
                 font-size: 18px;
             }
-
             .contact-list li a {
                 font-size: 14px;
             }
-
             #backToTop {
                 width: 36px;
                 height: 36px;
@@ -977,59 +1012,35 @@
                 bottom: 60px;
                 right: 15px;
             }
-
             #feedback-form button {
                 font-size: 13px;
                 padding: 6px 12px;
             }
-
             .cart-section {
                 top: 50px;
                 right: 10px;
                 max-width: 90%;
                 padding: 15px;
             }
-
             .cart-title {
                 font-size: 18px;
             }
-
             .cart-item {
                 gap: 10px;
                 padding: 8px 0;
             }
-
             .cart-item img {
                 width: 40px;
                 height: 40px;
             }
-
             .cart-item-info span {
                 font-size: 12px;
             }
-
             .cart-item-info .cart-item-price {
                 font-size: 11px;
             }
-
             .cart-total {
                 font-size: 14px;
-            }
-
-            .cart-toggle {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .cart-badge {
-                width: 18px;
-                height: 18px;
-                font-size: 10px;
-                top: -6px;
-                right: -6px;
             }
         }
     </style>
@@ -1052,7 +1063,10 @@
         </div>
     </section>
 
-    <h1 class="menu-title">Dora Roma Menü</h1>
+    <h1 class="menu-title">Dora Roma Menü<button id="cartToggle" class="cart-toggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+    </button></h1>
 
     <div class="tumu-button-container">
         <button class="tumu-button active" data-tab="tumu">Tümü</button>
@@ -1103,6 +1117,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1115,6 +1130,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1134,6 +1150,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1146,6 +1163,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1165,6 +1183,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1177,6 +1196,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1197,6 +1217,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1209,6 +1230,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1224,6 +1246,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1236,6 +1259,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1256,6 +1280,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1268,6 +1293,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1283,6 +1309,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1295,6 +1322,7 @@
                         <button class="quantity-button minus">-</button>
                         <span class="quantity">0</span>
                         <button class="quantity-button plus">+</button>
+                        <span class="added-text">Eklendi</span>
                     </div>
                 </div>
             </div>
@@ -1344,10 +1372,6 @@
         <div class="cart-total" id="cartTotal">Toplam: 0 TL</div>
     </section>
 
-    <button id="cartToggle" class="cart-toggle">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge" id="cartBadge">0</span>
-    </button>
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
@@ -1444,21 +1468,32 @@
                     const quantityElement = item.querySelector('.quantity');
                     const minusButton = item.querySelector('.quantity-button.minus');
                     const plusButton = item.querySelector('.quantity-button.plus');
+                    const addedText = item.querySelector('.added-text');
 
                     // Başlangıçta sepet yoksa 0
                     if (!cart[itemId]) {
                         cart[itemId] = { name, price, quantity: 0, image };
                     }
 
-                    // Mevcut olay dinleyicilerini kaldır
+                    // Başlangıçta olay dinleyicilerini kaldır
                     plusButton.removeEventListener('click', plusButton.handleClick);
                     minusButton.removeEventListener('click', minusButton.handleClick);
+
+                    // "Eklendi" animasyonunu tetikleme fonksiyonu
+                    function showAddedText() {
+                        if (addedText) {
+                            addedText.classList.remove('show');
+                            void addedText.offsetWidth; // Animasyonu sıfırla
+                            addedText.classList.add('show');
+                        }
+                    }
 
                     // Artırma butonu
                     plusButton.handleClick = () => {
                         cart[itemId].quantity += 1;
                         quantityElement.textContent = cart[itemId].quantity;
                         minusButton.disabled = false;
+                        showAddedText();
                         updateCart();
                     };
                     plusButton.addEventListener('click', plusButton.handleClick);
@@ -1471,6 +1506,7 @@
                             if (cart[itemId].quantity === 0) {
                                 minusButton.disabled = true;
                             }
+                            showAddedText();
                             updateCart();
                         }
                     };
@@ -1488,139 +1524,59 @@
                     if (isTumu) {
                         target = document.querySelector(`.section-heading[data-tab="${tabId}"]`);
                     } else {
-                        const targetContent = document.getElementById(tabId);
-                        target = targetContent ? targetContent.querySelector('.section-title') : null;
+                        target = document.querySelector(`#${tabId} .sub-category`);
                     }
                     if (target) {
-                        const elementPosition = target.getBoundingClientRect().top + window.pageYOffset - 20;
-                        window.scrollTo({
-                            top: elementPosition,
-                            behavior: 'smooth'
-                        });
+                        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                     }
                 }
             }
 
-            // Tümü butonu tıklama olayı
+            // Tab Kontrolleri
             tumuButton.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.style.display = 'none');
+                document.getElementById('tumu').style.display = 'block';
+                tabButtons.forEach(button => button.classList.remove('active'));
                 tumuButton.classList.add('active');
-                tabContents.forEach(content => {
-                    if (content.id !== 'tumu') {
-                        content.style.display = 'none';
-                    }
-                });
-                subCategories.forEach(sub => sub.classList.remove('show'));
-                const tumuContent = document.getElementById('tumu');
-                if (tumuContent) {
-                    tumuContent.style.display = 'block';
-                    sectionHeadings.forEach(heading => {
-                        heading.setAttribute('data-state', 'closed');
-                        const contentContainer = heading.nextElementSibling;
-                        if (contentContainer && contentContainer.classList.contains('content-container')) {
-                            contentContainer.innerHTML = '';
-                        }
-                    });
-                }
+                scrollToFirstItem('dondurmalar', true);
             });
 
-            // Sekme tıklama olayı
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
-                    tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tumuButton.classList.remove('active');
-                    button.classList.add('active');
-                    tabContents.forEach(content => content.style.display = 'none');
-                    subCategories.forEach(sub => sub.classList.remove('show'));
-                    sectionHeadings.forEach(heading => {
-                        heading.setAttribute('data-state', 'closed');
-                        const contentContainer = heading.nextElementSibling;
-                        if (contentContainer && contentContainer.classList.contains('content-container')) {
-                            contentContainer.innerHTML = '';
-                        }
-                    });
                     const tabId = button.getAttribute('data-tab');
-                    const targetContent = document.getElementById(tabId);
-                    if (targetContent) {
-                        targetContent.style.display = 'block';
-                        const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
-                        subCategoriesInTab.forEach(sub => {
-                            sub.classList.add('show');
-                            const itemsInSub = sub.querySelectorAll('.item');
-                            itemsInSub.forEach(item => item.classList.add('show'));
-                        });
-                        scrollToFirstItem(tabId, false);
-                    }
+                    tabContents.forEach(content => content.style.display = 'none');
+                    document.getElementById(tabId).style.display = 'block';
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    tumuButton.classList.remove('active');
+                    scrollToFirstItem(tabId);
                 });
             });
 
-            // Başlık tıklama olayı
+            // Alt Kategori Kontrolleri
             sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
                     const tabId = heading.getAttribute('data-tab');
-                    const currentState = heading.getAttribute('data-state');
-                    const contentContainer = heading.nextElementSibling;
-                    const targetContent = document.getElementById(tabId);
-                    const targetButton = document.querySelector(`.tab-button[data-tab="${tabId}"]`);
+                    const state = heading.getAttribute('data-state');
+                    const contentContainer = document.querySelector(`.content-container[data-tab="${tabId}"]`);
+                    const subCategory = document.querySelector(`.sub-category[data-subcategory="${tabId}"]`);
 
-                    if (currentState === 'closed') {
-                        if (targetContent && contentContainer) {
-                            contentContainer.innerHTML = '';
-                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
-                            subCategoriesInTab.forEach(sub => {
-                                const clonedSub = sub.cloneNode(true);
-                                clonedSub.classList.add('show');
-                                const itemsInSub = clonedSub.querySelectorAll('.item');
-                                itemsInSub.forEach(item => {
-                                    item.classList.add('show');
-                                    const itemId = item.getAttribute('data-item-id');
-                                    const quantityElement = item.querySelector('.quantity');
-                                    if (cart[itemId]) {
-                                        quantityElement.textContent = cart[itemId].quantity;
-                                        item.querySelector('.quantity-button.minus').disabled = cart[itemId].quantity === 0;
-                                    }
-                                });
-                                contentContainer.appendChild(clonedSub);
-                            });
-                            heading.setAttribute('data-state', 'open');
-                            if (targetButton) {
-                                tabButtons.forEach(btn => btn.classList.remove('active'));
-                                targetButton.classList.add('active');
-                                tumuButton.classList.remove('active');
-                            }
-                            scrollToFirstItem(tabId, true);
-                            initializeQuantityControls();
-                        }
+                    if (state === 'closed') {
+                        heading.setAttribute('data-state', 'open');
+                        if (subCategory) subCategory.classList.add('show');
                     } else {
-                        if (contentContainer) {
-                            contentContainer.innerHTML = '';
-                            heading.setAttribute('data-state', 'closed');
-                            if (targetButton) {
-                                targetButton.classList.remove('active');
-                            }
-                        }
+                        heading.setAttribute('data-state', 'closed');
+                        if (subCategory) subCategory.classList.remove('show');
                     }
                 });
             });
 
-            // Varsayılan olarak Tümü sekmesini aç
-            if (tumuButton) {
-                tumuButton.click();
-            }
+            // İlk yüklemede "Tümü" sekmesini aç
+            tumuButton.click();
 
-            // Back to Top button functionality
-            const backToTopButton = document.getElementById('backToTop');
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
-            });
-
-            // Quantity controls'ü başlat
+            // Miktar kontrollerini başlat
             initializeQuantityControls();
         });
     </script>
 </body>
-
 </html>
