@@ -335,14 +335,14 @@
         .item {
             display: none;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            padding: 15px;
-            margin: 10px 0;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 20px;
+            margin: 15px 0;
             display: flex;
             align-items: center;
-            gap: 15px;
-            transition: box-shadow 0.3s ease;
+            gap: 20px;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
         }
 
         .item.show {
@@ -351,34 +351,40 @@
         }
 
         .item:hover {
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
         }
 
         .item img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
+            border: 1px solid #e5e5e5;
         }
 
         .item-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
         }
 
         .item-info h3 {
             font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
+            font-size: 18px;
+            font-weight: 700;
             color: #333333;
             margin: 0;
             display: flex;
+            justify-content: space-between;
             align-items: center;
             gap: 10px;
         }
 
         .item-info .price {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: #a47148;
         }
@@ -388,41 +394,51 @@
             font-size: 14px;
             color: #666666;
             margin: 5px 0 0;
+            line-height: 1.5;
         }
 
         .quantity-controls {
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
+            background-color: #f9f9f9;
+            border-radius: 20px;
+            padding: 5px 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         .quantity-button {
             background-color: #a47148;
             color: #ffffff;
             border: none;
-            border-radius: 6px;
-            width: 30px;
-            height: 30px;
-            font-size: 16px;
+            border-radius: 50%;
+            width: 32px;
+            height: 32px;
+            font-size: 18px;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .quantity-button:hover {
             background-color: #bfa358;
+            transform: scale(1.1);
         }
 
         .quantity-button:disabled {
             background-color: #ccc;
             cursor: not-allowed;
+            transform: none;
         }
 
         .quantity {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             color: #333333;
-            width: 30px;
+            width: 40px;
             text-align: center;
         }
 
@@ -441,12 +457,15 @@
             bottom: 60px;
             right: 15px;
             background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            padding: 15px;
-            max-width: 300px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            max-width: 350px;
+            width: 90%;
             z-index: 1000;
             display: none;
+            max-height: 400px;
+            overflow-y: auto;
         }
 
         .cart-section.show {
@@ -455,39 +474,65 @@
 
         .cart-title {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
-            font-weight: 600;
+            font-size: 22px;
+            font-weight: 700;
             color: #333333;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            text-align: center;
         }
 
         .cart-items {
-            max-height: 200px;
+            max-height: 250px;
             overflow-y: auto;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .cart-item {
             display: flex;
-            justify-content: space-between;
             align-items: center;
-            padding: 5px 0;
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #333333;
+            gap: 15px;
+            padding: 10px 0;
+            border-bottom: 1px solid #e5e5e5;
         }
 
-        .cart-item span {
+        .cart-item img {
+            width: 50px;
+            height: 50px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 1px solid #e5e5e5;
+        }
+
+        .cart-item-info {
             flex: 1;
+        }
+
+        .cart-item-info span {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #333333;
+            display: block;
+        }
+
+        .cart-item-info .cart-item-price {
+            font-size: 13px;
+            color: #a47148;
+        }
+
+        .cart-item .quantity-controls {
+            background-color: transparent;
+            box-shadow: none;
+            padding: 0;
         }
 
         .cart-total {
             font-family: 'Inter', sans-serif;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 700;
             color: #a47148;
             text-align: right;
-            margin-top: 10px;
+            margin-top: 15px;
         }
 
         .cart-toggle {
@@ -498,21 +543,40 @@
             color: #ffffff;
             border: none;
             border-radius: 50%;
-            width: 40px;
-            height: 40px;
+            width: 48px;
+            height: 48px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 18px;
+            font-size: 20px;
             cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             z-index: 1000;
+            position: relative;
         }
 
         .cart-toggle:hover {
             background-color: #bfa358;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            transform: scale(1.05);
+        }
+
+        .cart-badge {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: #ffffff;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* İletişim Bölümü */
@@ -669,7 +733,7 @@
         #backToTop {
             position: fixed;
             bottom: 15px;
-            right: 60px;
+            right: 70px;
             background-color: #a47148;
             color: #ffffff;
             border: none;
@@ -835,14 +899,10 @@
             }
 
             h1.menu-title {
-                font-family: 'Allura', cursive;
                 font-size: 26px;
-                font-weight: 700;
                 color: #a47148;
                 margin: 5px 0;
                 text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-                animation: fadeIn 1.2s ease-in-out;
-                letter-spacing: 1px;
             }
 
             h1.section-title {
@@ -851,21 +911,41 @@
                 padding: 8px 15px;
             }
 
+            .item {
+                padding: 15px;
+                gap: 15px;
+            }
+
             .item img {
-                width: 70px;
-                height: 70px;
+                width: 80px;
+                height: 80px;
             }
 
             .item-info h3 {
-                font-size: 13px;
+                font-size: 14px;
             }
 
             .item-info .price {
-                font-size: 12px;
+                font-size: 13px;
             }
 
             .item-info p {
                 font-size: 12px;
+            }
+
+            .quantity-controls {
+                padding: 4px 8px;
+            }
+
+            .quantity-button {
+                width: 28px;
+                height: 28px;
+                font-size: 16px;
+            }
+
+            .quantity {
+                font-size: 14px;
+                width: 35px;
             }
 
             .content-container {
@@ -901,6 +981,7 @@
                 width: 32px;
                 height: 32px;
                 font-size: 16px;
+                right: 60px;
             }
 
             #feedback-form button {
@@ -912,6 +993,7 @@
                 max-width: 90%;
                 bottom: 50px;
                 right: 10px;
+                padding: 15px;
             }
 
             .cart-title {
@@ -919,22 +1001,39 @@
             }
 
             .cart-item {
+                gap: 10px;
+                padding: 8px 0;
+            }
+
+            .cart-item img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .cart-item-info span {
                 font-size: 12px;
+            }
+
+            .cart-item-info .cart-item-price {
+                font-size: 11px;
             }
 
             .cart-total {
                 font-size: 14px;
             }
 
-            .quantity-button {
-                width: 25px;
-                height: 25px;
-                font-size: 14px;
+            .cart-toggle {
+                width: 40px;
+                height: 40px;
+                font-size: 18px;
             }
 
-            .quantity {
-                font-size: 12px;
-                width: 25px;
+            .cart-badge {
+                width: 18px;
+                height: 18px;
+                font-size: 10px;
+                top: -6px;
+                right: -6px;
             }
         }
     </style>
@@ -943,7 +1042,7 @@
 <body>
     <section class="hero-section">
         <div class="hero-content">
-            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img"><br><br>
+            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
         </div>
     </section>
@@ -1002,27 +1101,25 @@
             <div class="item" data-item-id="cikolatali-dondurma">
                 <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
                 <div class="item-info">
-                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
                     <p>Kremalı çikolata dondurma.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="vanilyali-dondurma">
                 <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma">
                 <div class="item-info">
-                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
                     <p>Hafif ve doğal vanilya aromalı dondurma.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1035,27 +1132,25 @@
             <div class="item" data-item-id="baklava">
                 <img src="images/fotolar/baklava.jpg" alt="Baklava">
                 <div class="item-info">
-                    <h3>Baklava <span class="price">30 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Baklava <span class="price">30 TL</span></h3>
                     <p>Antep fıstıklı, çıtır baklava.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="sutlac">
                 <img src="images/fotolar/sutlac.jpg" alt="Sütlaç">
                 <div class="item-info">
-                    <h3>Sütlaç <span class="price">20 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Sütlaç <span class="price">20 TL</span></h3>
                     <p>Fırınlanmış geleneksel sütlaç.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1068,27 +1163,25 @@
             <div class="item" data-item-id="cikolatali-pasta">
                 <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
                 <div class="item-info">
-                    <h3>Çikolatalı Pasta <span class="price">50 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="orman-meyveli-pasta">
                 <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
                 <div class="item-info">
-                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1102,27 +1195,25 @@
             <div class="item" data-item-id="iced-latte">
                 <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
                 <div class="item-info">
-                    <h3>Iced Latte <span class="price">30 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Iced Latte <span class="price">30 TL</span></h3>
                     <p>Soğuk süt ve espresso ile hazırlanan serinletici kahve.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="cold-brew">
                 <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew">
                 <div class="item-info">
-                    <h3>Cold Brew <span class="price">32 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Cold Brew <span class="price">32 TL</span></h3>
                     <p>Soğuk demleme yöntemiyle hazırlanan yumuşak içimli kahve.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1131,27 +1222,25 @@
             <div class="item" data-item-id="espresso">
                 <img src="images/fotolar/espressso.jpg" alt="Espresso">
                 <div class="item-info">
-                    <h3>Espresso <span class="price">22 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Espresso <span class="price">22 TL</span></h3>
                     <p>Yoğun aromalı tek shot espresso.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="latte">
                 <img src="images/fotolar/sıcaklatte.jpg" alt="Latte">
                 <div class="item-info">
-                    <h3>Latte <span class="price">28 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Latte <span class="price">28 TL</span></h3>
                     <p>Köpüklü süt ile hazırlanmış latte.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1165,27 +1254,25 @@
             <div class="item" data-item-id="limonata">
                 <img src="images/fotolar/limonata.jpg" alt="Limonata">
                 <div class="item-info">
-                    <h3>Limonata <span class="price">20 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Limonata <span class="price">20 TL</span></h3>
                     <p>Taze sıkılmış limonlarla ferahlatıcı bir içecek.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="ice-tea">
                 <img src="images/fotolar/icetea.jpg" alt="Ice Tea">
                 <div class="item-info">
-                    <h3>Ice Tea <span class="price">18 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Ice Tea <span class="price">18 TL</span></h3>
                     <p>Şeftali aromalı soğuk çay.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1194,27 +1281,25 @@
             <div class="item" data-item-id="turk-kahvesi">
                 <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi">
                 <div class="item-info">
-                    <h3>Türk Kahvesi <span class="price">25 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
                     <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="cay">
                 <img src="images/fotolar/cay.jpg" alt="Çay">
                 <div class="item-info">
-                    <h3>Çay <span class="price">15 TL</span>
-                        <div class="quantity-controls">
-                            <button class="quantity-button minus">-</button>
-                            <span class="quantity">0</span>
-                            <button class="quantity-button plus">+</button>
-                        </div>
-                    </h3>
+                    <h3>Çay <span class="price">15 TL</span></h3>
                     <p>Taze demlenmiş siyah çay.</p>
+                    <div class="quantity-controls">
+                        <button class="quantity-button minus">-</button>
+                        <span class="quantity">0</span>
+                        <button class="quantity-button plus">+</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1263,7 +1348,10 @@
         <div class="cart-total" id="cartTotal">Toplam: 0 TL</div>
     </section>
 
-    <button id="cartToggle" class="cart-toggle"><i class="fas fa-shopping-cart"></i></button>
+    <button id="cartToggle" class="cart-toggle">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-badge" id="cartBadge">0</span>
+    </button>
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
@@ -1293,6 +1381,7 @@
             const cartItemsContainer = document.getElementById('cartItems');
             const cartTotalElement = document.getElementById('cartTotal');
             const cartToggle = document.getElementById('cartToggle');
+            const cartBadge = document.getElementById('cartBadge');
 
             // Sepet açma/kapama
             cartToggle.addEventListener('click', () => {
@@ -1303,17 +1392,51 @@
             function updateCart() {
                 cartItemsContainer.innerHTML = '';
                 let total = 0;
+                let totalItems = 0;
                 for (const [itemId, item] of Object.entries(cart)) {
-                    const itemElement = document.createElement('div');
-                    itemElement.classList.add('cart-item');
-                    itemElement.innerHTML = `
-                        <span>${item.name} x${item.quantity}</span>
-                        <span>${(item.quantity * item.price).toFixed(2)} TL</span>
-                    `;
-                    cartItemsContainer.appendChild(itemElement);
-                    total += item.quantity * item.price;
+                    if (item.quantity > 0) {
+                        const itemElement = document.createElement('div');
+                        itemElement.classList.add('cart-item');
+                        itemElement.innerHTML = `
+                            <img src="${item.image}" alt="${item.name}">
+                            <div class="cart-item-info">
+                                <span>${item.name}</span>
+                                <span class="cart-item-price">${(item.quantity * item.price).toFixed(2)} TL</span>
+                            </div>
+                            <div class="quantity-controls">
+                                <button class="quantity-button minus" data-item-id="${itemId}">-</button>
+                                <span class="quantity">${item.quantity}</span>
+                                <button class="quantity-button plus" data-item-id="${itemId}">+</button>
+                            </div>
+                        `;
+                        cartItemsContainer.appendChild(itemElement);
+                        total += item.quantity * item.price;
+                        totalItems += item.quantity;
+                    }
                 }
                 cartTotalElement.textContent = `Toplam: ${total.toFixed(2)} TL`;
+                cartBadge.textContent = totalItems;
+                cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
+
+                // Sepet içindeki miktar kontrollerini başlat
+                cartItemsContainer.querySelectorAll('.quantity-button').forEach(button => {
+                    button.addEventListener('click', () => {
+                        const itemId = button.getAttribute('data-item-id');
+                        if (button.classList.contains('plus')) {
+                            cart[itemId].quantity++;
+                        } else if (button.classList.contains('minus') && cart[itemId].quantity > 0) {
+                            cart[itemId].quantity--;
+                        }
+                        // Tüm ürünlerin miktarlarını güncelle
+                        document.querySelectorAll(`.item[data-item-id="${itemId}"]`).forEach(item => {
+                            const quantityElement = item.querySelector('.quantity');
+                            quantityElement.textContent = cart[itemId].quantity;
+                            const minusButton = item.querySelector('.quantity-button.minus');
+                            minusButton.disabled = cart[itemId].quantity === 0;
+                        });
+                        updateCart();
+                    });
+                });
             }
 
             // Ürün ekleme ve azaltma
@@ -1323,13 +1446,14 @@
                     const name = item.querySelector('.item-info h3').childNodes[0].textContent.trim();
                     const priceText = item.querySelector('.price').textContent;
                     const price = parseFloat(priceText.replace('TL', '').trim());
+                    const image = item.querySelector('img').src;
                     const quantityElement = item.querySelector('.quantity');
                     const minusButton = item.querySelector('.quantity-button.minus');
                     const plusButton = item.querySelector('.quantity-button.plus');
 
                     // Başlangıçta sepet yoksa 0
                     if (!cart[itemId]) {
-                        cart[itemId] = { name, price, quantity: 0 };
+                        cart[itemId] = { name, price, quantity: 0, image };
                     }
 
                     // Artırma butonu
@@ -1449,7 +1573,6 @@
                                 const itemsInSub = clonedSub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => {
                                     item.classList.add('show');
-                                    // Cloned item'lar için quantity controls ekle
                                     const itemId = item.getAttribute('data-item-id');
                                     const quantityElement = item.querySelector('.quantity');
                                     if (cart[itemId]) {
@@ -1466,7 +1589,6 @@
                                 tumuButton.classList.remove('active');
                             }
                             scrollToFirstItem(tabId, true);
-                            // Cloned item'lar için olay dinleyicilerini yeniden ekle
                             initializeQuantityControls();
                         }
                     } else {
