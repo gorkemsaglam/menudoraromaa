@@ -290,8 +290,8 @@
             overflow-x: auto;
             white-space: nowrap;
             justify-content: center;
-            gap: 8px; /* Butonlar arası boşluk küçültüldü */
-            padding: 8px 10px;
+            gap: 6px; /* Butonlar arası boşluk daha da küçültüldü */
+            padding: 6px 10px;
             margin: 5px 0;
             border-bottom: 2px solid #a47148;
             -webkit-overflow-scrolling: touch;
@@ -304,13 +304,13 @@
         }
 
         .tab-button {
-            width: 72px; /* Yeni buton boyutu */
-            height: 72px; /* Yeni buton boyutu */
+            width: 65px; /* Yeni buton boyutu */
+            height: 65px; /* Yeni buton boyutu */
             background: linear-gradient(135deg, #a47148 0%, #bfa358 100%);
             color: #ffffff;
-            border-radius: 14px; /* Daha küçük köşeler */
+            border-radius: 12px; /* Daha küçük köşeler */
             font-family: 'Inter', sans-serif;
-            font-size: 8px; /* Yazı boyutu küçültüldü */
+            font-size: 7px; /* Yazı boyutu daha da küçültüldü */
             font-weight: 700;
             text-transform: uppercase;
             border: none;
@@ -328,7 +328,7 @@
             position: relative;
             flex-shrink: 0;
             word-break: break-word; /* Uzun kelimeler için kırılma */
-            max-width: 72px;
+            max-width: 65px;
         }
 
         .tab-button::before {
@@ -338,18 +338,18 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.65); /* Daha koyu arka plan */
-            border-radius: 14px; /* Buton köşeleriyle uyumlu */
+            background: rgba(0, 0, 0, 0.7); /* Daha koyu arka plan */
+            border-radius: 12px; /* Buton köşeleriyle uyumlu */
             z-index: 1;
         }
 
         .tab-button span {
             position: relative;
             z-index: 2;
-            padding-bottom: 5px; /* Yazıyı biraz daha yukarı taşı */
+            padding-bottom: 4px; /* Yazıyı biraz daha yukarı taşı */
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-            line-height: 1.2; /* Daha iyi hizalama */
-            max-width: 85%; /* Yazının taşmasını önle */
+            line-height: 1.1; /* Daha iyi hizalama */
+            max-width: 90%; /* Yazının taşmasını önle */
         }
 
         .tab-button:hover {
@@ -750,27 +750,27 @@
             }
 
             .menu-tabs {
-                padding: 6px 5px; /* Mobil için daha az padding */
-                gap: 8px; /* Mobil için boşluk */
+                padding: 5px 5px; /* Mobil için daha az padding */
+                gap: 6px; /* Mobil için boşluk */
                 margin: 3px 0;
                 justify-content: center;
             }
 
             .tab-button {
-                width: 72px; /* Mobil için de 72x72 */
-                height: 72px; /* Mobil için de 72x72 */
-                font-size: 8px; /* Mobil için yazı boyutu */
-                border-radius: 14px; /* Tutarlı köşeler */
+                width: 65px; /* Mobil için de 65x65 */
+                height: 65px; /* Mobil için de 65x65 */
+                font-size: 7px; /* Mobil için yazı boyutu */
+                border-radius: 12px; /* Tutarlı köşeler */
                 box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
             .tab-button::before {
-                border-radius: 14px; /* Tutarlı köşeler */
+                border-radius: 12px; /* Tutarlı köşeler */
             }
 
             .tab-button span {
-                padding-bottom: 5px;
-                max-width: 85%;
+                padding-bottom: 4px;
+                max-width: 90%;
             }
 
             .about-us {
