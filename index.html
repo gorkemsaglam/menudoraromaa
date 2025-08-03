@@ -15,7 +15,6 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-8ERVLZYY34');
     </script>
     
@@ -304,21 +303,47 @@
         }
 
         .tab-button {
+            width: 60px; /* Kare buton için sabit genişlik */
+            height: 60px; /* Kare buton için sabit yükseklik */
             background-color: #a47148;
             color: #ffffff;
             border-radius: 12px;
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
-            padding: 8px 16px;
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
-            min-width: 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
             text-align: center;
+            background-size: cover;
+            background-position: center;
+            position: relative;
             flex-shrink: 0;
+        }
+
+        .tab-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* Yazı okunabilirliği için hafif karartma */
+            border-radius: 12px;
+            z-index: 1;
+        }
+
+        .tab-button span {
+            position: relative;
+            z-index: 2;
+            padding-bottom: 5px;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3); /* Yazı için gölge */
         }
 
         .tab-button:hover {
@@ -331,6 +356,27 @@
             background-color: #bfa358;
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             opacity: 1;
+        }
+
+        /* Her sekme butonu için özel ikon */
+        .tab-button[data-tab="dondurmalar"] {
+            background-image: url('images/fotolar/vanilya.jpg');
+        }
+
+        .tab-button[data-tab="tatlilar"] {
+            background-image: url('images/fotolar/tatlılar.jpg');
+        }
+
+        .tab-button[data-tab="pastalar"] {
+            background-image: url('images/fotolar/pastalar.jpg');
+        }
+
+        .tab-button[data-tab="kahveler"] {
+            background-image: url('images/fotolar/kahveler.jpg');
+        }
+
+        .tab-button[data-tab="icecekler"] {
+            background-image: url('images/fotolar/icecekler.jpg');
         }
 
         /* İtem Stilleri */
@@ -399,51 +445,6 @@
             line-height: 1.5;
         }
 
-        .quantity-controls {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            background-color: #f9f9f9;
-            border-radius: 20px;
-            padding: 5px 10px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-        }
-
-        .quantity-button {
-            background-color: #a47148;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 32px;
-            height: 32px;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .quantity-button:hover {
-            background-color: #bfa358;
-            transform: scale(1.1);
-        }
-
-        .quantity-button:disabled {
-            background-color: #ccc;
-            cursor: not-allowed;
-            transform: none;
-        }
-
-        .quantity {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: #333333;
-            width: 40px;
-            text-align: center;
-        }
-
         .sub-category {
             display: none;
             margin-top: 10px;
@@ -451,133 +452,6 @@
 
         .sub-category.show {
             display: block;
-        }
-
-        /* Sepet Stilleri */
-        .cart-section {
-            position: fixed;
-            top: 60px;
-            right: 15px;
-            background-color: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            max-width: 350px;
-            width: 90%;
-            z-index: 1000;
-            display: none;
-            max-height: 400px;
-            overflow-y: auto;
-        }
-
-        .cart-section.show {
-            display: block;
-        }
-
-        .cart-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 22px;
-            font-weight: 700;
-            color: #333333;
-            margin-bottom: 15px;
-            text-align: center;
-        }
-
-        .cart-items {
-            max-height: 250px;
-            overflow-y: auto;
-            margin-bottom: 15px;
-        }
-
-        .cart-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            padding: 10px 0;
-            border-bottom: 1px solid #e5e5e5;
-        }
-
-        .cart-item img {
-            width: 50px;
-            height: 50px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 1px solid #e5e5e5;
-        }
-
-        .cart-item-info {
-            flex: 1;
-        }
-
-        .cart-item-info span {
-            font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            font-weight: 600;
-            color: #333333;
-            display: block;
-        }
-
-        .cart-item-info .cart-item-price {
-            font-size: 13px;
-            color: #a47148;
-        }
-
-        .cart-item .quantity-controls {
-            background-color: transparent;
-            box-shadow: none;
-            padding: 0;
-        }
-
-        .cart-total {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 700;
-            color: #a47148;
-            text-align: right;
-            margin-top: 15px;
-        }
-
-        .cart-toggle {
-            position: fixed;
-            top: 15px;
-            right: 15px;
-            background-color: #a47148;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 48px;
-            height: 48px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-            z-index: 1001;
-        }
-
-        .cart-toggle:hover {
-            background-color: #bfa358;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            transform: scale(1.05);
-        }
-
-        .cart-badge {
-            position: absolute;
-            top: -8px;
-            right: -8px;
-            background-color: #e74c3c;
-            color: #ffffff;
-            border-radius: 50%;
-            width: 20px;
-            height: 20px;
-            font-size: 12px;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
 
         /* İletişim Bölümü */
@@ -875,10 +749,14 @@
             }
 
             .tab-button {
-                font-size: 12px;
-                padding: 6px 12px;
+                width: 50px; /* Mobil için daha küçük kare buton */
+                height: 50px;
+                font-size: 10px;
                 border-radius: 10px;
-                min-width: 50px;
+            }
+
+            .tab-button span {
+                padding-bottom: 4px;
             }
 
             .about-us {
@@ -934,21 +812,6 @@
                 font-size: 12px;
             }
 
-            .quantity-controls {
-                padding: 4px 8px;
-            }
-
-            .quantity-button {
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
-
-            .quantity {
-                font-size: 14px;
-                width: 35px;
-            }
-
             .content-container {
                 padding-left: 15px;
             }
@@ -990,55 +853,6 @@
                 font-size: 13px;
                 padding: 6px 12px;
             }
-
-            .cart-section {
-                top: 50px;
-                right: 10px;
-                max-width: 90%;
-                padding: 15px;
-            }
-
-            .cart-title {
-                font-size: 18px;
-            }
-
-            .cart-item {
-                gap: 10px;
-                padding: 8px 0;
-            }
-
-            .cart-item img {
-                width: 40px;
-                height: 40px;
-            }
-
-            .cart-item-info span {
-                font-size: 12px;
-            }
-
-            .cart-item-info .cart-item-price {
-                font-size: 11px;
-            }
-
-            .cart-total {
-                font-size: 14px;
-            }
-
-            .cart-toggle {
-                top: 10px;
-                right: 10px;
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .cart-badge {
-                width: 18px;
-                height: 18px;
-                font-size: 10px;
-                top: -6px;
-                right: -6px;
-            }
         }
     </style>
 </head>
@@ -1047,8 +861,7 @@
     <section class="hero-section">
         <div class="hero-content">
             <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
-            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz
-                At</button>
+            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
         </div>
     </section>
 
@@ -1056,9 +869,7 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet
-                anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal
-                malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -1070,11 +881,11 @@
     </div>
 
     <div class="menu-tabs">
-        <button class="tab-button" data-tab="dondurmalar">Dondurmalar</button>
-        <button class="tab-button" data-tab="tatlilar">Tatlılar</button>
-        <button class="tab-button" data-tab="pastalar">Pastalar</button>
-        <button class="tab-button" data-tab="kahveler">Kahveler</button>
-        <button class="tab-button" data-tab="icecekler">İçecekler</button>
+        <button class="tab-button" data-tab="dondurmalar"><span>Dondurmalar</span></button>
+        <button class="tab-button" data-tab="tatlilar"><span>Tatlılar</span></button>
+        <button class="tab-button" data-tab="pastalar"><span>Pastalar</span></button>
+        <button class="tab-button" data-tab="kahveler"><span>Kahveler</span></button>
+        <button class="tab-button" data-tab="icecekler"><span>İçecekler</span></button>
     </div>
 
     <!-- Tümü Sekmesi -->
@@ -1110,11 +921,6 @@
                 <div class="item-info">
                     <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
                     <p>Kremalı çikolata dondurma.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="vanilyali-dondurma">
@@ -1122,11 +928,6 @@
                 <div class="item-info">
                     <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
                     <p>Hafif ve doğal vanilya aromalı dondurma.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1141,11 +942,6 @@
                 <div class="item-info">
                     <h3>Baklava <span class="price">30 TL</span></h3>
                     <p>Antep fıstıklı, çıtır baklava.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="sutlac">
@@ -1153,11 +949,6 @@
                 <div class="item-info">
                     <h3>Sütlaç <span class="price">20 TL</span></h3>
                     <p>Fırınlanmış geleneksel sütlaç.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1172,11 +963,6 @@
                 <div class="item-info">
                     <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="orman-meyveli-pasta">
@@ -1184,11 +970,6 @@
                 <div class="item-info">
                     <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1204,11 +985,6 @@
                 <div class="item-info">
                     <h3>Iced Latte <span class="price">30 TL</span></h3>
                     <p>Soğuk süt ve espresso ile hazırlanan serinletici kahve.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="cold-brew">
@@ -1216,11 +992,6 @@
                 <div class="item-info">
                     <h3>Cold Brew <span class="price">32 TL</span></h3>
                     <p>Soğuk demleme yöntemiyle hazırlanan yumuşak içimli kahve.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1231,11 +1002,6 @@
                 <div class="item-info">
                     <h3>Espresso <span class="price">22 TL</span></h3>
                     <p>Yoğun aromalı tek shot espresso.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="latte">
@@ -1243,11 +1009,6 @@
                 <div class="item-info">
                     <h3>Latte <span class="price">28 TL</span></h3>
                     <p>Köpüklü süt ile hazırlanmış latte.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1263,11 +1024,6 @@
                 <div class="item-info">
                     <h3>Limonata <span class="price">20 TL</span></h3>
                     <p>Taze sıkılmış limonlarla ferahlatıcı bir içecek.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="ice-tea">
@@ -1275,11 +1031,6 @@
                 <div class="item-info">
                     <h3>Ice Tea <span class="price">18 TL</span></h3>
                     <p>Şeftali aromalı soğuk çay.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1290,11 +1041,6 @@
                 <div class="item-info">
                     <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
                     <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
             <div class="item" data-item-id="cay">
@@ -1302,11 +1048,6 @@
                 <div class="item-info">
                     <h3>Çay <span class="price">15 TL</span></h3>
                     <p>Taze demlenmiş siyah çay.</p>
-                    <div class="quantity-controls">
-                        <button class="quantity-button minus">-</button>
-                        <span class="quantity">0</span>
-                        <button class="quantity-button plus">+</button>
-                    </div>
                 </div>
             </div>
         </div>
@@ -1321,8 +1062,7 @@
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
                     <a href="https://www.google.com/maps?q=Y%C4%B1ld%C4%B1r%C4%B1m+Mahallesi%2C+%C5%9Eehit+Kamil+Balkan+Cad.+No%3A26%2FA+Bayrampa%C5%9Fa%2F%C4%B0stanbul"
-                        target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A
-                        Bayrampaşa/İstanbul</a>
+                        target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -1346,22 +1086,11 @@
             <label for="email">E-posta</label>
             <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
             <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın"
-                required></textarea>
+            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
             <button type="submit">Gönder</button>
         </form>
     </section>
 
-    <section class="cart-section" id="cartSection">
-        <h2 class="cart-title">Seçtikleriniz</h2>
-        <div class="cart-items" id="cartItems"></div>
-        <div class="cart-total" id="cartTotal">Toplam: 0 TL</div>
-    </section>
-
-    <button id="cartToggle" class="cart-toggle">
-        <i class="fas fa-shopping-cart"></i>
-        <span class="cart-badge" id="cartBadge">0</span>
-    </button>
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
@@ -1382,118 +1111,6 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
-
-            // Sepet yönetimi
-            const cart = {};
-            const cartSection = document.getElementById('cartSection');
-            const cartItemsContainer = document.getElementById('cartItems');
-            const cartTotalElement = document.getElementById('cartTotal');
-            const cartToggle = document.getElementById('cartToggle');
-            const cartBadge = document.getElementById('cartBadge');
-
-            // Sepet açma/kapama
-            cartToggle.addEventListener('click', () => {
-                cartSection.classList.toggle('show');
-            });
-
-            // Sepet güncelleme fonksiyonu
-            function updateCart() {
-                cartItemsContainer.innerHTML = '';
-                let total = 0;
-                let totalItems = 0;
-                for (const [itemId, item] of Object.entries(cart)) {
-                    if (item.quantity > 0) {
-                        const itemElement = document.createElement('div');
-                        itemElement.classList.add('cart-item');
-                        itemElement.innerHTML = `
-                            <img src="${item.image}" alt="${item.name}">
-                            <div class="cart-item-info">
-                                <span>${item.name}</span>
-                                <span class="cart-item-price">${(item.quantity * item.price).toFixed(2)} TL</span>
-                            </div>
-                            <div class="quantity-controls">
-                                <button class="quantity-button minus" data-item-id="${itemId}">-</button>
-                                <span class="quantity">${item.quantity}</span>
-                                <button class="quantity-button plus" data-item-id="${itemId}">+</button>
-                            </div>
-                        `;
-                        cartItemsContainer.appendChild(itemElement);
-                        total += item.quantity * item.price;
-                        totalItems += item.quantity;
-                    }
-                }
-                cartTotalElement.textContent = `Toplam: ${total.toFixed(2)} TL`;
-                cartBadge.textContent = totalItems;
-                cartBadge.style.display = totalItems > 0 ? 'flex' : 'none';
-
-                // Sepet içindeki miktar kontrollerini başlat
-                cartItemsContainer.querySelectorAll('.quantity-button').forEach(button => {
-                    button.addEventListener('click', () => {
-                        const itemId = button.getAttribute('data-item-id');
-                        if (button.classList.contains('plus')) {
-                            cart[itemId].quantity += 1;
-                        } else if (button.classList.contains('minus') && cart[itemId].quantity > 0) {
-                            cart[itemId].quantity -= 1;
-                        }
-                        // Tüm ürünlerin miktarlarını güncelle
-                        document.querySelectorAll(`.item[data-item-id="${itemId}"]`).forEach(item => {
-                            const quantityElement = item.querySelector('.quantity');
-                            quantityElement.textContent = cart[itemId].quantity;
-                            const minusButton = item.querySelector('.quantity-button.minus');
-                            minusButton.disabled = cart[itemId].quantity === 0;
-                        });
-                        updateCart();
-                    });
-                });
-            }
-
-            // Ürün ekleme ve azaltma
-            function initializeQuantityControls() {
-                document.querySelectorAll('.item').forEach(item => {
-                    const itemId = item.getAttribute('data-item-id');
-                    const name = item.querySelector('.item-info h3').childNodes[0].textContent.trim();
-                    const priceText = item.querySelector('.price').textContent;
-                    const price = parseFloat(priceText.replace('TL', '').trim());
-                    const image = item.querySelector('img').src;
-                    const quantityElement = item.querySelector('.quantity');
-                    const minusButton = item.querySelector('.quantity-button.minus');
-                    const plusButton = item.querySelector('.quantity-button.plus');
-
-                    // Başlangıçta sepet yoksa 0
-                    if (!cart[itemId]) {
-                        cart[itemId] = { name, price, quantity: 0, image };
-                    }
-
-                    // Mevcut olay dinleyicilerini kaldır
-                    plusButton.removeEventListener('click', plusButton.handleClick);
-                    minusButton.removeEventListener('click', minusButton.handleClick);
-
-                    // Artırma butonu
-                    plusButton.handleClick = () => {
-                        cart[itemId].quantity += 1;
-                        quantityElement.textContent = cart[itemId].quantity;
-                        minusButton.disabled = false;
-                        updateCart();
-                    };
-                    plusButton.addEventListener('click', plusButton.handleClick);
-
-                    // Azaltma butonu
-                    minusButton.handleClick = () => {
-                        if (cart[itemId].quantity > 0) {
-                            cart[itemId].quantity -= 1;
-                            quantityElement.textContent = cart[itemId].quantity;
-                            if (cart[itemId].quantity === 0) {
-                                minusButton.disabled = true;
-                            }
-                            updateCart();
-                        }
-                    };
-                    minusButton.addEventListener('click', minusButton.handleClick);
-
-                    // Başlangıçta azaltma butonu devre dışı
-                    minusButton.disabled = true;
-                });
-            }
 
             // Restoran Menüsü başlığına kaydırma fonksiyonu
             function scrollToFirstItem(tabId, isTumu = false) {
@@ -1587,12 +1204,6 @@
                                 const itemsInSub = clonedSub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => {
                                     item.classList.add('show');
-                                    const itemId = item.getAttribute('data-item-id');
-                                    const quantityElement = item.querySelector('.quantity');
-                                    if (cart[itemId]) {
-                                        quantityElement.textContent = cart[itemId].quantity;
-                                        item.querySelector('.quantity-button.minus').disabled = cart[itemId].quantity === 0;
-                                    }
                                 });
                                 contentContainer.appendChild(clonedSub);
                             });
@@ -1603,7 +1214,6 @@
                                 tumuButton.classList.remove('active');
                             }
                             scrollToFirstItem(tabId, true);
-                            initializeQuantityControls();
                         }
                     } else {
                         if (contentContainer) {
@@ -1630,9 +1240,6 @@
                     behavior: 'smooth'
                 });
             });
-
-            // Quantity controls'ü başlat
-            initializeQuantityControls();
         });
     </script>
 </body>
