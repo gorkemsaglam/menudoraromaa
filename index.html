@@ -289,8 +289,8 @@
             flex-wrap: nowrap;
             overflow-x: auto;
             white-space: nowrap;
-            justify-content: center; /* Butonları ortala */
-            gap: 10px; /* Butonlar arası boşluk */
+            justify-content: center;
+            gap: 12px; /* Butonlar arası boşluk artırıldı */
             padding: 10px 15px;
             margin: 5px 0;
             border-bottom: 2px solid #a47148;
@@ -304,19 +304,19 @@
         }
 
         .tab-button {
-            width: 70px; /* Kare buton için sabit genişlik */
-            height: 70px; /* Kare buton için sabit yükseklik */
-            background: linear-gradient(135deg, #a47148 0%, #bfa358 100%); /* Gradient arka plan */
+            width: 90px; /* Buton boyutu büyütüldü */
+            height: 90px; /* Buton boyutu büyütüldü */
+            background: linear-gradient(135deg, #a47148 0%, #bfa358 100%);
             color: #ffffff;
-            border-radius: 16px; /* Daha yuvarlak köşeler */
+            border-radius: 20px; /* Daha yuvarlak köşeler */
             font-family: 'Inter', sans-serif;
-            font-size: 11px; /* Yazı boyutu küçültüldü */
+            font-size: 10px; /* Yazı boyutu optimize edildi */
             font-weight: 700;
-            text-transform: uppercase; /* Yazılar büyük harf */
+            text-transform: uppercase;
             border: none;
             cursor: pointer;
             transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 0.3s ease;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15); /* Daha belirgin gölge */
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
             opacity: 0.9;
             display: flex;
             flex-direction: column;
@@ -327,8 +327,8 @@
             background-position: center;
             position: relative;
             flex-shrink: 0;
-            word-wrap: break-word; /* Uzun kelimeler için kırılma */
-            max-width: 70px; /* Yazı taşmasını önle */
+            word-break: break-word; /* Uzun kelimeler için kırılma */
+            max-width: 90px;
         }
 
         .tab-button::before {
@@ -338,8 +338,8 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5); /* Daha güçlü karartma */
-            border-radius: 16px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px; /* Buton köşeleriyle uyumlu */
             z-index: 1;
         }
 
@@ -347,20 +347,20 @@
             position: relative;
             z-index: 2;
             padding-bottom: 8px; /* Yazıyı biraz daha aşağı taşı */
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Daha belirgin gölge */
-            line-height: 1.2; /* Satır yüksekliği ayarlandı */
-            max-width: 90%; /* Yazının taşmasını önle */
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            line-height: 1.1; /* Daha sıkı satır yüksekliği */
+            max-width: 80%; /* Yazının taşmasını önle */
         }
 
         .tab-button:hover {
-            background: linear-gradient(135deg, #bfa358 0%, #d4c07a 100%); /* Hover için daha açık gradient */
+            background-color: #bfa358; /* Gradient yerine tek renk */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
-            transform: scale(1.05); /* Hafif büyüme efekti */
+            transform: scale(1.05);
             opacity: 1;
         }
 
         .tab-button.active {
-            background: linear-gradient(135deg, #bfa358 0%, #d4c07a 100%);
+            background-color: #bfa358; /* Gradient yerine tek renk */
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
             transform: scale(1.05);
             opacity: 1;
@@ -751,22 +751,26 @@
 
             .menu-tabs {
                 padding: 8px 10px;
-                gap: 8px;
+                gap: 10px; /* Mobil için boşluk artırıldı */
                 margin: 3px 0;
-                justify-content: center; /* Mobil için de ortala */
+                justify-content: center;
             }
 
             .tab-button {
-                width: 60px; /* Mobil için daha küçük kare buton */
-                height: 60px;
-                font-size: 10px;
-                border-radius: 12px;
+                width: 80px; /* Mobil için buton boyutu */
+                height: 80px; /* Mobil için buton boyutu */
+                font-size: 9px; /* Mobil için daha küçük yazı */
+                border-radius: 16px; /* Daha küçük köşeler */
                 box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
             }
 
+            .tab-button::before {
+                border-radius: 16px; /* Mobil için köşelerle uyumlu */
+            }
+
             .tab-button span {
-                padding-bottom: 6px;
-                max-width: 90%;
+                padding-bottom: 8px;
+                max-width: 80%;
             }
 
             .about-us {
