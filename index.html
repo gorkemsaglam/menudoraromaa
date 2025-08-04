@@ -171,13 +171,17 @@
         /* Hakkımızda Bölümü */
         .about-us {
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-            padding: 40px 20px;
+            padding: 20px 20px 40px 20px;
             border-radius: 20px;
-            margin: 5px 0 30px 0;
+            margin: 0 0 30px 0;
             text-align: center;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
             border-left: 4px solid #a47148;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            min-height: 200px;
         }
 
         .about-us:hover {
@@ -277,7 +281,7 @@
             font-weight: 600;
             color: #333333;
             margin: 20px 0 10px;
-            padding-left: 15px;
+            padding-left: 50px;
             border-left: 3px solid #a47148;
             position: relative;
             background: linear-gradient(to right, #ffffff, #fafafa);
@@ -285,11 +289,33 @@
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
         }
 
         h3.sub-heading:hover {
             color: #bfa358;
             background-color: #f5f5f5;
+        }
+
+        h3.sub-heading i {
+            position: absolute;
+            left: 15px;
+            font-size: 16px;
+            transition: transform 0.3s ease, color 0.3s ease;
+            margin-right: 10px; /* Simgeler ile metin arasında boşluk */
+        }
+
+        h3.sub-heading:hover i {
+            transform: scale(1.2);
+        }
+
+        h3.sub-heading.snowflake i {
+            color: #4a90e2;
+        }
+
+        h3.sub-heading.sun i {
+            color: #f39c12;
         }
 
         /* Content Container */
@@ -383,7 +409,6 @@
             opacity: 1;
         }
 
-        /* Her sekme butonu için özel ikon */
         .tab-button[data-tab="dondurma"] {
             background-image: url('images/fotolar/butondondurma.jpg');
         }
@@ -546,7 +571,7 @@
             color: #bfa358;
         }
 
-        /* Harita Stilleri (Artık Kullanılmıyor, Ama Silinmedi) */
+        /* Harita Stilleri */
         .contact-map {
             margin-top: 20px;
             border-radius: 10px;
@@ -676,6 +701,24 @@
             margin: 0 15px;
         }
 
+        /* İmza Stili */
+        .signature {
+            text-align: center;
+            padding: 20px 0;
+            margin: 20px 0 40px 0;
+            font-family: 'Allura', cursive;
+            font-size: 24px;
+            color: #a47148;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            opacity: 0.9;
+            transition: color 0.3s ease, opacity 0.3s ease;
+        }
+
+        .signature:hover {
+            color: #bfa358;
+            opacity: 1;
+        }
+
         /* Animasyonlar */
         @keyframes fadeIn {
             from {
@@ -791,20 +834,12 @@
             }
 
             .about-us {
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    padding: 20px 20px 40px 20px; /* Üst padding 40px'den 20px'e düşürüldü */
-    border-radius: 20px;
-    margin: 0 0 30px 0;
-    text-align: center;
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-    transition: box-shadow 0.3s ease, transform 0.3s ease;
-    border-left: 4px solid #a47148;
-    display: flex; /* Flexbox ekledik */
-    flex-direction: column; /* Dikey hizalama */
-    justify-content: center; /* Dikeyde ortala */
-    min-height: 200px; /* Minimum yükseklik ekleyerek içeriği ortalamayı garantiledik */
-}
-Yapılan Değişikli
+                margin: 2px 0 20px 0;
+                padding: 25px 15px;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                border-left: 3px solid #a47148;
+            }
 
             .about-title {
                 font-size: 26px;
@@ -891,6 +926,21 @@ Yapılan Değişikli
             #feedback-form button {
                 font-size: 13px;
                 padding: 6px 12px;
+            }
+
+            h3.sub-heading i {
+                font-size: 14px;
+                left: 12px;
+            }
+
+            h3.sub-heading {
+                padding-left: 45px;
+            }
+
+            .signature {
+                font-size: 20px;
+                padding: 15px 0;
+                margin: 15px 0 30px 0;
             }
         }
     </style>
@@ -1023,7 +1073,7 @@ Yapılan Değişikli
     <div id="kahveler" class="tab-content">
         <h1 class="section-title">Kahveler</h1>
         <div class="sub-category" data-subcategory="soguk-kahveler">
-            <h3 class="sub-heading">Soğuk Kahveler</h3>
+            <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk Kahveler</h3>
             <div class="item" data-item-id="iced-latte">
                 <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
                 <div class="item-info">
@@ -1040,7 +1090,7 @@ Yapılan Değişikli
             </div>
         </div>
         <div class="sub-category" data-subcategory="sicak-kahveler">
-            <h3 class="sub-heading">Sıcak Kahveler</h3>
+            <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak Kahveler</h3>
             <div class="item" data-item-id="espresso">
                 <img src="images/fotolar/espressso.jpg" alt="Espresso">
                 <div class="item-info">
@@ -1062,7 +1112,7 @@ Yapılan Değişikli
     <div id="icecekler" class="tab-content">
         <h1 class="section-title">İçecekler</h1>
         <div class="sub-category" data-subcategory="soguk-icecekler">
-            <h3 class="sub-heading">Soğuk İçecekler</h3>
+            <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk İçecekler</h3>
             <div class="item" data-item-id="limonata">
                 <img src="images/fotolar/limonata.jpg" alt="Limonata">
                 <div class="item-info">
@@ -1079,7 +1129,7 @@ Yapılan Değişikli
             </div>
         </div>
         <div class="sub-category" data-subcategory="sicak-icecekler">
-            <h3 class="sub-heading">Sıcak İçecekler</h3>
+            <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak İçecekler</h3>
             <div class="item" data-item-id="turk-kahvesi">
                 <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi">
                 <div class="item-info">
@@ -1114,7 +1164,7 @@ Yapılan Değişikli
                 </li>
                 <li>
                     <i class="fab fa-instagram"></i>
-                    <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraromaa</a>
+                    <a href="https://www.instagram.com/doraroma" target="_blank" rel="noopener noreferrer">@doraroma</a>
                 </li>
             </ul>
         </div>
@@ -1135,6 +1185,8 @@ Yapılan Değişikli
         </form>
     </section>
 
+    <div class="signature">Created By Görkem İbrahim Sağlam</div>
+
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
     <script>
@@ -1154,13 +1206,9 @@ Yapılan Değişikli
                 showSlide(currentSlide);
             }
 
-            // İlk slaytı göster
             showSlide(currentSlide);
-
-            // Her 3 saniyede bir slayt değiştir
             setInterval(nextSlide, 3000);
 
-            // Animasyonları tetikle
             const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroButton = document.querySelector('.hero-content button');
             const aboutTitle = document.querySelector('.about-title');
@@ -1177,7 +1225,6 @@ Yapılan Değişikli
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
 
-            // Restoran Menüsü başlığına kaydırma fonksiyonu
             function scrollToFirstItem(tabId, isTumu = false) {
                 if (window.innerWidth <= 600) {
                     let target;
@@ -1197,7 +1244,6 @@ Yapılan Değişikli
                 }
             }
 
-            // Tümü butonu tıklama olayı
             tumuButton.addEventListener('click', () => {
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tumuButton.classList.add('active');
@@ -1220,7 +1266,6 @@ Yapılan Değişikli
                 }
             });
 
-            // Sekme tıklama olayı
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -1250,7 +1295,6 @@ Yapılan Değişikli
                 });
             });
 
-            // Başlık tıklama olayı
             sectionHeadings.forEach(heading => {
                 heading.addEventListener('click', () => {
                     const tabId = heading.getAttribute('data-tab');
@@ -1292,12 +1336,10 @@ Yapılan Değişikli
                 });
             });
 
-            // Varsayılan olarak Tümü sekmesini aç
             if (tumuButton) {
                 tumuButton.click();
             }
 
-            // Back to Top button functionality
             const backToTopButton = document.getElementById('backToTop');
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
