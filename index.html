@@ -318,6 +318,10 @@
             color: #f39c12;
         }
 
+        h3.sub-heading.ice-cream i {
+            color: #e91e63;
+        }
+
         /* Content Container */
         .content-container {
             margin-top: 10px;
@@ -493,6 +497,63 @@
             color: #666666;
             margin: 5px 0 0;
             line-height: 1.5;
+        }
+
+        /* Ice Cream Grid Styles */
+        .ice-cream-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            padding: 15px;
+            justify-items: start;
+        }
+
+        .ice-cream-icon {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+        }
+
+        .ice-cream-icon i {
+            font-size: 24px;
+        }
+
+        .ice-cream-icon span {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            color: #333333;
+            text-align: left;
+        }
+
+        /* Flavor-specific colors for icons */
+        .ice-cream-icon.vanilya i { color: #f5f5f5; }
+        .ice-cream-icon.cikolata i { color: #5c4033; }
+        .ice-cream-icon.lotus i { color: #d4a373; }
+        .ice-cream-icon.karamel i { color: #8b4513; }
+        .ice-cream-icon.cilek i { color: #ff4040; }
+        .ice-cream-icon.muz i { color: #ffe135; }
+        .ice-cream-icon.portakal i { color: #ffa500; }
+        .ice-cream-icon.bal-badem i { color: #e6b800; }
+        .ice-cream-icon.ceviz i { color: #6b4e31; }
+        .ice-cream-icon.limon i { color: #fffacd; }
+        .ice-cream-icon.antep-fistigi i { color: #98ff98; }
+        .ice-cream-icon.bogurtlen i { color: #800080; }
+
+        @media screen and (max-width: 600px) {
+            .ice-cream-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+                padding: 10px;
+            }
+
+            .ice-cream-icon i {
+                font-size: 20px;
+            }
+
+            .ice-cream-icon span {
+                font-size: 12px;
+            }
         }
 
         .sub-category {
@@ -1009,19 +1070,56 @@
     <!-- Dondurma Sekmesi -->
     <div id="dondurma" class="tab-content">
         <h1 class="section-title">Dondurma</h1>
-        <div class="sub-category" data-subcategory="dondurma">
-            <div class="item" data-item-id="cikolatali-dondurma">
-                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
-                <div class="item-info">
-                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
-                    <p>Kremalı çikolata dondurma.</p>
+        <div class="sub-category show" data-subcategory="kulah-dondurma">
+            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top) <span class="price">25 TL</span></h3>
+            <div class="ice-cream-grid">
+                <div class="ice-cream-icon vanilya show" data-item-id="vanilya-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Vanilyalı</span>
                 </div>
-            </div>
-            <div class="item" data-item-id="vanilyali-dondurma">
-                <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma">
-                <div class="item-info">
-                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
-                    <p>Hafif ve doğal vanilya aromalı dondurma.</p>
+                <div class="ice-cream-icon cikolata show" data-item-id="cikolata-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Çikolatalı</span>
+                </div>
+                <div class="ice-cream-icon lotus show" data-item-id="lotus-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Lotus</span>
+                </div>
+                <div class="ice-cream-icon karamel show" data-item-id="karamel-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Karamel</span>
+                </div>
+                <div class="ice-cream-icon cilek show" data-item-id="cilek-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Çilek</span>
+                </div>
+                <div class="ice-cream-icon muz show" data-item-id="muz-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Muz</span>
+                </div>
+                <div class="ice-cream-icon portakal show" data-item-id="portakal-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Portakal</span>
+                </div>
+                <div class="ice-cream-icon bal-badem show" data-item-id="bal-badem-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Bal-Badem</span>
+                </div>
+                <div class="ice-cream-icon ceviz show" data-item-id="ceviz-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Ceviz</span>
+                </div>
+                <div class="ice-cream-icon limon show" data-item-id="limon-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Limon</span>
+                </div>
+                <div class="ice-cream-icon antep-fistigi show" data-item-id="antep-fistigi-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Antep Fıstığı</span>
+                </div>
+                <div class="ice-cream-icon bogurtlen show" data-item-id="bogurtlen-dondurma">
+                    <i class="fas fa-ice-cream"></i>
+                    <span>Böğürtlen</span>
                 </div>
             </div>
         </div>
@@ -1287,7 +1385,7 @@
                         const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                         subCategoriesInTab.forEach(sub => {
                             sub.classList.add('show');
-                            const itemsInSub = sub.querySelectorAll('.item');
+                            const itemsInSub = sub.querySelectorAll('.item, .ice-cream-icon');
                             itemsInSub.forEach(item => item.classList.add('show'));
                         });
                         scrollToFirstItem(tabId, false);
@@ -1310,7 +1408,7 @@
                             subCategoriesInTab.forEach(sub => {
                                 const clonedSub = sub.cloneNode(true);
                                 clonedSub.classList.add('show');
-                                const itemsInSub = clonedSub.querySelectorAll('.item');
+                                const itemsInSub = clonedSub.querySelectorAll('.item, .ice-cream-icon');
                                 itemsInSub.forEach(item => {
                                     item.classList.add('show');
                                 });
