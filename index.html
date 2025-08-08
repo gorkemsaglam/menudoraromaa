@@ -132,6 +132,108 @@
             opacity: 1;
         }
 
+        /* Öne Çıkan Ürünler Carousel */
+        .featured-carousel {
+            position: relative;
+            overflow: hidden;
+            margin: 20px 0;
+            padding: 0 40px;
+        }
+
+        .carousel-container {
+            display: flex;
+            overflow-x: auto;
+            scroll-behavior: smooth;
+            gap: 15px;
+            padding: 10px 0;
+            scrollbar-width: none;
+        }
+
+        .carousel-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .carousel-item {
+            flex: 0 0 auto;
+            width: 200px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            padding: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .carousel-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .carousel-item h3 {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333333;
+            margin: 0 0 5px;
+        }
+
+        .carousel-item .price {
+            font-family: 'Inter', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+            color: #a47148;
+            transition: transform 0.3s ease;
+        }
+
+        .carousel-item:hover .price {
+            transform: scale(1.1);
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            pointer-events: none;
+        }
+
+        .carousel-nav button {
+            background-color: #a47148;
+            color: #ffffff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            pointer-events: auto;
+        }
+
+        .carousel-nav button:hover {
+            background-color: #bfa358;
+            transform: scale(1.1);
+        }
+
+        .carousel-nav button:disabled {
+            background-color: #cccccc;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         /* Tümü Butonu Stilleri */
         .tumu-button-container {
             display: flex;
@@ -322,6 +424,14 @@
         .content-container {
             margin-top: 10px;
             padding-left: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .content-container.show {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* Menü Tab Stilleri */
@@ -386,6 +496,21 @@
             z-index: 1;
         }
 
+        .tab-button i {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 16px;
+            color: #ffffff;
+            z-index: 2;
+            transition: transform 0.3s ease;
+        }
+
+        .tab-button:hover i {
+            transform: translateX(-50%) scale(1.2);
+        }
+
         .tab-button span {
             position: relative;
             z-index: 2;
@@ -440,17 +565,20 @@
             display: flex;
             align-items: center;
             gap: 20px;
-            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+            cursor: pointer;
+            opacity: 0;
+            transform: scale(0.95);
         }
 
         .item.show {
             display: flex;
-            animation: fadeInUp 0.5s ease forwards;
+            animation: itemFadeIn 0.5s ease forwards;
         }
 
         .item:hover {
-            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            transform: scale(1.02);
         }
 
         .item img {
@@ -459,6 +587,7 @@
             object-fit: cover;
             border-radius: 10px;
             border: 1px solid #e5e5e5;
+            loading: lazy;
         }
 
         .item-info {
@@ -485,6 +614,12 @@
             font-size: 16px;
             font-weight: 600;
             color: #a47148;
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+
+        .item-info .price:hover {
+            transform: scale(1.1);
+            color: #bfa358;
         }
 
         .item-info p {
@@ -498,10 +633,15 @@
         .sub-category {
             display: none;
             margin-top: 10px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
         }
 
         .sub-category.show {
             display: block;
+            opacity: 1;
+            transform: translateY(0);
         }
 
         /* İletişim Bölümü */
@@ -569,20 +709,6 @@
 
         .contact-list li a:hover {
             color: #bfa358;
-        }
-
-        /* Harita Stilleri */
-        .contact-map {
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-map iframe {
-            width: 100%;
-            height: 300px;
-            border: none;
         }
 
         /* Geri Bildirim Formu */
@@ -725,7 +851,6 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -737,7 +862,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -749,10 +873,20 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
-
             to {
                 opacity: 1;
                 transform: translateX(0);
+            }
+        }
+
+        @keyframes itemFadeIn {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
             }
         }
 
@@ -778,6 +912,14 @@
 
             .item-info p {
                 font-size: 15px;
+            }
+
+            .carousel-item {
+                width: 200px;
+            }
+
+            .carousel-item img {
+                height: 120px;
             }
         }
 
@@ -826,6 +968,11 @@
 
             .tab-button::before {
                 border-radius: 12px;
+            }
+
+            .tab-button i {
+                font-size: 14px;
+                top: 8px;
             }
 
             .tab-button span {
@@ -888,6 +1035,28 @@
 
             .content-container {
                 padding-left: 15px;
+            }
+
+            .carousel-item {
+                width: 150px;
+            }
+
+            .carousel-item img {
+                height: 90px;
+            }
+
+            .carousel-item h3 {
+                font-size: 14px;
+            }
+
+            .carousel-item .price {
+                font-size: 12px;
+            }
+
+            .carousel-nav button {
+                width: 28px;
+                height: 28px;
+                font-size: 14px;
             }
 
             .contact-info {
@@ -954,7 +1123,7 @@
         <div class="hero-slide" style="background-image: url('images/fotolar/hero4.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/fotolar/hero5.jpg');"></div>
         <div class="hero-content">
-            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
+            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img" loading="lazy">
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
         </div>
     </section>
@@ -963,8 +1132,44 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
+        </div>
+    </section>
+
+    <!-- Öne Çıkan Ürünler Carousel -->
+    <section class="featured-carousel">
+        <h2 class="section-title">Öne Çıkanlar</h2>
+        <div class="carousel-container">
+            <div class="carousel-item">
+                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma" loading="lazy">
+                <h3>Çikolatalı Dondurma</h3>
+                <span class="price">25 TL</span>
+            </div>
+            <div class="carousel-item">
+                <img src="images/fotolar/baklava.jpg" alt="Baklava" loading="lazy">
+                <h3>Baklava</h3>
+                <span class="price">30 TL</span>
+            </div>
+            <div class="carousel-item">
+                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta" loading="lazy">
+                <h3>Çikolatalı Pasta</h3>
+                <span class="price">50 TL</span>
+            </div>
+            <div class="carousel-item">
+                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte" loading="lazy">
+                <h3>Iced Latte</h3>
+                <span class="price">30 TL</span>
+            </div>
+            <div class="carousel-item">
+                <img src="images/fotolar/limonata.jpg" alt="Limonata" loading="lazy">
+                <h3>Limonata</h3>
+                <span class="price">20 TL</span>
+            </div>
+        </div>
+        <div class="carousel-nav">
+            <button class="carousel-prev"><i class="fas fa-chevron-left"></i></button>
+            <button class="carousel-next"><i class="fas fa-chevron-right"></i></button>
         </div>
     </section>
 
@@ -975,11 +1180,11 @@
     </div>
 
     <div class="menu-tabs">
-        <button class="tab-button" data-tab="dondurma"><span>Dondurma</span></button>
-        <button class="tab-button" data-tab="tatlilar"><span>Tatlılar</span></button>
-        <button class="tab-button" data-tab="pastalar"><span>Pastalar</span></button>
-        <button class="tab-button" data-tab="kahveler"><span>Kahveler</span></button>
-        <button class="tab-button" data-tab="icecekler"><span>İçecekler</span></button>
+        <button class="tab-button" data-tab="dondurma"><i class="fas fa-ice-cream"></i><span>Dondurma</span></button>
+        <button class="tab-button" data-tab="tatlilar"><i class="fas fa-cookie"></i><span>Tatlılar</span></button>
+        <button class="tab-button" data-tab="pastalar"><i class="fas fa-birthday-cake"></i><span>Pastalar</span></button>
+        <button class="tab-button" data-tab="kahveler"><i class="fas fa-coffee"></i><span>Kahveler</span></button>
+        <button class="tab-button" data-tab="icecekler"><i class="fas fa-glass-whiskey"></i><span>İçecekler</span></button>
     </div>
 
     <!-- Tümü Sekmesi -->
@@ -1011,14 +1216,14 @@
         <h1 class="section-title">Dondurma</h1>
         <div class="sub-category" data-subcategory="dondurma">
             <div class="item" data-item-id="cikolatali-dondurma">
-                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
+                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma" loading="lazy">
                 <div class="item-info">
                     <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
                     <p>Kremalı çikolata dondurma.</p>
                 </div>
             </div>
             <div class="item" data-item-id="vanilyali-dondurma">
-                <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma">
+                <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma" loading="lazy">
                 <div class="item-info">
                     <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
                     <p>Hafif ve doğal vanilya aromalı dondurma.</p>
@@ -1032,14 +1237,14 @@
         <h1 class="section-title">Tatlılar</h1>
         <div class="sub-category" data-subcategory="tatlilar">
             <div class="item" data-item-id="baklava">
-                <img src="images/fotolar/baklava.jpg" alt="Baklava">
+                <img src="images/fotolar/baklava.jpg" alt="Baklava" loading="lazy">
                 <div class="item-info">
                     <h3>Baklava <span class="price">30 TL</span></h3>
                     <p>Antep fıstıklı, çıtır baklava.</p>
                 </div>
             </div>
             <div class="item" data-item-id="sutlac">
-                <img src="images/fotolar/sutlac.jpg" alt="Sütlaç">
+                <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" loading="lazy">
                 <div class="item-info">
                     <h3>Sütlaç <span class="price">20 TL</span></h3>
                     <p>Fırınlanmış geleneksel sütlaç.</p>
@@ -1053,14 +1258,14 @@
         <h1 class="section-title">Pastalar</h1>
         <div class="sub-category" data-subcategory="pastalar">
             <div class="item" data-item-id="cikolatali-pasta">
-                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
+                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta" loading="lazy">
                 <div class="item-info">
                     <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
                 </div>
             </div>
             <div class="item" data-item-id="orman-meyveli-pasta">
-                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
+                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta" loading="lazy">
                 <div class="item-info">
                     <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
@@ -1075,14 +1280,14 @@
         <div class="sub-category" data-subcategory="soguk-kahveler">
             <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk Kahveler</h3>
             <div class="item" data-item-id="iced-latte">
-                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
+                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte" loading="lazy">
                 <div class="item-info">
                     <h3>Iced Latte <span class="price">30 TL</span></h3>
                     <p>Soğuk süt ve espresso ile hazırlanan serinletici kahve.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cold-brew">
-                <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew">
+                <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew" loading="lazy">
                 <div class="item-info">
                     <h3>Cold Brew <span class="price">32 TL</span></h3>
                     <p>Soğuk demleme yöntemiyle hazırlanan yumuşak içimli kahve.</p>
@@ -1092,14 +1297,14 @@
         <div class="sub-category" data-subcategory="sicak-kahveler">
             <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak Kahveler</h3>
             <div class="item" data-item-id="espresso">
-                <img src="images/fotolar/espressso.jpg" alt="Espresso">
+                <img src="images/fotolar/espressso.jpg" alt="Espresso" loading="lazy">
                 <div class="item-info">
                     <h3>Espresso <span class="price">22 TL</span></h3>
                     <p>Yoğun aromalı tek shot espresso.</p>
                 </div>
             </div>
             <div class="item" data-item-id="latte">
-                <img src="images/fotolar/sıcaklatte.jpg" alt="Latte">
+                <img src="images/fotolar/sıcaklatte.jpg" alt="Latte" loading="lazy">
                 <div class="item-info">
                     <h3>Latte <span class="price">28 TL</span></h3>
                     <p>Köpüklü süt ile hazırlanmış latte.</p>
@@ -1114,14 +1319,14 @@
         <div class="sub-category" data-subcategory="soguk-icecekler">
             <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk İçecekler</h3>
             <div class="item" data-item-id="limonata">
-                <img src="images/fotolar/limonata.jpg" alt="Limonata">
+                <img src="images/fotolar/limonata.jpg" alt="Limonata" loading="lazy">
                 <div class="item-info">
                     <h3>Limonata <span class="price">20 TL</span></h3>
                     <p>Taze sıkılmış limonlarla ferahlatıcı bir içecek.</p>
                 </div>
             </div>
             <div class="item" data-item-id="ice-tea">
-                <img src="images/fotolar/icetea.jpg" alt="Ice Tea">
+                <img src="images/fotolar/icetea.jpg" alt="Ice Tea" loading="lazy">
                 <div class="item-info">
                     <h3>Ice Tea <span class="price">18 TL</span></h3>
                     <p>Şeftali aromalı soğuk çay.</p>
@@ -1131,14 +1336,14 @@
         <div class="sub-category" data-subcategory="sicak-icecekler">
             <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak İçecekler</h3>
             <div class="item" data-item-id="turk-kahvesi">
-                <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi">
+                <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" loading="lazy">
                 <div class="item-info">
                     <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
                     <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cay">
-                <img src="images/fotolar/cay.jpg" alt="Çay">
+                <img src="images/fotolar/cay.jpg" alt="Çay" loading="lazy">
                 <div class="item-info">
                     <h3>Çay <span class="price">15 TL</span></h3>
                     <p>Taze demlenmiş siyah çay.</p>
@@ -1209,6 +1414,47 @@
             showSlide(currentSlide);
             setInterval(nextSlide, 3000);
 
+            // Carousel Kontrolü
+            const carouselContainer = document.querySelector('.carousel-container');
+            const carouselItems = document.querySelectorAll('.carousel-item');
+            const prevButton = document.querySelector('.carousel-prev');
+            const nextButton = document.querySelector('.carousel-next');
+            let currentCarouselIndex = 0;
+
+            function updateCarousel() {
+                const itemWidth = carouselItems[0].offsetWidth + 15; // 15px gap
+                carouselContainer.scrollTo({
+                    left: currentCarouselIndex * itemWidth,
+                    behavior: 'smooth'
+                });
+                prevButton.disabled = currentCarouselIndex === 0;
+                nextButton.disabled = currentCarouselIndex >= carouselItems.length - 3; // 3 öğe görünür
+            }
+
+            prevButton.addEventListener('click', () => {
+                if (currentCarouselIndex > 0) {
+                    currentCarouselIndex--;
+                    updateCarousel();
+                }
+            });
+
+            nextButton.addEventListener('click', () => {
+                if (currentCarouselIndex < carouselItems.length - 3) {
+                    currentCarouselIndex++;
+                    updateCarousel();
+                }
+            });
+
+            // Animasyonlu giriş için öğeleri sırayla göster
+            function animateItems(container) {
+                const items = container.querySelectorAll('.item');
+                items.forEach((item, index) => {
+                    setTimeout(() => {
+                        item.classList.add('show');
+                    }, index * 100); // Her öğe 100ms arayla görünür
+                });
+            }
+
             const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroButton = document.querySelector('.hero-content button');
             const aboutTitle = document.querySelector('.about-title');
@@ -1250,17 +1496,20 @@
                 tabContents.forEach(content => {
                     if (content.id !== 'tumu') {
                         content.style.display = 'none';
+                        content.classList.remove('show');
                     }
                 });
                 subCategories.forEach(sub => sub.classList.remove('show'));
                 const tumuContent = document.getElementById('tumu');
                 if (tumuContent) {
                     tumuContent.style.display = 'block';
+                    tumuContent.classList.add('show');
                     sectionHeadings.forEach(heading => {
                         heading.setAttribute('data-state', 'closed');
                         const contentContainer = heading.nextElementSibling;
                         if (contentContainer && contentContainer.classList.contains('content-container')) {
                             contentContainer.innerHTML = '';
+                            contentContainer.classList.remove('show');
                         }
                     });
                 }
@@ -1271,24 +1520,28 @@
                     tabButtons.forEach(btn => btn.classList.remove('active'));
                     tumuButton.classList.remove('active');
                     button.classList.add('active');
-                    tabContents.forEach(content => content.style.display = 'none');
+                    tabContents.forEach(content => {
+                        content.style.display = 'none';
+                        content.classList.remove('show');
+                    });
                     subCategories.forEach(sub => sub.classList.remove('show'));
                     sectionHeadings.forEach(heading => {
                         heading.setAttribute('data-state', 'closed');
                         const contentContainer = heading.nextElementSibling;
                         if (contentContainer && contentContainer.classList.contains('content-container')) {
                             contentContainer.innerHTML = '';
+                            contentContainer.classList.remove('show');
                         }
                     });
                     const tabId = button.getAttribute('data-tab');
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
                         targetContent.style.display = 'block';
+                        targetContent.classList.add('show');
                         const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                         subCategoriesInTab.forEach(sub => {
                             sub.classList.add('show');
-                            const itemsInSub = sub.querySelectorAll('.item');
-                            itemsInSub.forEach(item => item.classList.add('show'));
+                            animateItems(sub);
                         });
                         scrollToFirstItem(tabId, false);
                     }
@@ -1310,11 +1563,9 @@
                             subCategoriesInTab.forEach(sub => {
                                 const clonedSub = sub.cloneNode(true);
                                 clonedSub.classList.add('show');
-                                const itemsInSub = clonedSub.querySelectorAll('.item');
-                                itemsInSub.forEach(item => {
-                                    item.classList.add('show');
-                                });
                                 contentContainer.appendChild(clonedSub);
+                                contentContainer.classList.add('show');
+                                animateItems(clonedSub);
                             });
                             heading.setAttribute('data-state', 'open');
                             if (targetButton) {
@@ -1327,6 +1578,7 @@
                     } else {
                         if (contentContainer) {
                             contentContainer.innerHTML = '';
+                            contentContainer.classList.remove('show');
                             heading.setAttribute('data-state', 'closed');
                             if (targetButton) {
                                 targetButton.classList.remove('active');
@@ -1347,6 +1599,13 @@
                     behavior: 'smooth'
                 });
             });
+
+            // İlk yüklemede animasyonları başlat
+            const initialTab = document.querySelector('.tab-content.show') || document.getElementById('tumu');
+            if (initialTab) {
+                const initialSubCategories = initialTab.querySelectorAll('.sub-category.show');
+                initialSubCategories.forEach(sub => animateItems(sub));
+            }
         });
     </script>
 </body>
