@@ -326,14 +326,6 @@
             color: #d2a679; /* Kağıt helva için açık kahverengi */
         }
 
-        h3.sub-heading .price {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: #a47148;
-            margin-left: 10px;
-        }
-
         /* Content Container */
         .content-container {
             margin-top: 10px;
@@ -518,6 +510,17 @@
             gap: 15px;
             padding: 15px;
             justify-items: start;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin: 15px 0;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+            position: relative;
+        }
+
+        .ice-cream-grid:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
         }
 
         .ice-cream-icon {
@@ -536,6 +539,22 @@
             font-size: 14px;
             color: #333333;
             text-align: left;
+        }
+
+        /* Ice Cream Grid Price */
+        .ice-cream-price-container {
+            grid-column: span 3;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding-right: 15px;
+        }
+
+        .ice-cream-price-container .price {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #a47148;
         }
 
         /* Flavor-specific colors for icons */
@@ -581,13 +600,13 @@
                 font-size: 12px;
             }
 
+            .ice-cream-price-container .price {
+                font-size: 13px;
+            }
+
             h3.sub-heading {
                 font-size: 16px;
                 padding: 6px 12px 6px 45px;
-            }
-
-            h3.sub-heading .price {
-                font-size: 13px;
             }
 
             h3.sub-heading i {
@@ -1112,7 +1131,7 @@
     <div id="dondurma" class="tab-content">
         <h1 class="section-title">Dondurma</h1>
         <div class="sub-category show" data-subcategory="kulah-dondurma">
-            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top) <span class="price">25 TL</span></h3>
+            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top)</h3>
             <div class="ice-cream-grid">
                 <div class="ice-cream-icon vanilya show" data-item-id="vanilya-dondurma">
                     <i class="fas fa-ice-cream"></i>
@@ -1162,10 +1181,13 @@
                     <i class="fas fa-ice-cream"></i>
                     <span>Böğürtlen</span>
                 </div>
+                <div class="ice-cream-price-container">
+                    <span class="price">35 TL</span>
+                </div>
             </div>
         </div>
         <div class="sub-category show" data-subcategory="kagit-helva-dondurma">
-            <h3 class="sub-heading paper-waffle"><i class="fas fa-cookie"></i> Kağıt Helva Arası (Tek Top) <span class="price">25 TL</span></h3>
+            <h3 class="sub-heading paper-waffle"><i class="fas fa-cookie"></i> Kağıt Helva Arası (Tek Top)</h3>
             <div class="ice-cream-grid">
                 <div class="ice-cream-icon vanilya paper-waffle show" data-item-id="vanilya-helva-dondurma">
                     <i class="fas fa-cookie"></i>
@@ -1214,6 +1236,9 @@
                 <div class="ice-cream-icon bogurtlen paper-waffle show" data-item-id="bogurtlen-helva-dondurma">
                     <i class="fas fa-cookie"></i>
                     <span>Böğürtlen</span>
+                </div>
+                <div class="ice-cream-price-container">
+                    <span class="price">45 TL</span>
                 </div>
             </div>
         </div>
