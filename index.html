@@ -277,20 +277,20 @@
 
         h3.sub-heading {
             font-family: 'Playfair Display', serif;
-            font-size: 20px;
+            font-size: 18px;
             font-weight: 600;
             color: #333333;
-            margin: 20px 0 10px;
-            padding-left: 50px;
+            margin: 15px 0 10px;
+            padding: 8px 15px 8px 50px;
             border-left: 3px solid #a47148;
             position: relative;
             background: linear-gradient(to right, #ffffff, #fafafa);
-            padding: 8px 15px;
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            justify-content: space-between;
         }
 
         h3.sub-heading:hover {
@@ -320,6 +320,14 @@
 
         h3.sub-heading.ice-cream i {
             color: #e91e63;
+        }
+
+        h3.sub-heading .price {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #a47148;
+            margin-left: 10px;
         }
 
         /* Content Container */
@@ -553,6 +561,20 @@
 
             .ice-cream-icon span {
                 font-size: 12px;
+            }
+
+            h3.sub-heading {
+                font-size: 16px;
+                padding: 6px 12px 6px 45px;
+            }
+
+            h3.sub-heading .price {
+                font-size: 13px;
+            }
+
+            h3.sub-heading i {
+                font-size: 14px;
+                left: 12px;
             }
         }
 
@@ -989,13 +1011,14 @@
                 padding: 6px 12px;
             }
 
+            h3.sub-heading {
+                font-size: 16px;
+                padding: 6px 12px 6px 45px;
+            }
+
             h3.sub-heading i {
                 font-size: 14px;
                 left: 12px;
-            }
-
-            h3.sub-heading {
-                padding-left: 45px;
             }
 
             .signature {
