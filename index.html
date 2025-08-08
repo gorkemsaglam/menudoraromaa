@@ -441,7 +441,6 @@
             align-items: center;
             gap: 20px;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
-            cursor: pointer;
         }
 
         .item.show {
@@ -503,162 +502,6 @@
 
         .sub-category.show {
             display: block;
-        }
-
-        /* Modal Stilleri */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(8px);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
-            padding: 10px;
-            opacity: 0;
-            transition: opacity 0.4s ease-in-out;
-        }
-
-        .modal.show {
-            display: flex;
-            opacity: 1;
-            animation: fadeInModal 0.5s ease-in-out;
-        }
-
-        .modal-content {
-            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-            border-radius: 16px;
-            max-width: 500px;
-            width: 85%;
-            padding: 20px;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
-            position: relative;
-            transform: scale(0.8) translateY(100px);
-            opacity: 0;
-            transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55), opacity 0.5s ease-in-out;
-        }
-
-        .modal.show .modal-content {
-            transform: scale(1) translateY(0);
-            opacity: 1;
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: #a47148;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 30px;
-            height: 30px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-
-        .modal-close:hover {
-            background-color: #bfa358;
-            transform: rotate(90deg);
-        }
-
-        .modal-image-container {
-            position: relative;
-            width: 100%;
-            margin-bottom: 15px;
-        }
-
-        .modal-content img {
-            width: 100%;
-            max-height: 300px;
-            object-fit: cover;
-            border-radius: 12px;
-            border: 2px solid #e5e5e5;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-category {
-            position: absolute;
-            top: 10px;
-            left: 10px;
-            background: rgba(164, 113, 72, 0.8);
-            color: #ffffff;
-            font-family: 'Playfair Display', serif;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 8px 12px;
-            border-radius: 8px;
-            text-transform: capitalize;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-content h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 24px;
-            font-weight: 700;
-            color: #333333;
-            margin: 0 0 10px;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-        }
-
-        .modal-content .price {
-            font-family: 'Inter', sans-serif;
-            font-size: 18px;
-            font-weight: 600;
-            color: #a47148;
-            margin-bottom: 10px;
-        }
-
-        .modal-content p {
-            font-family: 'Inter', sans-serif;
-            font-size: 15px;
-            color: #666666;
-            line-height: 1.6;
-            margin: 0;
-        }
-
-        .modal-nav {
-            display: flex;
-            justify-content: space-between;
-            margin-top: 15px;
-        }
-
-        .modal-nav button {
-            background-color: #a47148;
-            color: #ffffff;
-            border: none;
-            border-radius: 50%;
-            width: 35px;
-            height: 35px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 18px;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-        }
-
-        .modal-nav button:hover {
-            background-color: #bfa358;
-            transform: scale(1.1);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-
-        .modal-nav button:disabled {
-            background-color: #cccccc;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
         }
 
         /* İletişim Bölümü */
@@ -882,6 +725,7 @@
                 opacity: 0;
                 transform: translateY(-20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -893,6 +737,7 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -904,29 +749,10 @@
                 opacity: 0;
                 transform: translateX(-50px);
             }
+
             to {
                 opacity: 1;
                 transform: translateX(0);
-            }
-        }
-
-        @keyframes fadeInModal {
-            from {
-                opacity: 0;
-            }
-            to {
-                opacity: 1;
-            }
-        }
-
-        @keyframes slideInModal {
-            from {
-                transform: scale(0.8) translateY(100px);
-                opacity: 0;
-            }
-            to {
-                transform: scale(1) translateY(0);
-                opacity: 1;
             }
         }
 
@@ -952,10 +778,6 @@
 
             .item-info p {
                 font-size: 15px;
-            }
-
-            .modal-content {
-                max-width: 500px;
             }
         }
 
@@ -1093,48 +915,6 @@
                 font-size: 14px;
             }
 
-            .modal {
-                padding: 5px;
-            }
-
-            .modal-content {
-                max-width: 85%;
-                padding: 15px;
-            }
-
-            .modal-content img {
-                max-height: 200px;
-            }
-
-            .modal-category {
-                font-size: 14px;
-                padding: 6px 10px;
-            }
-
-            .modal-content h3 {
-                font-size: 20px;
-            }
-
-            .modal-content .price {
-                font-size: 16px;
-            }
-
-            .modal-content p {
-                font-size: 13px;
-            }
-
-            .modal-nav button {
-                width: 30px;
-                height: 30px;
-                font-size: 16px;
-            }
-
-            .modal-close {
-                width: 28px;
-                height: 28px;
-                font-size: 16px;
-            }
-
             #backToTop {
                 width: 36px;
                 height: 36px;
@@ -1183,7 +963,7 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -1367,24 +1147,6 @@
         </div>
     </div>
 
-    <!-- Modal -->
-    <div class="modal" id="productModal">
-        <div class="modal-content">
-            <button class="modal-close"><i class="fas fa-times"></i></button>
-            <div class="modal-image-container">
-                <img id="modalImage" src="" alt="">
-                <span id="modalCategory" class="modal-category"></span>
-            </div>
-            <h3 id="modalTitle"></h3>
-            <span id="modalPrice" class="price"></span>
-            <p id="modalDescription"></p>
-            <div class="modal-nav">
-                <button id="prevItem"><i class="fas fa-chevron-left"></i></button>
-                <button id="nextItem"><i class="fas fa-chevron-right"></i></button>
-            </div>
-        </div>
-    </div>
-
     <div class="divider"><span>Dora Roma</span></div>
 
     <section class="contact-info">
@@ -1462,19 +1224,6 @@
             const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
-            const modal = document.getElementById('productModal');
-            const modalImage = document.getElementById('modalImage');
-            const modalCategory = document.getElementById('modalCategory');
-            const modalTitle = document.getElementById('modalTitle');
-            const modalPrice = document.getElementById('modalPrice');
-            const modalDescription = document.getElementById('modalDescription');
-            const modalClose = document.querySelector('.modal-close');
-            const prevItemButton = document.getElementById('prevItem');
-            const nextItemButton = document.getElementById('nextItem');
-
-            let currentItems = [];
-            let currentItemIndex = 0;
-            let currentCategory = '';
 
             function scrollToFirstItem(tabId, isTumu = false) {
                 if (window.innerWidth <= 600) {
@@ -1494,63 +1243,6 @@
                     }
                 }
             }
-
-            function updateModalContent(index) {
-                const item = currentItems[index];
-                modalImage.src = item.querySelector('img').src;
-                modalTitle.textContent = item.querySelector('.item-info h3').childNodes[0].textContent;
-                modalPrice.textContent = item.querySelector('.item-info .price').textContent;
-                modalDescription.textContent = item.querySelector('.item-info p').textContent;
-                modalCategory.textContent = currentCategory.charAt(0).toUpperCase() + currentCategory.slice(1);
-                currentItemIndex = index;
-                prevItemButton.disabled = index === 0;
-                nextItemButton.disabled = index === currentItems.length - 1;
-            }
-
-            function showModal(item, category, subCategory) {
-                currentCategory = category;
-                const subCatSelector = subCategory ? `[data-subcategory="${subCategory}"]` : '';
-                currentItems = Array.from(document.querySelectorAll(`#${category} ${subCatSelector} .item, .content-container[data-tab="${category}"] ${subCatSelector} .item`));
-                currentItemIndex = currentItems.indexOf(item);
-                updateModalContent(currentItemIndex);
-                modal.classList.add('show');
-            }
-
-            // Ürün detay modalı için tıklama olayı
-            const items = document.querySelectorAll('.item');
-            items.forEach(item => {
-                item.addEventListener('click', () => {
-                    const tabContent = item.closest('.tab-content, .content-container');
-                    const category = tabContent.getAttribute('id') || tabContent.getAttribute('data-tab');
-                    const subCategory = item.closest('.sub-category')?.getAttribute('data-subcategory') || '';
-                    showModal(item, category, subCategory);
-                });
-            });
-
-            // Modal kapatma
-            modalClose.addEventListener('click', () => {
-                modal.classList.remove('show');
-            });
-
-            // Modal dışına tıklama ile kapatma
-            modal.addEventListener('click', (e) => {
-                if (e.target === modal) {
-                    modal.classList.remove('show');
-                }
-            });
-
-            // Önceki ve sonraki ürün için navigasyon
-            prevItemButton.addEventListener('click', () => {
-                if (currentItemIndex > 0) {
-                    updateModalContent(currentItemIndex - 1);
-                }
-            });
-
-            nextItemButton.addEventListener('click', () => {
-                if (currentItemIndex < currentItems.length - 1) {
-                    updateModalContent(currentItemIndex + 1);
-                }
-            });
 
             tumuButton.addEventListener('click', () => {
                 tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -1621,10 +1313,6 @@
                                 const itemsInSub = clonedSub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => {
                                     item.classList.add('show');
-                                    item.addEventListener('click', () => {
-                                        const subCategory = item.closest('.sub-category')?.getAttribute('data-subcategory') || '';
-                                        showModal(item, tabId, subCategory);
-                                    });
                                 });
                                 contentContainer.appendChild(clonedSub);
                             });
