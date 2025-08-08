@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
     <title>Dora Roma Menü</title>
 
     <!-- Google tag (gtag.js) -->
@@ -23,8 +22,7 @@
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;600&display=swap');
 
         /* Genel Stiller */
-        html,
-        body {
+        html, body {
             scroll-behavior: smooth;
             margin: 0;
             padding: 0;
@@ -293,9 +291,21 @@
             justify-content: space-between;
         }
 
+        h3.sub-heading .price {
+            font-family: 'Inter', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #a47148;
+            margin-left: 10px;
+        }
+
         h3.sub-heading:hover {
             color: #bfa358;
             background-color: #f5f5f5;
+        }
+
+        h3.sub-heading:hover .price {
+            color: #bfa358;
         }
 
         h3.sub-heading i {
@@ -310,21 +320,10 @@
             transform: scale(1.2);
         }
 
-        h3.sub-heading.snowflake i {
-            color: #4a90e2;
-        }
-
-        h3.sub-heading.sun i {
-            color: #f39c12;
-        }
-
-        h3.sub-heading.ice-cream i {
-            color: #e91e63;
-        }
-
-        h3.sub-heading.paper-waffle i {
-            color: #d2a679; /* Kağıt helva için açık kahverengi */
-        }
+        h3.sub-heading.snowflake i { color: #4a90e2; }
+        h3.sub-heading.sun i { color: #f39c12; }
+        h3.sub-heading.ice-cream i { color: #e91e63; }
+        h3.sub-heading.paper-waffle i { color: #d2a679; }
 
         /* Content Container */
         .content-container {
@@ -541,22 +540,6 @@
             text-align: left;
         }
 
-        /* Ice Cream Grid Price */
-        .ice-cream-price-container {
-            grid-column: span 3;
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding-right: 15px;
-        }
-
-        .ice-cream-price-container .price {
-            font-family: 'Inter', sans-serif;
-            font-size: 16px;
-            font-weight: 600;
-            color: #a47148;
-        }
-
         /* Flavor-specific colors for icons */
         .ice-cream-icon.vanilya i { color: #f5f5f5; }
         .ice-cream-icon.cikolata i { color: #5c4033; }
@@ -571,7 +554,6 @@
         .ice-cream-icon.antep-fistigi i { color: #98ff98; }
         .ice-cream-icon.bogurtlen i { color: #800080; }
 
-        /* Kağıt helva ikonları için renkler */
         .ice-cream-icon.vanilya.paper-waffle i { color: #f5f5f5; }
         .ice-cream-icon.cikolata.paper-waffle i { color: #5c4033; }
         .ice-cream-icon.lotus.paper-waffle i { color: #d4a373; }
@@ -600,13 +582,13 @@
                 font-size: 12px;
             }
 
-            .ice-cream-price-container .price {
-                font-size: 13px;
-            }
-
             h3.sub-heading {
                 font-size: 16px;
                 padding: 6px 12px 6px 45px;
+            }
+
+            h3.sub-heading .price {
+                font-size: 13px;
             }
 
             h3.sub-heading i {
@@ -841,39 +823,18 @@
 
         /* Animasyonlar */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(-20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateX(-50px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateX(0);
-            }
+            from { opacity: 0; transform: translateX(-50px); }
+            to { opacity: 1; transform: translateX(0); }
         }
 
         /* Medya Sorguları */
@@ -1048,16 +1009,6 @@
                 padding: 6px 12px;
             }
 
-            h3.sub-heading {
-                font-size: 16px;
-                padding: 6px 12px 6px 45px;
-            }
-
-            h3.sub-heading i {
-                font-size: 14px;
-                left: 12px;
-            }
-
             .signature {
                 font-size: 20px;
                 padding: 15px 0;
@@ -1066,7 +1017,6 @@
         }
     </style>
 </head>
-
 <body>
     <section class="hero-section">
         <div class="hero-slide active" style="background-image: url('images/fotolar/hero1.jpg');"></div>
@@ -1131,114 +1081,84 @@
     <div id="dondurma" class="tab-content">
         <h1 class="section-title">Dondurma</h1>
         <div class="sub-category show" data-subcategory="kulah-dondurma">
-            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top)</h3>
+            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top) <span class="price">35 TL</span></h3>
             <div class="ice-cream-grid">
                 <div class="ice-cream-icon vanilya show" data-item-id="vanilya-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Vanilyalı</span>
+                    <i class="fas fa-ice-cream"></i><span>Vanilyalı</span>
                 </div>
                 <div class="ice-cream-icon cikolata show" data-item-id="cikolata-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Çikolatalı</span>
+                    <i class="fas fa-ice-cream"></i><span>Çikolatalı</span>
                 </div>
                 <div class="ice-cream-icon lotus show" data-item-id="lotus-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Lotus</span>
+                    <i class="fas fa-ice-cream"></i><span>Lotus</span>
                 </div>
                 <div class="ice-cream-icon karamel show" data-item-id="karamel-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Karamel</span>
+                    <i class="fas fa-ice-cream"></i><span>Karamel</span>
                 </div>
                 <div class="ice-cream-icon cilek show" data-item-id="cilek-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Çilek</span>
+                    <i class="fas fa-ice-cream"></i><span>Çilek</span>
                 </div>
                 <div class="ice-cream-icon muz show" data-item-id="muz-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Muz</span>
+                    <i class="fas fa-ice-cream"></i><span>Muz</span>
                 </div>
                 <div class="ice-cream-icon portakal show" data-item-id="portakal-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Portakal</span>
+                    <i class="fas fa-ice-cream"></i><span>Portakal</span>
                 </div>
                 <div class="ice-cream-icon bal-badem show" data-item-id="bal-badem-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Bal-Badem</span>
+                    <i class="fas fa-ice-cream"></i><span>Bal-Badem</span>
                 </div>
                 <div class="ice-cream-icon ceviz show" data-item-id="ceviz-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Ceviz</span>
+                    <i class="fas fa-ice-cream"></i><span>Ceviz</span>
                 </div>
                 <div class="ice-cream-icon limon show" data-item-id="limon-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Limon</span>
+                    <i class="fas fa-ice-cream"></i><span>Limon</span>
                 </div>
                 <div class="ice-cream-icon antep-fistigi show" data-item-id="antep-fistigi-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Antep Fıstığı</span>
+                    <i class="fas fa-ice-cream"></i><span>Antep Fıstığı</span>
                 </div>
                 <div class="ice-cream-icon bogurtlen show" data-item-id="bogurtlen-dondurma">
-                    <i class="fas fa-ice-cream"></i>
-                    <span>Böğürtlen</span>
-                </div>
-                <div class="ice-cream-price-container">
-                    <span class="price">35 TL</span>
+                    <i class="fas fa-ice-cream"></i><span>Böğürtlen</span>
                 </div>
             </div>
         </div>
         <div class="sub-category show" data-subcategory="kagit-helva-dondurma">
-            <h3 class="sub-heading paper-waffle"><i class="fas fa-cookie"></i> Kağıt Helva Arası (Tek Top)</h3>
+            <h3 class="sub-heading paper-waffle"><i class="fas fa-cookie"></i> Kağıt Helva Arası (Tek Top) <span class="price">45 TL</span></h3>
             <div class="ice-cream-grid">
                 <div class="ice-cream-icon vanilya paper-waffle show" data-item-id="vanilya-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Vanilyalı</span>
+                    <i class="fas fa-cookie"></i><span>Vanilyalı</span>
                 </div>
                 <div class="ice-cream-icon cikolata paper-waffle show" data-item-id="cikolata-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Çikolatalı</span>
+                    <i class="fas fa-cookie"></i><span>Çikolatalı</span>
                 </div>
                 <div class="ice-cream-icon lotus paper-waffle show" data-item-id="lotus-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Lotus</span>
+                    <i class="fas fa-cookie"></i><span>Lotus</span>
                 </div>
                 <div class="ice-cream-icon karamel paper-waffle show" data-item-id="karamel-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Karamel</span>
+                    <i class="fas fa-cookie"></i><span>Karamel</span>
                 </div>
                 <div class="ice-cream-icon cilek paper-waffle show" data-item-id="cilek-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Çilek</span>
+                    <i class="fas fa-cookie"></i><span>Çilek</span>
                 </div>
                 <div class="ice-cream-icon muz paper-waffle show" data-item-id="muz-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Muz</span>
+                    <i class="fas fa-cookie"></i><span>Muz</span>
                 </div>
                 <div class="ice-cream-icon portakal paper-waffle show" data-item-id="portakal-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Portakal</span>
+                    <i class="fas fa-cookie"></i><span>Portakal</span>
                 </div>
                 <div class="ice-cream-icon bal-badem paper-waffle show" data-item-id="bal-badem-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Bal-Badem</span>
+                    <i class="fas fa-cookie"></i><span>Bal-Badem</span>
                 </div>
                 <div class="ice-cream-icon ceviz paper-waffle show" data-item-id="ceviz-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Ceviz</span>
+                    <i class="fas fa-cookie"></i><span>Ceviz</span>
                 </div>
                 <div class="ice-cream-icon limon paper-waffle show" data-item-id="limon-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Limon</span>
+                    <i class="fas fa-cookie"></i><span>Limon</span>
                 </div>
                 <div class="ice-cream-icon antep-fistigi paper-waffle show" data-item-id="antep-fistigi-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Antep Fıstığı</span>
+                    <i class="fas fa-cookie"></i><span>Antep Fıstığı</span>
                 </div>
                 <div class="ice-cream-icon bogurtlen paper-waffle show" data-item-id="bogurtlen-helva-dondurma">
-                    <i class="fas fa-cookie"></i>
-                    <span>Böğürtlen</span>
-                </div>
-                <div class="ice-cream-price-container">
-                    <span class="price">45 TL</span>
+                    <i class="fas fa-cookie"></i><span>Böğürtlen</span>
                 </div>
             </div>
         </div>
@@ -1372,8 +1292,7 @@
             <ul class="contact-list">
                 <li>
                     <i class="fas fa-map-marker-alt"></i>
-                    <a href="https://www.google.com/maps?q=Y%C4%B1ld%C4%B1r%C4%B1m+Mahallesi%2C+%C5%9Eehit+Kamil+Balkan+Cad.+No%3A26%2FA+Bayrampa%C5%9Fa%2F%C4%B0stanbul"
-                        target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A Bayrampaşa/İstanbul</a>
+                    <a href="https://www.google.com/maps?q=Y%C4%B1ld%C4%B1r%C4%B1m+Mahallesi%2C+%C5%9Eehit+Kamil+Balkan+Cad.+No%3A26%2FA+Bayrampa%C5%9Fa%2F%C4%B0stanbul" target="_blank" rel="noopener noreferrer">Yıldırım Mahallesi, Şehit Kamil Balkan Cad. No:26/A Bayrampaşa/İstanbul</a>
                 </li>
                 <li>
                     <i class="fas fa-phone-alt"></i>
@@ -1453,10 +1372,7 @@
                     }
                     if (target) {
                         const elementPosition = target.getBoundingClientRect().top + window.pageYOffset - 20;
-                        window.scrollTo({
-                            top: elementPosition,
-                            behavior: 'smooth'
-                        });
+                        window.scrollTo({ top: elementPosition, behavior: 'smooth' });
                     }
                 }
             }
@@ -1528,9 +1444,7 @@
                                 const clonedSub = sub.cloneNode(true);
                                 clonedSub.classList.add('show');
                                 const itemsInSub = clonedSub.querySelectorAll('.item, .ice-cream-icon');
-                                itemsInSub.forEach(item => {
-                                    item.classList.add('show');
-                                });
+                                itemsInSub.forEach(item => item.classList.add('show'));
                                 contentContainer.appendChild(clonedSub);
                             });
                             heading.setAttribute('data-state', 'open');
@@ -1559,13 +1473,9 @@
 
             const backToTopButton = document.getElementById('backToTop');
             backToTopButton.addEventListener('click', () => {
-                window.scrollTo({
-                    top: 0,
-                    behavior: 'smooth'
-                });
+                window.scrollTo({ top: 0, behavior: 'smooth' });
             });
         });
     </script>
 </body>
-
 </html>
