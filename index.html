@@ -40,10 +40,6 @@
             line-height: 1.6;
         }
 
-        * {
-            box-sizing: inherit;
-        }
-
         /* Hero Bölümü */
         .hero-section {
             position: relative;
@@ -142,7 +138,6 @@
             justify-content: center;
             padding: 10px 0;
             margin: 10px 0;
-            width: 100%;
         }
 
         .tumu-button {
@@ -187,9 +182,6 @@
             flex-direction: column;
             justify-content: center;
             min-height: 200px;
-            width: calc(100% - 30px);
-            margin-left: 15px;
-            margin-right: 15px;
         }
 
         .about-us:hover {
@@ -238,7 +230,6 @@
             text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
             animation: fadeIn 1.2s ease-in-out;
             letter-spacing: 1px;
-            width: 100%;
         }
 
         h1.section-title {
@@ -246,7 +237,7 @@
             font-size: 24px;
             font-weight: 600;
             color: #333333;
-            margin: 20px 15px 15px;
+            margin: 20px 0 15px;
             padding-left: 20px;
             border-left: 4px solid #a47148;
             text-align: left;
@@ -255,8 +246,6 @@
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            width: calc(100% - 30px);
-            animation: fadeIn 0.5s ease-in-out;
         }
 
         h1.section-title:hover {
@@ -269,7 +258,7 @@
             font-size: 24px;
             font-weight: 600;
             color: #333333;
-            margin: 20px 15px 15px;
+            margin: 20px 0 15px;
             padding-left: 20px;
             border-left: 4px solid #a47148;
             position: relative;
@@ -279,7 +268,6 @@
             padding: 10px 20px;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
-            width: calc(100% - 30px);
         }
 
         h2.section-heading:hover {
@@ -292,7 +280,7 @@
             font-size: 20px;
             font-weight: 600;
             color: #333333;
-            margin: 20px 15px 10px;
+            margin: 20px 0 10px;
             padding-left: 50px;
             border-left: 3px solid #a47148;
             position: relative;
@@ -303,7 +291,6 @@
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            width: calc(100% - 30px);
         }
 
         h3.sub-heading:hover {
@@ -321,7 +308,6 @@
 
         h3.sub-heading:hover i {
             transform: scale(1.2);
-            color: #bfa358;
         }
 
         h3.sub-heading.snowflake i {
@@ -335,28 +321,25 @@
         /* Content Container */
         .content-container {
             margin-top: 10px;
-            padding: 0 15px;
-            width: 100%;
+            padding-left: 20px;
         }
 
         /* Menü Tab Stilleri */
         .menu-tabs {
-            position: sticky;
-            top: 0;
+            position: static;
             background-color: #ffffff;
             display: flex;
             flex-wrap: nowrap;
             overflow-x: auto;
-            scroll-snap-type: x mandatory;
-            justify-content: flex-start;
+            white-space: nowrap;
+            justify-content: center;
             gap: 6px;
             padding: 6px 10px;
             margin: 5px 0;
             border-bottom: 2px solid #a47148;
             -webkit-overflow-scrolling: touch;
             scrollbar-width: none;
-            width: 100%;
-            z-index: 100;
+            max-width: 100%;
         }
 
         .menu-tabs::-webkit-scrollbar {
@@ -382,10 +365,10 @@
             flex-direction: column;
             justify-content: flex-end;
             align-items: center;
+            text-align: center;
             background-size: cover;
             background-position: center;
             position: relative;
-            scroll-snap-align: start;
             flex-shrink: 0;
             word-break: break-word;
             max-width: 65px;
@@ -413,17 +396,17 @@
         }
 
         .tab-button:hover {
-            transform: scale(1.05);
+            background-color: #bfa358;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+            transform: scale(1.05);
             opacity: 1;
         }
 
         .tab-button.active {
-            background: linear-gradient(135deg, #a47148 0%, #f5c07a 100%);
+            background-color: #bfa358;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
             transform: scale(1.05);
             opacity: 1;
-            animation: pulse 1.5s infinite;
         }
 
         .tab-button[data-tab="dondurma"] {
@@ -446,80 +429,6 @@
             background-image: url('images/fotolar/icecekler.jpg');
         }
 
-        /* Dondurma Izgara Stilleri */
-        .icecream-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-            gap: 15px;
-            padding: 15px;
-            width: calc(100% - 30px);
-            margin: 0 auto;
-        }
-
-        .icecream-card {
-            background-color: #ffffff;
-            border-radius: 10px;
-            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-            padding: 10px;
-            text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-            position: relative;
-            height: 100px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .icecream-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        .icecream-card.selected {
-            background-color: #fff8e1;
-            border: 1px solid #a47148;
-        }
-
-        .icecream-card i {
-            font-size: 20px;
-            margin-bottom: 5px;
-            color: #a47148;
-            transition: color 0.3s ease;
-        }
-
-        .icecream-card:hover i {
-            color: #f5c07a;
-        }
-
-        .icecream-card h3 {
-            font-family: 'Inter', sans-serif;
-            font-size: 12px;
-            font-weight: 600;
-            color: #333333;
-            margin: 5px 0;
-            line-height: 1.2;
-        }
-
-        .icecream-card .price {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background-color: #a47148;
-            color: #ffffff;
-            font-size: 10px;
-            font-weight: 600;
-            padding: 4px 8px;
-            border-radius: 50%;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-
-        .icecream-card:hover .price {
-            background-color: #f5c07a;
-        }
-
         /* İtem Stilleri */
         .item {
             display: none;
@@ -527,12 +436,11 @@
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             padding: 20px;
-            margin: 15px;
+            margin: 15px 0;
             display: flex;
             align-items: center;
             gap: 20px;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
-            width: calc(100% - 30px);
         }
 
         .item.show {
@@ -551,7 +459,6 @@
             object-fit: cover;
             border-radius: 10px;
             border: 1px solid #e5e5e5;
-            loading: lazy;
         }
 
         .item-info {
@@ -591,8 +498,6 @@
         .sub-category {
             display: none;
             margin-top: 10px;
-            padding: 0 15px;
-            width: 100%;
         }
 
         .sub-category.show {
@@ -603,12 +508,12 @@
         .contact-info {
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             padding: 30px;
-            margin: 40px 15px;
+            margin: 40px auto;
+            max-width: 600px;
             text-align: center;
             border-radius: 20px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
             transition: box-shadow 0.3s ease, transform 0.3s ease;
-            width: calc(100% - 30px);
         }
 
         .contact-info:hover {
@@ -684,10 +589,10 @@
         .feedback-section {
             background-color: #ffffff;
             padding: 30px;
-            margin: 40px 15px;
+            margin: 40px auto;
             border-radius: 10px;
+            max-width: 600px;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-            width: calc(100% - 30px);
         }
 
         .feedback-section h2 {
@@ -778,16 +683,14 @@
         }
 
         /* Divider */
-        .divider Facet
         .divider {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 40px 15px;
+            margin: 40px 0;
             color: #121210;
             font-family: 'Allura', cursive;
             font-size: 28px;
-            width: calc(100% - 30px);
         }
 
         .divider::before,
@@ -809,9 +712,6 @@
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             opacity: 0.9;
             transition: color 0.3s ease, opacity 0.3s ease;
-            width: calc(100% - 30px);
-            margin-left: 15px;
-            margin-right: 15px;
         }
 
         .signature:hover {
@@ -821,23 +721,39 @@
 
         /* Animasyonlar */
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         @keyframes slideIn {
-            from { opacity: 0; transform: translateX(-50px); }
-            to { opacity: 1; transform: translateX(0); }
-        }
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
 
-        @keyframes pulse {
-            0%, 100% { transform: scale(1.05); }
-            50% { transform: scale(1.1); }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         /* Medya Sorguları */
@@ -847,136 +763,21 @@
                 margin: 0 auto;
             }
 
-            .hero-section {
-                height: 350px;
-            }
-
-            .hero-content .logo-img {
-                max-width: 180px;
-            }
-
-            .hero-content button {
-                font-size: 14px;
-                padding: 8px 16px;
-            }
-
-            .tumu-button {
-                font-size: 12px;
-                padding: 8px 16px;
-                min-width: 80px;
-            }
-
-            .menu-tabs {
-                padding: 6px 15px;
-                gap: 8px;
-                justify-content: center;
-            }
-
-            .tab-button {
-                width: 70px;
-                height: 70px;
-                font-size: 9px;
-            }
-
-            h1.menu-title {
-                font-size: 36px;
-            }
-
-            h1.section-title, h2.section-heading {
-                font-size: 24px;
-                margin-left: 0;
-                width: 100%;
-            }
-
-            h3.sub-heading {
-                font-size: 20px;
-                padding-left: 45px;
-                margin-left: 0;
-                width: 100%;
-            }
-
-            h3.sub-heading i {
-                font-size: 16px;
-                left: 12px;
-            }
-
-            .icecream-card {
+            .item img {
+                width: 120px;
                 height: 120px;
             }
 
-            .icecream-card h3 {
-                font-size: 14px;
-            }
-
-            .icecream-card .price {
-                font-size: 12px;
-                padding: 5px 10px;
-            }
-
-            .item {
-                padding: 15px;
-                gap: 15px;
-                margin: 10px 0;
-                width: 100%;
-            }
-
-            .item img {
-                width: 100px;
-                height: 100px;
-            }
-
             .item-info h3 {
-                font-size: 14px;
+                font-size: 18px;
             }
 
             .item-info .price {
-                font-size: 15px;
+                font-size: 16px;
             }
 
             .item-info p {
-                font-size: 13px;
-            }
-
-            .about-us, .contact-info, .feedback-section {
-                margin: 10px 0;
-                padding: 20px;
-                max-width: 600px;
-                width: 100%;
-            }
-
-            .about-title, .contact-info-title {
-                font-size: 28px;
-            }
-
-            .about-text {
-                font-size: 14px;
-                max-width: 600px;
-            }
-
-            .contact-list li {
-                font-size: 14px;
-            }
-
-            .contact-list li i {
-                font-size: 18px;
-            }
-
-            .contact-map iframe {
-                height: 250px;
-            }
-
-            #backToTop {
-                width: 40px;
-                height: 40px;
-                font-size: 18px;
-            }
-
-            .divider {
-                font-size: 24px;
-            }
-
-            .signature {
-                font-size: 22px;
+                font-size: 15px;
             }
         }
 
@@ -1011,39 +812,61 @@
             .menu-tabs {
                 padding: 5px 5px;
                 gap: 6px;
-                justify-content: flex-start;
+                margin: 3px 0;
+                justify-content: center;
             }
 
             .tab-button {
-                width: 55px;
-                height: 55px;
+                width: 65px;
+                height: 65px;
                 font-size: 7px;
+                border-radius: 12px;
+                box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             }
 
-            .icecream-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 10px;
-                padding: 10px;
+            .tab-button::before {
+                border-radius: 12px;
             }
 
-            .icecream-card {
-                height: 90px;
+            .tab-button span {
+                padding-bottom: 4px;
+                max-width: 90%;
             }
 
-            .icecream-card h3 {
-                font-size: 11px;
+            .about-us {
+                margin: 2px 0 20px 0;
+                padding: 25px 15px;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+                border-left: 3px solid #a47148;
             }
 
-            .icecream-card .price {
-                font-size: 9px;
-                padding: 3px 6px;
+            .about-title {
+                font-size: 26px;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            }
+
+            .about-text {
+                font-size: 14px;
+                line-height: 1.7;
+            }
+
+            h1.menu-title {
+                font-size: 26px;
+                color: #a47148;
+                margin: 5px 0;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            }
+
+            h1.section-title {
+                font-size: 20px;
+                margin: 15px 0 10px;
+                padding: 8px 15px;
             }
 
             .item {
                 padding: 15px;
                 gap: 15px;
-                margin: 10px;
-                width: calc(100% - 20px);
             }
 
             .item img {
@@ -1051,10 +874,73 @@
                 height: 80px;
             }
 
-            .about-us, .contact-info, .feedback-section {
-                margin: 10px;
-                padding: 15px;
-                width: calc(100% - 20px);
+            .item-info h3 {
+                font-size: 14px;
+            }
+
+            .item-info .price {
+                font-size: 13px;
+            }
+
+            .item-info p {
+                font-size: 12px;
+            }
+
+            .content-container {
+                padding-left: 15px;
+            }
+
+            .contact-info {
+                padding: 25px;
+                max-width: 90%;
+                border-radius: 15px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            }
+
+            .contact-info-title {
+                font-size: 26px;
+                text-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+            }
+
+            .contact-list li {
+                font-size: 14px;
+                gap: 10px;
+            }
+
+            .contact-list li i {
+                font-size: 18px;
+            }
+
+            .contact-list li a {
+                font-size: 14px;
+            }
+
+            #backToTop {
+                width: 36px;
+                height: 36px;
+                font-size: 16px;
+                bottom: 20px;
+                right: 20px;
+            }
+
+            #feedback-form button {
+                font-size: 13px;
+                padding: 6px 12px;
+            }
+
+            h3.sub-heading i {
+                font-size: 14px;
+                left: 12px;
+            }
+
+            h3.sub-heading {
+                padding-left: 45px;
+            }
+
+            .signature {
+                font-size: 20px;
+                padding: 15px 0;
+                margin: 15px 0 30px 0;
             }
         }
     </style>
@@ -1068,7 +954,7 @@
         <div class="hero-slide" style="background-image: url('images/fotolar/hero4.jpg');"></div>
         <div class="hero-slide" style="background-image: url('images/fotolar/hero5.jpg');"></div>
         <div class="hero-content">
-            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img" loading="lazy">
+            <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
         </div>
     </section>
@@ -1077,7 +963,7 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -1123,66 +1009,20 @@
     <!-- Dondurma Sekmesi -->
     <div id="dondurma" class="tab-content">
         <h1 class="section-title">Dondurma</h1>
-        <div class="icecream-grid" data-subcategory="dondurma">
-            <div class="icecream-card" data-item-id="vanilyali-dondurma">
-                <i class="fas fa-ice-cream" style="color: #f0e4d7;"></i>
-                <h3>Vanilyalı</h3>
-                <span class="price">20 TL</span>
+        <div class="sub-category" data-subcategory="dondurma">
+            <div class="item" data-item-id="cikolatali-dondurma">
+                <img src="images/fotolar/cdondurma.jpg" alt="Çikolatalı Dondurma">
+                <div class="item-info">
+                    <h3>Çikolatalı Dondurma <span class="price">25 TL</span></h3>
+                    <p>Kremalı çikolata dondurma.</p>
+                </div>
             </div>
-            <div class="icecream-card" data-item-id="cikolatali-dondurma">
-                <i class="fas fa-ice-cream" style="color: #5c4033;"></i>
-                <h3>Çikolatalı</h3>
-                <span class="price">25 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="lotus-dondurma">
-                <i class="fas fa-ice-cream" style="color: #d4a373;"></i>
-                <h3>Lotus</h3>
-                <span class="price">28 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="karamel-dondurma">
-                <i class="fas fa-ice-cream" style="color: #8b5e3c;"></i>
-                <h3>Karamel</h3>
-                <span class="price">26 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="cilek-dondurma">
-                <i class="fas fa-ice-cream" style="color: #e84a5f;"></i>
-                <h3>Çilek</h3>
-                <span class="price">22 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="muz-dondurma">
-                <i class="fas fa-ice-cream" style="color: #f4e04d;"></i>
-                <h3>Muz</h3>
-                <span class="price">23 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="portakal-dondurma">
-                <i class="fas fa-ice-cream" style="color: #f28c38;"></i>
-                <h3>Portakal</h3>
-                <span class="price">22 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="bal-badem-dondurma">
-                <i class="fas fa-ice-cream" style="color: #d9a441;"></i>
-                <h3>Bal-Badem</h3>
-                <span class="price">27 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="ceviz-dondurma">
-                <i class="fas fa-ice-cream" style="color: #8b6f47;"></i>
-                <h3>Ceviz</h3>
-                <span class="price">26 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="limon-dondurma">
-                <i class="fas fa-ice-cream" style="color: #c9e4b7;"></i>
-                <h3>Limon</h3>
-                <span class="price">22 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="antep-fistigi-dondurma">
-                <i class="fas fa-ice-cream" style="color: #7fb069;"></i>
-                <h3>Antep Fıstığı</h3>
-                <span class="price">28 TL</span>
-            </div>
-            <div class="icecream-card" data-item-id="bogurtlen-dondurma">
-                <i class="fas fa-ice-cream" style="color: #6b3e75;"></i>
-                <h3>Böğürtlen</h3>
-                <span class="price">24 TL</span>
+            <div class="item" data-item-id="vanilyali-dondurma">
+                <img src="images/fotolar/vanilya.jpg" alt="Vanilyalı Dondurma">
+                <div class="item-info">
+                    <h3>Vanilyalı Dondurma <span class="price">20 TL</span></h3>
+                    <p>Hafif ve doğal vanilya aromalı dondurma.</p>
+                </div>
             </div>
         </div>
     </div>
@@ -1192,14 +1032,14 @@
         <h1 class="section-title">Tatlılar</h1>
         <div class="sub-category" data-subcategory="tatlilar">
             <div class="item" data-item-id="baklava">
-                <img src="images/fotolar/baklava.jpg" alt="Baklava" loading="lazy">
+                <img src="images/fotolar/baklava.jpg" alt="Baklava">
                 <div class="item-info">
                     <h3>Baklava <span class="price">30 TL</span></h3>
                     <p>Antep fıstıklı, çıtır baklava.</p>
                 </div>
             </div>
             <div class="item" data-item-id="sutlac">
-                <img src="images/fotolar/sutlac.jpg" alt="Sütlaç" loading="lazy">
+                <img src="images/fotolar/sutlac.jpg" alt="Sütlaç">
                 <div class="item-info">
                     <h3>Sütlaç <span class="price">20 TL</span></h3>
                     <p>Fırınlanmış geleneksel sütlaç.</p>
@@ -1213,14 +1053,14 @@
         <h1 class="section-title">Pastalar</h1>
         <div class="sub-category" data-subcategory="pastalar">
             <div class="item" data-item-id="cikolatali-pasta">
-                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta" loading="lazy">
+                <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
                 <div class="item-info">
                     <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
                 </div>
             </div>
             <div class="item" data-item-id="orman-meyveli-pasta">
-                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta" loading="lazy">
+                <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
                 <div class="item-info">
                     <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
@@ -1235,14 +1075,14 @@
         <div class="sub-category" data-subcategory="soguk-kahveler">
             <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk Kahveler</h3>
             <div class="item" data-item-id="iced-latte">
-                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte" loading="lazy">
+                <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
                 <div class="item-info">
                     <h3>Iced Latte <span class="price">30 TL</span></h3>
                     <p>Soğuk süt ve espresso ile hazırlanan serinletici kahve.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cold-brew">
-                <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew" loading="lazy">
+                <img src="images/fotolar/coldbrwe.jpg" alt="Cold Brew">
                 <div class="item-info">
                     <h3>Cold Brew <span class="price">32 TL</span></h3>
                     <p>Soğuk demleme yöntemiyle hazırlanan yumuşak içimli kahve.</p>
@@ -1252,14 +1092,14 @@
         <div class="sub-category" data-subcategory="sicak-kahveler">
             <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak Kahveler</h3>
             <div class="item" data-item-id="espresso">
-                <img src="images/fotolar/espressso.jpg" alt="Espresso" loading="lazy">
+                <img src="images/fotolar/espressso.jpg" alt="Espresso">
                 <div class="item-info">
                     <h3>Espresso <span class="price">22 TL</span></h3>
                     <p>Yoğun aromalı tek shot espresso.</p>
                 </div>
             </div>
             <div class="item" data-item-id="latte">
-                <img src="images/fotolar/sıcaklatte.jpg" alt="Latte" loading="lazy">
+                <img src="images/fotolar/sıcaklatte.jpg" alt="Latte">
                 <div class="item-info">
                     <h3>Latte <span class="price">28 TL</span></h3>
                     <p>Köpüklü süt ile hazırlanmış latte.</p>
@@ -1274,14 +1114,14 @@
         <div class="sub-category" data-subcategory="soguk-icecekler">
             <h3 class="sub-heading snowflake"><i class="fas fa-snowflake"></i> Soğuk İçecekler</h3>
             <div class="item" data-item-id="limonata">
-                <img src="images/fotolar/limonata.jpg" alt="Limonata" loading="lazy">
+                <img src="images/fotolar/limonata.jpg" alt="Limonata">
                 <div class="item-info">
                     <h3>Limonata <span class="price">20 TL</span></h3>
                     <p>Taze sıkılmış limonlarla ferahlatıcı bir içecek.</p>
                 </div>
             </div>
             <div class="item" data-item-id="ice-tea">
-                <img src="images/fotolar/icetea.jpg" alt="Ice Tea" loading="lazy">
+                <img src="images/fotolar/icetea.jpg" alt="Ice Tea">
                 <div class="item-info">
                     <h3>Ice Tea <span class="price">18 TL</span></h3>
                     <p>Şeftali aromalı soğuk çay.</p>
@@ -1291,14 +1131,14 @@
         <div class="sub-category" data-subcategory="sicak-icecekler">
             <h3 class="sub-heading sun"><i class="fas fa-sun"></i> Sıcak İçecekler</h3>
             <div class="item" data-item-id="turk-kahvesi">
-                <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi" loading="lazy">
+                <img src="images/fotolar/turk.jpg" alt="Türk Kahvesi">
                 <div class="item-info">
                     <h3>Türk Kahvesi <span class="price">25 TL</span></h3>
                     <p>Köpüklü ve aromatik geleneksel Türk kahvesi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cay">
-                <img src="images/fotolar/cay.jpg" alt="Çay" loading="lazy">
+                <img src="images/fotolar/cay.jpg" alt="Çay">
                 <div class="item-info">
                     <h3>Çay <span class="price">15 TL</span></h3>
                     <p>Taze demlenmiş siyah çay.</p>
@@ -1369,7 +1209,6 @@
             showSlide(currentSlide);
             setInterval(nextSlide, 3000);
 
-            // Animasyonları Tetikle
             const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroButton = document.querySelector('.hero-content button');
             const aboutTitle = document.querySelector('.about-title');
@@ -1380,13 +1219,11 @@
             if (aboutTitle) aboutTitle.classList.add('animate');
             if (aboutText) aboutText.classList.add('animate');
 
-            // Menü Kontrolleri
             const tumuButton = document.querySelector('.tumu-button');
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
             const sectionHeadings = document.querySelectorAll('.section-heading');
-            const icecreamCards = document.querySelectorAll('.icecream-card');
 
             function scrollToFirstItem(tabId, isTumu = false) {
                 if (window.innerWidth <= 600) {
@@ -1411,16 +1248,22 @@
                 tabButtons.forEach(btn => btn.classList.remove('active'));
                 tumuButton.classList.add('active');
                 tabContents.forEach(content => {
-                    content.style.display = content.id === 'tumu' ? 'block' : 'none';
-                });
-                subCategories.forEach(sub => sub.classList.remove('show'));
-                sectionHeadings.forEach(heading => {
-                    heading.setAttribute('data-state', 'closed');
-                    const contentContainer = heading.nextElementSibling;
-                    if (contentContainer && contentContainer.classList.contains('content-container')) {
-                        contentContainer.innerHTML = '';
+                    if (content.id !== 'tumu') {
+                        content.style.display = 'none';
                     }
                 });
+                subCategories.forEach(sub => sub.classList.remove('show'));
+                const tumuContent = document.getElementById('tumu');
+                if (tumuContent) {
+                    tumuContent.style.display = 'block';
+                    sectionHeadings.forEach(heading => {
+                        heading.setAttribute('data-state', 'closed');
+                        const contentContainer = heading.nextElementSibling;
+                        if (contentContainer && contentContainer.classList.contains('content-container')) {
+                            contentContainer.innerHTML = '';
+                        }
+                    });
+                }
             });
 
             tabButtons.forEach(button => {
@@ -1441,14 +1284,12 @@
                     const targetContent = document.getElementById(tabId);
                     if (targetContent) {
                         targetContent.style.display = 'block';
-                        if (tabId === 'dondurma') {
-                            icecreamCards.forEach(card => card.classList.add('show'));
-                        } else {
-                            targetContent.querySelectorAll('.sub-category').forEach(sub => {
-                                sub.classList.add('show');
-                                sub.querySelectorAll('.item').forEach(item => item.classList.add('show'));
-                            });
-                        }
+                        const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
+                        subCategoriesInTab.forEach(sub => {
+                            sub.classList.add('show');
+                            const itemsInSub = sub.querySelectorAll('.item');
+                            itemsInSub.forEach(item => item.classList.add('show'));
+                        });
                         scrollToFirstItem(tabId, false);
                     }
                 });
@@ -1465,21 +1306,16 @@
                     if (currentState === 'closed') {
                         if (targetContent && contentContainer) {
                             contentContainer.innerHTML = '';
-                            if (tabId === 'dondurma') {
-                                const icecreamGrid = targetContent.querySelector('.icecream-grid');
-                                if (icecreamGrid) {
-                                    const clonedGrid = icecreamGrid.cloneNode(true);
-                                    clonedGrid.querySelectorAll('.icecream-card').forEach(card => card.classList.add('show'));
-                                    contentContainer.appendChild(clonedGrid);
-                                }
-                            } else {
-                                targetContent.querySelectorAll('.sub-category').forEach(sub => {
-                                    const clonedSub = sub.cloneNode(true);
-                                    clonedSub.classList.add('show');
-                                    clonedSub.querySelectorAll('.item').forEach(item => item.classList.add('show'));
-                                    contentContainer.appendChild(clonedSub);
+                            const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
+                            subCategoriesInTab.forEach(sub => {
+                                const clonedSub = sub.cloneNode(true);
+                                clonedSub.classList.add('show');
+                                const itemsInSub = clonedSub.querySelectorAll('.item');
+                                itemsInSub.forEach(item => {
+                                    item.classList.add('show');
                                 });
-                            }
+                                contentContainer.appendChild(clonedSub);
+                            });
                             heading.setAttribute('data-state', 'open');
                             if (targetButton) {
                                 tabButtons.forEach(btn => btn.classList.remove('active'));
@@ -1500,17 +1336,10 @@
                 });
             });
 
-            // Dondurma Kart Seçimi
-            icecreamCards.forEach(card => {
-                card.addEventListener('click', () => {
-                    card.classList.toggle('selected');
-                });
-            });
+            if (tumuButton) {
+                tumuButton.click();
+            }
 
-            // Varsayılan Olarak Tümü Sekmesini Aç
-            tumuButton.click();
-
-            // Geri Dön Butonu
             const backToTopButton = document.getElementById('backToTop');
             backToTopButton.addEventListener('click', () => {
                 window.scrollTo({
