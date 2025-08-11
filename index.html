@@ -326,11 +326,43 @@
         h3.sub-heading.paper-waffle i { color: #d2a679; }
         h3.sub-heading.milk i { color: #f5f5f5; }
         h3.sub-heading.sherbet i { color: #d4a373; }
+        h3.sub-heading.kornet-kase i { color: #a47148; }
 
         /* Content Container */
         .content-container {
             margin-top: 10px;
             padding-left: 20px;
+        }
+
+        /* Dondurma Çeşitleri Bölümü */
+        .dondurma-cesitleri {
+            margin-bottom: 20px;
+        }
+
+        .dondurma-cesitleri h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 18px;
+            font-weight: 600;
+            color: #333333;
+            margin: 15px 0 10px;
+            padding: 8px 15px;
+            border-left: 3px solid #a47148;
+            background: linear-gradient(to right, #ffffff, #fafafa);
+            border-radius: 6px;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .dondurma-cesitleri h3 i {
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        .dondurma-cesitleri:hover h3 {
+            color: #bfa358;
+            background-color: #f5f5f5;
         }
 
         /* Menü Tab Stilleri */
@@ -504,83 +536,79 @@
             line-height: 1.5;
         }
 
-        /* Ice Cream Grid Styles */
-        .ice-cream-grid {
+        /* Ice Cream Flavors Aesthetic Section */
+        .ice-cream-flavors {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 15px;
-            padding: 15px;
-            justify-items: start;
-            background-color: #ffffff;
+            padding: 20px;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             margin: 15px 0;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
-            position: relative;
         }
 
-        .ice-cream-grid:hover {
+        .ice-cream-flavors:hover {
             box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
             transform: translateY(-2px);
         }
 
-        .ice-cream-icon {
+        .flavor-card {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
-            cursor: pointer;
+            text-align: center;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .ice-cream-icon i {
+        .flavor-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .flavor-card i {
             font-size: 24px;
+            margin-bottom: 8px;
         }
 
-        .ice-cream-icon span {
+        .flavor-card span {
             font-family: 'Inter', sans-serif;
             font-size: 14px;
+            font-weight: 600;
             color: #333333;
-            text-align: left;
         }
 
         /* Flavor-specific colors for icons */
-        .ice-cream-icon.vanilya i { color: #f5f5f5; }
-        .ice-cream-icon.cikolata i { color: #5c4033; }
-        .ice-cream-icon.lotus i { color: #d4a373; }
-        .ice-cream-icon.karamel i { color: #8b4513; }
-        .ice-cream-icon.cilek i { color: #ff4040; }
-        .ice-cream-icon.muz i { color: #ffe135; }
-        .ice-cream-icon.portakal i { color: #ffa500; }
-        .ice-cream-icon.bal-badem i { color: #e6b800; }
-        .ice-cream-icon.ceviz i { color: #6b4e31; }
-        .ice-cream-icon.limon i { color: #fffacd; }
-        .ice-cream-icon.antep-fistigi i { color: #98ff98; }
-        .ice-cream-icon.bogurtlen i { color: #800080; }
-
-        .ice-cream-icon.vanilya.paper-waffle i { color: #f5f5f5; }
-        .ice-cream-icon.cikolata.paper-waffle i { color: #5c4033; }
-        .ice-cream-icon.lotus.paper-waffle i { color: #d4a373; }
-        .ice-cream-icon.karamel.paper-waffle i { color: #8b4513; }
-        .ice-cream-icon.cilek.paper-waffle i { color: #ff4040; }
-        .ice-cream-icon.muz.paper-waffle i { color: #ffe135; }
-        .ice-cream-icon.portakal.paper-waffle i { color: #ffa500; }
-        .ice-cream-icon.bal-badem.paper-waffle i { color: #e6b800; }
-        .ice-cream-icon.ceviz.paper-waffle i { color: #6b4e31; }
-        .ice-cream-icon.limon.paper-waffle i { color: #fffacd; }
-        .ice-cream-icon.antep-fistigi.paper-waffle i { color: #98ff98; }
-        .ice-cream-icon.bogurtlen.paper-waffle i { color: #800080; }
+        .flavor-card.vanilya i { color: #f5f5f5; background: #d3d3d3; padding: 8px; border-radius: 50%; font-size: 24px; }
+        .flavor-card.cikolata i { color: #5c4033; font-size: 24px; }
+        .flavor-card.lotus i { color: #d4a373; font-size: 24px; }
+        .flavor-card.karamel i { color: #8b4513; font-size: 24px; }
+        .flavor-card.cilek i { color: #ff4040; font-size: 24px; }
+        .flavor-card.muz i { color: #ffe135; font-size: 24px; }
+        .flavor-card.portakal i { color: #ffa500; font-size: 24px; }
+        .flavor-card.bal-badem i { color: #e6b800; font-size: 24px; }
+        .flavor-card.ceviz i { color: #6b4e31; font-size: 24px; }
+        .flavor-card.limon i { color: #fffacd; font-size: 24px; }
+        .flavor-card.antep-fistigi i { color: #98ff98; font-size: 24px; }
+        .flavor-card.bogurtlen i { color: #800080; font-size: 24px; }
 
         @media screen and (max-width: 600px) {
-            .ice-cream-grid {
+            .ice-cream-flavors {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 10px;
                 padding: 10px;
             }
 
-            .ice-cream-icon i {
+            .flavor-card i {
                 font-size: 20px;
             }
 
-            .ice-cream-icon span {
+            .flavor-card span {
                 font-size: 12px;
             }
 
@@ -1036,7 +1064,7 @@
         <div class="about-wrapper">
             <h2 class="about-title">Biz Kimiz?</h2>
             <p class="about-text">
-                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazlik ve doğal malzemeler önceliğimizdir.
+                Sektörün en yeni oyuncularından biri olmamıza rağmen, dondurmalarımızdaki kalite ve özgün lezzet anlayışımızla kısa sürede fark yaratmayı başardık. Üretim süreçlerimizde hijyen, tazelik ve doğal malzemeler önceliğimizdir.
             </p>
         </div>
     </section>
@@ -1082,85 +1110,67 @@
     <!-- Dondurma Sekmesi -->
     <div id="dondurma" class="tab-content">
         <h1 class="section-title">Dondurma</h1>
-        <div class="sub-category show" data-subcategory="kulah-dondurma">
-            <h3 class="sub-heading ice-cream"><i class="fas fa-ice-cream"></i> Külahta Dondurmalar (Tek Top) <span class="price">35 TL</span></h3>
-            <div class="ice-cream-grid">
-                <div class="ice-cream-icon vanilya show" data-item-id="vanilya-dondurma">
+        <div class="dondurma-cesitleri">
+            <h3 class="sub-heading"><i class="fas fa-ice-cream"></i> Dondurma Aromaları ve Çeşitleri</h3>
+            <div class="ice-cream-flavors">
+                <div class="flavor-card vanilya">
                     <i class="fas fa-ice-cream"></i><span>Vanilyalı</span>
                 </div>
-                <div class="ice-cream-icon cikolata show" data-item-id="cikolata-dondurma">
+                <div class="flavor-card cikolata">
                     <i class="fas fa-ice-cream"></i><span>Çikolatalı</span>
                 </div>
-                <div class="ice-cream-icon lotus show" data-item-id="lotus-dondurma">
+                <div class="flavor-card lotus">
                     <i class="fas fa-ice-cream"></i><span>Lotus</span>
                 </div>
-                <div class="ice-cream-icon karamel show" data-item-id="karamel-dondurma">
+                <div class="flavor-card karamel">
                     <i class="fas fa-ice-cream"></i><span>Karamel</span>
                 </div>
-                <div class="ice-cream-icon cilek show" data-item-id="cilek-dondurma">
+                <div class="flavor-card cilek">
                     <i class="fas fa-ice-cream"></i><span>Çilek</span>
                 </div>
-                <div class="ice-cream-icon muz show" data-item-id="muz-dondurma">
+                <div class="flavor-card muz">
                     <i class="fas fa-ice-cream"></i><span>Muz</span>
                 </div>
-                <div class="ice-cream-icon portakal show" data-item-id="portakal-dondurma">
+                <div class="flavor-card portakal">
                     <i class="fas fa-ice-cream"></i><span>Portakal</span>
                 </div>
-                <div class="ice-cream-icon bal-badem show" data-item-id="bal-badem-dondurma">
+                <div class="flavor-card bal-badem">
                     <i class="fas fa-ice-cream"></i><span>Bal-Badem</span>
                 </div>
-                <div class="ice-cream-icon ceviz show" data-item-id="ceviz-dondurma">
+                <div class="flavor-card ceviz">
                     <i class="fas fa-ice-cream"></i><span>Ceviz</span>
                 </div>
-                <div class="ice-cream-icon limon show" data-item-id="limon-dondurma">
+                <div class="flavor-card limon">
                     <i class="fas fa-ice-cream"></i><span>Limon</span>
                 </div>
-                <div class="ice-cream-icon antep-fistigi show" data-item-id="antep-fistigi-dondurma">
+                <div class="flavor-card antep-fistigi">
                     <i class="fas fa-ice-cream"></i><span>Antep Fıstığı</span>
                 </div>
-                <div class="ice-cream-icon bogurtlen show" data-item-id="bogurtlen-dondurma">
+                <div class="flavor-card bogurtlen">
                     <i class="fas fa-ice-cream"></i><span>Böğürtlen</span>
                 </div>
             </div>
-        </div>
-        <div class="sub-category show" data-subcategory="kagit-helva-dondurma">
-            <h3 class="sub-heading paper-waffle"><i class="fas fa-cookie"></i> Kağıt Helva Arası (Tek Top) <span class="price">45 TL</span></h3>
-            <div class="ice-cream-grid">
-                <div class="ice-cream-icon vanilya paper-waffle show" data-item-id="vanilya-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Vanilyalı</span>
+            <div class="sub-category show" data-subcategory="dondurma-cesitleri">
+                <div class="item" data-item-id="kulah-dondurma">
+                    <img src="images/fotolar/dondurma tek top.jpg" alt="Külahta Dondurma">
+                    <div class="item-info">
+                        <h3>Külahta Dondurma <span class="price">35 TL</span></h3>
+                        <p>Seçtiğiniz leziz dondurma aromasıyla çıtır külahın mükemmel uyumu.</p>
+                    </div>
                 </div>
-                <div class="ice-cream-icon cikolata paper-waffle show" data-item-id="cikolata-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Çikolatalı</span>
+                <div class="item" data-item-id="kagit-helva-dondurma">
+                    <img src="images/fotolar/dondurmahelva.jpg" alt="Kağıt Helva Arası Dondurma">
+                    <div class="item-info">
+                        <h3>Kağıt Helva Arası Dondurma <span class="price">40 TL</span></h3>
+                        <p>Seçtiğiniz dondurma aromasının kağıt helva ile tatlı birleşimi.</p>
+                    </div>
                 </div>
-                <div class="ice-cream-icon lotus paper-waffle show" data-item-id="lotus-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Lotus</span>
-                </div>
-                <div class="ice-cream-icon karamel paper-waffle show" data-item-id="karamel-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Karamel</span>
-                </div>
-                <div class="ice-cream-icon cilek paper-waffle show" data-item-id="cilek-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Çilek</span>
-                </div>
-                <div class="ice-cream-icon muz paper-waffle show" data-item-id="muz-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Muz</span>
-                </div>
-                <div class="ice-cream-icon portakal paper-waffle show" data-item-id="portakal-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Portakal</span>
-                </div>
-                <div class="ice-cream-icon bal-badem paper-waffle show" data-item-id="bal-badem-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Bal-Badem</span>
-                </div>
-                <div class="ice-cream-icon ceviz paper-waffle show" data-item-id="ceviz-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Ceviz</span>
-                </div>
-                <div class="ice-cream-icon limon paper-waffle show" data-item-id="limon-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Limon</span>
-                </div>
-                <div class="ice-cream-icon antep-fistigi paper-waffle show" data-item-id="antep-fistigi-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Antep Fıstığı</span>
-                </div>
-                <div class="ice-cream-icon bogurtlen paper-waffle show" data-item-id="bogurtlen-helva-dondurma">
-                    <i class="fas fa-cookie"></i><span>Böğürtlen</span>
+                <div class="item" data-item-id="kornet-kase-dondurma">
+                    <img src="images/fotolar/dondurmakase.jpg" alt="Kornet Kase Dondurma">
+                    <div class="item-info">
+                        <h3>Kornet Kase Dondurma <span class="price">40 TL</span></h3>
+                        <p>Seçtiğiniz dondurma aromasıyla şık bir kornet kasede sunulan ferah tat.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1416,13 +1426,6 @@
                     <p>Çift shot espresso ile yoğun bir kahve deneyimi.</p>
                 </div>
             </div>
-            <div class="item" data-item-id="turk-kahvesi">
-                <img src="images/fotolar/turkkahvesi.jpg" alt="Türk Kahvesi">
-                <div class="item-info">
-                    <h3>Türk Kahvesi <span class="price">80 TL</span></h3>
-                    <p>Geleneksel yöntemlerle hazırlanan köpüklü Türk kahvesi.</p>
-                </div>
-            </div>
         </div>
     </div>
 
@@ -1537,8 +1540,12 @@
                 showSlide(currentSlide);
             }
 
-            showSlide(currentSlide);
-            setInterval(nextSlide, 3000);
+            if (slides.length > 0) {
+                showSlide(currentSlide);
+                setInterval(nextSlide, 3000);
+            } else {
+                console.warn('No hero slides found.');
+            }
 
             const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroButton = document.querySelector('.hero-content button');
@@ -1572,32 +1579,36 @@
                 }
             }
 
-            tumuButton.addEventListener('click', () => {
-                tabButtons.forEach(btn => btn.classList.remove('active'));
-                tumuButton.classList.add('active');
-                tabContents.forEach(content => {
-                    if (content.id !== 'tumu') {
-                        content.style.display = 'none';
-                    }
-                });
-                subCategories.forEach(sub => sub.classList.remove('show'));
-                const tumuContent = document.getElementById('tumu');
-                if (tumuContent) {
-                    tumuContent.style.display = 'block';
-                    sectionHeadings.forEach(heading => {
-                        heading.setAttribute('data-state', 'closed');
-                        const contentContainer = heading.nextElementSibling;
-                        if (contentContainer && contentContainer.classList.contains('content-container')) {
-                            contentContainer.innerHTML = '';
+            if (tumuButton) {
+                tumuButton.addEventListener('click', () => {
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    tumuButton.classList.add('active');
+                    tabContents.forEach(content => {
+                        if (content.id !== 'tumu') {
+                            content.style.display = 'none';
                         }
                     });
-                }
-            });
+                    subCategories.forEach(sub => sub.classList.remove('show'));
+                    const tumuContent = document.getElementById('tumu');
+                    if (tumuContent) {
+                        tumuContent.style.display = 'block';
+                        sectionHeadings.forEach(heading => {
+                            heading.setAttribute('data-state', 'closed');
+                            const contentContainer = heading.nextElementSibling;
+                            if (contentContainer && contentContainer.classList.contains('content-container')) {
+                                contentContainer.innerHTML = '';
+                            }
+                        });
+                    }
+                });
+            } else {
+                console.warn('Tümü button not found.');
+            }
 
             tabButtons.forEach(button => {
                 button.addEventListener('click', () => {
                     tabButtons.forEach(btn => btn.classList.remove('active'));
-                    tumuButton.classList.remove('active');
+                    if (tumuButton) tumuButton.classList.remove('active');
                     button.classList.add('active');
                     tabContents.forEach(content => content.style.display = 'none');
                     subCategories.forEach(sub => sub.classList.remove('show'));
@@ -1615,9 +1626,13 @@
                         const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                         subCategoriesInTab.forEach(sub => {
                             sub.classList.add('show');
-                            const itemsInSub = sub.querySelectorAll('.item, .ice-cream-icon');
+                            const itemsInSub = sub.querySelectorAll('.item');
                             itemsInSub.forEach(item => item.classList.add('show'));
                         });
+                        const dondurmaCesitleri = targetContent.querySelector('.dondurma-cesitleri');
+                        if (dondurmaCesitleri) {
+                            dondurmaCesitleri.style.display = 'block';
+                        }
                         scrollToFirstItem(tabId, false);
                     }
                 });
@@ -1634,11 +1649,16 @@
                     if (currentState === 'closed') {
                         if (targetContent && contentContainer) {
                             contentContainer.innerHTML = '';
+                            const clonedCesit = targetContent.querySelector('.dondurma-cesitleri') ? targetContent.querySelector('.dondurma-cesitleri').cloneNode(true) : null;
+                            if (clonedCesit) {
+                                clonedCesit.style.display = 'block';
+                                contentContainer.appendChild(clonedCesit);
+                            }
                             const subCategoriesInTab = targetContent.querySelectorAll('.sub-category');
                             subCategoriesInTab.forEach(sub => {
                                 const clonedSub = sub.cloneNode(true);
                                 clonedSub.classList.add('show');
-                                const itemsInSub = clonedSub.querySelectorAll('.item, .ice-cream-icon');
+                                const itemsInSub = clonedSub.querySelectorAll('.item');
                                 itemsInSub.forEach(item => item.classList.add('show'));
                                 contentContainer.appendChild(clonedSub);
                             });
@@ -1646,7 +1666,7 @@
                             if (targetButton) {
                                 tabButtons.forEach(btn => btn.classList.remove('active'));
                                 targetButton.classList.add('active');
-                                tumuButton.classList.remove('active');
+                                if (tumuButton) tumuButton.classList.remove('active');
                             }
                             scrollToFirstItem(tabId, true);
                         }
@@ -1664,12 +1684,18 @@
 
             if (tumuButton) {
                 tumuButton.click();
+            } else {
+                console.warn('Tümü button not found, cannot trigger click.');
             }
 
             const backToTopButton = document.getElementById('backToTop');
-            backToTopButton.addEventListener('click', () => {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+            if (backToTopButton) {
+                backToTopButton.addEventListener('click', () => {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            } else {
+                console.warn('Back to top button not found.');
+            }
         });
     </script>
 </body>
