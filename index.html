@@ -1,3 +1,10 @@
+        /* Ortadaki ürüne özel hover efekti */
+        .item.center-hover {
+            box-shadow: 0 4px 16px rgba(191,163,88,0.18);
+            border: 2px solid #bfa358;
+            background: #fffbe6;
+            transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+        }
 <!DOCTYPE html>
 <html lang="tr">
 <head>
@@ -11,6 +18,27 @@
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-8ERVLZYY34"></script>
     <script>
+            // Ortadaki ürüne hover efekti
+            function setCenterHover() {
+                const items = document.querySelectorAll('.item');
+                const viewportCenter = window.innerHeight / 2;
+                let closestItem = null;
+                let minDistance = Infinity;
+                items.forEach(item => {
+                    const rect = item.getBoundingClientRect();
+                    const itemCenter = rect.top + rect.height / 2;
+                    const distance = Math.abs(itemCenter - viewportCenter);
+                    if (distance < minDistance) {
+                        minDistance = distance;
+                        closestItem = item;
+                    }
+                });
+                items.forEach(item => item.classList.remove('center-hover'));
+                if (closestItem) closestItem.classList.add('center-hover');
+            }
+            window.addEventListener('scroll', setCenterHover);
+            window.addEventListener('resize', setCenterHover);
+            document.addEventListener('DOMContentLoaded', setCenterHover);
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
@@ -360,9 +388,7 @@
                 /* border ve arka plan kaldırıldı, sadece yazı kaldı */
         }
 
-        .dondurma-cesitleri:hover h3 {
-            color: #bfa358;
-        }
+
 
         /* Menü Tab Stilleri */
         .menu-tabs {
