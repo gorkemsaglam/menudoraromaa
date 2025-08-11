@@ -1554,7 +1554,7 @@
 
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-    <script>
+  <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Hero Slayt
             const slides = document.querySelectorAll('.hero-slide');
@@ -1727,6 +1727,12 @@
             } else {
                 console.warn('Back to top button not found.');
             }
+
+            // --- Yavaşlık için lazy loading entegresi ---
+            // Tüm .item içindeki img etiketlerine loading="lazy" ekle
+            document.querySelectorAll('.item img').forEach(img => {
+                img.setAttribute('loading', 'lazy');
+            });
         });
     </script>
 </body>
