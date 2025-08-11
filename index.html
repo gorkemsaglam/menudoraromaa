@@ -294,6 +294,42 @@
             background: linear-gradient(to right, #f5f5f5, #ffffff);
         }
 
+        /* Altbaşlıklar için modern ve estetik tasarım */
+        .sub-heading {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 700;
+            color: #2d1f0c;
+            background: linear-gradient(90deg, #fffbe6 0%, #f9f6f2 100%);
+            padding: 12px 22px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(191,163,88,0.06);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 18px 0 12px 0;
+            transition: background 0.3s, color 0.3s;
+        }
+        .sub-heading i {
+            font-size: 22px;
+            color: #bfa358;
+            margin-right: 6px;
+        }
+        .sub-heading:hover {
+            background: linear-gradient(90deg, #f9f6f2 0%, #fffbe6 100%);
+            color: #bfa358;
+        }
+        @media (max-width: 600px) {
+            .sub-heading {
+                font-size: 16px;
+                padding: 8px 12px;
+                gap: 8px;
+            }
+            .sub-heading i {
+                font-size: 16px;
+            }
+        }
+
         h3.sub-heading {
             font-family: 'Playfair Display', serif;
             font-size: 18px;
@@ -528,27 +564,92 @@
         }
 
         .item-info h3 {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Playfair Display', serif;
             font-size: 18px;
             font-weight: 700;
-            color: #333333;
-            margin: 0;
+            color: #2d1f0c;
+            margin: 0 0 6px 0;
+            letter-spacing: 0.01em;
         }
 
         .item-info .price {
             font-family: 'Inter', sans-serif;
             font-size: 16px;
             font-weight: 600;
-            color: #a47148;
-            margin-left: auto; /* Değişiklik: Fiyatı sağa hizala */
+            color: #bfa358;
+            margin: 0 0 8px 0;
+            background: none;
+            box-shadow: none;
+            padding: 0;
+            display: block;
+            border-radius: 0;
         }
 
         .item-info p {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
-            color: #666666;
-            margin: 5px 0 0;
-            line-height: 1.5;
+            font-size: 13px;
+            color: #7a6a53;
+            margin: 0;
+            font-style: italic;
+            background: none;
+            padding: 0;
+        }
+
+        .item {
+            background: #fff;
+            border-radius: 14px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+            padding: 18px 14px 14px 14px;
+            margin-bottom: 18px;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .item img {
+            border-radius: 10px;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.07);
+            width: 72px;
+            height: 72px;
+            object-fit: cover;
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .item-info {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            flex: 1;
+            min-width: 0;
+        }
+
+        @media (max-width: 600px) {
+            .item {
+                flex-direction: row;
+                padding: 10px 4px;
+                border-radius: 10px;
+                gap: 10px;
+            }
+
+            .item img {
+                width: 56px;
+                height: 56px;
+            }
+
+            .item-info h3 {
+                font-size: 15px;
+            }
+
+            .item-info .price {
+                font-size: 14px;
+            }
+
+            .item-info p {
+                font-size: 12px;
+            }
         }
 
         /* Ice Cream Flavors Aesthetic Section */
@@ -895,10 +996,12 @@
 
         /* Ortadaki ürüne özel hover efekti */
         .item.center-hover {
-            box-shadow: 0 4px 16px rgba(191,163,88,0.18);
-            border: 2px solid #bfa358;
-            background: #fffbe6;
-            transition: box-shadow 0.3s, border 0.3s, background 0.3s;
+            box-shadow: 0 2px 8px rgba(191,163,88,0.07);
+            background: #fff;
+            border: none;
+            transform: scale(1.025);
+            transition: box-shadow 0.35s cubic-bezier(.4,0,.2,1), background 0.35s, transform 0.35s cubic-bezier(.4,0,.2,1);
+            z-index: 2;
         }
 
         /* Animasyonlar */
