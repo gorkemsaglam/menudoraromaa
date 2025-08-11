@@ -517,7 +517,8 @@
         .ice-cream-flavors {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 10px;
+            grid-template-rows: repeat(3, auto);
+            gap: 12px;
             padding: 20px;
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             border-radius: 12px;
@@ -537,7 +538,7 @@
             justify-content: flex-end;
             align-items: center;
             text-align: center;
-            width: 80px;
+            width: 100%;
             height: 80px;
             border-radius: 12px;
             background-size: cover;
@@ -594,13 +595,14 @@
         @media screen and (max-width: 600px) {
             .ice-cream-flavors {
                 grid-template-columns: repeat(3, 1fr);
-                gap: 8px;
-                padding: 10px;
+                grid-template-rows: repeat(4, auto);
+                gap: 10px;
+                padding: 15px;
             }
 
             .flavor-card {
-                width: 65px;
-                height: 65px;
+                width: 100%;
+                height: 70px;
             }
 
             .flavor-card span {
@@ -1554,7 +1556,7 @@
 
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
-  <script>
+    <script>
         document.addEventListener('DOMContentLoaded', () => {
             // Hero Slayt
             const slides = document.querySelectorAll('.hero-slide');
