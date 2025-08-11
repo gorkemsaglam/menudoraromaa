@@ -282,13 +282,14 @@
             padding: 8px 15px;
             border-left: 3px solid #a47148;
             position: relative;
-            background: linear-gradient(to right, #ffffff, #fafafa);
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
-            justify-content: space-between;
+            justify-content: center; /* Değişiklik: Ortalanmış içerik */
+            gap: 8px; /* İkon ve metin arası boşluk */
+            text-align: center; /* Metni ortala */
         }
 
         h3.sub-heading .price {
@@ -296,23 +297,46 @@
             font-size: 16px;
             font-weight: 600;
             color: #a47148;
-            margin-left: 10px;
+            margin-left: auto; /* Değişiklik: Fiyatı sağa hizala */
         }
 
         h3.sub-heading:hover {
             color: #bfa358;
-            background-color: #f5f5f5;
         }
 
         h3.sub-heading:hover .price {
             color: #bfa358;
         }
 
+        /* Kategoriye Göre Renkler */
+        h3.sub-heading.snowflake {
+            background-color: rgba(74, 144, 226, 0.1); /* Hafif mavi ton (Soğuk Kahveler ve Frappeler) */
+        }
         h3.sub-heading.snowflake i { color: #4a90e2; }
+        
+        h3.sub-heading.milkshake {
+            background-color: rgba(128, 0, 128, 0.1); /* Hafif mor ton (Milkshakeler) */
+        }
         h3.sub-heading.milkshake i { color: #800080; }
+        
+        h3.sub-heading.milk {
+            background-color: rgba(245, 245, 245, 0.3); /* Hafif gri ton (Sütlü Tatlılar) */
+        }
         h3.sub-heading.milk i { color: #f5f5f5; }
+        
+        h3.sub-heading.sherbet {
+            background-color: rgba(212, 163, 115, 0.1); /* Hafif kahverengi ton (Şerbetli Tatlılar) */
+        }
         h3.sub-heading.sherbet i { color: #d4a373; }
+        
+        h3.sub-heading.paper-waffle {
+            background-color: rgba(210, 166, 121, 0.1); /* Hafif kahverengi ton (Kağıt Helva) */
+        }
         h3.sub-heading.paper-waffle i { color: #d2a679; }
+        
+        h3.sub-heading.dondurma-cesitleri {
+            background-color: rgba(191, 163, 88, 0.1); /* Hafif altın ton (Dondurma Çeşitleri) */
+        }
 
         /* Content Container */
         .content-container {
@@ -333,17 +357,18 @@
             margin: 15px 0 10px;
             padding: 8px 15px;
             border-left: 3px solid #a47148;
-            background: linear-gradient(to right, #ffffff, #fafafa);
             border-radius: 6px;
             transition: color 0.3s ease, background-color 0.3s ease;
             box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
             display: flex;
             align-items: center;
+            justify-content: center; /* Değişiklik: Ortalanmış içerik */
+            gap: 8px; /* İkon ve metin arası boşluk */
+            background-color: rgba(191, 163, 88, 0.1); /* Hafif altın ton */
         }
 
         .dondurma-cesitleri:hover h3 {
             color: #bfa358;
-            background-color: #f5f5f5;
         }
 
         /* Menü Tab Stilleri */
@@ -503,6 +528,7 @@
             font-size: 16px;
             font-weight: 600;
             color: #a47148;
+            margin-left: auto; /* Değişiklik: Fiyatı sağa hizala */
         }
 
         .item-info p {
@@ -514,113 +540,112 @@
         }
 
         /* Ice Cream Flavors Aesthetic Section */
-.ice-cream-flavors {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, auto);
-    gap: 12px;
-    padding: 20px;
-    background: linear-gradient(to bottom, #ffffff, #f9f9f9);
-    border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
-    margin: 15px 0;
-    transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
+        .ice-cream-flavors {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, auto);
+            gap: 12px;
+            padding: 20px;
+            background: linear-gradient(to bottom, #ffffff, #f9f9f9);
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            margin: 15px 0;
+            transition: box-shadow 0.3s ease, transform 0.2s ease;
+        }
 
-.ice-cream-flavors:hover {
-    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
-}
+        .ice-cream-flavors:hover {
+            box-shadow: 0 6px 14px rgba(0, 0, 0, 0.12);
+            transform: translateY(-2px);
+        }
 
-.flavor-card {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-    height: 80px;
-    border-radius: 12px;
-    background-size: cover;
-    background-position: center;
-    position: relative;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .flavor-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            height: 80px;
+            border-radius: 12px;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
 
-.flavor-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    border-radius: 12px;
-    z-index: 1;
-}
+        .flavor-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 12px;
+            z-index: 1;
+        }
 
-.flavor-card span {
-    font-family: 'Inter', sans-serif;
-    font-size: 12px;
-    font-weight: 600;
-    color: #ffffff;
-    position: relative;
-    z-index: 2;
-    padding-bottom: 4px;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-    line-height: 1.1;
-    max-width: 90%;
-}
+        .flavor-card span {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            color: #ffffff;
+            position: relative;
+            z-index: 2;
+            padding-bottom: 4px;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+            max-width: 90%;
+        }
 
-.flavor-card:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
+        .flavor-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
 
-/* Flavor-specific background images and colors */
-.flavor-card.vanilya { background-image: url('images/fotolar/aromavanilya.jpg'); }
-.flavor-card.vanilya::before { background: rgba(255, 253, 208, 0.4); } /* Light cream */
-.flavor-card.cikolata { background-image: url('images/fotolar/aromacikolata.jpg'); }
-.flavor-card.cikolata::before { background: rgba(60, 47, 47, 0.4); } /* Dark brown */
-.flavor-card.visne { background-image: url('images/fotolar/aromavisne.jpg'); }
-.flavor-card.visne::before { background: rgba(139, 0, 0, 0.4); } /* Deep red */
-.flavor-card.karamel { background-image: url('images/fotolar/aromakaramel.jpg'); }
-.flavor-card.karamel::before { background: rgba(139, 69, 19, 0.4); } /* Caramel brown */
-.flavor-card.cilek { background-image: url('images/fotolar/aromacilek.jpg'); }
-.flavor-card.cilek::before { background: rgba(255, 182, 193, 0.4); } /* Light pink */
-.flavor-card.tutti-frutti { background-image: url('images/fotolar/aromameyve.jpg'); }
-.flavor-card.tutti-frutti::before { background: rgba(216, 191, 216, 0.4); } /* Light purple */
-.flavor-card.portakal { background-image: url('images/fotolar/aromaportakal.jpg'); }
-.flavor-card.portakal::before { background: rgba(255, 165, 0, 0.4); } /* Light orange */
-.flavor-card.bal-badem { background-image: url('images/fotolar/aromaballı.jpg'); }
-.flavor-card.bal-badem::before { background: rgba(255, 215, 0, 0.4); } /* Golden yellow */
-.flavor-card.ceviz { background-image: url('images/fotolar/aromaceviz.jpg'); }
-.flavor-card.ceviz::before { background: rgba(139, 90, 43, 0.4); } /* Light brown */
-.flavor-card.limon { background-image: url('images/fotolar/aromalimon.jpg'); }
-.flavor-card.limon::before { background: rgba(255, 255, 224, 0.4); } /* Light yellow */
-.flavor-card.antep-fistigi { background-image: url('images/fotolar/aromaantep.jpg'); }
-.flavor-card.antep-fistigi::before { background: rgba(152, 251, 152, 0.4); } /* Light green */
-.flavor-card.bogurtlen { background-image: url('images/fotolar/aromaböğürtlenli.jpg'); }
-.flavor-card.bogurtlen::before { background: rgba(75, 0, 130, 0.4); } /* Dark purple */
+        /* Flavor-specific background images and colors */
+        .flavor-card.vanilya { background-image: url('images/fotolar/aromavanilya.jpg'); }
+        .flavor-card.vanilya::before { background: rgba(255, 253, 208, 0.4); }
+        .flavor-card.cikolata { background-image: url('images/fotolar/aromacikolata.jpg'); }
+        .flavor-card.cikolata::before { background: rgba(60, 47, 47, 0.4); }
+        .flavor-card.visne { background-image: url('images/fotolar/aromavisne.jpg'); }
+        .flavor-card.visne::before { background: rgba(139, 0, 0, 0.4); }
+        .flavor-card.karamel { background-image: url('images/fotolar/aromakaramel.jpg'); }
+        .flavor-card.karamel::before { background: rgba(139, 69, 19, 0.4); }
+        .flavor-card.cilek { background-image: url('images/fotolar/aromacilek.jpg'); }
+        .flavor-card.cilek::before { background: rgba(255, 182, 193, 0.4); }
+        .flavor-card.tutti-frutti { background-image: url('images/fotolar/aromameyve.jpg'); }
+        .flavor-card.tutti-frutti::before { background: rgba(216, 191, 216, 0.4); }
+        .flavor-card.portakal { background-image: url('images/fotolar/aromaportakal.jpg'); }
+        .flavor-card.portakal::before { background: rgba(255, 165, 0, 0.4); }
+        .flavor-card.bal-badem { background-image: url('images/fotolar/aromaballı.jpg'); }
+        .flavor-card.bal-badem::before { background: rgba(255, 215, 0, 0.4); }
+        .flavor-card.ceviz { background-image: url('images/fotolar/aromaceviz.jpg'); }
+        .flavor-card.ceviz::before { background: rgba(139, 90, 43, 0.4); }
+        .flavor-card.limon { background-image: url('images/fotolar/aromalimon.jpg'); }
+        .flavor-card.limon::before { background: rgba(255, 255, 224, 0.4); }
+        .flavor-card.antep-fistigi { background-image: url('images/fotolar/aromaantep.jpg'); }
+        .flavor-card.antep-fistigi::before { background: rgba(152, 251, 152, 0.4); }
+        .flavor-card.bogurtlen { background-image: url('images/fotolar/aromaböğürtlenli.jpg'); }
+        .flavor-card.bogurtlen::before { background: rgba(75, 0, 130, 0.4); }
 
-@media screen and (max-width: 600px) {
-    .ice-cream-flavors {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(4, auto);
-        gap: 10px;
-        padding: 15px;
-    }
+        @media screen and (max-width: 600px) {
+            .ice-cream-flavors {
+                grid-template-columns: repeat(3, 1fr);
+                grid-template-rows: repeat(4, auto);
+                gap: 10px;
+                padding: 15px;
+            }
 
-    .flavor-card {
-        width: 100%;
-        height: 70px;
-    }
+            .flavor-card {
+                width: 100%;
+                height: 70px;
+            }
 
-    .flavor-card span {
-        font-size: 10px;
-    }
-}
+            .flavor-card span {
+                font-size: 10px;
+            }
 
             h3.sub-heading {
                 font-size: 16px;
