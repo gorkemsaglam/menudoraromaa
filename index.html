@@ -112,22 +112,18 @@
             opacity: 1;
         }
 
-        /* Video Slayt Stilleri */
+        /* Slayt Stilleri */
         .hero-slide {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-size: cover;
+            background-position: center;
             opacity: 0;
             transition: opacity 1s ease-in-out;
             z-index: 0;
-        }
-
-        .hero-slide video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
         }
 
         .hero-slide.active {
@@ -1025,31 +1021,11 @@
 </head>
 <body>
     <section class="hero-section">
-        <div class="hero-slide active">
-            <video muted autoplay playsinline>
-                <source src="images/fotolar/video1.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-slide">
-            <video muted playsinline>
-                <source src="videos/hero2.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-slide">
-            <video muted playsinline>
-                <source src="videos/hero3.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-slide">
-            <video muted playsinline>
-                <source src="videos/hero4.mp4" type="video/mp4">
-            </video>
-        </div>
-        <div class="hero-slide">
-            <video muted playsinline>
-                <source src="videos/hero5.mp4" type="video/mp4">
-            </video>
-        </div>
+        <div class="hero-slide active" style="background-image: url('images/fotolar/hero1.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/fotolar/hero2.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/fotolar/hero3.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/fotolar/hero4.jpg');"></div>
+        <div class="hero-slide" style="background-image: url('images/fotolar/hero5.jpg');"></div>
         <div class="hero-content">
             <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
             <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
@@ -1440,6 +1416,13 @@
                     <p>Çift shot espresso ile yoğun bir kahve deneyimi.</p>
                 </div>
             </div>
+            <div class="item" data-item-id="turk-kahvesi">
+                <img src="images/fotolar/turkkahvesi.jpg" alt="Türk Kahvesi">
+                <div class="item-info">
+                    <h3>Türk Kahvesi <span class="price">80 TL</span></h3>
+                    <p>Geleneksel yöntemlerle hazırlanan köpüklü Türk kahvesi.</p>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -1451,21 +1434,21 @@
             <div class="item" data-item-id="lotus-frappe">
                 <img src="images/fotolar/frappelotus.jpg" alt="Lotus Frappe">
                 <div class="item-info">
-                    <h3>Lotus Frappe <span class="price">32 TL</span></h3>
+                    <h3>Lotus Frappe <span class="price">170 TL</span></h3>
                     <p>Lotus bisküvi aromasıyla serinletici, kremsi frappe.</p>
                 </div>
             </div>
             <div class="item" data-item-id="chocolate-frappe">
                 <img src="images/fotolar/frappecikolata.jpg" alt="Chocolate Frappe">
                 <div class="item-info">
-                    <h3>Chocolate Frappe <span class="price">30 TL</span></h3>
+                    <h3>Chocolate Frappe <span class="price">160 TL</span></h3>
                     <p>Yoğun çikolata lezzetiyle buz gibi frappe keyfi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="white-chocolate-frappe">
                 <img src="images/fotolar/frappebeyazçikolata.jpg" alt="White Chocolate Frappe">
                 <div class="item-info">
-                    <h3>White Chocolate Frappe <span class="price">34 TL</span></h3>
+                    <h3>White Chocolate Frappe <span class="price">160 TL</span></h3>
                     <p>Beyaz çikolatanın tatlı dokunuşuyla ferah frappe.</p>
                 </div>
             </div>
@@ -1539,30 +1522,13 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Hero Video Slayt
+            // Hero Slayt
             const slides = document.querySelectorAll('.hero-slide');
             let currentSlide = 0;
 
             function showSlide(index) {
                 slides.forEach((slide, i) => {
-                    const video = slide.querySelector('video');
-                    if (i === index) {
-                        slide.classList.add('active');
-                        if (video) {
-                            video.currentTime = 0; // Videoyu başa sar
-                            video.play().catch(error => console.error('Video oynatma hatası:', error));
-                            setTimeout(() => {
-                                video.pause(); // 4 saniye sonra videoyu durdur
-                                nextSlide();
-                            }, 4000);
-                        }
-                    } else {
-                        slide.classList.remove('active');
-                        if (video) {
-                            video.pause();
-                            video.currentTime = 0;
-                        }
-                    }
+                    slide.classList.toggle('active', i === index);
                 });
             }
 
@@ -1572,6 +1538,7 @@
             }
 
             showSlide(currentSlide);
+            setInterval(nextSlide, 3000);
 
             const heroLogo = document.querySelector('.hero-content .logo-img');
             const heroButton = document.querySelector('.hero-content button');
