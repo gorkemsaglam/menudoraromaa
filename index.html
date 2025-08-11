@@ -496,10 +496,6 @@
             font-weight: 700;
             color: #333333;
             margin: 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
         }
 
         .item-info .price {
@@ -521,7 +517,7 @@
         .ice-cream-flavors {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            gap: 15px;
+            gap: 10px;
             padding: 20px;
             background: linear-gradient(to bottom, #ffffff, #f9f9f9);
             border-radius: 12px;
@@ -538,10 +534,12 @@
         .flavor-card {
             display: flex;
             flex-direction: column;
+            justify-content: flex-end;
             align-items: center;
             text-align: center;
-            padding: 10px;
-            border-radius: 8px;
+            width: 80px;
+            height: 80px;
+            border-radius: 12px;
             background-size: cover;
             background-position: center;
             position: relative;
@@ -557,18 +555,21 @@
             width: 100%;
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
-            border-radius: 8px;
+            border-radius: 12px;
             z-index: 1;
         }
 
         .flavor-card span {
             font-family: 'Inter', sans-serif;
-            font-size: 14px;
+            font-size: 12px;
             font-weight: 600;
             color: #ffffff;
             position: relative;
             z-index: 2;
+            padding-bottom: 4px;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+            line-height: 1.1;
+            max-width: 90%;
         }
 
         .flavor-card:hover {
@@ -577,28 +578,33 @@
         }
 
         /* Flavor-specific background images */
-        .flavor-card.vanilya { background-image: url('images/fotolar/aroma-vanilya.jpg'); }
-        .flavor-card.cikolata { background-image: url('images/fotolar/aroma-cikolata.jpg'); }
-        .flavor-card.lotus { background-image: url('images/fotolar/aroma-lotus.jpg'); }
-        .flavor-card.karamel { background-image: url('images/fotolar/aroma-karamel.jpg'); }
-        .flavor-card.cilek { background-image: url('images/fotolar/aroma-cilek.jpg'); }
-        .flavor-card.muz { background-image: url('images/fotolar/aroma-muz.jpg'); }
-        .flavor-card.portakal { background-image: url('images/fotolar/aroma-portakal.jpg'); }
-        .flavor-card.bal-badem { background-image: url('images/fotolar/aroma-bal-badem.jpg'); }
-        .flavor-card.ceviz { background-image: url('images/fotolar/aroma-ceviz.jpg'); }
-        .flavor-card.limon { background-image: url('images/fotolar/aroma-limon.jpg'); }
-        .flavor-card.antep-fistigi { background-image: url('images/fotolar/aroma-antep-fistigi.jpg'); }
-        .flavor-card.bogurtlen { background-image: url('images/fotolar/aroma-bogurtlen.jpg'); }
+        .flavor-card.vanilya { background-image: url('images/fotolar/aromavanilya.jpg'); }
+        .flavor-card.cikolata { background-image: url('images/fotolar/aromacikolata.jpg'); }
+        .flavor-card.lotus { background-image: url('images/fotolar/aromalotus.jpg'); }
+        .flavor-card.karamel { background-image: url('images/fotolar/aromakaramel.jpg'); }
+        .flavor-card.cilek { background-image: url('images/fotolar/aromacilek.jpg'); }
+        .flavor-card.muz { background-image: url('images/fotolar/aromamuzlu.jpeg'); }
+        .flavor-card.portakal { background-image: url('images/fotolar/aromaportakal.jpg'); }
+        .flavor-card.bal-badem { background-image: url('images/fotolar/aromaballı.jpg'); }
+        .flavor-card.ceviz { background-image: url('images/fotolar/aromaceviz.jpg'); }
+        .flavor-card.limon { background-image: url('images/fotolar/aromalimon.jpg'); }
+        .flavor-card.antep-fistigi { background-image: url('images/fotolar/aromaantep.jpg'); }
+        .flavor-card.bogurtlen { background-image: url('images/fotolar/aromaböğürtlenli.jpg'); }
 
         @media screen and (max-width: 600px) {
             .ice-cream-flavors {
-                grid-template-columns: repeat(4, 1fr);
-                gap: 10px;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 8px;
                 padding: 10px;
             }
 
+            .flavor-card {
+                width: 65px;
+                height: 65px;
+            }
+
             .flavor-card span {
-                font-size: 12px;
+                font-size: 10px;
             }
 
             h3.sub-heading {
@@ -1138,21 +1144,24 @@
                 <div class="item" data-item-id="kulah-dondurma">
                     <img src="images/fotolar/dondurma tek top.jpg" alt="Külahta Dondurma">
                     <div class="item-info">
-                        <h3>Külahta Dondurma <span class="price">35 TL</span></h3>
+                        <h3>Külahta Dondurma</h3>
+                        <span class="price">35 TL</span>
                         <p>Seçtiğiniz leziz dondurma aromasıyla çıtır külahın mükemmel uyumu.</p>
                     </div>
                 </div>
                 <div class="item" data-item-id="kagit-helva-dondurma">
                     <img src="images/fotolar/dondurmahelva.jpg" alt="Kağıt Helva Arası Dondurma">
                     <div class="item-info">
-                        <h3>Kağıt Helva Arası Dondurma <span class="price">40 TL</span></h3>
+                        <h3>Kağıt Helva Arası Dondurma</h3>
+                        <span class="price">40 TL</span>
                         <p>Seçtiğiniz dondurma aromasının kağıt helva ile tatlı birleşimi.</p>
                     </div>
                 </div>
                 <div class="item" data-item-id="kornet-kase-dondurma">
                     <img src="images/fotolar/dondurmakase.jpg" alt="Kornet Kase Dondurma">
                     <div class="item-info">
-                        <h3>Kornet Kase Dondurma <span class="price">40 TL</span></h3>
+                        <h3>Kornet Kase Dondurma</h3>
+                        <span class="price">40 TL</span>
                         <p>Seçtiğiniz dondurma aromasıyla şık bir kornet kasede sunulan ferah tat.</p>
                     </div>
                 </div>
@@ -1168,77 +1177,88 @@
             <div class="item" data-item-id="karamel-trilece">
                 <img src="images/fotolar/karameltrilece.jpg" alt="Karamel Trileçe">
                 <div class="item-info">
-                    <h3>Karamel Trileçe <span class="price">25 TL</span></h3>
+                    <h3>Karamel Trileçe</h3>
+                    <span class="price">25 TL</span>
                     <p>Karamel sosuyla ıslatılmış yumuşacık trileçe.</p>
                 </div>
             </div>
             <div class="item" data-item-id="frambuaz-trilece">
                 <img src="images/fotolar/frambuaztrilece.jpg" alt="Frambuaz Trileçe">
                 <div class="item-info">
-                    <h3>Frambuaz Trileçe <span class="price">25 TL</span></h3>
+                    <h3>Frambuaz Trileçe</h3>
+                    <span class="price">25 TL</span>
                     <p>Frambuazın ferah tadıyla hafif trileçe.</p>
                 </div>
             </div>
             <div class="item" data-item-id="sutlac">
                 <img src="images/fotolar/sutlac.jpg" alt="Sütlaç">
                 <div class="item-info">
-                    <h3>Sütlaç <span class="price">20 TL</span></h3>
+                    <h3>Sütlaç</h3>
+                    <span class="price">20 TL</span>
                     <p>Fırınlanmış geleneksel sütlaç.</p>
                 </div>
             </div>
             <div class="item" data-item-id="magnolia-orman-meyveli">
                 <img src="images/fotolar/magnoliaormanmeyveli.jpg" alt="Magnolia Orman Meyveli">
                 <div class="item-info">
-                    <h3>Magnolia Orman Meyveli <span class="price">22 TL</span></h3>
+                    <h3>Magnolia Orman Meyveli</h3>
+                    <span class="price">22 TL</span>
                     <p>Orman meyveleriyle zenginleştirilmiş kremsi magnolia.</p>
                 </div>
             </div>
             <div class="item" data-item-id="magnolia-oreo-muz">
                 <img src="images/fotolar/magnoliaoreomuz.jpg" alt="Magnolia Oreo-Muz">
                 <div class="item-info">
-                    <h3>Magnolia Oreo-Muz <span class="price">22 TL</span></h3>
+                    <h3>Magnolia Oreo-Muz</h3>
+                    <span class="price">22 TL</span>
                     <p>Oreo ve muzun eşsiz uyumuyla magnolia.</p>
                 </div>
             </div>
             <div class="item" data-item-id="magnolia-lotus">
                 <img src="images/fotolar/magnolialotus.jpg" alt="Magnolia Lotus">
                 <div class="item-info">
-                    <h3>Magnolia Lotus <span class="price">22 TL</span></h3>
+                    <h3>Magnolia Lotus</h3>
+                    <span class="price">22 TL</span>
                     <p>Lotus bisküviyle tatlandırılmış kremsi magnolia.</p>
                 </div>
             </div>
             <div class="item" data-item-id="magnolia-cilek">
                 <img src="images/fotolar/magnoliacilek.jpg" alt="Magnolia Çilek">
                 <div class="item-info">
-                    <h3>Magnolia Çilek <span class="price">22 TL</span></h3>
+                    <h3>Magnolia Çilek</h3>
+                    <span class="price">22 TL</span>
                     <p>Taze çilek parçacıklarıyla hafif magnolia.</p>
                 </div>
             </div>
             <div class="item" data-item-id="supangle">
                 <img src="images/fotolar/supangle.jpg" alt="Supangle">
                 <div class="item-info">
-                    <h3>Supangle <span class="price">20 TL</span></h3>
+                    <h3>Supangle</h3>
+                    <span class="price">20 TL</span>
                     <p>Çikolatanın yoğun lezzetiyle pürüzsüz supangle.</p>
                 </div>
             </div>
             <div class="item" data-item-id="profiterol">
                 <img src="images/fotolar/profiterol.jpg" alt="Profiterol">
                 <div class="item-info">
-                    <h3>Profiterol <span class="price">25 TL</span></h3>
+                    <h3>Profiterol</h3>
+                    <span class="price">25 TL</span>
                     <p>Çikolata sosuyla kaplı hafif profiterol topları.</p>
                 </div>
             </div>
             <div class="item" data-item-id="ekler">
                 <img src="images/fotolar/ekler.jpg" alt="Ekler">
                 <div class="item-info">
-                    <h3>Ekler <span class="price">20 TL</span></h3>
+                    <h3>Ekler</h3>
+                    <span class="price">20 TL</span>
                     <p>Krema dolgulu, çikolata kaplı klasik ekler.</p>
                 </div>
             </div>
             <div class="item" data-item-id="dilim-pasta">
                 <img src="images/fotolar/dilimpasta.jpg" alt="Dilim Pasta">
                 <div class="item-info">
-                    <h3>Dilim Pasta <span class="price">25 TL</span></h3>
+                    <h3>Dilim Pasta</h3>
+                    <span class="price">25 TL</span>
                     <p>Seçkin tatlarla hazırlanmış nefis dilim pasta.</p>
                 </div>
             </div>
@@ -1248,35 +1268,40 @@
             <div class="item" data-item-id="fistikli-kadayif">
                 <img src="images/fotolar/fistiklikadayif.jpg" alt="Fıstıklı Kadayıf">
                 <div class="item-info">
-                    <h3>Fıstıklı Kadayıf <span class="price">30 TL</span></h3>
+                    <h3>Fıstıklı Kadayıf</h3>
+                    <span class="price">30 TL</span>
                     <p>Çıtır kadayıf ve Antep fıstığının şerbetli uyumu.</p>
                 </div>
             </div>
             <div class="item" data-item-id="fistik-ozel">
                 <img src="images/fotolar/fistikozel.jpg" alt="Fıstık Özel">
                 <div class="item-info">
-                    <h3>Fıstık Özel <span class="price">35 TL</span></h3>
+                    <h3>Fıstık Özel</h3>
+                    <span class="price">35 TL</span>
                     <p>Bol Antep fıstığıyla zenginleştirilmiş özel şerbetli tatlı.</p>
                 </div>
             </div>
             <div class="item" data-item-id="fistikli-baklava">
                 <img src="images/fotolar/fistiklibaklava.jpg" alt="Fıstıklı Baklava">
                 <div class="item-info">
-                    <h3>Fıstıklı Baklava <span class="price">30 TL</span></h3>
+                    <h3>Fıstıklı Baklava</h3>
+                    <span class="price">30 TL</span>
                     <p>İnce yufka katmanları ve fıstıkla dolu klasik baklava.</p>
                 </div>
             </div>
             <div class="item" data-item-id="sobiyet">
                 <img src="images/fotolar/sobiyet.jpg" alt="Şöbiyet">
                 <div class="item-info">
-                    <h3>Şöbiyet <span class="price">32 TL</span></h3>
+                    <h3>Şöbiyet</h3>
+                    <span class="price">32 TL</span>
                     <p>Kaymak ve fıstıkla dolu, şerbetli nefis bir tatlı.</p>
                 </div>
             </div>
             <div class="item" data-item-id="havuc-dilimi">
                 <img src="images/fotolar/havucdilimi.jpg" alt="Havuç Dilimi">
                 <div class="item-info">
-                    <h3>Havuç Dilimi <span class="price">30 TL</span></h3>
+                    <h3>Havuç Dilimi</h3>
+                    <span class="price">30 TL</span>
                     <p>Antep fıstığı ve şerbetle süslenmiş baklava dilimi.</p>
                 </div>
             </div>
@@ -1290,14 +1315,16 @@
             <div class="item" data-item-id="cikolatali-pasta">
                 <img src="images/fotolar/cıkolata.jpg" alt="Çikolatalı Pasta">
                 <div class="item-info">
-                    <h3>Çikolatalı Pasta <span class="price">50 TL</span></h3>
+                    <h3>Çikolatalı Pasta</h3>
+                    <span class="price">50 TL</span>
                     <p>Yoğun çikolata kreması ile hazırlanmış lezzetli pasta.</p>
                 </div>
             </div>
             <div class="item" data-item-id="orman-meyveli-pasta">
                 <img src="images/fotolar/ormanmeyvelipasta.jpg" alt="Meyveli Pasta">
                 <div class="item-info">
-                    <h3>Orman Meyveli Pasta <span class="price">45 TL</span></h3>
+                    <h3>Orman Meyveli Pasta</h3>
+                    <span class="price">45 TL</span>
                     <p>Taze mevsim meyveleri ile hafif ve ferah bir pasta.</p>
                 </div>
             </div>
@@ -1312,35 +1339,40 @@
             <div class="item" data-item-id="iced-latte">
                 <img src="images/fotolar/icelatte.jpg" alt="Iced Latte">
                 <div class="item-info">
-                    <h3>Iced Latte <span class="price">140 TL</span></h3>
+                    <h3>Iced Latte</h3>
+                    <span class="price">140 TL</span>
                     <p>Soğuk süt ve espresso ile serinletici bir kahve keyfi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="iced-americano">
                 <img src="images/fotolar/iceamericano.jpg" alt="Iced Americano">
                 <div class="item-info">
-                    <h3>Iced Americano <span class="price">120 TL</span></h3>
+                    <h3>Iced Americano</h3>
+                    <span class="price">120 TL</span>
                     <p>Buz gibi su ve espresso ile hafif, ferah bir lezzet.</p>
                 </div>
             </div>
             <div class="item" data-item-id="iced-chocolate">
                 <img src="images/fotolar/icechocolate.jpg" alt="Iced Chocolate">
                 <div class="item-info">
-                    <h3>Iced Chocolate <span class="price">130 TL</span></h3>
+                    <h3>Iced Chocolate</h3>
+                    <span class="price">130 TL</span>
                     <p>Çikolata ve soğuk sütün mükemmel uyumu.</p>
                 </div>
             </div>
             <div class="item" data-item-id="iced-karamel">
                 <img src="images/fotolar/icekaramel.jpg" alt="Iced Karamel">
                 <div class="item-info">
-                    <h3>Iced Karamel <span class="price">130 TL</span></h3>
+                    <h3>Iced Karamel</h3>
+                    <span class="price">130 TL</span>
                     <p>Karamel sosu ve soğuk kahvenin tatlı buluşması.</p>
                 </div>
             </div>
             <div class="item" data-item-id="iced-white-chocolate">
                 <img src="images/fotolar/beyazcaklıtsoguk.jpg" alt="Iced White Chocolate">
                 <div class="item-info">
-                    <h3>Iced White Chocolate <span class="price">130 TL</span></h3>
+                    <h3>Iced White Chocolate</h3>
+                    <span class="price">130 TL</span>
                     <p>Beyaz çikolata ve soğuk sütün kremsi dansı.</p>
                 </div>
             </div>
@@ -1350,63 +1382,72 @@
             <div class="item" data-item-id="espresso">
                 <img src="images/fotolar/espressso.jpg" alt="Espresso">
                 <div class="item-info">
-                    <h3>Espresso <span class="price">60 TL</span></h3>
+                    <h3>Espresso</h3>
+                    <span class="price">60 TL</span>
                     <p>Yoğun aromalı tek shot espresso ile enerji patlaması.</p>
                 </div>
             </div>
             <div class="item" data-item-id="latte">
                 <img src="images/fotolar/sıcaklatte.jpg" alt="Latte">
                 <div class="item-info">
-                    <h3>Latte <span class="price">125 TL</span></h3>
+                    <h3>Latte</h3>
+                    <span class="price">125 TL</span>
                     <p>Köpüklü süt ve espressonun yumuşacık buluşması.</p>
                 </div>
             </div>
             <div class="item" data-item-id="americano">
                 <img src="images/fotolar/americano.jpg" alt="Americano">
                 <div class="item-info">
-                    <h3>Americano <span class="price">100 TL</span></h3>
+                    <h3>Americano</h3>
+                    <span class="price">100 TL</span>
                     <p>Espresso ve sıcak suyun dengeli, hafif lezzeti.</p>
                 </div>
             </div>
             <div class="item" data-item-id="macchiato">
                 <img src="images/fotolar/maccihato.jpg" alt="Macchiato">
                 <div class="item-info">
-                    <h3>Macchiato <span class="price">70 TL</span></h3>
+                    <h3>Macchiato</h3>
+                    <span class="price">70 TL</span>
                     <p>Espresso ve süt köpüğünün minimal ama güçlü uyumu.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cappuccino">
                 <img src="images/fotolar/cappucino.jpg" alt="Cappuccino">
                 <div class="item-info">
-                    <h3>Cappuccino <span class="price">125 TL</span></h3>
+                    <h3>Cappuccino</h3>
+                    <span class="price">125 TL</span>
                     <p>Süt köpüğü ve espressonun klasik, kadifemsi lezzeti.</p>
                 </div>
             </div>
             <div class="item" data-item-id="karamel-latte">
                 <img src="images/fotolar/caramellatte.jpg" alt="Karamel Latte">
                 <div class="item-info">
-                    <h3>Karamel Latte <span class="price">135 TL</span></h3>
+                    <h3>Karamel Latte</h3>
+                    <span class="price">135 TL</span>
                     <p>Karamel dokunuşuyla latte keyfinize tatlı bir mola.</p>
                 </div>
             </div>
             <div class="item" data-item-id="white-chocolate-mocha">
                 <img src="images/fotolar/whitecaklıtmoka.jpg" alt="White Chocolate Mocha">
                 <div class="item-info">
-                    <h3>White Chocolate Mocha <span class="price">135 TL</span></h3>
+                    <h3>White Chocolate Mocha</h3>
+                    <span class="price">135 TL</span>
                     <p>Beyaz çikolata ve mocha ile sıcacık bir lezzet şöleni.</p>
                 </div>
             </div>
             <div class="item" data-item-id="karamel-macchiato">
                 <img src="images/fotolar/karamalsıcakmacıato.jpg" alt="Karamel Macchiato">
                 <div class="item-info">
-                    <h3>Karamel Macchiato <span class="price">75 TL</span></h3>
+                    <h3>Karamel Macchiato</h3>
+                    <span class="price">75 TL</span>
                     <p>Karamel ve süt köpüğüyle zenginleştirilmiş espresso.</p>
                 </div>
             </div>
             <div class="item" data-item-id="double-espresso">
                 <img src="images/fotolar/doubleespresso.jpeg" alt="Double Espresso">
                 <div class="item-info">
-                    <h3>Double Espresso <span class="price">120 TL</span></h3>
+                    <h3>Double Espresso</h3>
+                    <span class="price">120 TL</span>
                     <p>Çift shot espresso ile yoğun bir kahve deneyimi.</p>
                 </div>
             </div>
@@ -1421,21 +1462,24 @@
             <div class="item" data-item-id="lotus-frappe">
                 <img src="images/fotolar/frappelotus.jpg" alt="Lotus Frappe">
                 <div class="item-info">
-                    <h3>Lotus Frappe <span class="price">170 TL</span></h3>
+                    <h3>Lotus Frappe</h3>
+                    <span class="price">170 TL</span>
                     <p>Lotus bisküvi aromasıyla serinletici, kremsi frappe.</p>
                 </div>
             </div>
             <div class="item" data-item-id="chocolate-frappe">
                 <img src="images/fotolar/frappecikolata.jpg" alt="Chocolate Frappe">
                 <div class="item-info">
-                    <h3>Chocolate Frappe <span class="price">160 TL</span></h3>
+                    <h3>Chocolate Frappe</h3>
+                    <span class="price">160 TL</span>
                     <p>Yoğun çikolata lezzetiyle buz gibi frappe keyfi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="white-chocolate-frappe">
                 <img src="images/fotolar/frappebeyazçikolata.jpg" alt="White Chocolate Frappe">
                 <div class="item-info">
-                    <h3>White Chocolate Frappe <span class="price">160 TL</span></h3>
+                    <h3>White Chocolate Frappe</h3>
+                    <span class="price">160 TL</span>
                     <p>Beyaz çikolatanın tatlı dokunuşuyla ferah frappe.</p>
                 </div>
             </div>
@@ -1445,21 +1489,24 @@
             <div class="item" data-item-id="cilekli-milkshake">
                 <img src="images/fotolar/milkshakeçilek.jpg" alt="Çilekli Milkshake">
                 <div class="item-info">
-                    <h3>Çilekli Milkshake <span class="price">28 TL</span></h3>
+                    <h3>Çilekli Milkshake</h3>
+                    <span class="price">28 TL</span>
                     <p>Taze çilek ve kremsi sütün ferahlatıcı birleşimi.</p>
                 </div>
             </div>
             <div class="item" data-item-id="cikolatali-milkshake">
                 <img src="images/fotolar/milkshakeçikolata.jpg" alt="Çikolatalı Milkshake">
                 <div class="item-info">
-                    <h3>Çikolatalı Milkshake <span class="price">28 TL</span></h3>
+                    <h3>Çikolatalı Milkshake</h3>
+                    <span class="price">28 TL</span>
                     <p>Yoğun çikolata aromasıyla pürüzsüz milkshake.</p>
                 </div>
             </div>
             <div class="item" data-item-id="muzlu-milkshake">
                 <img src="images/fotolar/milkshakemuz.jpg" alt="Muzlu Milkshake">
                 <div class="item-info">
-                    <h3>Muzlu Milkshake <span class="price">28 TL</span></h3>
+                    <h3>Muzlu Milkshake</h3>
+                    <span class="price">28 TL</span>
                     <p>Muzun tatlılığıyla hafif ve lezzetli milkshake.</p>
                 </div>
             </div>
