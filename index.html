@@ -1798,18 +1798,22 @@
 
     <div class="divider"><span>Roma Dora</span></div>
 
-    <section class="feedback-section">
-        <h2>Soru, Görüş ve Önerileriniz</h2>
-        <form id="feedback-form" action="#" method="post">
-            <label for="name">Adınız</label>
-            <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
-            <label for="email">E-posta</label>
-            <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
-            <label for="message">Mesajınız</label>
-            <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
-            <button type="submit">Gönder</button>
-        </form>
-    </section>
+    <section class="feedback-section contact-info">
+  <div class="contact-info-wrapper">
+    <h2 class="contact-info-title">Soru, Görüş ve Önerileriniz</h2>
+    <form id="feedback-form" action="#" method="post" style="max-width:400px;margin:0 auto;text-align:left;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        <label for="name">Adınız</label>
+        <input type="text" id="name" name="name" placeholder="Adınızı girin" required />
+               <label for="email">E-posta</label>
+        <input type="email" id="email" name="email" placeholder="E-posta adresinizi girin" required />
+        <label for="message">Mesajınız</label>
+        <textarea id="message" name="message" rows="5" placeholder="Soru, görüş veya önerinizi yazın" required></textarea>
+        <button type="submit">Gönder</button>
+      </div>
+    </form>
+  </div>
+</section>
 
     <footer class="site-footer">
     © 2025, Görkem İbrahim Sağlam. Tüm hakları saklıdır.
