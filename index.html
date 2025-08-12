@@ -2,7 +2,7 @@
 <html lang="tr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet" />
@@ -454,7 +454,8 @@
         /* İtem Stilleri */
         .item {
             display: flex;
-            background-color: #ffffff;
+            background: linear-gradient(135deg, #fffbe6 0%, #f9f6f2 100%), url('data:image/svg+xml;utf8,<svg width="120" height="120" xmlns="http://www.w3.org/2000/svg"><circle cx="60" cy="60" r="2" fill="%23e5e5e5" opacity="0.18"/></svg>');
+            background-blend-mode: lighten;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
             padding: 20px;
@@ -506,6 +507,17 @@
             padding: 0;
             display: block;
             border-radius: 0;
+            position: relative;
+        }
+
+        .item-info .price::after {
+            content: '';
+            display: block;
+            width: 32px;
+            height: 2px;
+            background: #e5e5e5;
+            margin: 8px 0 8px 0;
+            border-radius: 1px;
         }
 
         .item-info p {
@@ -1223,6 +1235,41 @@
             from { opacity: 0; transform: scale(0.9); }
             to { opacity: 1; transform: scale(1); }
         }
+
+        .site-footer {
+            width: 100%;
+            background: linear-gradient(90deg, #fffbe6 0%, #f9f6f2 100%);
+            color: #121210;
+            font-family: 'Inter', sans-serif;
+            font-size: 15px;
+            text-align: center;
+            padding: 18px 0 16px 0;
+            margin-top: 40px;
+            border-top: 1px solid #e5e5e5;
+            box-shadow: 0 -2px 8px rgba(191,163,88,0.04);
+            letter-spacing: 0.02em;
+        }
+        @media (max-width: 600px) {
+            .site-footer {
+                font-size: 13px;
+                padding: 14px 0 12px 0;
+                margin-top: 24px;
+            }
+        }
+
+        /* Sticky başlık ve hızlı kategori geçişi */
+        .menu-tabs {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background-color: #fff;
+            box-shadow: 0 2px 8px rgba(191,163,88,0.04);
+        }
+        @media (max-width: 600px) {
+            .menu-tabs {
+                top: 0;
+            }
+        }
     </style>
 </head>
 <body>
@@ -1744,7 +1791,9 @@
         </form>
     </section>
 
-    <div class="signature">Created By Görkem İbrahim Sağlam</div>
+    <footer class="site-footer">
+    © 2025, Görkem İbrahim Sağlam. Tüm hakları saklıdır.
+</footer>
 
     <button id="backToTop"><i class="fas fa-arrow-up"></i></button>
 
@@ -1778,6 +1827,7 @@
             const aboutText = document.querySelector('.about-text');
 
             if (heroLogo) heroLogo.classList.add('animate');
+
             if (heroButton) heroButton.classList.add('animate');
             if (aboutTitle) aboutTitle.classList.add('animate');
             if (aboutText) aboutText.classList.add('animate');
@@ -1786,6 +1836,7 @@
             const tabButtons = document.querySelectorAll('.tab-button');
             const tabContents = document.querySelectorAll('.tab-content');
             const subCategories = document.querySelectorAll('.sub-category');
+
             const sectionHeadings = document.querySelectorAll('.section-heading');
 
             function scrollToFirstItem(tabId, isTumu = false) {
