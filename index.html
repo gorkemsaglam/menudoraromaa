@@ -91,14 +91,16 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 20px;
+            gap: 36px;
+            justify-content: center;
+            min-height: 220px;
         }
 
         .hero-content .logo-img {
             max-width: 250px;
             height: auto;
             display: block;
-            margin: 0 auto;
+            margin: 0 auto 20px auto;
             opacity: 0;
             transform: translateX(-50px);
         }
@@ -121,6 +123,7 @@
             box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
             opacity: 0;
             transform: translateY(-20px);
+            margin-top: 0;
         }
 
         .hero-content button.animate {
@@ -459,11 +462,8 @@
             align-items: center;
             gap: 20px;
             transition: box-shadow 0.3s ease, transform 0.2s ease;
-        }
-
-        .item.show {
-            display: flex;
-            /* Animasyon kaldırıldı */
+            opacity: 1;
+            transform: none;
         }
 
         .item:hover {
@@ -1044,11 +1044,13 @@
             }
 
             .hero-content {
-                gap: 15px;
+                gap: 28px;
+                min-height: 140px;
             }
 
             .hero-content .logo-img {
                 max-width: 150px;
+                margin-bottom: 14px;
             }
 
             .hero-content button {
@@ -1238,7 +1240,7 @@
         </div>
         <div class="hero-content">
             <img src="images/fotolar/DORA ROMA.png" alt="Dora Roma Menü" class="logo-img">
-            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Göz At</button>
+            <button onclick="document.querySelector('.menu-title').scrollIntoView({behavior: 'smooth'})">Menüye Gidin</button>
         </div>
     </section>
 
